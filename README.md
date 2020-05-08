@@ -4,8 +4,8 @@
 #### Sort
 - binary search		
   - `Merge Sort` [74](https://leetcode.com/problems/search-a-2d-matrix/)
-  - `Quick Sort` - 33 (compare with 81)
-  - `Bucket Sort`	- 153
+  - `Quick Sort` [33] (compare with 81)
+  - `Bucket Sort`	[153]
 
 tree
 - tree traversal 
