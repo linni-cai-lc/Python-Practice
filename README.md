@@ -7,6 +7,10 @@
     - brute force O(N^2) loop through all elements `AC`
   - [33](https://leetcode.com/problems/search-in-rotated-sorted-array/submissions/)
     - brute force O(N) loop through all elements `AC`
+  - [81](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/submissions/)
+    - brute force O(N) loop through all elements `AC`
+  - [153](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+    - brute force O(N) loop through all elements `AC`
 
 tree
 - tree traversal 
