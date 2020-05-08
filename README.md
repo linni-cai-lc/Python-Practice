@@ -5,6 +5,8 @@
 - binary search		
   - [74](https://leetcode.com/problems/search-a-2d-matrix/)
     - brute force O(N^2) loop through all elements `AC`
+  - [33](https://leetcode.com/problems/search-in-rotated-sorted-array/submissions/)
+    - brute force O(N) loop through all elements `AC`
 
 tree
 - tree traversal 
