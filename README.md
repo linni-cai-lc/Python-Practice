@@ -1,7 +1,7 @@
 # Python-Practice
 
 ### Week 1 [5.4-5.10]
-#### Sort
+#### Binary Tree Data Structure Practice
 - binary search		
   - [74](https://leetcode.com/problems/search-a-2d-matrix/)
     - brute force O(N^2) loop through all elements `AC`
