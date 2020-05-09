@@ -15,7 +15,16 @@
 tree
 - tree traversal 
 - recurstion and iterative
-  - 144 / 94 / 145 / 102 / 107 / 429 / 589 / 590 
+  - [144](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+    - pre-order: root->left->right
+    - recursive O(N) loop through all elements `AC`
+    - iterative O(N) loop through all elements `AC`  
+  - [94](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+    - in-order: left->root->right
+    - recursive O(N) loop through all elements `AC`
+    - iterative O(N) loop through all elements `AC`
+    
+  - / 145 / 102 / 107 / 429 / 589 / 590 
 
 
 
