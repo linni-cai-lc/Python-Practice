@@ -12,9 +12,7 @@
   - [153](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
     - brute force O(N) loop through all elements `AC`
 
-tree
-- tree traversal 
-- recurstion and iterative
+- tree traversal: `recurstion` + `iterative`
   - [144](https://leetcode.com/problems/binary-tree-preorder-traversal/)
     - pre-order: root->left->right
     - recursive O(N) loop through all elements `AC`
