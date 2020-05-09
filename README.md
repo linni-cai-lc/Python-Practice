@@ -18,12 +18,15 @@ tree
   - [144](https://leetcode.com/problems/binary-tree-preorder-traversal/)
     - pre-order: root->left->right
     - recursive O(N) loop through all elements `AC`
-    - iterative O(N) loop through all elements `AC`  
+    - iterative O(N) use stack, store right->left `AC`  
   - [94](https://leetcode.com/problems/binary-tree-inorder-traversal/)
     - in-order: left->root->right
     - recursive O(N) loop through all elements `AC`
-    - iterative O(N) loop through all elements `AC`
-    
+    - iterative O(N) use stack, store right->root->left in visited `AC`
+  - [145](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+    - post-order: left->right->root
+    - recursive O(N) loop through all elements `AC`
+    - iterative O(N) use stack, store root->right->left in visited `AC`
   - / 145 / 102 / 107 / 429 / 589 / 590 
 
 
