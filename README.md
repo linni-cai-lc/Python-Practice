@@ -19,7 +19,10 @@
 
 ### Divide and Conquer
 - [215]()
-- [23]()
+- [23](https://leetcode.com/problems/merge-two-sorted-lists/)
+  - go through both lists
+  - connect with rest list after while loop
+  - O(n + m) `AC`
 - [21]()
 - [53]()
 - [241]()
