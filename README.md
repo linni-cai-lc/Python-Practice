@@ -29,6 +29,11 @@
   - O(n^2) `AC`
 - [21]()
 - [53]()
-- [241]()
+- [241](https://leetcode.com/problems/different-ways-to-add-parentheses/)
+  - recursively call
+  - outer for loop through the given string
+  - inner nested loop through LS, RS
+  - LS = func(nums[:i]), RS = func(nums[i+1:])
+  - O(n^2)
 - [169]()
 - [167]()
