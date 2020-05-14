@@ -26,7 +26,7 @@
 - [15](https://leetcode.com/problems/3sum/)
   - two pointer search through the list
   - nested for loop and used set to reduce duplicates
-  - O(n^2)
+  - O(n^2) `AC`
 - [21]()
 - [53]()
 - [241]()
