@@ -18,7 +18,11 @@
   - O(NlogM) `AC`
 
 ### Divide and Conquer
-- [215]()
+- [215](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+  - max heap of size k for a list of size n
+  - can utilize python heapq.nlargest
+  - build a priority queue and build up heap, keep the size <= k
+  - O(nlogk) `AC`
 - [23](https://leetcode.com/problems/merge-two-sorted-lists/)
   - go through both lists
   - connect with rest list after while loop
@@ -36,4 +40,11 @@
   - LS = func(nums[:i]), RS = func(nums[i+1:])
   - O(n^2)
 - [169]()
-- [167]()
+- [167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+  - binary search
+  - L = 0, R = len(nums) - 1
+  - sum = nums[L] + nums[R]
+  - sum < target: L++
+  - sum > target: R--
+  - at most visit each element once, loop through the list
+  - O(N)
