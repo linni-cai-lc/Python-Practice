@@ -43,7 +43,7 @@
   - brute force
     - can utilize collections.Counter(nums).most_common()[0][0]
     - store in map, outer loop use set(nums), inner loop use original list
-    - O(n^2)
+    - O(n)
   - divide and conquer
     - left and right conquer
     - O(nlgn)
