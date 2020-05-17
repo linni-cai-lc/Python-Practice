@@ -31,7 +31,9 @@
   - two pointer search through the list
   - nested for loop and used set to reduce duplicates
   - O(n^2) `AC`
-- [21]()
+- [21](https://leetcode.com/problems/merge-two-sorted-lists/)
+  - recursive merge
+  - O(N+M) `AC`
 - [53](https://leetcode.com/problems/maximum-subarray/)
   - greedy
   - sumi = max(nums[i], sumi+nums[i])
