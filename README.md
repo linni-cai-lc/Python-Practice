@@ -40,9 +40,13 @@
   - LS = func(nums[:i]), RS = func(nums[i+1:])
   - O(n^2)
 - [169](https://leetcode.com/problems/majority-element/)
-  - can utilize collections.Counter(nums).most_common()[0][0]
-  - store in map, outer loop use set(nums), inner loop use original list
-  - O(n^2)
+  - brute force
+    - can utilize collections.Counter(nums).most_common()[0][0]
+    - store in map, outer loop use set(nums), inner loop use original list
+    - O(n^2)
+  - divide and conquer
+    - left and right conquer
+    - O(nlgn)
 - [167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
   - binary search
   - L = 0, R = len(nums) - 1
