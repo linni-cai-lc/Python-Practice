@@ -32,7 +32,10 @@
   - nested for loop and used set to reduce duplicates
   - O(n^2) `AC`
 - [21]()
-- [53]()
+- [53](https://leetcode.com/problems/maximum-subarray/)
+  - greedy
+  - sumi = max(nums[i], sumi+nums[i])
+  - O(n) `AC`
 - [241](https://leetcode.com/problems/different-ways-to-add-parentheses/)
   - recursively call
   - outer for loop through the given string
