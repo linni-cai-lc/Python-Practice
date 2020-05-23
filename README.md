@@ -16,7 +16,24 @@
     - traverse array from right to left
     - find global inversion A[i-2] > mini
     - O(N) `AC`
-- [5]()
+- [5](https://leetcode.com/problems/longest-palindromic-substring/)
+  - palindrome s==s[::-1]
+  - brute force
+    - traverse all permutations of the string
+    - for i in range(len(s))
+    - for j in range(i+1, len(s)+1)
+    - cur = s[i:j]
+    - check cur == cur[::-1]
+    - O(N^3) `AC`
+  - odd/even center check
+    - odd length palindrome
+      - L, R = i, i
+    - even length palindrome
+      - L, R = i-1, i
+    - L--, R++
+    - compare s[L+1:R] with max_str via `R-L-1 and len(max_str)`
+    - expand from center (L,R)
+    - O(N^2) `AC`
 - [154]()
 - [654]()
 - [153]()
