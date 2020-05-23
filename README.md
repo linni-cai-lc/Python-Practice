@@ -36,7 +36,16 @@
     - O(N^2) `AC`
 - [154]()
 - [654]()
-- [153]()
+- [153](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+  - rotated sort
+    - 1,2,3,4 L < M < R min is in [L,M]
+    - 4,1,2,3 M < R < L min is in [L,M]
+    - 3,4,1,2 R < M < L min is in [M,R]
+  - L, R = 0, len(nums)-1
+  - loop through nums[L] > nums[R]
+  - nums[M] < nums[R]: R = M else: L = M+1
+  - return nums[L]
+  - O(logN) `AC`
 - [719]()
 - [4]()
 - [729]()
