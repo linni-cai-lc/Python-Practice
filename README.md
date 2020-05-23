@@ -6,7 +6,16 @@
   - L < R: L.next = merge(L.next, R) return L
   - L >= R: R.next = merge(L, R.next) return R
   - O(NlogN) `AC`
-- [775]()
+- [775](https://leetcode.com/problems/global-and-local-inversions/)
+  - global/local inversion
+  - brute force
+    - check A[i] > A[j] for i + 1 < j
+    - O(N^2) `TLE`
+  - memorize minimum
+    - mini = min(mini, A[i])
+    - traverse array from right to left
+    - find global inversion A[i-2] > mini
+    - O(N) `AC`
 - [5]()
 - [154]()
 - [654]()
