@@ -34,8 +34,8 @@
     - compare s[L+1:R] with max_str via `R-L-1 and len(max_str)`
     - expand from center (L,R)
     - O(N^2) `AC`
-- [654]()
 - [153](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+  - binary search
   - rotated sort
     - 1,2,3,4 L < M < R min is in [L,M]
     - 4,1,2,3 M < R < L min is in [L,M]
@@ -47,6 +47,7 @@
   - return nums[L]
   - O(logN) `AC`
 - [154](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
+  - binary search
   - rotated sort with duplicates
   - loop through nums[L] >= nums[R] and L != R
     - nums[M] < nums[R]: R=M
@@ -54,6 +55,10 @@
     - nums[M] = nums[R]: R--
   - return nums[L]
   - O(logN) `AC`
+- [654](https://leetcode.com/problems/maximum-binary-tree/)
+  - binary tree
+  
+  
 - [719]()
 - [4]()
 - [729]()
