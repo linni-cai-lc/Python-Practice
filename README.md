@@ -1,6 +1,17 @@
 # Python-Practice
 ## Week 3 [5.18-5.24]
-- [540]()
+- [540](https://leetcode.com/problems/single-element-in-a-sorted-array/)
+  - binary seach
+  - L=0, R=len-1, M=(R+L)//2
+  - even=(R-M)%2 == 0
+  - while L<R loop
+    - val[M] == val[M+1]
+      - if even: L=M+2 # since M and M+1 are duplicates, right half is even, then exist unique due to M+1
+      - else: R=M-1
+    - val[M] == val[M-1]
+      - if even: R=M-2 # since M and M-1 are duplicates, right half is even, then no unique due to even pairs
+      - else: L=M+1
+  - O(logN) `AC`
 - [719]()
 - [4]()
 - [410]()
