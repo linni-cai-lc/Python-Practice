@@ -83,9 +83,14 @@
       - keep track of start, end, left, right
     - Worst Case O(N^2), Average Case O(NlogN) `AC`
 - [744](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
-  
-
-
+  - binary search
+  - L=0, R=len(letters), M=(L+R)//2
+  - while L < R:
+    - target < valM: R=M
+    - else: L=M+1
+  - L > len(letters) - 1: return letters[0] # wrap around
+  - else: return letters[L]
+  - O(logN) `AC`
 - [719]()
 - [4]()
 - [540]()
