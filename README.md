@@ -1,5 +1,9 @@
 # Python-Practice
 ## Week 3 [5.18-5.24]
+- [540]()
+- [719]()
+- [4]()
+- [410]()
 - [148](https://leetcode.com/problems/sort-list/)
   - divide and conquer
   - recursive merge
@@ -91,7 +95,3 @@
   - L > len(letters) - 1: return letters[0] # wrap around
   - else: return letters[L]
   - O(logN) `AC`
-- [719]()
-- [4]()
-- [540]()
-- [410]()
