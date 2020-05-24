@@ -57,8 +57,13 @@
   - O(logN) `AC`
 - [654](https://leetcode.com/problems/maximum-binary-tree/)
   - binary tree
-  
-  
+  - recursive build up
+  - root of subtree is max of subarray
+  - maxi = max(nums[L:R]), maxi_idx = L + nums[L:R].index(maxi)
+  - root = TreeNode(maxi)
+  - root.left = helper(nums, L, maxi_idx)
+  - root.right = helper(nums, maxi_idx+1, R)
+  - O(N^2) `AC`  
 - [719]()
 - [4]()
 - [729]()
