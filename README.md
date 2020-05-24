@@ -64,9 +64,29 @@
   - root.left = helper(nums, L, maxi_idx)
   - root.right = helper(nums, maxi_idx+1, R)
   - O(N^2) `AC`  
+- [729](https://leetcode.com/problems/my-calendar-i/)
+  - brute force
+    - store (start, end) in a list
+    - search through stored list
+    - check existed_start < new_end and new_start < existed_end
+    - O(N^2) `AC`
+  - binary tree
+    - store node(start, end) in a binary tree
+      - new_start >= exist_end
+        - if not exist.right: exist.right = node
+        - else: exist.right.insert(node)
+      - new_end <= exist_start
+        - if not exist.left: exist.left = node
+        - else: exist.left.insert(node)
+      - overlap, return False
+    - node class
+      - keep track of start, end, left, right
+    - Worst Case O(N^2), Average Case O(NlogN) `AC`
+- [744](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+  
+
+
 - [719]()
 - [4]()
-- [729]()
-- [744]()
 - [540]()
 - [410]()
