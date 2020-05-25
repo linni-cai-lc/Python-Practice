@@ -1,5 +1,22 @@
 # Python-Practice
 ## Week 3 [5.18-5.24]
+- [410](https://leetcode.com/problems/split-array-largest-sum/)
+  - binary search
+  - L=max(nums), R=`result`=sum(nums), M=(L+R)//2
+  - while L<=R:
+    - sumi=0, cnt=1
+    - for i in nums:
+      - if sumi+i>M:
+        - cnt++
+        - sumi=i
+      - else:
+        - sumi+=i
+    - cnt <= piece:
+      - result=min(result, M)
+      - R=M-1
+    - else:
+      - L=M+1
+  - O(NlogS) `AC` # S=sum(array), N=len(array)
 - [719](https://leetcode.com/problems/find-k-th-smallest-pair-distance/)
   - brute force
     - use itertools.combinations
@@ -15,7 +32,7 @@
       - cnt+=R-L
     - O(NlogN) `AC`
 - [4]()
-- [410]()
+
 - [540](https://leetcode.com/problems/single-element-in-a-sorted-array/)
   - binary seach
   - L=0, R=len-1, M=(R+L)//2
