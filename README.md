@@ -8,7 +8,7 @@
     - for i in nums:
       - if sumi+i>M:
         - cnt++
-        - sumi=i
+        - sumi=i # exceed limit, switch to another subarray, init to i
       - else:
         - sumi+=i
     - cnt <= piece:
