@@ -1,5 +1,11 @@
 # Python-Practice
 ## Week 3 [5.18-5.24]
+- [4](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+  - brute force
+    - return `statistics.median(nums1+nums2)`
+    - O(log(N+M)) `AC` # N=len(array1), M=len(array2)
+  - binary search
+    - O(log(min(N,M))) `AC`
 - [410](https://leetcode.com/problems/split-array-largest-sum/)
   - binary search
   - L=max(nums), R=`result`=sum(nums), M=(L+R)//2
@@ -11,7 +17,7 @@
         - sumi=i # exceed limit, switch to another subarray, init to i
       - else:
         - sumi+=i
-    - cnt <= piece:
+    - cnt <= piece: # max sum subarray
       - result=min(result, M)
       - R=M-1
     - else:
@@ -31,8 +37,6 @@
       - while val-valL>M: L++
       - cnt+=R-L
     - O(NlogN) `AC`
-- [4]()
-
 - [540](https://leetcode.com/problems/single-element-in-a-sorted-array/)
   - binary seach
   - L=0, R=len-1, M=(R+L)//2
