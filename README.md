@@ -1,5 +1,21 @@
 # Python-Practice
 ## Week 3 [5.18-5.24]
+- [719](https://leetcode.com/problems/find-k-th-smallest-pair-distance/)
+  - brute force
+    - use itertools.combinations
+    - O(N^2) `TLE`
+  - binary search + slide window
+    - sort
+    - L=0, R=nums[-1]-nums[0], M=(L+R)//2
+      - cnt(paris diff <= M) >= k: R=M
+      - else: L=M+1
+    - find cnt
+      - loop though nums
+      - while val-valL>M: L++
+      - cnt+=R-L
+    - O(NlogN) `AC`
+- [4]()
+- [410]()
 - [540](https://leetcode.com/problems/single-element-in-a-sorted-array/)
   - binary seach
   - L=0, R=len-1, M=(R+L)//2
@@ -12,9 +28,6 @@
       - if even: R=M-2 # since M and M-1 are duplicates, right half is even, then no unique due to even pairs
       - else: L=M+1
   - O(logN) `AC`
-- [719]()
-- [4]()
-- [410]()
 - [148](https://leetcode.com/problems/sort-list/)
   - divide and conquer
   - recursive merge
