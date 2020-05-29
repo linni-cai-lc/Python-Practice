@@ -7,7 +7,7 @@
   - not a good problem, confusing problem description
 - [1061](https://leetcode.com/problems/lexicographically-smallest-equivalent-string/)
   - union find
-  - O((A+S)log(S)) `AC`
+  - O((A+S)log(A)) `AC`  # A and B same length
 
 
 
