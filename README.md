@@ -1,5 +1,49 @@
 # Python-Practice
 ## Week 4 [5.25-5.31]
+- [206](https://leetcode.com/problems/reverse-linked-list/)
+  - linked list
+    - 1->   2->3->4->5
+      ^     ^
+      cur   nex
+  - 1->None
+    ^
+    pre
+    - 2->   3->4->5
+      ^     ^
+      cur   nex
+  - 2->1->None
+    ^
+    pre
+    - 3->   4->5
+      ^     ^
+      cur   nex 
+  - 3->2->1->None
+    ^
+    pre
+    - 4->   5
+      ^     ^
+      cur   nex
+  - 4->3->2->1->None
+    ^
+    pre
+    - 5->   None
+      ^     ^
+      cur   nex
+  - 5->4->3->2->1->None
+    ^
+    pre
+    - None
+      ^     
+      cur   
+  - pre = None
+  - cur = head
+  - while cur:
+    - nex = cur.next
+    - cur.next = pre
+    - pre = cur
+    - cur = nex
+  - return pre
+  - O(N) `AC`
 - [237](https://leetcode.com/problems/delete-node-in-a-linked-list/)
   - linked list
   - replace the current node with the next node
