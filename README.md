@@ -1,5 +1,13 @@
 # Python-Practice
 ## Week 4 [5.25-5.31]
+- [141](https://leetcode.com/problems/linked-list-cycle/)
+  - linked list
+  - visited set
+  - while head
+    - if head in visited: return True
+    - else: visited.add(head)
+  - return False
+  - O(N) `AC`
 - [206](https://leetcode.com/problems/reverse-linked-list/)
   - linked list
     - 1->   2->3->4->5
