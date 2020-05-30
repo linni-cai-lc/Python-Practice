@@ -1,5 +1,21 @@
 # Python-Practice
 ## Week 4 [5.25-5.31]
+- [2](https://leetcode.com/problems/add-two-numbers/)
+  - linked list
+  - h1=l1, h2=l2, p1=l1, add=0
+  - while h1 and h2
+    - sumi = h1.val+h2.val+add
+    - v1 = sumi%10
+    - if sumi < 10: add = 0
+    - else: add = sumi // 10
+    - h1.val = v1
+    - p1 = h1
+    - h2.next and not h1.next: h1.next = ListNode(0)
+    - h1.next and not h2.next: h2.next = ListNode(0)
+    - h1 = h1.next, h2 = h2.next
+  - if add: p1.next = ListNode(add)
+  - return l1
+  - O(M+N) `AC`  # M is the length of l1, N is the length of l2
 - [141](https://leetcode.com/problems/linked-list-cycle/)
   - linked list
   - visited set
