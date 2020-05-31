@@ -1,5 +1,24 @@
 # Python-Practice
 ## Week 4 [5.25-5.31]
+- [19]()
+- [2]()
+- [215]()
+- [5]()
+- [154]()
+- [654]()
+- [153]()
+- [148](https://leetcode.com/problems/sort-list/)
+  - linked list
+  - merge sort
+  - O(NlogN) `AC`
+- [169](https://leetcode.com/problems/majority-element/)
+  - divide and conquer
+  - O(N) `AC`
+- [160](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+  - linked list
+  - check visit node of headA with headB
+  - find and return intersection
+  - O(N+M) `AC`
 - [328](https://leetcode.com/problems/odd-even-linked-list/)
   - linked list
   - odd_head, even_head = LN(0), LN(0)
@@ -12,6 +31,7 @@
     - if cur: ec.next = cur, ec = ec.next, cur = cur.next  # get even
     - ec.next = None, oh = oh.next, oc.next = eh.next # remove first, odd connect to even
     - return oh
+  - O(N) `AC`
 - [2](https://leetcode.com/problems/add-two-numbers/)
   - linked list
   - h1=l1, h2=l2, p1=l1, add=0
@@ -99,18 +119,3 @@
   - for i in S:
     - result += book.find(i)
 - O((A+S)log(A)) `AC`  # A and B same length
-
-
-
-- [148]()
-- [19]()
-- [206]()
-- [160]()
-- [2]()
-- [237]()
-- [169]()
-- [215]()
-- [5]()
-- [154]()
-- [654]()
-- [153]()
