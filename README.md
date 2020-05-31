@@ -1,12 +1,16 @@
 # Python-Practice
 ## Week 4 [5.25-5.31]
-- [19]()
-- [2]()
-- [215]()
-- [5]()
-- [154]()
-- [654]()
-- [153]()
+- [215](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+  - heap nlargest
+  - O(NlogK) `AC`
+- [19](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+  - add a prefix in the linked list
+  - get cnt loop through ll
+  - idx=0, while idx<cnt-n-1
+  - get the element before the delete element
+  - if cur.next: cur.next = cur.next.next
+  - return head.next  # remove the prefix
+  - O(N) `AC`
 - [148](https://leetcode.com/problems/sort-list/)
   - linked list
   - merge sort
