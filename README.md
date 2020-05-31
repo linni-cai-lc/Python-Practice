@@ -1,5 +1,17 @@
 # Python-Practice
 ## Week 4 [5.25-5.31]
+- [328](https://leetcode.com/problems/odd-even-linked-list/)
+  - linked list
+  - odd_head, even_head = LN(0), LN(0)
+  - odd_cur, even_cur = oh, eh
+  - cur = head
+  - while cur
+    - oc.next = cur  # get odd
+    - oc = oc.next 
+    - cur = cur.next
+    - if cur: ec.next = cur, ec = ec.next, cur = cur.next  # get even
+    - ec.next = None, oh = oh.next, oc.next = eh.next # remove first, odd connect to even
+    - return oh
 - [2](https://leetcode.com/problems/add-two-numbers/)
   - linked list
   - h1=l1, h2=l2, p1=l1, add=0
