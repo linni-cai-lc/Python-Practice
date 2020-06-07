@@ -2,6 +2,24 @@
 # Week 5 6.1-6.7
 
 ## Hash Table
+  - [373](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/)
+  - brute force
+    - make pairs of length k^2
+    - sort by key=lambda x:x[0]+x[1]
+    - return lst[:k]
+    - O(k^2) `AC`
+  - heap
+    - for i in range(k);
+      - if A[RA] <= B[RB]:  # if current A is small, loop through RB
+        - for j in B[RB:]: heapq.heappush(heap, (A[RA], j))
+        - RA += 1
+      - else:  # if current B is small, loop through RA
+        - for j in A[RA:]: heapq.heappush(heap, (j, B[RB]))
+        - RB += 1
+    - return heapq.nsmallest(k, heap, key=sum)
+    - O(klogk) `AC`
+
+## Hash Table
   - [692](https://leetcode.com/problems/top-k-frequent-words/)
   - c = Counter(words).most_common()
   - c = sorted(c, key=lambda i:(-i[1], i[0]))  # first sort count DESC, then sort word alphabetically ASC
