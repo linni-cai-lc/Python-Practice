@@ -1,6 +1,42 @@
 # Python-Practice
 # Week 5 6.1-6.7
 
+## Hash Table
+  - [692](https://leetcode.com/problems/top-k-frequent-words/)
+  - c = Counter(words).most_common()
+  - c = sorted(c, key=lambda i:(-i[1], i[0]))  # first sort count DESC, then sort word alphabetically ASC
+  - return [i for i,j in c[:k]]
+  - O(N) `AC`
+
+## Hash Table
+  - [202](https://leetcode.com/problems/happy-number/)
+  - visit = set()
+  - sumi = n
+  - while sumi != 1:
+    - lst = list(str(n))
+    - sumi = sum([int(i)**2 for i in lst])
+    - if sumi in visit: return False
+    - visit.add(sumi)
+  - return True
+  - O(N) `AC`
+  
+## Hash Table
+  - [771](https://leetcode.com/problems/jewels-and-stones/)
+  - j = set(J)
+  - return sum([1 for i in S if i in j])
+  - we convert J into a set j, then searching i in j costs O(1), otherwise it will be O(N)
+  - runtime: O(N); space: O(N) `AC`
+
+## Hash Table
+  - [205](https://leetcode.com/problems/isomorphic-strings/)
+  - build two hash dict, each key is string letter
+  - for i in range(len(s)):
+    - if s[i] in sb and sb[s[i]] != t[i]: return False
+    - elif t[i] in tb and tb[t[i]] != s[i]: return False
+    - else: sb[s[i]] = t[i], tb[t[i]] = s[i]
+  - return True
+  - runtime: O(N); space: O(N) `AC`
+
 ## Linked List
   - [61](https://leetcode.com/problems/rotate-list/)
   - constant number of multiple passes through the linked list, and constant number of temporary pointers.
