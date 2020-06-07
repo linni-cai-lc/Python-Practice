@@ -1,6 +1,29 @@
 # Python-Practice
 # Week 5 6.1-6.7
 
+## OrderedDict
+  - [146](https://leetcode.com/problems/lru-cache/)
+  - from collections import OrderedDict as OD
+  - init:
+    - self.dict = OD()
+    - self.capc = capacity
+  - get(key):
+    - value = -1
+    - if key in self.key:
+      - value = self.dict[key]
+      - self.dict.pop(key)
+      - self.dict[key] = value
+    - return value
+  - O(1) `AC`
+  - put(key, val):
+    - if key in self.dict:
+      - self.dict.pop(key)
+    - elif len(self.dict) >= self.capa:
+      - self.dict.popitem(last=False)  # FIFO
+    - self.dict[key] = value
+  - O(1) `AC`
+  - since we're using hash dict here, put and get are linear
+  - every get and put should put higher priority of new accessed key value pair
 ## Hash Table
   - [373](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/)
   - brute force
