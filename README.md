@@ -7,9 +7,9 @@
   - normal sort O(NlogN) `AC`
   - two heaps
   - small, large = [], [] 
-  - # both are min heap, to maintain order, small will be negative min heap 
-  - # i.e. min 1,2,3->-3-2,-1 popmin=-3 
-  - # i.e. max 4,5,6 popmin = 4
+  - ### both are min heap, to maintain order, small will be negative min heap 
+  - ### i.e. min 1,2,3->-3-2,-1 popmin=-3 
+  - ### i.e. max 4,5,6 popmin = 4
   - add num:
     - heappush(large, num)
     - heappush(small, -heappop(large))
