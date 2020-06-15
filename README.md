@@ -1,6 +1,21 @@
 # Python-Practice
 ## Week 6 [6.8-6.14]
 
+## Hash Table [451](https://leetcode.com/problems/sort-characters-by-frequency/)
+  - c = collections.Counter(s)
+  - return "".join([i*j for i,j in c.most_common()])
+  - O(N) `AC`
+
+## Hash Table [739](https://leetcode.com/problems/daily-temperatures/)
+  - result = [0] * len(T)
+  - stack = []
+  - for i in range(len(T)-1,-1,-1): # REVERSE
+    - while stack and T[i] >= T[stack[-1]]: stack.pop(-1) # current temp is higher than future temp
+    - if stack: result[i] = stack[-1]-i # #days between current day and future day with higher temp
+    - stack.append(i) # add current day
+  - return result
+  - O(N) `AC`
+  
 ## Math	[775](https://leetcode.com/problems/global-and-local-inversions/)
   - mini = len(A)
   - for i in range(len(A)-1,-1,-1):
