@@ -1,9 +1,23 @@
 # Python-Practice
 ## Week 6 [6.8-6.14]
 
-## Divide and Conquer	775
-## Divide and Conquer	53
-## Divide and Conquer	[295](https://leetcode.com/problems/find-median-from-data-stream/)
+## Math	[775](https://leetcode.com/problems/global-and-local-inversions/)
+  - mini = len(A)
+  - for i in range(len(A)-1,-1,-1):
+    - mini = min(mini, A[i])
+    - if i >= 2 and A[i-2] > mini: return False # EXIST more global inversion than local inversion
+  - return True
+  - O(N) `AC`
+
+## Set	[53](https://leetcode.com/problems/maximum-subarray/)
+  - sumi = maxi = A[0]
+  - for i in A[1:]:
+    - sumi = max(i, sumi+i)
+    - maxi = max(maxi, sumi)
+  - return maxi
+  - O(N) `AC`
+
+## Heap [295](https://leetcode.com/problems/find-median-from-data-stream/)
   - normal sort O(NlogN) `AC`
   - two heaps
   - small, large = [], [] 
