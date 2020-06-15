@@ -3,9 +3,57 @@
 
 ## Divide and Conquer	775
 ## Divide and Conquer	53
-## Divide and Conquer	295*
-## Divide and Conquer	84
-## BST	450
+## Divide and Conquer	[295](https://leetcode.com/problems/find-median-from-data-stream/)
+  - normal sort O(NlogN) `AC`
+  - two heaps
+  - small, large = [], [] 
+  - # both are min heap, to maintain order, small will be negative min heap 
+  - # i.e. min 1,2,3->-3-2,-1 popmin=-3 
+  - # i.e. max 4,5,6 popmin = 4
+  - add num:
+    - heappush(large, num)
+    - heappush(small, -heappop(large))
+    - if len(large) < len(small):
+      - heappush(large, -heappop(small))
+  - find mid
+    - if len(large) > len(small):
+      - return large[0]
+    - return (large[0]-small[0])/2
+  - O(logN) `AC`
+  
+## Stack [84](https://leetcode.com/problems/largest-rectangle-in-histogram/)
+  - stack = [-1] # it prevents the last element out of scope, converts the area to be negative
+  - maxi = 0
+  - for i in range(len(heights)):
+    - while len(stack) > 1 and heights[stack[-1]] >= heights[i]:
+      - maxi = max(maxi, heights[stack.pop(-1)] * (i - stack[-1] - 1))
+  - while len(stack) > 1:
+    - maxi = max(maxi, heights[stack.pop(-1) * (len(heights) - stack[-1] - 1))
+  - O(N) `AC`
+
+## BST [450](https://leetcode.com/problems/delete-node-in-a-bst/)
+  - most_left:
+    - while root.left: root = root.left
+  - most_right:
+    - while root.right: root = root.right
+  - delete:
+    - if not root: return None
+    - val = root.val
+    - if val > key: root.left = delete(root.left, key)
+    - if val < key: root.right = delete(root.right, key)
+    - if val = key:
+      - if not root.left and not root.right: return None
+      - elif root.left:
+        - root.val = most_right(root.left).val
+        - root.left = delete(root.left, key)
+      - else: # root.right
+        - root.val = most_left(root.right).val
+        - root.right = delete(root.right, key)
+    - return root
+    - if root has left, find predecessor, the largest node smaller than root
+    - if root has right, find successor, the smallest node larger than root
+    - O(logN) `AC`
+
 ## BST [98](https://leetcode.com/problems/validate-binary-search-tree/) 
   - check bst recursively, LEFT < ROOT < RIGHT
   - in main function:
