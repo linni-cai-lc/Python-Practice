@@ -1,6 +1,46 @@
 # Python-Practice
 ## Week 7 [6.15-6.21]
 
+## [56](https://leetcode.com/problems/merge-intervals/) Merge Intervals
+  - `FIRST SORT INTERVALS ASC`
+  - intervals.sort()
+  - result = []
+  - if intervals:
+    - result = [intervals[0]]
+    - for i, j in intervals[1:]:
+      - if result[-1][0] <= i <= result[-1][1]: result[-1][1] = max(result[-1][1], j)
+      - else: result.append([i, j])
+  - return result
+  - O(NlogN) `AC` sort cost O(NlogN), traverse interval cost O(N)
+ 
+## [75](https://leetcode.com/problems/sort-colors/) Sort Colors
+  - ONE PASS, utilize two pointers to control 0 and 2 position indices
+  - end = len(nums) - 1
+  - start = 0
+  - cur = 0
+  - while cur <= end:
+    - if nums[cur] == 2:
+      - nums[cur], nums[end] = nums[end], nums[cur]
+      - end -= 1
+    - elif nums[cur] == 0:
+      - nums[cur], nums[start] = nums[start], nums[cur]
+      - start += 1
+      - cur += 1
+    - else:
+      - cur += 1
+ - O(N) `AC` 
+
+## 373 Find K Pairs with Smallest Sums
+## 692 Top K Frequent Words
+## 450 Delete Node in a BST
+## 110 Balanced Binary Tree
+## 287 Find the Duplicate Number
+## 775 Global and Local Inversions
+## 53 Maximum Subarray (DP and Divide and Conquer approach)
+## 295  Find Median from Data Stream
+## 410 Split Array Largest Sum 
+## 668 Kth Smallest Number in Multiplication Table
+
 ## [230](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) Kth Smallest Element in a BST
   - Utilize stack to store left nodes, and 
   - stack = []
@@ -49,16 +89,3 @@
   - root.right = invertTree(temp)
   - return root
   - O(N) `AC`
-
-## 56  Merge Intervals
-## 75 Sort Colors
-## 373 Find K Pairs with Smallest Sums
-## 692 Top K Frequent Words
-## 450 Delete Node in a BST
-## 110 Balanced Binary Tree
-## 287 Find the Duplicate Number
-## 775 Global and Local Inversions
-## 53 Maximum Subarray (DP and Divide and Conquer approach)
-## 295  Find Median from Data Stream
-## 410 Split Array Largest Sum 
-## 668 Kth Smallest Number in Multiplication Table
