@@ -1,6 +1,24 @@
 # Python-Practice
 ## Week 7 [6.15-6.21]
 
+## [814](https://leetcode.com/problems/binary-tree-pruning/) Binary Tree Pruning
+  - main(root)
+    - if not root: return root # nothing to do
+    - root.left = main(root.left)
+    - root.right = main(root.right)
+    - if root.val == 0 and not root.left and not root.right: return None # no child, so delete it
+    - return root
+
+## [111](https://leetcode.com/problems/minimum-depth-of-binary-tree/) Minimum Depth of Binary Tree
+  - main(root)
+    - if not root: return 0
+    - if not root.left and not root.left: return 1 # hit the leaf
+    - d = sys.maxsize # store the min depth
+    - if root.left: d = min(main(root.left), d) # get the path towards left subtree leaf
+    - if root.right: d = min(main(root.right), d) # get the path towards right subtree leaf
+    - return d + 1 # add with root
+  - O(N) `AC`
+
 ## [56](https://leetcode.com/problems/merge-intervals/) Merge Intervals
   - `FIRST SORT INTERVALS ASC`
   - intervals.sort()
@@ -29,17 +47,6 @@
     - else:
       - cur += 1
  - O(N) `AC` 
-
-## 373 Find K Pairs with Smallest Sums
-## 692 Top K Frequent Words
-## 450 Delete Node in a BST
-## 110 Balanced Binary Tree
-## 287 Find the Duplicate Number
-## 775 Global and Local Inversions
-## 53 Maximum Subarray (DP and Divide and Conquer approach)
-## 295  Find Median from Data Stream
-## 410 Split Array Largest Sum 
-## 668 Kth Smallest Number in Multiplication Table
 
 ## [230](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) Kth Smallest Element in a BST
   - Utilize stack to store left nodes, and 
