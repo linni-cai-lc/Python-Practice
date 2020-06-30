@@ -2,6 +2,35 @@
 
 ## Week 8 [6.22-6.28]
 
+## [516](https://leetcode.com/problems/longest-palindromic-subsequence/) Longest Palindromic Subsequence
+  - utilize dynamic programming
+  - main(A):
+    - dp = [[0] * len(A) for i in range(len(A))]
+    - for i in range(len(A)-1,-1,-1):
+        - dp[i][i] = 1
+        - for j in range(i+1,len(A)):
+            - if A[i] == A[j]:
+              - dp[i][j]=dp[i+1][j-1]+2
+            - else:
+              - dp[i][j]=max(dp[i+1][j], dp[i][j-1])
+    - return dp[0][-1]
+  - runtime: O(N^2), space: O(N^2) `AC`
+  - trace_back(A, dp):
+    - i=0, j=len(A)-1, l="" 
+    - while i <= j:
+      - if dp[i][j]==2+dp[i+1][j-1] and A[i]==A[j]:
+        - l = l[:len(l)//2] + A[i]*2 + l[len(l)//2:]
+        - i += 1, j -= 1
+      - elif dp[i][j] == dp[i+1][j]:
+        - i += 1
+      - elif dp[i][j] == d[i][j-1]:
+        - j -= 1
+      - else:
+        - l = l[:len(l)//2] + A[i] + l[len(l)//2:]
+        - i += 1
+    - return l
+    - runtime: O(N), space: O(N^2) `AC`
+         
 ## [108](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) Convert Sorted Array to Binary Search Tree
   - utilize pre-order
   - main(nums):
@@ -16,7 +45,9 @@
       - return root
   - runtime: O(N), space: O(N) `AC` 
 
-## 373 Find K Pairs with Smallest Sums
+## [373](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) Find K Pairs with Smallest Sums
+  
+
 ## 692 Top K Frequent Words
 ## 450 Delete Node in a BST
 ## 110 Balanced Binary Tree
