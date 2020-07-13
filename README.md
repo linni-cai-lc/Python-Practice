@@ -1,6 +1,6 @@
 # Python-Practice
 
-# Week 9 7/6-7/12
+# Week 9 [7/6-7/12]
 # [977](https://leetcode.com/problems/squares-of-a-sorted-array/)
   - find min absolute, take it as median
   - median is the first element, use two pointers move left and move right
