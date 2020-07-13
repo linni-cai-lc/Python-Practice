@@ -1,6 +1,22 @@
 # Python-Practice
 
 # Week 9 [7/6-7/12]
+# [270](https://leetcode.com/problems/closest-binary-search-tree-value/)
+  - similar to binary search, need to track of min difference and corresponding value
+  ## initialize
+  - cur = root
+  - min_diff, val = sys.maxsize, sys.maxsize
+  ## binary search
+  - while cur:
+    - if target == cur.val: return cur.val
+    - elif abs(cur.val-target) < min_diff:
+      - min_diff = abs(cur.val-target)
+      - val = cur.val
+    - if target < cur.val: cur = cur.left # target is smaller, explore left smaller subtree
+    - else: cur = cur.right # target is larger, explore right larger subtree
+  - return val
+  - runtime O(logN*), worst case O(N) for biased `linked list` bst, space O(1)
+
 # [977](https://leetcode.com/problems/squares-of-a-sorted-array/)
   - find min absolute, take it as median
   - median is the first element, use two pointers move left and move right
