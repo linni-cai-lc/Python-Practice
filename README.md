@@ -15,5 +15,5 @@ recursive(root, res, lvl):
     recursive(root.right, res, lvl+1) # need to visit right side first
     recursive(root.left, res, lvl+1)
 ```
-## Assumption: N = the number of nodes in the tree
-## Complexity: runtime = O(N), space = O(N) <- result list
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) <- result list
