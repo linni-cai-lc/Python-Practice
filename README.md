@@ -1,6 +1,23 @@
 # Python-Practice
 
 # Week 10 [11/2-11/8]
+# [404](https://leetcode.com/problems/sum-of-left-leaves/)
+```
+def main(root):
+  return recursive(root, 0, False)
+  
+def recursive(root, sumi, isLeft):
+  if not root:
+    return sumi
+  if isLeft and root and not root.left and not root.right: # is a left leaf, add it
+    return sumi + root.val
+  sumi = self.recursive(root.left, sumi, True)
+  sumi = self.recursive(root.right, sumi, Fasle)
+  return sumi
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(1)
+
 # [199](https://leetcode.com/problems/binary-tree-right-side-view/)
 ```
 main(root):
@@ -17,3 +34,10 @@ recursive(root, res, lvl):
 ```
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) <- result list
+
+### Template
+# []()
+```
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
