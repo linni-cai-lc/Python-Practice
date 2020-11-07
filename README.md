@@ -1,6 +1,22 @@
 # Python-Practice
 
 # Week 10 [11/2-11/8]
+# [1022](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/)
+```
+def main(root):
+  return recursive(root, "")
+  
+def recursive(root, cur):
+  if not root:
+    return 0
+  cur += str(root.val)
+  if root and not root.left and not root.right:
+    return int(cur, 2)
+  return recursive(root.left, cur) + recursive(root.right, cur)
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(N), space = O(1), stack = O(H)
+
 # [404](https://leetcode.com/problems/sum-of-left-leaves/)
 ```
 def main(root):
