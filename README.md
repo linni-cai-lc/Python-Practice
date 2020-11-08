@@ -1,6 +1,24 @@
 # Python-Practice
 
 # Week 10 [11/2-11/8]
+# [653](https://leetcode.com/problems/two-sum-iv-input-is-a-bst/submissions/)
+```
+def main(root, k):
+  return recursive(root, set(), k)
+  
+def recursive(root, s, k):
+  if not root:
+    return False
+  val = root.val
+  diff = k - val
+  s.add(val)
+  if val != diff and diff in s:
+    return True
+  return recursive(root.left, s, k) or recursive(right, s, k)
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(N), space = O(N) need set for storage check
+
 # [1022](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/)
 ```
 def main(root):
