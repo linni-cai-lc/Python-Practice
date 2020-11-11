@@ -1,6 +1,27 @@
 # Python-Practice
 
 # Week 11 [11/9-11/15]
+
+# [606](https://leetcode.com/problems/construct-string-from-binary-tree/)
+```
+def main(root):
+  return recursive(root)
+
+def recursive(root):
+  if not root:
+    return ""
+  elif root.left and root.right:
+    return "{}({})({})".format(root.val, recursive(root.left), recursive(root.right))
+  elif root.left:
+    return "{}({})".format(root.val, recursive(root.left))
+  elif root.right:
+    return "{}()({})".format(root.val, recursive(root.right))
+  else:
+    return str(root.val)
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(N), space = O(N) use the string to store all nodes as result, stack = O(H)
+
 # [965](https://leetcode.com/problems/univalued-binary-tree/)
 ```
 def main(root):
