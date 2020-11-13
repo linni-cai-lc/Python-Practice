@@ -2,6 +2,28 @@
 
 # Week 11 [11/9-11/15]
 
+# [501](https://leetcode.com/problems/find-mode-in-binary-search-tree/)
+```
+from collections import Counter
+
+def main(root):
+  if not root:
+    return []
+  book = Counter()
+  recursive(root, book)
+  maxi = book.most_common(1)[0][1]
+  return [i for i in book if book[i] == maxi]
+
+def recursive(root, book):
+  if not root:
+    return
+  book[root.val] += 1
+  recursive(root.left, book)
+  recursive(root.right, book)
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(N), space = O(N) use the Counter (dict) to store key as node value, value as node count
+
 # [606](https://leetcode.com/problems/construct-string-from-binary-tree/)
 ```
 def main(root):
