@@ -18,7 +18,28 @@ def recursive(root, tilt):
   return left + right + root.val
 ```
 #### Assumption: N = the number of nodes in the tree, H = the height of the tree
-#### Complexity: runtime = O(N), space = O(N) use a list to store current node children value summation
+#### Complexity: runtime = O(N), space = O(N) use a list to store current node children value summation 
+
+# [783](https://leetcode.com/problems/minimum-distance-between-bst-nodes/)
+```
+def main(root):
+  res = []
+  recursive(root, res)
+  res.sort()
+  min_d = sys.maxsize
+  for i in range(len(res) - 1):
+    min_d = min(min_d, abs(res[i] - res[i+1]))
+  return min_d
+
+def recursive(root, res):
+  if not root:
+    return
+  res.append(root.val)
+  recursive(root.left, res)
+  recursive(root.right, res)
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(NlogN) utilize sort cost dominant, space = O(N) use the list to store all nodes
 
 # [1469](https://leetcode.com/problems/find-all-the-lonely-nodes/)
 ```
