@@ -2,6 +2,24 @@
 
 # Week 11 [11/9-11/15]
 
+# [563](https://leetcode.com/problems/binary-tree-tilt/)
+```
+def main(root):
+  tilt = [0]
+  recursive(root, tilt)
+  return tilt[0]
+
+def recursive(root, tilt):
+  if not root:
+    return 0
+  left = recursive(root.left, tilt)
+  right = recursive(root.right, tilt)
+  tilt[0] += abs(left - right)
+  return left + right + root.val
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(N), space = O(N) use a list to store current node children value summation
+
 # [1469](https://leetcode.com/problems/find-all-the-lonely-nodes/)
 ```
 def main(root):
