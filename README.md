@@ -2,6 +2,28 @@
 
 # Week 11 [11/9-11/15]
 
+# [350](https://leetcode.com/problems/intersection-of-two-arrays-ii/)
+```
+def main(nums1, nums2):
+  nums1.sort()
+  nums2.sort()
+  left = 0
+  right = 0
+  res = []
+  while left < len(nums1) and right < len(nums2):
+    if nums1[left] < nums2[right]:
+      left += 1
+    elif nums1[left] < nums2[right]:
+      right += 1
+    else:
+      res.append(nums1[left])
+      left += 1
+      right += 1
+  return res
+```
+#### Assumption: N = the size of nums1, M = the size of nums2
+#### Complexity: runtime = O(NlogN + MlogM), space = O(N + M)
+
 # [349](https://leetcode.com/problems/intersection-of-two-arrays/)
 ```
 def intersection(self, nums1, nums2):
