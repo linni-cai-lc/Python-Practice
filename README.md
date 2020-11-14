@@ -2,6 +2,23 @@
 
 # Week 11 [11/9-11/15]
 
+# [278](https://leetcode.com/problems/first-bad-version/)
+```
+def main(n):
+  left = 1
+  right = n
+  while left < right:
+    mid = (left + right) // 2
+    if isBadVersion(mid):
+      right = mid
+    else:
+      left = mid + 1
+  return left
+```
+#### Assumption: N = the size of the given number n
+#### Complexity: runtime = O(logN) utilize binary search, space = O(1)
+#### Since we know that after the first bad version, rest are all bad, we are using binary search to quickly locate the first issue version
+
 # [563](https://leetcode.com/problems/binary-tree-tilt/)
 ```
 def main(root):
