@@ -2,6 +2,14 @@
 
 # Week 11 [11/9-11/15]
 
+# [349](https://leetcode.com/problems/intersection-of-two-arrays/)
+```
+def intersection(self, nums1, nums2):
+  return list(set(nums1) & set(nums2))
+```
+#### Assumption: N = the size of nums1, M = the size of nums2
+#### Complexity: runtime = O(N + M), space = O(N + M)
+
 # [278](https://leetcode.com/problems/first-bad-version/)
 ```
 def main(n):
