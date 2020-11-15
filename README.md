@@ -2,6 +2,22 @@
 
 # Week 11 [11/9-11/15]
 
+# [58](https://leetcode.com/problems/length-of-last-word/)
+```
+def main(s):
+  s = s.rstrip()
+  cnt = 0
+  for i in s:
+    if i == " ":
+      cnt = 0
+    else:
+      cnt += 1
+  return cnt
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+#### if I use list split, it will increate unnecessary space to O(N), so loop through string once is more efficient
+
 # [28](https://leetcode.com/problems/implement-strstr/)
 ```
 def main(haystack, needle):
