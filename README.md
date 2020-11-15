@@ -2,6 +2,17 @@
 
 # Week 11 [11/9-11/15]
 
+# [28](https://leetcode.com/problems/implement-strstr/)
+```
+def main(haystack, needle):
+  for i in range(len(haystack) - len(needle) + 1):
+    if haystack[i:i+needle] == needle:
+      return i
+  return -1
+```
+#### Assumption: N = the length of haystack, M = the length of needle
+#### Complexity: runtime = O((N-M)*M), for loop -> O(N-M) , space = O(1)
+
 # [459](https://leetcode.com/problems/repeated-substring-pattern/)
 ```
 def main(s):
