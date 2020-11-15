@@ -2,6 +2,15 @@
 
 # Week 11 [11/9-11/15]
 
+# [459](https://leetcode.com/problems/repeated-substring-pattern/)
+```
+def main(s):
+  return s in (s * 2)[1:-1]
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N^2), space = O(N)
+#### AHA, this is a quite interesting solution, doubling the current string and cut head and tail, check the existence of the given string will expose the repeated substring pattern 
+
 # [350](https://leetcode.com/problems/intersection-of-two-arrays-ii/)
 ```
 def main(nums1, nums2):
