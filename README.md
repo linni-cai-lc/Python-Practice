@@ -2,6 +2,24 @@
 
 # Week 12 [11/16-11/22]
 
+# [844](https://leetcode.com/problems/backspace-string-compare/)
+```
+def main(S, T):
+  return backspace(S) == backspace(T)
+
+def backspace(s):
+  stack = []
+  for i in s:
+    if i == "#":
+      if stack:
+        stack.pop(-1)
+    else:
+      stack.append(i)
+  return stack
+```
+#### Assumption: N = the length of S, M = the length of T
+#### Complexity: runtime = O(N + M), space = O(N + M)
+
 # [345](https://leetcode.com/problems/reverse-vowels-of-a-string/)
 ```
 def main(s):
