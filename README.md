@@ -20,6 +20,16 @@ def backspace(s):
 #### Assumption: N = the length of S, M = the length of T
 #### Complexity: runtime = O(N + M), space = O(N + M)
 
+# [1507](https://leetcode.com/problems/reformat-date/)
+```
+from datetime import datetime
+def main(date):
+  date = re.sub("st|nd|rd|th", "", date)
+  return datetime.strptime(date, "%d %b %Y").strftime(%Y-%m-%d)
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N) use the string to convert between date object and string 
+
 # [345](https://leetcode.com/problems/reverse-vowels-of-a-string/)
 ```
 def main(s):
