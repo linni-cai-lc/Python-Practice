@@ -2,6 +2,21 @@
 
 # Week 12 [11/16-11/22]
 
+# [1047](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
+```
+def main(S):
+  stack = []
+  for i in S:
+    if not stack or stack[-1] != i:
+      stack.append(i)
+    else:
+      while stack and stack[-1] == i:
+        stack.pop(-1)
+  return "".join(stack)
+```
+#### Assumption: N = the length of the given string, D = the length of duplicate string
+#### Complexity: runtime = O(N), space = O(N - D)
+
 # [1507](https://leetcode.com/problems/reformat-date/)
 ```
 from datetime import datetime
