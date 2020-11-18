@@ -17,6 +17,24 @@ def main(S):
 #### Assumption: N = the length of the given string, D = the length of duplicate string
 #### Complexity: runtime = O(N), space = O(N - D)
 
+# [844](https://leetcode.com/problems/backspace-string-compare/)
+```
+def main(S, T):
+  return backspace(S) == backspace(T)
+
+def backspace(s):
+  stack = []
+  for i in s:
+    if i == "#":
+      if stack:
+        stack.pop(-1)
+    else:
+      stack.append(i)
+  return stack
+```
+#### Assumption: N = the length of S, M = the length of T
+#### Complexity: runtime = O(N + M), space = O(N + M)
+
 # [1507](https://leetcode.com/problems/reformat-date/)
 ```
 from datetime import datetime
