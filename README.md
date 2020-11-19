@@ -82,6 +82,16 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N) use a list to store the string, help on letter swap, otherwise string concatenation is extra O(N), which would bring up runtime complexity to O(N^2), we use more space to reduce time.
 
+# [1480](https://leetcode.com/problems/running-sum-of-1d-array/)
+```
+def main(nums):
+  for i in range(1, len(nums)):
+    nums[i] += nums[i-1]
+  return nums
+```
+#### Assumption: N = the length of the given list
+#### Complexity: runtime = O(N), space = O(1) in place updating, exclude the given list space as extra
+
 ### Template
 # []()
 ```
