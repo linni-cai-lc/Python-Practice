@@ -2,6 +2,22 @@
 
 # Week 12 [11/16-11/22]
 
+# [1441](https://leetcode.com/problems/build-an-array-with-stack-operations/)
+```
+def main(target, n):
+  res = []
+  cur = 0
+  for i in target:
+    while cur != i:
+      cur += 1
+      res.append("Push")
+      if cur != i:
+        res.append("Pop")
+  return res
+```
+#### Assumption: N = the size of the given n, target size T is bounded by N
+#### Complexity: runtime = O(N), space = O(N)
+
 # [1047](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
 ```
 def main(S):
