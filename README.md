@@ -2,6 +2,28 @@
 
 # Week 12 [11/16-11/22]
 
+# [290](https://leetcode.com/problems/word-pattern/)
+```
+from collections import defaultdict as dd
+def main(pattern, s):
+  words = s.split("")
+  if len(pattern) != len(words):
+    return False
+  word_book = dd(str)
+  pattern_book = dd(str)
+  for i in range(len(pattern)):
+    cur_pattern = pattern[i]
+    cur_word = words[i]
+    if cur_word not in word_book and cur_pattern not in pattern_book:
+      word_book[cur_word] = cur_pattern
+      pattern_book[cur_pattern] = cur_word
+    elif word_book[cur_word] != cur_pattern:
+      return False
+  return True
+```
+#### Assumption: N = the number of words in the given string, M = the number of unique words
+#### Complexity: runtime = O(N), space = O(M) using 2 dictionary, hash maps
+
 # [1441](https://leetcode.com/problems/build-an-array-with-stack-operations/)
 ```
 def main(target, n):
