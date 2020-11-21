@@ -2,6 +2,19 @@
 
 # Week 12 [11/16-11/22]
 
+# [876](https://leetcode.com/problems/middle-of-the-linked-list/)
+```
+def main(head):
+  slow = head
+  fast = head
+  while fast and fast.next:
+    fast = fast.next.next
+    slow = slow.next
+  return slow
+```
+#### Assumption: N = the number of nodes in the given linked list
+#### Complexity: runtime = O(N), space = O(1) with temporary constant number of variables
+
 # [290](https://leetcode.com/problems/word-pattern/)
 ```
 from collections import defaultdict as dd
