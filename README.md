@@ -2,6 +2,24 @@
 
 # Week 12 [11/16-11/22]
 
+# [704](https://leetcode.com/problems/binary-search/)
+```
+def main(nums, target):
+  left = 0
+  right = len(nums) - 1
+  while left <= right:
+    mid = (left + right) // 2
+    if target < nums[mid]:
+      right = mid - 1
+    elif target > nums[mid]:
+      left = mid + 1
+    else:
+      return mid
+  return -1
+```
+#### Assumption: N = the number of elements in the given nums
+#### Complexity: runtime = O(logN), space = O(1)
+
 # [876](https://leetcode.com/problems/middle-of-the-linked-list/)
 ```
 def main(head):
