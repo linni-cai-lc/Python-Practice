@@ -2,6 +2,14 @@
 
 # Week 12 [11/16-11/22]
 
+# [796](https://leetcode.com/problems/rotate-string/)
+```
+def main(A, B):
+  return len(A) == len(B) and B in A * 2
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 # [844](https://leetcode.com/problems/backspace-string-compare/)
 ```
 def main(S, T):
