@@ -2,6 +2,21 @@
 
 # Week 13 [11/23-11/29]
 
+# [896](https://leetcode.com/problems/monotonic-array/)
+```
+def main(A):
+  inc = True
+  dec = True
+  for i in range(len(A) - 1):
+    if A[i] < A[i+1]:
+      decrease = False
+    elif A[i] > A[i+1]:
+      increase = False
+  return increase or decrease
+```
+#### Assumption: N = the length of the given list A
+#### Complexity: runtime = O(N), space = O(1)
+
 # [628](https://leetcode.com/problems/maximum-product-of-three-numbers/)
 ```
 def main(nums):
