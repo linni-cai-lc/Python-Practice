@@ -2,7 +2,19 @@
 
 # Week 13 [11/23-11/29]
 
-### Template
+# [1436](https://leetcode.com/problems/destination-city/)
+```
+def main(paths):
+  start = set()
+  end = set()
+  for i, j in paths:
+    start.add(i)
+    end.add(j)
+  return end.difference(start).pop()
+```
+#### Assumption: N = the number of paths
+#### Complexity: runtime = O(N), space = O(N)
+
 # [231](https://leetcode.com/problems/power-of-two/)
 ```
 def main(n):
