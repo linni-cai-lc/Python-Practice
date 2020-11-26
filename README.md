@@ -2,6 +2,19 @@
 
 # Week 13 [11/23-11/29]
 
+### Template
+# [231](https://leetcode.com/problems/power-of-two/)
+```
+def main(n):
+  if n == 0:
+    return False
+  while n % 2 == 0:
+    n /= 2
+  return n == 1
+```
+#### Assumption: N = the given number
+#### Complexity: runtime = O(logN), space = O(1)
+
 # [896](https://leetcode.com/problems/monotonic-array/)
 ```
 def main(A):
