@@ -2,6 +2,18 @@
 
 # Week 13 [11/23-11/29]
 
+# [342](https://leetcode.com/problems/power-of-four/)
+```
+def main(n):
+  if n == 0:
+    return False
+  while n % 4 == 0:
+    n /= 4
+  return n == 1
+```
+#### Assumption: N = the given number n
+#### Complexity: runtime = O(logN), space = O(1)
+
 # [1436](https://leetcode.com/problems/destination-city/)
 ```
 def main(paths):
