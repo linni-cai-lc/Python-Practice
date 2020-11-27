@@ -2,6 +2,22 @@
 
 # Week 13 [11/23-11/29]
 
+# [27](https://leetcode.com/problems/remove-element/)
+```
+def main(nums, val):
+  left = 0
+  right = len(nums) - 1
+  while left <= right:
+    if nums[left] == val:
+      nums[left] = nums[right]
+      right -= 1
+    else:
+      left += 1
+  return left
+```
+#### Assumption: N = the length of the given list nums
+#### Complexity: runtime = O(N), space = O(1)
+
 # [342](https://leetcode.com/problems/power-of-four/)
 ```
 def main(n):
