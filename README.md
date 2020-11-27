@@ -2,6 +2,32 @@
 
 # Week 13 [11/23-11/29]
 
+# [859](https://leetcode.com/problems/buddy-strings/)
+```
+def main(A, B):
+  if len(A) != len(B):
+    return False
+  pre = None
+  nex = None
+  same = set()
+  hasSame = False
+  for i in range(len(A)):
+    if A[i] != B[i]:
+      if not pre:
+        pre = [A[i], B[i]]
+      elif not nex:
+        nex = [A[i], B[i]]
+      else:
+        return False
+    if A[i] in same:
+      hasSame = True
+    same.add(A[i])
+    return (not pre and not nex and hasSame) or \
+           (pre and nex and pre[0] == nex[1] and pre[1] == nex[0])
+```
+#### Assumption: N = the length of A/B
+#### Complexity: runtime = O(N), space = O(N)
+
 # [27](https://leetcode.com/problems/remove-element/)
 ```
 def main(nums, val):
