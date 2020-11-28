@@ -2,6 +2,22 @@
 
 # Week 13 [11/23-11/29]
 
+# [500](https://leetcode.com/problems/keyboard-row/)
+```python
+def main(words):
+  FIRST_ROW = set("QWERTYUIOP")
+  SECOND_ROW = set("ASDFGHJKL")
+  THRID_ROW = set("ZXCVBNM")
+  res = []
+  for i in words:
+    word = set(i.upper())
+    if not word.difference(FIRST_ROW) or not word.difference(SECOND_ROW) or not word.difference(THIRD_ROW):
+      res.append(i)
+  return res
+```
+#### Assumption: N = the length of the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 # [389](https://leetcode.com/problems/find-the-difference/)
 ```python
 def main(s, t):
