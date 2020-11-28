@@ -2,8 +2,21 @@
 
 # Week 13 [11/23-11/29]
 
-# [859](https://leetcode.com/problems/buddy-strings/)
+# [389](https://leetcode.com/problems/find-the-difference/)
+```python
+def main(s, t):
+  s = sorted(s)
+  t = sorted(t)
+  for i in range(len(s)):
+    if s[i] != t[i]:
+      return t[i]
+  return t[-1]
 ```
+#### Assumption: N = the length of s/t
+#### Complexity: runtime = O(NlogN), space = O(N)
+
+# [859](https://leetcode.com/problems/buddy-strings/)
+```python
 def main(A, B):
   if len(A) != len(B):
     return False
@@ -29,7 +42,7 @@ def main(A, B):
 #### Complexity: runtime = O(N), space = O(N)
 
 # [27](https://leetcode.com/problems/remove-element/)
-```
+```python
 def main(nums, val):
   left = 0
   right = len(nums) - 1
@@ -45,7 +58,7 @@ def main(nums, val):
 #### Complexity: runtime = O(N), space = O(1)
 
 # [342](https://leetcode.com/problems/power-of-four/)
-```
+```python
 def main(n):
   if n == 0:
     return False
@@ -57,7 +70,7 @@ def main(n):
 #### Complexity: runtime = O(logN), space = O(1)
 
 # [1436](https://leetcode.com/problems/destination-city/)
-```
+```python
 def main(paths):
   start = set()
   end = set()
@@ -70,7 +83,7 @@ def main(paths):
 #### Complexity: runtime = O(N), space = O(N)
 
 # [231](https://leetcode.com/problems/power-of-two/)
-```
+```python
 def main(n):
   if n == 0:
     return False
@@ -82,7 +95,7 @@ def main(n):
 #### Complexity: runtime = O(logN), space = O(1)
 
 # [896](https://leetcode.com/problems/monotonic-array/)
-```
+```python
 def main(A):
   inc = True
   dec = True
@@ -97,7 +110,7 @@ def main(A):
 #### Complexity: runtime = O(N), space = O(1)
 
 # [628](https://leetcode.com/problems/maximum-product-of-three-numbers/)
-```
+```python
 def main(nums):
    nums.sort()
    return max(nums[-3] * nums[-2] * nums[-1], nums[0] * nums[1] * nums[-1])
@@ -107,7 +120,7 @@ def main(nums):
 
 ### Template
 # []()
-```
+```python
 ```
 #### Assumption: N = ??
 #### Complexity: runtime = O(?), space = O(?)
