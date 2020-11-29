@@ -2,6 +2,21 @@
 
 # Week 13 [11/23-11/29]
 
+# [1512](https://leetcode.com/problems/number-of-good-pairs/)
+```python
+from collections import defaultdict as dd
+def main(nums):
+  book = dd(int)
+  res = 0
+  for idx, val in enumerate(nums):
+    if book[val] > 0:
+      res += book[val]
+    book[val] += 1
+  return res
+```
+#### Assumption: N = the length of the given number list
+#### Complexity: runtime = O(N), space = O(N)
+
 # [500](https://leetcode.com/problems/keyboard-row/)
 ```python
 def main(words):
