@@ -2,6 +2,17 @@
 
 # Week 14 [11/30-12/6]
 
+# [1528](https://leetcode.com/problems/shuffle-string/)
+```python
+def main(s, indices):
+  lst = list(s)
+  for i in range(len(indices)):
+    lst[indices[i]] = s[i]
+  return "".join(lst)
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N^2) since assign list element need O(N) inside the for loop, space = O(N)
+
 # [1446](https://leetcode.com/problems/consecutive-characters/)
 ```python
 def main(s):
