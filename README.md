@@ -2,6 +2,16 @@
 
 # Week 14 [11/30-12/6]
 
+# [1154](https://leetcode.com/problems/day-of-the-year/)
+```python
+from datetime import datetime
+def main(date):
+  date_obj = datetime.strptime(date, "%Y-%m-%d")
+  return date_obj.timetuple().tm_yday
+```
+#### Assumption: N = O(1)
+#### Complexity: runtime = O(1), space = O(1)
+
 # [1528](https://leetcode.com/problems/shuffle-string/)
 ```python
 def main(s, indices):
