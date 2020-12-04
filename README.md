@@ -2,6 +2,26 @@
 
 # Week 14 [11/30-12/6]
 
+# [830](https://leetcode.com/problems/positions-of-large-groups/)
+```python
+def main(s):
+  start = 0
+  pre = None
+  res = []
+  for i in range(len(s)):
+    if s[i] != pre:
+      cnt = i - start
+      if cnt >= 3:
+        res.append([start, i-1])
+      start = i - 1
+    pre = s[i]
+  if len(s) - start >= 3:
+    res.append([start, len(s)-1])
+  return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 # [1154](https://leetcode.com/problems/day-of-the-year/)
 ```python
 from datetime import datetime
