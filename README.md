@@ -2,6 +2,32 @@
 
 # Week 14 [11/30-12/6]
 
+# [1496](https://leetcode.com/problems/path-crossing/)
+```python
+def main(path):
+  book = {
+    "N": (0, 1),
+    "S": (0, -1),
+    "W": (-1, 0),
+    "E": (1, 0)
+  }
+  visited = set()
+  curX = 0
+  curY = 0
+  visited.add((0, 0))
+  for i in path:
+    moveX, moveY = book[i]
+    curX += moveX
+    curY += moveY
+    item = (curX, curY)
+    if item in vistied:
+      return True
+    visited.add(item)
+  return False
+```
+#### Assumption: N = the length of the given string, represent of path
+#### Complexity: runtime = O(N), space = O(N)
+
 # [830](https://leetcode.com/problems/positions-of-large-groups/)
 ```python
 def main(s):
