@@ -2,6 +2,24 @@
 
 # Week 14 [11/30-12/6]
 
+# [83](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+```python
+def main(head):
+  if not head:
+    return head
+  pre = head
+  temp = head
+  while temp.next:
+    temp = temp.next
+    if pre.val == temp.val:
+      pre.next = temp.next
+      temp = pre
+    pre = temp
+  return head
+```
+#### Assumption: N = the length of the given linked list
+#### Complexity: runtime = O(N), space = O(N)
+
 # [409](https://leetcode.com/problems/longest-palindrome/)
 ```python
 def main(s):
