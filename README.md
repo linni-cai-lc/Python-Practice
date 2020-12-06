@@ -2,6 +2,20 @@
 
 # Week 14 [11/30-12/6]
 
+# [409](https://leetcode.com/problems/longest-palindrome/)
+```python
+def main(s):
+  cnt = 0
+  odd = 0
+  for i in list(Counter(s).values()):
+    cnt += i // 2 * 2
+    if i % 2 == 1:
+      odd = 1
+  return cnt + odd
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N) storing the Counter object
+
 # [1496](https://leetcode.com/problems/path-crossing/)
 ```python
 def main(path):
