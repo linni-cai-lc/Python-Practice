@@ -2,6 +2,19 @@
 
 # Week 15 [12/7-12/13]
 
+# [1323](https://leetcode.com/problems/maximum-69-number/)
+```python
+def main(num):
+   s = str(num)
+   idx = s.find("6")
+   if idx > -1:
+      return int(s[:idx] + "9" + s[idx+1:])
+   else:
+      return num
+```
+#### Assumption: N = the length of number string, i.e. num=9999, N=4
+#### Complexity: runtime = O(N), space = O(N)
+
 # [1394](https://leetcode.com/problems/find-lucky-integer-in-an-array/)
 ```python
 from collections import Counter
