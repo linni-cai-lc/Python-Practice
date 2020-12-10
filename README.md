@@ -2,6 +2,18 @@
 
 # Week 15 [12/7-12/13]
 
+# [645](https://leetcode.com/problems/set-mismatch/)
+```python
+def main(nums):
+   sumi = sum(set(nums))
+   sumi_with_dup = sum(nums)
+   dup = sumi_with_dup - sumi
+   miss = (1 + len(nums)) * len(nums) // 2 - sumi
+   return [dup, miss]
+```
+#### Assumption: N = the max number of the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 # [1323](https://leetcode.com/problems/maximum-69-number/)
 ```python
 def main(num):
