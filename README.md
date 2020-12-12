@@ -2,6 +2,16 @@
 
 # Week 15 [12/7-12/13]
 
+# [575](https://leetcode.com/problems/distribute-candies/)
+```python
+from collections import Counter
+def main(candyType):
+   book = Counter(candyType)
+   return min(len(candyType)//2, len(book))
+```
+#### Assumption: N = the length of the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 # [645](https://leetcode.com/problems/set-mismatch/)
 ```python
 def main(nums):
