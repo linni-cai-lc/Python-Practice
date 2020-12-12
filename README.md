@@ -4,9 +4,8 @@
 
 # [575](https://leetcode.com/problems/distribute-candies/)
 ```python
-from collections import Counter
 def main(candyType):
-   book = Counter(candyType)
+   book = set(candyType)
    return min(len(candyType)//2, len(book))
 ```
 #### Assumption: N = the length of the given list
