@@ -2,6 +2,23 @@
 
 # Week 15 [12/7-12/13]
 
+# [414](https://leetcode.com/problems/third-maximum-number/)
+```python
+from heapq import heappush, heappop
+def main(nums):
+   lst = []
+   for i in nums:
+      if i not in lst:
+         heappush(lst, i)
+         if len(lst) > 3:
+            heappop(lst)
+   if len(lst) == 2:
+      heappop(lst)
+   return heappop(lst)
+```
+#### Assumption: N = the length of the given array
+#### Complexity: runtime = O(N), space = O(1) constant due to heap of 3
+
 # [367](https://leetcode.com/problems/valid-perfect-square/)
 ```python
 def main(num):
