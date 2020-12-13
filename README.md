@@ -2,6 +2,27 @@
 
 # Week 15 [12/7-12/13]
 
+# [367](https://leetcode.com/problems/valid-perfect-square/)
+```python
+def main(num):
+   if num < 2:
+      return True
+   left = 2
+   right = num // 2
+   while left <= right:
+      mid = (left + right) // 2
+      sq = mid ** 2
+      if num == sq:
+         return True
+      elif num < sq:
+         right = mid - 1
+      else:
+         left = mid + 1
+   return False
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(logN), space = O(1)
+
 # [575](https://leetcode.com/problems/distribute-candies/)
 ```python
 def main(candyType):
