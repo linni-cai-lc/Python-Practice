@@ -2,6 +2,24 @@
 
 # Week 16 [12/14-12/20]
 
+# [925](https://leetcode.com/problems/long-pressed-name/)
+```python
+def main(L, R):
+   left = 0
+   right = 0
+   while left < len(L) or right < len(R):
+      if left < len(L) and right < len(R) and L[left] == R[right]:
+         left += 1
+         right += 1
+      elif left > 0 and right < len(R) and R[right] == L[left-1]:
+         right += 1
+      else:
+         return False
+   return left == len(L)
+```
+#### Assumption: L = the length of the given string L, R = the length of the given string R
+#### Complexity: runtime = O(L + R), space = O(1)
+
 # [506](https://leetcode.com/problems/relative-ranks/)
 ```python
 def main(nums):
