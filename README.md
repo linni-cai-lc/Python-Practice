@@ -2,6 +2,22 @@
 
 # Week 16 [12/14-12/20]
 
+# [1550](https://leetcode.com/problems/three-consecutive-odds/)
+```python
+def main(arr):
+   cnt = 0
+   for i in arr:
+      if i % 2 == 1:
+         cnt += 1
+      else:
+         cnt = 0
+      if cnt == 3:
+         return True
+   return False
+```
+#### Assumption: N = the number of elements in the given array
+#### Complexity: runtime = O(N), space = O(1)
+
 # [925](https://leetcode.com/problems/long-pressed-name/)
 ```python
 def main(L, R):
