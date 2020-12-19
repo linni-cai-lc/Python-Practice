@@ -2,6 +2,22 @@
 
 # Week 16 [12/14-12/20]
 
+# [1150](https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/)
+```python
+def main(nums, target):
+   if not nums:
+      return False
+   size = len(nums)
+   if size == 1:
+      return nums[0] == target
+   elif size % 2 == 1:
+      return nums[size // 2 + 1] == target
+   else:
+      return nums[size // 2] == target and nums[size // 2 - 1] == target
+```
+#### Assumption: N = the number of elements in the given list, T = a target number
+#### Complexity: runtime = O(1), space = O(1)
+
 # [1550](https://leetcode.com/problems/three-consecutive-odds/)
 ```python
 def main(arr):
