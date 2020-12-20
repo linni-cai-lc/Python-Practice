@@ -2,6 +2,16 @@
 
 # Week 16 [12/14-12/20]
 
+# [832](https://leetcode.com/problems/flipping-an-image/)
+```python
+def main(A):
+   for r in range(len(A)):
+      A[r] = list(map(lambda x: int(not bool(x)), A[r][::-1]))
+   return A
+```
+#### Assumption: N = the number of elements in the given matrix
+#### Complexity: runtime = O(N), space = O(1)
+
 # [1150](https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/)
 ```python
 def main(nums, target):
