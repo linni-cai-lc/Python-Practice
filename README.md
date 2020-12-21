@@ -2,6 +2,27 @@
 
 # Week 16 [12/14-12/20]
 
+# [1572](https://leetcode.com/problems/matrix-diagonal-sum/)
+```python
+def main(mat):
+   size = len(mat)
+   mid = size // 2
+   sumi = 0
+   add = int(size % 2 == 0)
+   for i in range(mid):
+      sumi += mat[i][i] + mat[i][size-1-i]
+   if size % 2 == 0:
+      sumi += mat[mid+1][mid+1] + mat[mid+1][size-1-(mid+1)]
+   else:
+      sumi += mat[mid][mid]
+   for i in range(mid+1+add, size):
+      sumi += mat[i][mid-(mid-i)] + mat[i][mid+(mid-i-add)]
+   return sumi
+
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 # [832](https://leetcode.com/problems/flipping-an-image/)
 ```python
 def main(A):
