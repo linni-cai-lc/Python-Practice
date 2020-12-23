@@ -2,6 +2,22 @@
 
 # Week 17 [12/21-12/27]
 
+# [485](https://leetcode.com/problems/max-consecutive-ones/)
+```python
+def main(nums):
+   cnt = 0
+   max_cnt = 0
+   for i in nums:
+      if i == 1:
+         cnt += 1
+      else:
+         cnt = 0
+      max_cnt = max(cnt, max_cnt)
+   return max_cnt
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 # [163](https://leetcode.com/problems/missing-ranges/)
 ```python
 def main(nums, lower, upper):
