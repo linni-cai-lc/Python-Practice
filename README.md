@@ -2,6 +2,12 @@
 
 # Week 17 [12/21-12/27]
 
+# []()
+```python
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 # [1426](https://leetcode.com/problems/counting-elements/)
 ```python
 from collections import Counter
