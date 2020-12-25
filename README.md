@@ -2,6 +2,18 @@
 
 # Week 17 [12/21-12/27]
 
+# [441](https://leetcode.com/problems/arranging-coins/)
+```python
+def main(n):
+   cur = 0
+   while n >= cur + 1:
+      n -= cur + 1
+      cur += 1
+   return cur
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(1)
+
 # [485](https://leetcode.com/problems/max-consecutive-ones/)
 ```python
 def main(nums):
