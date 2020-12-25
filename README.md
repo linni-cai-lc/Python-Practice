@@ -2,6 +2,14 @@
 
 # Week 17 [12/21-12/27]
 
+# [520](https://leetcode.com/problems/detect-capital/)
+```python
+def main(word):
+   return word.isupper() or word.islower() or word.capitalize() == word
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 # [441](https://leetcode.com/problems/arranging-coins/)
 ```python
 from math import sqrt, floor
