@@ -4,6 +4,13 @@
 
 # [441](https://leetcode.com/problems/arranging-coins/)
 ```python
+from math import sqrt, floor
+def main(n):
+   return floor(sqrt(2*n+0.25)-0.5)
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(1), space = O(1) <- improved version
+```python
 def main(n):
    cur = 0
    while n >= cur + 1:
@@ -12,7 +19,7 @@ def main(n):
    return cur
 ```
 #### Assumption: N = the given number size
-#### Complexity: runtime = O(N), space = O(1)
+#### Complexity: runtime = O(N), space = O(1) <- brute force version
 
 # [485](https://leetcode.com/problems/max-consecutive-ones/)
 ```python
