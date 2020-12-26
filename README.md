@@ -2,6 +2,26 @@
 
 # Week 17 [12/21-12/27]
 
+# [551](https://leetcode.com/problems/student-attendance-record-i/)
+```python
+def main(s):
+   abs_cnt = 0
+   cont_cnt = 0
+   for i in s:
+      if i == "A":
+         abs_cnt += 1
+         cont_cnt = 0
+      elif i == "L":
+         cont_cnt += 1
+      else:
+         cont_cnt = 0
+      if cont_cnt > 2 or abs_cnt > 1:
+         return False
+   return cont_cnt <= 2 and abs_cnt <= 1
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 # [520](https://leetcode.com/problems/detect-capital/)
 ```python
 def main(word):
