@@ -21,6 +21,13 @@ def main(s):
 ```
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
+```python
+def main(s):
+   return s.count("A") <= 1 and s.find("LLL") < 0
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+#### Note: compared to the previous solution, this one is 2-pass, it is shorter in code, but worse in complexity, since the previous ver. is 1-pass
 
 # [520](https://leetcode.com/problems/detect-capital/)
 ```python
