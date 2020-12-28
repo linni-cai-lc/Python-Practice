@@ -2,6 +2,28 @@
 
 # Week 17 [12/21-12/27]
 
+# [228](https://leetcode.com/problems/summary-ranges/)
+```python
+def tail_handle(pre):
+   return str(pre[0]) + (("->" + str(pre[1])) if pre[0] != pre[1] else "")
+   
+def main(nums):
+   if not nums: return []
+   cur = nums.pop(0)
+   pre = [cur, cur]
+   res = []
+   for i in nums:
+      if i > pre[1] + 1:
+         res += [tail_handle(pre)]
+         pre = [i, i]
+      else:
+         pre[1] += 1
+   res += [tail_handle(pre)]
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N) to store the result
+
 # [551](https://leetcode.com/problems/student-attendance-record-i/)
 ```python
 def main(s):
