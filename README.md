@@ -1,6 +1,31 @@
 # Python-Practice
 
 # Week 18 [12/28-1/3]
+# [860](https://leetcode.com/problems/lemonade-change/)
+```python
+def main(bills):
+   p5 = p10 = 0
+   for i in bills:
+      if i == 5:
+         p5 += 1
+      elif i == 10:
+         if not p5:
+            return False
+         p5 -= 1
+         p10 += 1
+      else:
+         if p5 and p10:
+            p5 -= 1
+            p10 -= 1
+         elif p5 >= 3:
+            p5 -= 3
+         else:
+            return False
+      return True
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 # [922](https://leetcode.com/problems/sort-array-by-parity-ii/)
 ```python
 def main(A):
