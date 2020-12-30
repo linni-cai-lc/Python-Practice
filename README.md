@@ -1,6 +1,17 @@
 # Python-Practice
 
 # Week 18 [12/28-1/3]
+
+# [1037](https://leetcode.com/problems/valid-boomerang/)
+```python
+def main(points):
+   return (points[0][1] - points[1][1]) * (points[1][0] - points[2][0]) != \
+          (points[0][0] - points[1][0]) * (points[1][1] - points[2][1])
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+#### Notes: utilize `(y1-y2)/(x1-x2)=(y2-y3)/(x2-x3)`, equal slope validates the same line
+
 # [860](https://leetcode.com/problems/lemonade-change/)
 ```python
 def main(bills):
