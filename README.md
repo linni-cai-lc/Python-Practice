@@ -2,6 +2,13 @@
 
 # Week 18 [12/28-1/3]
 
+# [577](https://leetcode.com/problems/employee-bonus/)
+```sql
+SELECT E.name, B.bonus
+FROM Employee as E LEFT JOIN Bonus as B on E.empId = B.empId
+WHERE B.bonus < 1000 or B.bonus IS NULL
+```
+
 # [1360](https://leetcode.com/problems/number-of-days-between-two-dates/)
 ```python
 from datetime import datetime
