@@ -2,6 +2,24 @@
 
 # Week 18 [12/28-1/3]
 
+# [1346](https://leetcode.com/problems/check-if-n-and-its-double-exist/)
+```python
+def main(arr):
+   book = set(arr)
+   cnt_zero = 0
+   for i in arr:
+      half = i / 2
+      if half == 0:
+         cnt_zero += 1
+         if cnt_zero > 1:
+            return True
+      elif half in book:
+         return True
+   return False
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N) utilize hash set to reduce time complexity N^2 -> N
+
 # [1408](https://leetcode.com/problems/string-matching-in-an-array/)
 ```python
 def main(words):
