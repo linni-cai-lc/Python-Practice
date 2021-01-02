@@ -2,6 +2,15 @@
 
 # Week 18 [12/28-1/3]
 
+# [1360](https://leetcode.com/problems/number-of-days-between-two-dates/)
+```python
+from datetime import datetime
+def main(date1, date2):
+   return abs((datetime.strptime(date1, "%Y-%m-%d") - datetime.strptime(date2, "%Y-%m-%d")).days)
+```
+#### Assumption: N = the length of given date string date1, M = the length of given date string date2
+#### Complexity: runtime = O(1), space = O(1)
+
 # [1346](https://leetcode.com/problems/check-if-n-and-its-double-exist/)
 ```python
 def main(arr):
