@@ -2,6 +2,20 @@
 
 # Week 18 [12/28-1/3]
 
+# [1408](https://leetcode.com/problems/string-matching-in-an-array/)
+```python
+def main(words):
+   res = []
+   for i in words:
+      for j in words:
+         if i != j and i in j:
+            res.append(i)
+            break
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N^2), space = O(N) to store/return result
+
 # [1037](https://leetcode.com/problems/valid-boomerang/)
 ```python
 def main(points):
