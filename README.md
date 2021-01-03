@@ -5,8 +5,8 @@
 # [577](https://leetcode.com/problems/employee-bonus/)
 ```sql
 SELECT E.name, B.bonus
-FROM Employee as E LEFT JOIN Bonus as B on E.empId = B.empId
-WHERE B.bonus < 1000 or B.bonus IS NULL
+FROM Employee AS E LEFT JOIN Bonus AS B ON E.empId = B.empId
+WHERE B.bonus < 1000 OR B.bonus IS NULL
 ```
 
 # [1360](https://leetcode.com/problems/number-of-days-between-two-dates/)
