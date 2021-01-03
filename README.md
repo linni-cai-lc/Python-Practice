@@ -1,120 +1,14 @@
 # Python-Practice
 
-# Week 18 [12/28-1/3]
+# Week 19 [1/4-1/10]
 
-# [577](https://leetcode.com/problems/employee-bonus/)
+# [596](https://leetcode.com/problems/classes-more-than-5-students/)
 ```sql
-SELECT E.name, B.bonus
-FROM Employee AS E LEFT JOIN Bonus AS B ON E.empId = B.empId
-WHERE B.bonus < 1000 OR B.bonus IS NULL
+SELECT class
+FROM courses
+GROUP BY class
+HAVING COUNT(DISTINCT student) >= 5
 ```
-
-# [1360](https://leetcode.com/problems/number-of-days-between-two-dates/)
-```python
-from datetime import datetime
-def main(date1, date2):
-   return abs((datetime.strptime(date1, "%Y-%m-%d") - datetime.strptime(date2, "%Y-%m-%d")).days)
-```
-#### Assumption: N = the length of given date string date1, M = the length of given date string date2
-#### Complexity: runtime = O(1), space = O(1)
-
-# [1346](https://leetcode.com/problems/check-if-n-and-its-double-exist/)
-```python
-def main(arr):
-   book = set(arr)
-   cnt_zero = 0
-   for i in arr:
-      half = i / 2
-      if half == 0:
-         cnt_zero += 1
-         if cnt_zero > 1:
-            return True
-      elif half in book:
-         return True
-   return False
-```
-#### Assumption: N = the number of elements in the given list
-#### Complexity: runtime = O(N), space = O(N) utilize hash set to reduce time complexity N^2 -> N
-
-# [1408](https://leetcode.com/problems/string-matching-in-an-array/)
-```python
-def main(words):
-   res = []
-   for i in words:
-      for j in words:
-         if i != j and i in j:
-            res.append(i)
-            break
-   return res
-```
-#### Assumption: N = the number of elements in the given list
-#### Complexity: runtime = O(N^2), space = O(N) to store/return result
-
-# [1037](https://leetcode.com/problems/valid-boomerang/)
-```python
-def main(points):
-   return (points[0][1] - points[1][1]) * (points[1][0] - points[2][0]) != \
-          (points[0][0] - points[1][0]) * (points[1][1] - points[2][1])
-```
-#### Assumption: N = the number of elements in the given list
-#### Complexity: runtime = O(N), space = O(1)
-#### Notes: utilize `(y1-y2)/(x1-x2)=(y2-y3)/(x2-x3)`, equal slope validates the same line
-
-# [860](https://leetcode.com/problems/lemonade-change/)
-```python
-def main(bills):
-   p5 = p10 = 0
-   for i in bills:
-      if i == 5:
-         p5 += 1
-      elif i == 10:
-         if not p5:
-            return False
-         p5 -= 1
-         p10 += 1
-      else:
-         if p5 and p10:
-            p5 -= 1
-            p10 -= 1
-         elif p5 >= 3:
-            p5 -= 3
-         else:
-            return False
-      return True
-```
-#### Assumption: N = the number of elements in the given list
-#### Complexity: runtime = O(N), space = O(1)
-
-# [922](https://leetcode.com/problems/sort-array-by-parity-ii/)
-```python
-def main(A):
-   res = [-1] * len(A)
-   even, odd = 0, 1
-   for val in A:
-      if val % 2 == 0:
-         res[even] = val
-         even += 2
-      else:
-         res[odd] = val
-         odd += 2
-   return res
-```
-#### Assumption: N = the number of elements in the given list
-#### Complexity: runtime = O(N), space = O(N)
-```python
-def main(A):
-   odd, even, res = [], [], []
-   for val in A:
-      if val % 2 == 0:
-         even += [val]
-      else:
-         odd += [val]
-   for i in range(len(A) // 2):
-      res += [even.pop(), odd.pop()]
-   return res
-```
-#### Assumption: N = the number of elements in the given list
-#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
