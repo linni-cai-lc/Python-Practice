@@ -2,6 +2,25 @@
 
 # Week 19 [1/4-1/10]
 
+# [1160](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/)
+```python
+from collections import Counter
+def main(words, chars):
+   book = Counter(chars)
+   res = 0
+   for i in words:
+      cur = Counter(i)
+      match = True
+      for letter in cur:
+         if cur[letter] > book[letter]:
+            match = False
+      if match:
+         res += len(i)
+   return res
+```
+#### Assumption: W = the number of words, L = the max length of word in words, C = the length of chars
+#### Complexity: runtime = O(WL+C), space = O(WL+C), constructing a counter of a word is O(L) for each word of length L
+
 # [492](https://leetcode.com/problems/construct-the-rectangle/)
 ```python
 from math import ceil
