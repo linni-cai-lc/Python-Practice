@@ -2,6 +2,18 @@
 
 # Week 19 [1/4-1/10]
 
+# [492](https://leetcode.com/problems/construct-the-rectangle/)
+```python
+from math import ceil
+def main(area):
+   for L in range(cel(area ** 0.5), area):
+      if area % L == 0:
+         return [L, area // L]
+   return [area, 1]
+```
+#### Assumption: N = the number size
+#### Complexity: runtime = O(sqrt(N)), space = O(1)
+
 # [1141](https://leetcode.com/problems/user-activity-for-the-past-30-days-i/)
 ```sql
 SELECT activity_date AS day, count(DISTINCT user_id) as active_users
