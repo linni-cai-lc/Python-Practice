@@ -2,6 +2,11 @@
 
 # Week 19 [1/4-1/10]
 
+# [195](https://leetcode.com/problems/tenth-line/)
+```shell
+sed -n '10p' < file.txt
+```
+
 # [1160](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/)
 ```python
 from collections import Counter
