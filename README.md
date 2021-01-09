@@ -2,6 +2,20 @@
 
 # Week 19 [1/4-1/10]
 
+# [1556](https://leetcode.com/problems/thousand-separator/)
+```python
+def main(n):
+   res = ""
+   num = str(n)[::-1]
+   for idx, val in enumerate(num):
+      res += val
+      if idx % 3 == 2 and idx < len(num) - 1:
+         res += "."
+   return res[::-1]
+```
+#### Assumption: N = the length of number
+#### Complexity: runtime = O(N), space = O(N) utilize reverse number string
+
 # [195](https://leetcode.com/problems/tenth-line/)
 ```shell
 sed -n '10p' < file.txt
