@@ -2,6 +2,18 @@
 
 # Week 20 [1/11-1/17]
 
+# [976](https://leetcode.com/problems/largest-perimeter-triangle/)
+```python
+def main(A):
+   A.sort(reverse = True)
+   for i in range(len(A) - 2):
+      if A[i] < A[i+1] + A[i+2]:
+         return A[i] + A[i+1] + A[i+2]
+   return 0 
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN) utilize sort, space = O(1)
+
 # [599](https://leetcode.com/problems/minimum-index-sum-of-two-lists/)
 ```python
 def main(list1, list2):
