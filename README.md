@@ -2,6 +2,31 @@
 
 # Week 20 [1/11-1/17]
 
+# [138](https://leetcode.com/problems/copy-list-with-random-pointer/)
+```python
+def main(head):
+   if not head:
+      return None
+   book = {}
+   book[None] = None
+   temp = head
+   while temp:
+      book[temp] = Node(temp.val, temp.next, temp.random)
+      temp = temp.next
+   temp = head
+   dummy = Node(-1)
+   res = dummy
+   while temp:
+      book[temp].next = book[temp.next]
+      book[temp].random = book[temp.random]
+      dummy.next = book[temp]
+      dummy = dummmy.next
+      temp = temp.next
+   return res.next
+```
+#### Assumption: N = the number of list nodes
+#### Complexity: runtime = O(N), space = O(N)
+
 # [1544](https://leetcode.com/problems/make-the-string-great/)
 ```python
 def main(s):
