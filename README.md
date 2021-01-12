@@ -2,6 +2,20 @@
 
 # Week 20 [1/11-1/17]
 
+# [1544](https://leetcode.com/problems/make-the-string-great/)
+```python
+def main(s):
+   res = []
+   for idx, val in enumerate(s):
+      if res and res[-1] != val and res[-1].upper() == val.upper():
+         res.pop(-1)
+      else:
+         res.append(val)
+   return "".join(res)
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 # [1667](https://leetcode.com/problems/fix-names-in-a-table/)
 ```sql
 SELECT user_id, CONCAT(UPPER(LEFT(name, 1)), LOWER(SUBSTRING(name, 2))) AS name
