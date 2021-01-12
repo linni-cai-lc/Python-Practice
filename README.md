@@ -2,6 +2,13 @@
 
 # Week 20 [1/11-1/17]
 
+# [1667](https://leetcode.com/problems/fix-names-in-a-table/)
+```sql
+SELECT user_id, CONCAT(UPPER(LEFT(name, 1)), LOWER(SUBSTRING(name, 2))) AS name
+FROM Users
+ORDER BY user_id
+```
+
 # [976](https://leetcode.com/problems/largest-perimeter-triangle/)
 ```python
 def main(A):
