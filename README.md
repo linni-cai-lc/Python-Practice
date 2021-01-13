@@ -132,6 +132,25 @@ def main(command):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+```python
+def main(command):
+   res = ""
+   cur = ""
+   book = {
+      "()": "o",
+      "(al)": "al",
+      "G": "G"
+   }
+   for i in command:
+      cur += i
+      if cur in book:
+         res += book[cur]
+         cur = ""
+   return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 # [584](https://leetcode.com/problems/find-customer-referee/)
 ```sql
 SELECT name
