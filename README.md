@@ -2,6 +2,18 @@
 
 # Week 20 [1/11-1/17]
 
+# [422](https://leetcode.com/problems/valid-word-square/)
+```python
+def main(words):
+   for i in range(len(words)):
+      for j in range(len(words[i])):
+         if j >= len(words) or i >= len(words[i]) or words[i][j] != words[j][i]:
+            return False
+   return True
+```
+#### Assumption: M = the number of words, N = the length of word
+#### Complexity: runtime = O(MN), space = O(1)
+
 # [1351](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/)
 ```python
 def main(grid):
