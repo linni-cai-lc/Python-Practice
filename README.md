@@ -2,6 +2,22 @@
 
 # Week 20 [1/11-1/17]
 
+# [1351](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/)
+```python
+def main(grid):
+   m = len(grid)
+   n = len(grid[0])
+   cnt = 0
+   for i in range(m):
+      for j in range(n):
+         if grid[i][j] < 0:
+            cnt += (m - i) * (n - j)
+            n -= 1
+   return cnt
+```
+#### Assumption: M = the number of rows in the given matrix, N = the number of cols in the given matrix
+#### Complexity: runtime = O(MN), space = O(1)
+
 # [26](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 ```python
 def main(nums):
