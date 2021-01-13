@@ -124,6 +124,14 @@ def main(list1, list2):
 #### Assumption: N1 = the number of elements in list1, N2 = the number of elements in list2
 #### Complexity: runtime = O(N1+N2), space = O(N1)
 
+# [1678](https://leetcode.com/problems/goal-parser-interpretation/)
+```python
+def main(command):
+   return command.replace("()", "o").replace("(al)", "al")
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 # [584](https://leetcode.com/problems/find-customer-referee/)
 ```sql
 SELECT name
