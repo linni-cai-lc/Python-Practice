@@ -124,6 +124,13 @@ def main(list1, list2):
 #### Assumption: N1 = the number of elements in list1, N2 = the number of elements in list2
 #### Complexity: runtime = O(N1+N2), space = O(N1)
 
+# [584](https://leetcode.com/problems/find-customer-referee/)
+```sql
+SELECT name
+FROM customer
+WHERE referee_id IS NULL OR referee_id != 2
+```
+
 ### Template
 # []()
 ```python
