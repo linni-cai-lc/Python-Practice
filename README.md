@@ -2,6 +2,21 @@
 
 # Week 20 [1/11-1/17]
 
+# [26](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+```python
+def main(nums):
+   if not nums:
+      return 0
+   pre = 0
+   for cur in range(1, len(nums)):
+      if nums[pre] != nums[cur]:
+         pre += 1
+         nums[pre] = nums[cur]
+   return pre + 1
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 # [138](https://leetcode.com/problems/copy-list-with-random-pointer/)
 ```python
 def main(head):
