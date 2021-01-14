@@ -2,6 +2,17 @@
 
 # Week 20 [1/11-1/17]
 
+# [1619](https://leetcode.com/problems/mean-of-array-after-removing-some-elements/)
+```python
+from math import ceil
+def main(arr):
+   arr.sort()
+   rm_size = ceil(len(arr) * 0.05)
+   return sum(arr[rm_size:len(arr)-rm_size]) / (len(arr) - 2 * rm_size)
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 # [806](https://leetcode.com/problems/number-of-lines-to-write-string/)
 ```python
 def main(widths, s):
