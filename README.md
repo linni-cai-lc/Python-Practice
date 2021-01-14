@@ -78,6 +78,15 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1118](https://leetcode.com/problems/number-of-days-in-a-month/)
+```python
+from calendar import monthrange
+def main(y, m):
+   return monthrange(y, m)[1]
+```
+#### Assumption: Y = year, M = month
+#### Complexity: runtime = O(1), space = O(1)
+
 # [1683](https://leetcode.com/problems/invalid-tweets/)
 ```sql
 SELECT tweet_id
