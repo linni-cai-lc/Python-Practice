@@ -78,6 +78,13 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1683](https://leetcode.com/problems/invalid-tweets/)
+```sql
+SELECT tweet_id
+FROM Tweets
+WHERE LENGTH(content) > 15
+```
+
 ### Template
 # []()
 ```python
