@@ -2,6 +2,28 @@
 
 # Week 20 [1/11-1/17]
 
+# [806](https://leetcode.com/problems/number-of-lines-to-write-string/)
+```python
+def main(widths, s):
+   cnt = 0
+   wid = 0
+   for idx, val in enumerate(s):
+      cur_wid = widths[ord(val) - ord("a")]
+      if wid + cur_wid <= 100:
+         wid += cur_wid
+         if wid == 100 and idx < len(s) - 1:
+            wid = 0
+            cnt += 1
+      else:
+         cnt += 1
+         wid = cur_wid
+   if wid > 0:
+      cnt += 1
+   return [cnt, wid]
+```
+#### Assumption: S = the length of the given string, W = the number of widths in the given width list
+#### Complexity: runtime = O(S), space = O(1)
+
 # [422](https://leetcode.com/problems/valid-word-square/)
 ```python
 def main(words):
