@@ -29,6 +29,28 @@ WHERE invoice > 20
 GROUP BY month
 ```
 
+# [1056](https://leetcode.com/problems/confusing-number/)
+```python
+def main(N):
+   book = {
+      "0": "0",
+      "1": "1",
+      "6": "9",
+      "8": "8",
+      "9": "6"
+   }
+   res = ""
+   pre = str(N)
+   for i in pre:
+      if i not in book:
+         return False
+      else:
+         res += book[i]
+   return res[::-1] != pre
+```
+#### Assumption: N = the length of the number string
+#### Complexity: runtime = O(N), space = O(N) return the result string
+
 ### Template
 # []()
 ```python
