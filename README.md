@@ -8,6 +8,11 @@ def main(nums, k):
    max_start = nums.index(max(nums[:-k+1] if k > 1 else nums))
    return nums[max_start:max_start+k]
 ```
+```python
+def main(nums, k):
+   max_start = nums.index(max(nums[:len(nums)-k+1]))
+   return nums[max_start:max_start+k]
+```
 #### Assumption: N = the number of elements in the given list, k = the size of subarray
 #### Complexity: runtime = O(N), space = O(1)
 
