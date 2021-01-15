@@ -65,6 +65,14 @@ def main(N):
 #### Assumption: N = the length of the number string
 #### Complexity: runtime = O(N), space = O(N) return the result string
 
+# [603](https://leetcode.com/problems/consecutive-available-seats/)
+```sql
+SELECT DISTINCT a.seat_id
+FROM cinema AS a JOIN cinema AS b on ABS(a.seat_id - b.seat_id) = 1
+WHERE a.free = true AND b.free = true
+ORDER BY a.seat_id
+```
+
 ### Template
 # []()
 ```python
