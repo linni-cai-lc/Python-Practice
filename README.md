@@ -2,6 +2,15 @@
 
 # Week 22 [1/24-1/30]
 
+# [1708](https://leetcode.com/problems/largest-subarray-length-k/)
+```python
+def main(nums, k):
+   max_start = nums.index(max(nums[:-k+1] if k > 1 else nums))
+   return nums[max_start:max_start+k]
+```
+#### Assumption: N = the number of elements in the given list, k = the size of subarray
+#### Complexity: runtime = O(N), space = O(1)
+
 # [1652](https://leetcode.com/problems/defuse-the-bomb/)
 ```python
 def main(code, k):
