@@ -2,6 +2,19 @@
 
 # Week 22 [1/24-1/30]
 
+# [1332](https://leetcode.com/problems/remove-palindromic-subsequences/)
+```python
+def main(s):
+   if not s:
+      return 0
+   if s == s[::-1]:
+      return 1
+   return 2
+```
+#### Assumption: N = the length of given string
+#### Complexity: runtime = O(N), space = O(N)
+#### Intuition: since the string only contains 2 types of letter, subsequence doesn't require consecutive letters, substring requires consecutive letters
+
 # [203](https://leetcode.com/problems/remove-linked-list-elements/)
 ```python
 def main(head, val):
