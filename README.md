@@ -2,6 +2,24 @@
 
 # Week 22 [1/24-1/30]
 
+# [203](https://leetcode.com/problems/remove-linked-list-elements/)
+```python
+def main(head, val):
+   dummy = ListNode(-1)
+   dummy.next = head
+   pre = dummy
+   cur = dummy.next
+   while cur:
+      if cur.val == val:
+         pre.next = cur.next
+      else:
+         pre = cur
+      cur = cur.next
+   return dummy.next
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 # [1708](https://leetcode.com/problems/largest-subarray-length-k/)
 ```python
 def main(nums, k):
