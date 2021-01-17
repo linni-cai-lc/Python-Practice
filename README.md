@@ -29,6 +29,13 @@ W2 = the number of words in word2 list, \
 L2 = the length of a word in word2 list
 #### Complexity: runtime = O(W1L1+W2L2), space = O(1)
 
+# [1527](https://leetcode.com/problems/patients-with-a-condition/)
+```sql
+SELECT patient_id, patient_name, condtions
+FROM Patients
+WHERE conditions LIKE "% DIAB1%" OR conditions LIKE "DIAB1%"
+```
+
 ### Template
 # []()
 ```python
