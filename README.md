@@ -2,6 +2,17 @@
 
 # Week 23 [1/31-1/7]
 
+# [521](https://leetcode.com/problems/longest-uncommon-subsequence-i/)
+```python
+def main(a, b):
+   if a == b:
+      return -1
+   return max(len(a), len(b))
+```
+#### Assumption: A = the length of string a, B = the length of string b
+#### Complexity: runtime = O(min(A, B)), space = O(1)
+#### Intuition: dominant time cost is on string comparison, provides min(A, B), for different lengths, comparison finished early on shorter string.
+
 # [1662](https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/)
 ```python
 def main(word1, word2):
