@@ -2,6 +2,19 @@
 
 # Week 23 [1/31-1/7]
 
+# [1018](https://leetcode.com/problems/binary-prefix-divisible-by-5/)
+```python
+def main(A):
+   cur = 0
+   res = []
+   for i in range(len(A)):
+      cur += cur + A[i]
+      res += [cur % 5 == 0]
+   return res
+```
+#### Assumption: N = the number of integers in the given list
+#### Complexity: runtime = O(N), space = O(1) exclude result space
+
 # [1668](https://leetcode.com/problems/maximum-repeating-substring/)
 ```python
 def main(sequence, word):
