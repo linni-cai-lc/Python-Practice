@@ -5,6 +5,23 @@
 # [1228](https://leetcode.com/problems/missing-number-in-arithmetic-progression/)
 ```python
 def main(arr):
+   first = arr[0]
+   delta = (arr[-1] - first) // len(arr)
+   l = 0
+   r = len(arr) - 1
+   while l < r:
+      m = (l + r) // 2
+      if arr[m] == first + m * delta:
+         l = m + 1
+      else:
+         r = m
+   return first + delta * l
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(logN), space = O(1)
+
+```python
+def main(arr):
    delta = []
    for i in range(1, len(arr)):
       delta += [arr[i] - arr[i-1]]
