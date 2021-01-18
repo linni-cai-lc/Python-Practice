@@ -19,6 +19,7 @@ def main(arr):
 ```
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(logN), space = O(1)
+#### Intuition: the problem mentions that the removed element is not the first/last element in the array, then we can obtain the correct delta value from the last and first elements and current length (the real intervals + 1), utilize binary search to reduce time complexity
 
 ```python
 def main(arr):
