@@ -2,6 +2,19 @@
 
 # Week 23 [1/31-1/7]
 
+# [1668](https://leetcode.com/problems/maximum-repeating-substring/)
+```python
+def main(sequence, word):
+   cnt = 1
+   cur = word
+   while cur in sequence:
+      cnt += 1
+      cur += word
+   return cnt - 1
+```
+#### Assumption: S = the length of sequence string, W = the length of word string, K = the occurrence of word string in sequence string
+#### Complexity: runtime = O(KW), space = O(KW)
+
 # [521](https://leetcode.com/problems/longest-uncommon-subsequence-i/)
 ```python
 def main(a, b):
