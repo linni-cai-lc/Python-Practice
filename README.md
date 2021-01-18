@@ -2,6 +2,24 @@
 
 # Week 23 [1/31-1/7]
 
+# [1228](https://leetcode.com/problems/missing-number-in-arithmetic-progression/)
+```python
+def main(arr):
+   delta = []
+   for i in range(1, len(arr)):
+      delta += [arr[i] - arr[i-1]]
+   delta_set = set(delta)
+   if len(delta_set) == 1:
+      return arr[0]
+   diff1 = delta_set.pop()
+   diff2 = delta_set.pop()
+   real_delta = diff1 if abs(diff1) < abs(diff2) else diff2
+   prob_delta = diff2 is abs(diff2) < abs(diff1) else diff1
+   return arr[delta.index(prob_delta)] + real_delta
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 # [1018](https://leetcode.com/problems/binary-prefix-divisible-by-5/)
 ```python
 def main(A):
