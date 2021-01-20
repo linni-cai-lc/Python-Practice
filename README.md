@@ -52,7 +52,7 @@ def main(A, K):
    return list(str(int("".join(map(str, A))) + K))
 ```
 #### Assumption: A = the number of elements in list A, K = the size of number to add in as K
-#### Complexity: runtime = O(max(A, K)), space = O(max(A, K))
+#### Complexity: runtime = O(max(A, K)), space = O(1), return result space = O(max(A, K))
 
 ### Template
 # []()
