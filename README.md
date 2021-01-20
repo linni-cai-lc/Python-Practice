@@ -35,6 +35,17 @@ def main(nums, k):
 #### Assumption: N = the number of elements in the nums list, K = the size of subarray
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1672](https://leetcode.com/problems/richest-customer-wealth/)
+```python
+def main(accounts):
+   maxi = 0
+   for i in accounts:
+      maxi = max(maxi, sum(i))
+   return maxi
+```
+#### Assumption: M = the number of customers, N = the number of accounts for each customer
+#### Complexity: runtime = O(MN), space = O(1)
+
 ### Template
 # []()
 ```python
