@@ -44,7 +44,15 @@ def main(accounts):
    return maxi
 ```
 #### Assumption: M = the number of customers, N = the number of accounts for each customer
-#### Complexity: runtime = O(MN), space = O(1)
+#### Complexity: runtime = O(MN), space = O(1z)
+
+# [989](https://leetcode.com/problems/add-to-array-form-of-integer/)
+```python
+def main(A, K):
+   return list(str(int("".join(map(str, A))) + K))
+```
+#### Assumption: A = the number of elements in list A, K = the size of number to add in as K
+#### Complexity: runtime = O(max(A, K)), space = O(max(A, K))
 
 ### Template
 # []()
