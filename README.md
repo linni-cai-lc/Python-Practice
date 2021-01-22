@@ -60,6 +60,25 @@ SELECT *, CASE WHEN x+y>z AND x+z>y AND y+z>x THEN "Yes" ELSE "No" END AS triang
 FROM triangle
 ```
 
+# [1576](https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/)
+```python
+def main(s):
+   s = [s[0]] + list(s) + [s[-1]]
+   for idx, val in enumerate(s[1:-1]):
+      if val == "?":
+         pre = s[1+idx-1]
+         nex = s[1+idx+1]
+         book = set("abc")
+         if pre in book:
+            book.remove(pre)
+         if nex in book:
+            book.remove(nex)
+         s[1+idx] = book.pop()
+   return "".join(s[1:-1])
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```python
