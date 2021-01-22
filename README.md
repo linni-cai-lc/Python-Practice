@@ -54,6 +54,12 @@ def main(A, K):
 #### Assumption: A = the number of elements in list A, K = the size of number to add in as K
 #### Complexity: runtime = O(max(A, K)), space = O(1), return result space = O(max(A, K))
 
+# [610](https://leetcode.com/problems/triangle-judgement/)
+```sql
+SELECT *, CASE WHEN x+y>z AND x+z>y AND y+z>x THEN "Yes" ELSE "No" END AS triangle
+FROM triangle
+```
+
 ### Template
 # []()
 ```python
