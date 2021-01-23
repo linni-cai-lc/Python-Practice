@@ -2,6 +2,76 @@
 
 # Week 24 [2/8-2/14]
 
+# [Google foobar l3p2 Markov Chains]
+```python
+import numpy as np
+from numpy.linalg import inv, norm
+from numpy import concatenate, vstack, asmatrix
+from fractions import Fraction
+
+def get_sub_val(rows, cols, old_m):
+   new_m = np.zeros((len(rows), len(cols)))
+   for row_idx, row_val in enumerate(rows):
+      for col_idx, col_val in enumerate(cols):
+         new_m[row_idx][col_idx] = old_m[row_val][col_val]
+   return new_m
+
+def get_q_matrix(m, non_term_lst):
+   return get_sub_val(non_term_lst, non_term_lst, m)
+
+def get_r_matrix(m, term_lst, non_term_lst):
+   return get_sub_val(non_term_lst, term_lst, m)
+
+def get_sep_lst(m):
+    term_lst = []
+    non_term_lst = []
+    for idx, val in enumerate(m):
+        if sum(val) == 0:
+            term_lst += [idx]
+        else:
+            non_term_lst += [idx]
+    return term_lst, non_term_lst, len(term_lst), len(non_term_lst)
+
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def lcm(a, b):
+    return abs(a*b) // gcd(a, b)
+
+def solution(m):
+    np.set_printoptions(formatter={'all':lambda x: str(Fraction(x).limit_denominator())})
+    term_lst, non_term_lst, term_size, non_term_size = get_sep_lst(m)
+    if non_term_size == 0:
+        return [1, 1]
+    identity_matrix = np.identity(non_term_size)
+    zero_matrix = np.zeros((term_size, non_term_size))
+    q_matrix = get_q_matrix(m, non_term_lst)
+    r_matrix = get_r_matrix(m, term_lst, non_term_lst)    
+    sub_matrix = concatenate((r_matrix[0], q_matrix[0]))
+    sub_matrix /= sum(sub_matrix)
+    for idx in range(1, non_term_size):
+        cur = concatenate((r_matrix[idx], q_matrix[idx]))
+        cur = cur / sum(cur)
+        sub_matrix = vstack((sub_matrix, cur))
+    if non_term_size == 1:
+        sub_matrix = [sub_matrix]
+    norm_q_matrix = asmatrix([i[term_size:] for i in sub_matrix])
+    norm_r_matrix = asmatrix([i[:term_size] for i in sub_matrix])
+    norm_sub = sub_matrix / norm(sub_matrix)   
+    f_matrix = inv(identity_matrix - norm_q_matrix)
+    fr_matrix = f_matrix * norm_r_matrix
+    max_denom = 1
+    for i in range(term_size):
+        max_denom = lcm(max_denom, Fraction(fr_matrix.item((0,i))).limit_denominator().denominator)
+    res = []
+    for i in range(term_size):
+        res += [(Fraction(fr_matrix.item((0,i))).limit_denominator() * max_denom).numerator]
+    res += [max_denom]
+    return res
+```
+
 # [705](https://leetcode.com/problems/design-hashset/)
 ```python
 class MyHashSet:
