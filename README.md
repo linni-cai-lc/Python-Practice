@@ -26,6 +26,24 @@ def main(matrix):
 #### Assumption: M = the number of rows in the given matrix, N = the number of cols in the given matrix
 #### Complexity: runtime = O(MN), space = O(MN)
 
+# [941](https://leetcode.com/problems/valid-mountain-array/)
+```python
+def main(arr):
+   size = len(arr)
+   if size < 3:
+      return False
+   idx = 1
+   while idx < size and arr[idx] > arr[idx-1]:
+      idx += 1
+   if idx == 1 or idx == size:
+      return False
+   while idx < size and arr[idx] > arr[idx-1]:
+      idx += 1
+   return idx == size and arr[idx-1] < arr[idx-2]
+```
+#### Assumption: N = the number of elements in the given
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```python
