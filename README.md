@@ -99,7 +99,7 @@ class KthLargest:
       return self.nums[0]
 ```
 #### Assumption: N = the number of elements in nums, K = the rank of largest num to request
-#### Complexity: runtime = O(logN), space = O(1)
+#### Complexity: init runtime = O(NlogK), add runtime = O(logK), space = O(1)
 
 ### Template
 # []()
