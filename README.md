@@ -101,6 +101,26 @@ class KthLargest:
 #### Assumption: N = the number of elements in nums, K = the rank of largest num to request
 #### Complexity: init runtime = O(NlogK), add runtime = O(logK), space = O(1)
 
+# [724](https://leetcode.com/problems/find-pivot-index/)
+```python
+def main(nums):
+   if not nums:
+      return -1
+   sumi = sum(nums) - nums[0]
+   l = 0
+   r = sumi
+   if l == r:
+      return 0
+   for i in range(1, len(nums)):
+      l += nums[i-1]
+      r -= nums[i]
+      if l == r:
+            return i
+   return -1
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```python
