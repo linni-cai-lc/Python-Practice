@@ -68,6 +68,14 @@ def main(n):
 #### Assumption: N = the matrix length size
 #### Complexity: runtime = O(N*N), space = O(1)
 
+# [453](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)
+```python
+def main(nums):
+   return sum(nums) - min(nums) * len(nums)
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```python
