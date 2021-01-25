@@ -76,6 +76,31 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [703](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
+```python
+from heapq import heappush, heappushpop
+class KthLargest:
+   def __init__(self, k, nums):
+      self.k = k
+      self.nums = nums
+      for i in nums:
+         if len(self.nums) < k:
+            heappush(self.nums, i)
+         else:
+            if i > self.nums[0]:
+               heappushpop(self.nums, i)
+   
+   def add(self, val):
+      if len(self.nums) < self.k:
+         heappush(self.nums, val)
+      else:
+         if val > self.nums[0]:
+            heappushpop(self.nums, val)
+      return self.nums[0]
+```
+#### Assumption: N = the number of elements in nums, K = the rank of largest num to request
+#### Complexity: runtime = O(logN), space = O(1)
+
 ### Template
 # []()
 ```python
