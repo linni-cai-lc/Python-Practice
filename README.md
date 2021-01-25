@@ -44,6 +44,30 @@ def main(arr):
 #### Assumption: N = the number of elements in the given
 #### Complexity: runtime = O(N), space = O(1)
 
+# [59](https://leetcode.com/problems/spiral-matrix-ii/)
+```python
+def main(n):
+   DIRS = [(0,1),(1,0),(0,-1),(-1,0)]
+   # -> | <- ^
+   #    v    |
+   cur = 0
+   res = [[0] * n for _ in range(n)]
+   x, y = 0, 0
+   for i in range(1, n**2+1):
+      res[x][y] = i
+      dx, dy = DIRS[cur % 4]
+      if 0<=x+dx<n and 0<=y+dy<n and not res[x+dx][y+dy]:
+            pass
+      else:
+            cur += 1
+            dx, dy = DIRS[cur % 4]
+      x += dx
+      y += dy
+   return res
+```
+#### Assumption: N = the matrix length size
+#### Complexity: runtime = O(N*N), space = O(1)
+
 ### Template
 # []()
 ```python
