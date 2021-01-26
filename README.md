@@ -106,9 +106,8 @@ class KthLargest:
 def main(nums):
    if not nums:
       return -1
-   sumi = sum(nums) - nums[0]
    l = 0
-   r = sumi
+   r = sum(nums) - nums[0]
    if l == r:
       return 0
    for i in range(1, len(nums)):
@@ -117,6 +116,23 @@ def main(nums):
       if l == r:
             return i
    return -1
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
+# [238](https://leetcode.com/problems/product-of-array-except-self/)
+```python
+def main(nums):
+   res = [1]
+   cur = 1
+   for idx in range(1, len(nums)):
+      cur *= nums[idx-1]
+      res += [cur]
+   cur = 1
+   for idx in range(1, len(nums)+1):
+      res[-idx] *= cur
+      cur *= nums[-idx]
+   return res
 ```
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
