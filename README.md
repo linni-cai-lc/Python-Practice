@@ -153,6 +153,18 @@ def main(num):
 #### Assumption: the given number = 2^A * 3^B * 5^C
 #### Complexity: runtime = O(A+B+C), space = O(1)
 
+# [172](https://leetcode.com/problems/factorial-trailing-zeroes/)
+```python
+def main(n):
+   cnt = 0
+   while n > 0:
+      n //= 5
+      cnt += n
+   return cnt
+```
+#### Assumption: N = the number size
+#### Complexity: runtime = O(logN), space = O(1)
+
 ### Template
 # []()
 ```python
