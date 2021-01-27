@@ -137,6 +137,22 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# [263](https://leetcode.com/problems/ugly-number/)
+```python
+def main(num):
+   if num == 0:
+      return False
+   while num % 2 == 0:
+      num //= 2
+   while num % 3 == 0:
+      num //= 3
+   while num % 5 == 0:
+      num //= 5
+   return num == 1
+```
+#### Assumption: the given number = 2^A * 3^B * 5^C
+#### Complexity: runtime = O(A+B+C), space = O(1)
+
 ### Template
 # []()
 ```python
