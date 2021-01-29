@@ -165,6 +165,28 @@ def main(n):
 #### Assumption: N = the number size
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [1399](https://leetcode.com/problems/count-largest-group/)
+```python
+from collections import defaultdict as dd
+def main(n):
+   book = dd(int)
+   maxi, cnt = 0, 0
+   for i in range(1, n+1):
+      cur = 0
+      while i > 0:
+         cur += i % 10
+         i //= 10
+      book[cur] += 1
+      if book[cur] > maxi:
+         maxi = book[cur]
+         cnt = 1
+      elif book[cur] == maxi:
+         cnt += 1
+   return cnt
+```
+#### Assumption: N = the number size
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```python
