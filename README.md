@@ -187,6 +187,22 @@ def main(n):
 #### Assumption: N = the number size
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1180](https://leetcode.com/problems/count-substrings-with-only-one-distinct-letter/)
+```python
+def main(S):
+   cnt, cont, pre = 0, 0, None
+   for i in S:
+      if i != pre:
+         cnt += (1 + cont) * cont // 2
+         cont = 1
+         pre = i
+      else:
+         cont += 1
+   return cnt + (1 + cont) * cont // 2
+```
+#### Assumption: N = the length of the string S
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```python
