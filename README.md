@@ -203,6 +203,25 @@ def main(S):
 #### Assumption: N = the length of the string S
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1175](https://leetcode.com/problems/prime-arrangements/)
+```python
+from math import sqrt, factorial as f
+def is_prime(num):
+   for i in range(2, int(sqrt(num)) + 1):
+      if num % i == 0:
+         return False
+   return num > 1
+
+def main(n):
+   cnt = 0
+   for i in range(1, n+1):
+      if is_prime(i):
+         cnt += 1
+   return f(cnt) * f(n-cnt) % (10 ** 9 + 7)
+```
+#### Assumption: N = the number size
+#### Complexity: runtime = O(N^1.5) = O(N^0.5) from is_prime for loop * O(N) from main for loop, space = O(1)
+
 ### Template
 # []()
 ```python
