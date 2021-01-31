@@ -99,6 +99,21 @@ def main(arr):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# [788](https://leetcode.com/problems/rotated-digits/)
+```python
+def main(N):
+   valid = set("2569")
+   invalid = set("347")
+   cnt = 0
+   for i in range(1, N+1):
+      cur = set(str(i))
+      if len(cur.intersection(valid)) > 0 and len(cur.difference(invalid)) == len(cur):
+            cnt += 1
+   return cnt
+```
+#### Assumption: N = the number size
+#### Complexity: runtime = O(NlogN), space = O(logN)
+
 ### Template
 # []()
 ```python
