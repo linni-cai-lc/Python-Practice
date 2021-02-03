@@ -57,6 +57,53 @@ def main(head, m, n):
 #### Assumption: H = the number of nodes, M = the number of nodes to skip, N = the number of nodes to delete
 #### Complexity: runtime = O(N), space = O(1)
 
+# [999](https://leetcode.com/problems/available-captures-for-rook/)
+```python
+def main(board):
+   row, col = None, None
+   res = 0
+   for idx, val in enumerate(board):
+      if "R" in val:
+            row = idx
+            col = val.index("R")
+            break
+   for c in range(col-1, -1, -1):
+      if board[row][c] == ".":
+            pass
+      elif board[row][c] == "B":
+            break
+      else:
+            res += 1
+            break
+   for c in range(col+1, len(board[row])):
+      if board[row][c] == ".":
+            pass
+      elif board[row][c] == "B":
+            break
+      else:
+            res += 1
+            break
+   for r in range(row-1, -1, -1):
+      if board[r][col] == ".":
+            pass
+      elif board[r][col] == "B":
+            break
+      else:
+            res += 1
+            break
+   for r in range(row+1, len(board)):
+      if board[r][col] == ".":
+            pass
+      elif board[r][col] == "B":
+            break
+      else:
+            res += 1
+            break
+   return res
+```
+#### Assumption: N = board side length, matrix of n x n
+#### Complexity: runtime = O(N^2), space = O(1)
+
 ### Template
 # []()
 ```python
