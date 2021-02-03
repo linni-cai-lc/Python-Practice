@@ -34,6 +34,29 @@ def main(arr, k):
 #### Assumption: N = the number of elements in the array, K = the request index of miss number
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [1474](https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/)
+```python
+def main(head, m, n):
+   tmp = head
+   cnt = 0
+   while tmp:
+      cnt += 1
+      if cnt == m:
+            cnt = 0
+            del_cnt = 0
+            tmp2 = tmp
+            while tmp2:
+               del_cnt += 1
+               tmp2 = tmp2.next
+               if del_cnt > n:
+                  break
+            tmp.next = tmp2
+      tmp = tmp.next
+   return head
+```
+#### Assumption: H = the number of nodes, M = the number of nodes to skip, N = the number of nodes to delete
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```python
