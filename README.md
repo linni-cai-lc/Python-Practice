@@ -124,7 +124,29 @@ def main(low, high):
 #### Assumption: L = the number size of low, H = the number size of high
 #### Complexity: runtime = O(1), space = O(1)
 
+# [1350](https://leetcode.com/problems/students-with-invalid-departments/)
+```sql
+SELECT id, name
+FROM Students
+WHERE department_id not in (
+    SELECT id
+    FROM Departments
+)
+
+# Alternative lower performance
+SELECT id, name
+FROM Students
+WHERE id not in (
+    SELECT S.id
+    FROM Students AS S JOIN Departments AS D ON S.department_id = D.id
+)
+```
+
 ### Template
+# []()
+```sql
+```
+
 # []()
 ```python
 ```
