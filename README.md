@@ -2,6 +2,18 @@
 
 # Week 28 [3/8-3-14]
 
+# [1450](https://leetcode.com/problems/number-of-students-doing-homework-at-a-given-time/)
+```python
+def main(startTime, endTime, queryTime):
+   cnt = 0
+   for i in range(len(startTime)):
+      if startTime[i] <= queryTime <= endTime[i]:
+         cnt += 1
+   return cnt
+```
+#### Assumption: N = the number of elements in start time list or end time list, of equal length
+#### Complexity: runtime = O(N), space = O(1)
+
 # [1385](https://leetcode.com/problems/find-the-distance-value-between-two-arrays/)
 ```python
 def main(arr1, arr2):
