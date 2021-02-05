@@ -116,6 +116,14 @@ def main(board):
 #### Assumption: N = board side length, matrix of n x n
 #### Complexity: runtime = O(N^2), space = O(1)
 
+# [1523](https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/)
+```python
+def main(low, high):
+   return (high + 1) // 2 - low // 2
+```
+#### Assumption: L = the number size of low, H = the number size of high
+#### Complexity: runtime = O(1), space = O(1)
+
 ### Template
 # []()
 ```python
