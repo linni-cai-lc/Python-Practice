@@ -33,6 +33,14 @@ def main(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1704](https://leetcode.com/problems/determine-if-string-halves-are-alike/)
+```python
+def main(s):
+   return len(re.sub("a|e|i|o|u", "", s[:len(s)//2].lower())) == len(re.sub("a|e|i|o|u", "", s[len(s)//2:].lower()))
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
