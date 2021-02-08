@@ -41,6 +41,20 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1475](https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/)
+```python
+def main(prices):
+   stack = []
+   for idx, val in enumerate(prices):
+      while stack and prices[stack[-1]] >= val:
+         prices[stack.pop()] -= val
+      stack += [idx]
+   return prices
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+#### Note: utilize stack to store index for unused elements in the list, if the current value in the list is smaller than or equal to the top of the stack, make the discount update on the stack popped index in the price list.
+
 ### Template
 # []()
 ```sql
