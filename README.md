@@ -55,6 +55,22 @@ def main(prices):
 #### Complexity: runtime = O(N), space = O(N)
 #### Note: utilize stack to store index for unused elements in the list, if the current value in the list is smaller than or equal to the top of the stack, make the discount update on the stack popped index in the price list.
 
+# [346](https://leetcode.com/problems/moving-average-from-data-stream/)
+```python
+class MovingAverage:
+    def __init__(self, size: int):
+        self.lst = []
+        self.size = size
+
+    def next(self, val: int):
+        if len(self.lst) == self.size:
+            self.lst.pop(0)
+        self.lst += [val]
+        return sum(self.lst) / len(self.lst) 
+```
+#### Assumption: N = the object property list size
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
