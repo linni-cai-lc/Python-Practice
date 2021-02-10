@@ -71,6 +71,22 @@ class MovingAverage:
 #### Assumption: N = the object property list size
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1413](https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/)
+```python
+def main(nums):
+   cur = 1
+   res = 1
+   for i in nums:
+      if cur + i < 1:
+            diff = 1 - (cur + i)
+            res += diff
+            cur += diff
+      cur += i
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
