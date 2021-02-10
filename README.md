@@ -87,6 +87,18 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [168](https://leetcode.com/problems/excel-sheet-column-title/)
+```python
+def main(n):
+   res = ""
+   while n > 0:
+      res += chr(ord("A") + (n-1)%26)
+      n = (n-1)//26
+   return res[::-1]
+```
+#### Assumption: N = the number size
+#### Complexity: runtime = O(N), space = O(1) exclude the result space
+
 ### Template
 # []()
 ```sql
