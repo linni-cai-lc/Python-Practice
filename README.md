@@ -2,6 +2,29 @@
 
 # Week 30 [3/22-3-28]
 
+# [276](https://leetcode.com/problems/paint-fence/)
+```python
+def main(n, k):
+   if n == 0:
+      return 0
+   c1, c2 = 0, k
+   for i in range(2, n+1):
+      c1, c2 = c2, (c1 + c2) * (k - 1)
+   return c1 + c2
+```
+#### Note: this is a dp problem.
+- Let's assume:
+  - F[i][0] = the number of ways to paint the first i fences, i and i-1 have different colors
+  - F[i][1] = the number of ways to paint the first i fences, i and i-1 have the same color
+- F[i][0]:
+  - i = 1: k
+  - i > 1: (F[i-1][0] + F[i-1][1])*(k-1) = #(pre and cur have different colors) + #(pre and cur have the same color) * #(colors left)
+- F[i][1]:
+  - i = 1: k
+  - i > 1: F[i-1][0]
+#### Assumption: N = the number of fences, K = the number of colors
+#### Complexity: runtime = O(N), space = O(1)
+
 # [746](https://leetcode.com/problems/min-cost-climbing-stairs/)
 ```python
 def main(cost):
@@ -10,7 +33,10 @@ def main(cost):
       c1, c2 = i + min(c1, c2), c1
    return min(c1, c2)
 ```
-#### Note: this is a dp problem. Let's assume F(i) = the min cost of the i th element, the dp formula is F[i] = C[i] + min(F[i-1], F[i-2]), since it is easier to calculate from the back to the front. When we have cost reversed version, convert to a new formula: F[i] = C[i] + min(F[i+1], F[i+2]). c1 is to accumulate cost with current cost, c2 is to give up current cost (skip).
+#### Note: this is a dp problem. 
+- Let's assume F(i) = the min cost of the i th element.
+- The dp formula: F[i] = C[i] + min(F[i-1], F[i-2]), since it is easier to calculate from the back to the front. When we have cost reversed version, convert to following.
+- The new formula: F[i] = C[i] + min(F[i+1], F[i+2]). c1 is to accumulate cost with current cost, c2 is to give up current cost (skip).
 #### Assumption: N = the number of elements in the cost list
 #### Complexity: runtime = O(N), space = O(1)
 
