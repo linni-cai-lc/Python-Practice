@@ -40,6 +40,26 @@ def main(cost):
 #### Assumption: N = the number of elements in the cost list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [303](https://leetcode.com/problems/range-sum-query-immutable/)
+```python
+from collections import defaultdict as dd
+
+class NumArray:
+
+
+    def __init__(self, nums: List[int]):
+        self.book = dd(int)
+        for i in range(len(nums)):
+            self.book[i+1] = self.book[i] + nums[i]
+        
+
+    def sumRange(self, i: int, j: int) -> int:
+        return self.book[j+1]-self.book[i]
+```
+#### Utilize default dict to provide set search, to improve runtime to O(1)
+#### Assumption: N = the number elements in the array
+#### Complexity: runtime = O(1), space = O(N)
+
 # [232](https://leetcode.com/problems/implement-queue-using-stacks/)
 ```python
 class MyQueue:
