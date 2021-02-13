@@ -99,6 +99,26 @@ class MyQueue:
         return len(self.lst) == 0
 ```
 
+# [266](https://leetcode.com/problems/palindrome-permutation/)
+```python
+from collections import Counter
+def main(s):
+    book = Counter(s)
+    odd = 0
+    even = 0
+    for i in book:
+        if book[i] % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+    return odd == (len(s) % 2)
+```
+#### Utilize counter to help count the letter occurrence:
+- for even length, there should be no letter occurred in odd times
+- for odd length, there should be one letter occurred in odd times
+#### Assumption: N = the given string length
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
