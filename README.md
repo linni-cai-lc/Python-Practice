@@ -119,6 +119,25 @@ def main(s):
 #### Assumption: N = the given string length
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1046](https://leetcode.com/problems/last-stone-weight/)
+```python
+from heapq import heappush, heappop, heapify
+def main(stones):
+    stones = [-i for i in stones]
+    heapify(stones)
+    while len(stones) > 1:
+        # print(stones)
+        maxi_1 = heappop(stones)
+        maxi_2 = heappop(stones)
+        # print(maxi_1, maxi_2)
+        if maxi_1 != maxi_2:
+            heappush(stones, maxi_1-maxi_2)
+    return -sum(stones)
+```
+#### Note: utilize max-heap to help reduce time complexity, since python heap supports min-heap, we convert the original stone list to negative, then the max would be the min, fit the heap.
+#### Assumption: N = the number of elements in the stone list
+#### Complexity: runtime = O(NlogN), space = O(1) modify original list in-place
+
 ### Template
 # []()
 ```sql
