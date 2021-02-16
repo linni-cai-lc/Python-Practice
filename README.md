@@ -2,6 +2,30 @@
 
 # Week 30 [3/22-3-28]
 
+# [1275](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)
+```python
+from collections import defaultdict as dd
+def main(moves):
+    book_a = dd(int)
+    book_b = dd(int)
+    cnt = 0
+    for i, j in moves:
+        cur = book_a if cnt % 2 == 0 else book_b
+        cur["r"+str(i)] += 1
+        cur["c"+str(j)] += 1
+        if i == j:
+            cur["d1"] += 1
+        if i == 2 - j:
+            cur["d2"] += 1
+        if 3 in cur.values():
+            return "A" if cnt % 2 == 0 else "B"
+        cnt += 1
+    return "Pending" if cnt < 9 else "Draw"
+```
+#### Utilize dictionary to store the number on each vertical/horizontal/slope line
+#### Assumption: N = the number of moves
+#### Complexity: runtime = O(N), space = O(N)
+
 # [276](https://leetcode.com/problems/paint-fence/)
 ```python
 def main(n, k):
