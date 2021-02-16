@@ -138,6 +138,21 @@ def main(stones):
 #### Assumption: N = the number of elements in the stone list
 #### Complexity: runtime = O(NlogN), space = O(1) modify original list in-place
 
+# [1071](https://leetcode.com/problems/greatest-common-divisor-of-strings/)
+```python
+def main(str1:, str2):
+    if len(str1) < len(str2):
+        str1, str2 = str2, str1
+    res = ""
+    for i in range(1, len(str2)+1):
+        cur = str2[:i]
+        if len(str1.replace(cur, "")) == 0 and len(str2.replace(cur, "")) == 0:
+            res = str2[:i]
+    return res
+```
+#### Assumption: S1 = the length of string1, S2 = the length of string2
+#### Complexity: runtime = O(S2*(S1+S2)), space = O(S1+S2)
+
 ### Template
 # []()
 ```sql
