@@ -61,6 +61,24 @@ def main(str1:, str2):
 #### Assumption: S1 = the length of string1, S2 = the length of string2
 #### Complexity: runtime = O(S1+S2), space = O(S1+S2)
 
+# [157](https://leetcode.com/problems/read-n-characters-given-read4/)
+```python
+def main(buf, n):
+    cnt = 0
+    tmp = [None] * 4
+    cur = read4(tmp)
+    while cur and cnt < n:
+        pre_cnt = cnt
+        diff = min(n-cnt, cur)
+        cnt += diff
+        for i in range(diff):
+            buf[pre_cnt+i] = tmp[i]
+        cur = read4(tmp)
+    return cnt
+```
+#### Assumption: N = the number of copy size
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
