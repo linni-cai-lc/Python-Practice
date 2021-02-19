@@ -89,19 +89,17 @@ class Solution:
             self.book[len(i)] += [i]
         self.res = ""
         for i in self.book[1]:
-            path = []
-            self.dfs(i, path)
+            self.dfs(i, 0)
         return self.res
     
-    def dfs(self, cur, path):
-        path += [cur]
+    def dfs(self, cur, cnt):
+        cnt += 1
         for i in self.book[len(cur)+1]:
-            if i.startswith(cur):
-                self.dfs(i, path[:])
-        if len(path) == len(cur) and \
-           (len(cur) > len(self.res)) or \
+            if cur + i[-1] == i:
+                self.dfs(i, cnt)
+        if (len(cur) > len(self.res)) or \
            (len(cur) == len(self.res) and (not self.res or cur < self.res)):
-            self.res = cur     
+            self.res = cur 
 ```
 #### Utilize DFS and dictionary to build up a trie, access key by word length build up from 1
 #### Assumption: N = the total number of letters in the word list
