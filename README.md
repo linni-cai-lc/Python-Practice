@@ -105,6 +105,26 @@ class Solution:
 #### Assumption: N = the total number of letters in the word list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [997](https://leetcode.com/problems/find-the-town-judge/)
+```python
+from collections import defaultdict as dd
+def main(N, trust):
+    if not trust and N == 1:
+        return 1
+    book_be_trusted = dd(int)
+    book_trust = dd(int)
+    for i,j in trust:
+        book_trust[i] += 1
+        book_be_trusted[j] += 1
+    for i in book_be_trusted:
+        if book_be_trusted[i] == N-1 and book_trust[i] == 0:
+            return i
+    return -1
+```
+#### Utilize pair dictionary, reversible keys to find pair trust
+#### Assumption: N = the number of trust pair
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
