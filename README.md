@@ -98,8 +98,8 @@ class Solution:
             if cur + i[-1] == i:
                 self.dfs(i, cnt)
         if (len(cur) > len(self.res)) or \
-           (len(cur) == len(self.res) and (not self.res or cur < self.res)):
-            self.res = cur 
+           (len(cur) == len(self.res) and cur < self.res):
+            self.res = cur
 ```
 #### Utilize DFS and dictionary to build up a trie, access key by word length build up from 1
 #### Assumption: N = the total number of letters in the word list
