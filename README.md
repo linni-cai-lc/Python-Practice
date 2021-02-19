@@ -81,9 +81,31 @@ def main(buf, n):
 
 # [720](https://leetcode.com/problems/longest-word-in-dictionary/)
 ```python
+from collections import defaultdict as dd
+class Solution:
+    def longestWord(self, words: List[str]) -> str:
+        self.book = dd(list)
+        for i in words:
+            self.book[len(i)] += [i]
+        self.res = ""
+        for i in self.book[1]:
+            path = []
+            self.dfs(i, path)
+        return self.res
+    
+    def dfs(self, cur, path):
+        path += [cur]
+        for i in self.book[len(cur)+1]:
+            if i.startswith(cur):
+                self.dfs(i, path[:])
+        if len(path) == len(cur) and \
+           (len(cur) > len(self.res)) or \
+           (len(cur) == len(self.res) and (not self.res or cur < self.res)):
+            self.res = cur     
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Utilize DFS and dictionary to build up a trie, access key by word length build up from 1
+#### Assumption: N = the total number of letters in the word list
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
