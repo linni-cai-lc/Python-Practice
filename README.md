@@ -79,6 +79,12 @@ def main(buf, n):
 #### Assumption: N = the number of copy size
 #### Complexity: runtime = O(N), space = O(1)
 
+# [720](https://leetcode.com/problems/longest-word-in-dictionary/)
+```python
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 ### Template
 # []()
 ```sql
