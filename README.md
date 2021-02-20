@@ -124,6 +124,23 @@ def main(N, trust):
 #### Utilize pair dictionary, reversible keys to find pair trust
 #### Assumption: N = the number of trust pair
 #### Complexity: runtime = O(N), space = O(N)
+```python
+from collections import defaultdict as dd
+def main(N, trust):
+    if not trust and N == 1:
+        return 1
+    book = dd(int)
+    for i,j in trust:
+        book[j] += 1
+        book[i] -= 1
+    for i in book:
+        if book[i] == N-1:
+            return i
+    return -1
+```
+#### Utilize dictionary to record count, if the person is trusted, count increment by one, if the person trust others, count increment decrement by one, find the exact n-1 count value key pair
+#### Assumption: N = the number of trust pair
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
