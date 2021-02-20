@@ -163,6 +163,26 @@ def main(words, word1, word2):
 #### Assumption: W = the number of words in the list
 #### Complexity: runtime = O(N), space = O(N)
 
+```python
+def main(words, word1, word2):
+    pre_1 = -1
+    pre_2 = -1
+    min_diff = sys.maxsize
+    for idx, val in enumerate(words):
+        if val == word1:
+            pre_1 = idx
+            if pre_2 > -1:
+                min_diff = min(min_diff, abs(idx - pre_2))
+        elif val == word2:
+            pre_2 = idx
+            if pre_1 > -1:
+                min_diff = min(min_diff, abs(idx - pre_1))
+    return min_diff
+```
+#### Note: improve spacing usage, unnecessary stack, utilize the last index to capture
+#### Assumption: W = the number of words in the list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
