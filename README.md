@@ -142,6 +142,27 @@ def main(N, trust):
 #### Assumption: N = the number of trust pair
 #### Complexity: runtime = O(N), space = O(N)
 
+# [243](https://leetcode.com/problems/shortest-word-distance/)
+```python
+def main(words, word1, word2):
+    stack_1 = []
+    stack_2 = []
+    min_diff = sys.maxsize
+    for idx, val in enumerate(words):
+        if val == word1:
+            stack_1 += [idx]
+            if stack_2:
+                min_diff = min(min_diff, abs(idx - stack_2[-1]))
+        elif val == word2:
+            stack_2 += [idx]
+            if stack_1:
+                min_diff = min(min_diff, abs(idx - stack_1[-1]))
+    return min_diff
+```
+#### Note: Utilize the stack data structure for first in last out
+#### Assumption: W = the number of words in the list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
