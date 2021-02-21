@@ -183,6 +183,31 @@ def main(words, word1, word2):
 #### Assumption: W = the number of words in the list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1271](https://leetcode.com/problems/hexspeak/)
+```python
+def main(num):
+    book = {
+        0: 'O',
+        1: 'I',
+        10: 'A',
+        11: 'B',
+        12: 'C',
+        13: 'D',
+        14: 'E',
+        15: 'F',
+    }
+    res = ""
+    num = int(num)
+    while num:
+        num, remainder = divmod(num, 16)
+        if remainder not in book:
+            return 'ERROR'
+        res += book[remainder]
+    return res[::-1]
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(logN), space = O(1)
+
 ### Template
 # []()
 ```sql
