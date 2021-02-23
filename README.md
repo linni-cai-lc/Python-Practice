@@ -17,6 +17,18 @@ def main(candies, extraCandies):
 #### Assumption: N = the number of kids in the candies list
 #### Complexity: runtime = O(N), space = O(1) excluding result array
 
+# [171](https://leetcode.com/problems/excel-sheet-column-number/)
+```python
+def main(s):
+   res = 0
+   for i in range(len(s)):
+      res *= 26
+      res += ord(s[i]) - ord('A') + 1
+   return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
