@@ -29,6 +29,23 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1768](https://leetcode.com/problems/merge-strings-alternately/)
+```python
+def main(word1, word2):
+   res = ""
+   i = 0
+   while i < len(word1) and i < len(word2):
+      res += word1[i] + word2[i]
+      i += 1
+   if i < len(word1):
+      res += word1[i:]
+   if i < len(word2):
+      res += word2[i:]
+   return res
+```
+#### Assumption: W1 = the length of word1, W2 = the length of word2
+#### Complexity: runtime = O(W1+W2), space = O(1) excluding result string
+
 ### Template
 # []()
 ```sql
