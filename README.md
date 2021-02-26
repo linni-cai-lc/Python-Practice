@@ -46,6 +46,23 @@ def main(word1, word2):
 #### Assumption: W1 = the length of word1, W2 = the length of word2
 #### Complexity: runtime = O(W1+W2), space = O(1) excluding result string
 
+# [1534](https://leetcode.com/problems/count-good-triplets/)
+```python
+def main(arr, a, b, c):
+   size = len(arr)
+   cnt = 0
+   for i in range(size):
+      for j in range(i+1, size):
+            for k in range(j+1, size):
+               if abs(arr[i]-arr[j]) <= a and \
+                  abs(arr[j]-arr[k]) <= b and \
+                  abs(arr[i]-arr[k]) <= c:
+                  cnt += 1
+   return cnt
+```
+#### Assumption: N = the number of elements in the array
+#### Complexity: runtime = O(N^3), space = O(1)
+
 ### Template
 # []()
 ```sql
