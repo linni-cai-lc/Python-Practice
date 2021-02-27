@@ -63,6 +63,28 @@ def main(arr, a, b, c):
 #### Assumption: N = the number of elements in the array
 #### Complexity: runtime = O(N^3), space = O(1)
 
+# [1694](https://leetcode.com/problems/reformat-phone-number/)
+```python
+def main(number):
+   number = number.replace(" ", "").replace("-", "")
+   size = len(number)
+   res = ""
+   if (size - 4) % 3 == 0:
+      for i in range(0, (size-4)//3):
+            res += number[i*3:i*3+3] + "-"
+      res += number[-4:-2] + "-" + number[-2:] + "-"
+   elif (size - 2) % 3 == 0:
+      for i in range(0, (size-2)//3):
+            res += number[i*3:i*3+3] + "-"
+      res += number[-2:] + "-"
+   else:
+      for i in range(0, size//3):
+            res += number[i*3:i*3+3] + "-"
+   return res[:-1]
+```
+#### Assumption: N = the number string length
+#### Complexity: runtime = O(N), space = O(1) excluding result string
+
 ### Template
 # []()
 ```sql
