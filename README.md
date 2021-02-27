@@ -84,6 +84,26 @@ def main(number):
 ```
 #### Assumption: N = the number string length
 #### Complexity: runtime = O(N), space = O(1) excluding result string
+```python
+def main(number):
+   number = number.replace(" ", "").replace("-", "")
+   size = len(number)
+   res = ""
+   more = ""
+   if (size - 4) % 3 == 0:
+      size -= 4
+      more += number[-4:-2] + "-" + number[-2:] + "-"
+   elif (size - 2) % 3 == 0:
+      size -= 2
+      more += number[-2:] + "-"
+   for i in range(0, size//3):
+      res += number[i*3:i*3+3] + "-"
+   res += more
+   return res[:-1]
+```
+#### Note: remove redundant code for-loop
+#### Assumption: N = the number string length
+#### Complexity: runtime = O(N), space = O(1) excluding result string
 
 ### Template
 # []()
