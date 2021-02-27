@@ -105,6 +105,20 @@ def main(number):
 #### Assumption: N = the number string length
 #### Complexity: runtime = O(N), space = O(1) excluding result string
 
+# [541](https://leetcode.com/problems/reverse-string-ii/)
+```python
+from math import ceil
+def main(s, k):
+   res = ""
+   gap = 2*k
+   for i in range(ceil(len(s) / (2 * k))):
+      res += s[i*gap:i*gap+k][::-1] + s[i*gap+k:i*gap+gap]
+   return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1) exclusing result string
+
+
 ### Template
 # []()
 ```sql
