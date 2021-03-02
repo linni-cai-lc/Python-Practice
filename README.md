@@ -18,6 +18,23 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1331](https://leetcode.com/problems/rank-transform-of-an-array/)
+```python
+def main(arr):
+   book = {}
+   arr2 = sorted(arr)
+   cnt = 1
+   for idx, val in enumerate(arr2):
+      if val not in book:
+            book[val] = cnt
+            cnt += 1
+   for idx, val in enumerate(arr):
+      arr2[idx] = book[val]
+   return arr2
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN) dominant sort cost, space = O(1) exluding result
+
 ### Template
 # []()
 ```sql
