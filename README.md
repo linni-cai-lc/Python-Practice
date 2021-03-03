@@ -35,6 +35,27 @@ def main(arr):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(NlogN) dominant sort cost, space = O(1) exluding result
 
+# [246](https://leetcode.com/problems/strobogrammatic-number/)
+```python
+def main(num):
+   book = {
+      '6': '9',
+      '9': '6',
+      '8': '8',
+      '1': '1',
+      '0': '0'
+   }
+   res = ""
+   for i in num[::-1]:
+      if i in book:
+         res += book[i]
+      else:
+         return False
+   return res == num
+```
+#### Assumption: N = the length of the given num
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
