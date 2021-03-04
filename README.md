@@ -56,6 +56,23 @@ def main(num):
 #### Assumption: N = the length of the given num
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1614](https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/)
+```python
+def main(s):
+   cnt = 0
+   maxi = 0
+   for i in s:
+      if i == '(':
+         cnt += 1
+      elif i == ')':
+         cnt -= 1
+      maxi = max(cnt, maxi)
+   return maxi
+```
+#### Note: utilize stack idea on counting, it is cool that parentheses follow the open/close rule to help stacking
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
