@@ -73,6 +73,23 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1403](https://leetcode.com/problems/minimum-subsequence-in-non-increasing-order/)
+```python
+def main(nums):
+   nums.sort(reverse=True)
+   left = 0
+   right = sum(nums)
+   for i in range(len(nums)):
+      left += nums[i]
+      right -= nums[i]
+      if left > right:
+         return nums[:i+1]
+   return None
+```
+#### Utilize sort, sum from left to right, similar to two pointer algorithm.
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
