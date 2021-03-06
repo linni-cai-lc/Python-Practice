@@ -90,6 +90,20 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1103](https://leetcode.com/problems/distribute-candies-to-people/)
+```python
+def main(candies, num_people):
+   res = [0] * num_people
+   cur = 0
+   while candies > 0:
+      res[cur % num_people] += min(candies, cur+1)
+      candies -= min(candies, cur+1)
+      cur += 1
+   return res
+```
+#### Assumption: N = the number of people
+#### Complexity: runtime = O(N), space = O(1) excluding result
+
 ### Template
 # []()
 ```sql
