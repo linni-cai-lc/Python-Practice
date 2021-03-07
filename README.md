@@ -112,20 +112,20 @@ def main(text):
    cnt = 0
    for i in text:
       if i != " ":
-            cur += i
+         cur += i
       else:
-            if cur:
-               words += [cur]
-               cur = ""
-            cnt += 1
+         if cur:
+            words += [cur]
+            cur = ""
+         cnt += 1
    if cur:
       words += [cur]
    gap_cnt = len(words) - 1
    if gap_cnt == 0:
       if cnt == 0:
-            return text
+         return text
       else:
-            return words[0] + " " * cnt
+         return words[0] + " " * cnt
    gap_size = cnt // gap_cnt
    rest = (cnt - gap_cnt * gap_size)
    return (" " * gap_size).join(words) + rest * " "
