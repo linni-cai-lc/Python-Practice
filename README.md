@@ -104,6 +104,35 @@ def main(candies, num_people):
 #### Assumption: N = the number of people
 #### Complexity: runtime = O(N), space = O(1) excluding result
 
+# [1592](https://leetcode.com/problems/rearrange-spaces-between-words/)
+```python
+def main(text):
+   words = []
+   cur = ""
+   cnt = 0
+   for i in text:
+      if i != " ":
+            cur += i
+      else:
+            if cur:
+               words += [cur]
+               cur = ""
+            cnt += 1
+   if cur:
+      words += [cur]
+   gap_cnt = len(words) - 1
+   if gap_cnt == 0:
+      if cnt == 0:
+            return text
+      else:
+            return words[0] + " " * cnt
+   gap_size = cnt // gap_cnt
+   rest = (cnt - gap_cnt * gap_size)
+   return (" " * gap_size).join(words) + rest * " "
+```
+#### Assumption: N = the length of the given text
+#### Complexity: runtime = O(N), space = O(N) stores a list of words
+
 ### Template
 # []()
 ```sql
