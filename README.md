@@ -21,6 +21,15 @@ def main(dominoes):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N) utilize dictionary to keep records for counts
 
+# [507](https://leetcode.com/problems/perfect-number/)
+```python
+def main(num):
+   return num in (6, 28, 496, 8128, 33550336)
+```
+#### Utilize problem sugar
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(1), space = O(1)
+
 ### Template
 # []()
 ```sql
