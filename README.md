@@ -45,6 +45,17 @@ def main(s, shift):
 #### Assumption: N = the number of elements in the given shift, S = the length of the given string
 #### Complexity: runtime = O(S+N), space = O(1)
 
+# [1313](https://leetcode.com/problems/decompress-run-length-encoded-list/)
+```python
+def main(nums):
+   res = []
+   for i in range(len(nums) // 2):
+      res += [nums[2*i+1]] * nums[2*i]
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1) excluding the result
+
 ### Template
 # []()
 ```sql
