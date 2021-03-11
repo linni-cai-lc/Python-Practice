@@ -56,6 +56,46 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1) excluding the result
 
+# [1243](https://leetcode.com/problems/array-transformation/)
+```python
+def main(arr):
+   change = True
+   while change:
+      change = False
+      arr2 = arr[:]
+      for i in range(1, len(arr) - 1):
+         if arr2[i] < arr[i+1] and arr2[i] < arr[i-1]:
+            arr2[i] += 1
+            change = True
+         elif arr2[i] > arr[i+1] and arr2[i] > arr[i-1]:
+            arr2[i] -= 1
+            change = True
+      arr = arr2
+   return arr
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+```python
+def main(arr):
+   change = True
+   while change:
+      change = False
+      pre = arr[0]
+      for i in range(1, len(arr) - 1):
+         tmp_pre = arr[i]
+         if arr[i] < arr[i+1] and arr[i] < pre:
+            arr[i] += 1
+            change = True
+         elif arr[i] > arr[i+1] and arr[i] > pre:
+            arr[i] -= 1
+            change = True
+         pre = tmp_pre
+   return arr
+```
+#### Note: Remember the previous to reduce space complexity from linear to constant
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
