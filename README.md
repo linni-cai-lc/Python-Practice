@@ -119,6 +119,13 @@ def main(arr, pieces):
 #### Assumption: N = the number of elements in the given arr
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1517](https://leetcode.com/problems/find-users-with-valid-e-mails/)
+```sql
+SELECT *
+FROM Users
+WHERE mail REGEXP "^[a-zA-Z][a-zA-Z0-9\_\.\-]*@leetcode.com$";
+```
+
 ### Template
 # []()
 ```sql
