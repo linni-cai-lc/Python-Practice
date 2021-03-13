@@ -96,6 +96,29 @@ def main(arr):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1640](https://leetcode.com/problems/check-array-formation-through-concatenation/)
+```python
+def main(arr, pieces):
+   book = {}
+   for i in pieces:
+      book[i[0]] = i
+   cur = 0
+   while cur < len(arr):
+      if arr[cur] in book:
+            val = book[arr[cur]]
+            for i in range(len(val)):
+               if arr[cur] == val[i]:
+                  cur += 1
+               else:
+                  return False
+      else:
+            return False
+   return True
+```
+#### Utilize hash map(dict) to help quick lookup piece start element in the arr
+#### Assumption: N = the number of elements in the given arr
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
