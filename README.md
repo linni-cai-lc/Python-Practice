@@ -15,6 +15,28 @@ def main(arr):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1) excluding the result
 
+# [985](https://leetcode.com/problems/sum-of-even-numbers-after-queries/)
+```python
+def main(A, queries):
+   sumi = sum([i for i in A if i % 2 == 0])
+   res = []
+   for val, idx in queries:
+      pre = A[idx]
+      A[idx] += val
+      pos = A[idx]
+      if pre % 2 == 0:
+         if pos % 2 == 0:
+            sumi += pos - pre
+         else:
+            sumi -= pre
+      elif pos % 2 == 0:
+         sumi += pos
+      res += [sumi]
+   return res
+```
+#### Assumption: N = the number of elements in the queries
+#### Complexity: runtime = O(N), space = O(1) excluding the result
+
 ### Template
 # []()
 ```sql
