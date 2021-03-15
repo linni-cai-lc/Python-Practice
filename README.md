@@ -37,6 +37,14 @@ def main(A, queries):
 #### Assumption: N = the number of elements in the queries
 #### Complexity: runtime = O(N), space = O(1) excluding the result
 
+# [1587](https://leetcode.com/problems/bank-account-summary-ii/)
+```sql
+SELECT Users.name, SUM(Transactions.amount) AS balance
+FROM Users INNER JOIN Transactions ON Users.account = Transactions.account
+GROUP BY Users.name
+HAVING balance > 10000;
+```
+
 ### Template
 # []()
 ```sql
