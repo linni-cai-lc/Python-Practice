@@ -79,6 +79,23 @@ def main(x):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(1), space = O(1)
 
+# [884](https://leetcode.com/problems/uncommon-words-from-two-sentences/)
+```python
+from collections import Counter
+def main(A, B):
+   A = A.split(" ")
+   B = B.split(" ")
+   count_a = Counter(A)
+   count_b = Counter(B)
+   res = []
+   for i in set(A).symmetric_difference(set(B)):
+      if count_a[i] == 1 or count_b[i] == 1:
+         res += [i]
+   return res
+```
+#### Assumption: A = the number of elements in list a, B = the number of elements in list b
+#### Complexity: runtime = O(A+B), space = O(A+B)
+
 ### Template
 # []()
 ```sql
