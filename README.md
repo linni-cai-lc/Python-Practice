@@ -45,6 +45,31 @@ GROUP BY Users.name
 HAVING balance > 10000;
 ```
 
+# [734](https://leetcode.com/problems/sentence-similarity/)
+```python
+from collections import defaultdict as dd
+def main(sentence1, sentence2, similarPairs):
+   similar_book = dd(set)
+   for i, j in similarPairs:
+      similar_book[i].add(j)
+      similar_book[j].add(i)
+   if len(sentence1) != len(sentence2):
+      return False
+   for i in range(len(sentence1)):
+      cur1 = sentence1[i]
+      cur2 = sentence2[i]
+      if cur1 == cur2:
+         continue
+      else:
+         if cur1 in similar_book and cur2 in similar_book[cur1]:
+            continue
+         else:
+            return False
+   return True
+```
+#### Assumption: N = the number of elements in similar pairs
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
