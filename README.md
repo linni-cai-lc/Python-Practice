@@ -70,6 +70,15 @@ def main(sentence1, sentence2, similarPairs):
 #### Assumption: N = the number of elements in similar pairs
 #### Complexity: runtime = O(N), space = O(1)
 
+# [69](https://leetcode.com/problems/sqrtx/)
+```python
+from math import sqrt, floor
+def main(x):
+   return floor(sqrt(x))
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(1), space = O(1)
+
 ### Template
 # []()
 ```sql
