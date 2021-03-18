@@ -98,7 +98,7 @@ def main(A, B):
 
 # [1137](https://leetcode.com/problems/n-th-tribonacci-number/)
 ```python
-def main(self, n:)
+def main(self, n):
    if n <= 1:
       return n
    self.book = [0] * (n + 1)
@@ -121,6 +121,28 @@ def helper(self, cur):
 ```
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N), space = O(N)
+
+```python
+def main(self, n):
+   if n <= 1:
+      return n
+   one, two, three = 0, 1, 1
+   self.n = n
+   return self.helper(0, one, two, three) 
+   
+def helper(self, cur, one, two, three):
+   if cur == self.n:
+      return one
+   elif cur == self.n-1:
+      return two
+   elif cur == self.n-2:
+      return three
+   else:
+      return self.helper(cur+1, two, three, one+two+three)
+```
+#### Improve space complexity to constant, since we just need previous 3 numbers
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
