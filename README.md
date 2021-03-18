@@ -96,6 +96,32 @@ def main(A, B):
 #### Assumption: A = the number of elements in list a, B = the number of elements in list b
 #### Complexity: runtime = O(A+B), space = O(A+B)
 
+# [1137](https://leetcode.com/problems/n-th-tribonacci-number/)
+```python
+def main(self, n:)
+   if n <= 1:
+      return n
+   self.book = [0] * (n + 1)
+   self.book[1] = 1
+   self.book[2] = 1
+   return self.helper(n) 
+   
+def helper(self, cur):
+   if cur <= 2:
+      return self.book[cur]
+   else:
+      if not self.book[cur-1]:
+            self.helper(cur-1)
+      if not self.book[cur-2]:
+            self.helper(cur-2)
+      if not self.book[cur-3]:
+            self.helper(cur-3)
+      self.book[cur] = self.book[cur-1] + self.book[cur-2] + self.book[cur-3]
+      return self.book[cur]
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
