@@ -15,6 +15,20 @@ FROM (
 ) AS TOT;
 ```
 
+# [1217](https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/)
+```python
+def main(position):
+    even, odd = 0, 0
+    for i in position:
+        if i % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+    return min(even, odd)
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
