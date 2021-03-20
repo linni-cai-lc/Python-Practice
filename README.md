@@ -29,6 +29,20 @@ def main(position):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [867](https://leetcode.com/problems/transpose-matrix/)
+```python
+def main(matrix):
+    m = len(matrix)
+    n = len(matrix[0])
+    new_m = [[0] * m for _ in range(n)]
+    for i in range(m):
+        for j in range(n):
+            new_m[j][i] = matrix[i][j]
+    return new_m
+```
+#### Assumption: M = the row number of the given matrix, N = the column number of the given matrix
+#### Complexity: runtime = O(MN), space = O(1) excluding returning result
+
 ### Template
 # []()
 ```sql
