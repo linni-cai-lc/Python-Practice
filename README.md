@@ -62,6 +62,28 @@ def main(arr):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [661](https://leetcode.com/problems/image-smoother/)
+```python
+def main(M):
+    m, n = len(M), len(M[0])
+    new_m = [[0] * n for _ in range(m)]
+    DIR = ((-1,-1), (-1,0),(-1,1),(0,1),(0,-1),(1,-1),(1,0),(1,1))
+    print(m, n)
+    for i in range(m):
+        for j in range(n):
+            sumi = M[i][j]
+            cnt = 1
+            for k1, k2 in DIR:
+                new_i, new_j = i+k1, j+k2
+                if 0 <= new_i < m and 0 <= new_j < n:
+                    sumi += M[new_i][new_j]
+                    cnt += 1
+            new_m[i][j] = sumi // cnt
+    return new_m
+```
+#### Assumption: M = the number of rows in the given matrix, N = the number of columns in the given matrix
+#### Complexity: runtime = O(MN), space = O(1) excluding the result matrix
+
 ### Template
 # []()
 ```sql
