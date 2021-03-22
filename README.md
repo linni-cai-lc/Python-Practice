@@ -84,6 +84,20 @@ def main(M):
 #### Assumption: M = the number of rows in the given matrix, N = the number of columns in the given matrix
 #### Complexity: runtime = O(MN), space = O(1) excluding the result matrix
 
+# [1710](https://leetcode.com/problems/maximum-units-on-a-truck/)
+```python
+def main(boxTypes, truckSize):
+    unit_sum, box_cnt = 0, 0
+    boxTypes = sorted(boxTypes, key=lambda x: -x[1])
+    for box, unit in boxTypes:
+        add_box = min(box, max(truckSize-box_cnt, 0))
+        box_cnt += add_box
+        unit_sum += add_box * unit
+    return unit_sum
+```
+#### Assumption: B = the number of elements in the box types, T = the truck size
+#### Complexity: runtime = O(B), space = O(1)
+
 ### Template
 # []()
 ```sql
