@@ -98,6 +98,21 @@ def main(boxTypes, truckSize):
 #### Assumption: B = the number of elements in the box types, T = the truck size
 #### Complexity: runtime = O(B), space = O(1)
 
+# [888](https://leetcode.com/problems/fair-candy-swap/)
+```python
+def main(A, B):
+    left = sum(A)
+    right = sum(B)
+    diff = left-(left+right)//2
+    sa = set(A)
+    sb = set(B)
+    for i in sa:
+        if i-diff in sb:
+            return [i, i-diff]
+```
+#### Assumption: A = the number of elements in the given list A, B = the number of elements in the given list B
+#### Complexity: runtime = O(A+B), space = O(A+B) utilize set to speed up look up
+
 ### Template
 # []()
 ```sql
