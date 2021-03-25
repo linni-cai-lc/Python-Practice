@@ -22,6 +22,18 @@ def main(nums, r, c):
 #### Assumption: M = the number of rows in the given nums matrix, N = the number of columns in the given nums matrix, R = the number size of r, C = the number size of c
 #### Complexity: runtime = O(MN), space = O(1) excluding result matrix
 
+# [1337](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/)
+```python
+from collections import Counter
+def main(mat, k):
+    book = Counter()
+    for i in range(len(mat)):
+        book[i] = -sum(mat[i])
+    return [x[0] for x in book.most_common()[:k]]
+```
+#### Assumption: M, N = the matrix dimension M x N, K = the result size
+#### Complexity: runtime = O(MN), space = O(M)
+
 ### Template
 # []()
 ```sql
