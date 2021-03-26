@@ -34,6 +34,18 @@ def main(mat, k):
 #### Assumption: M, N = the matrix dimension M x N, K = the result size
 #### Complexity: runtime = O(MN), space = O(M)
 
+# [1184](https://leetcode.com/problems/distance-between-bus-stops/)
+```python
+def main(distance, start, destination):
+    mini = min(start, destination)
+    maxi = max(start, destination)
+    forward = sum(distance[mini:maxi])
+    backward = sum(distance[:mini])+sum(distance[maxi:])
+    return min(forward, backward)
+```
+#### Assumption: N = the number of elements in the distance list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
