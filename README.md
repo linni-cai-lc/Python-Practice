@@ -43,6 +43,21 @@ def main(distance, start, destination):
     backward = sum(distance[:mini])+sum(distance[maxi:])
     return min(forward, backward)
 ```
+```python
+def main(distance, start, destination):
+    mini = min(start, destination)
+    maxi = max(start, destination)
+    forward = 0
+    for i in range(mini, maxi):
+        forward += distance[i]
+    backward = 0
+    for i in range(mini):
+        backward += distance[i]
+    for i in range(maxi, len(distance)):
+        backward += distance[i]
+    return min(forward, backward)
+```
+#### Note: sometimes calculating sum without slicing might be faster
 #### Assumption: N = the number of elements in the distance list
 #### Complexity: runtime = O(N), space = O(1)
 
