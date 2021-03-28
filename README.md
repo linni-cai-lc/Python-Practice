@@ -110,6 +110,50 @@ def main(s):
 ```
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
+```python
+def main(s):
+stack_letter = []
+    stack_number = []
+    pre_num = False
+    res = ""
+    size_number = 0
+    size_letter = 0
+    for i in s:
+        if i.isnumeric():
+            size_number += 1
+            if not pre_num:
+                pre_num = True
+                res += i
+            elif stack_letter:
+                res += stack_letter.pop(0) + i
+            else:
+                stack_number += [i]
+        else:
+            size_letter += 1
+            if pre_num:
+                pre_num = False
+                res += i
+            elif stack_number:
+                res += stack_number.pop(0) + i
+            else:
+                stack_letter += [i]
+    rest_letter = len(stack_letter)
+    rest_number = len(stack_number)
+    if rest_letter == 2 and size_number > 0:
+        res = stack_letter.pop(0) + res + stack_letter.pop(0)
+    elif size_letter - size_number == 1:
+        res = stack_letter.pop(0) + res
+    elif size_number - size_letter == 1 and rest_number == 1:
+        res += stack_number.pop(0)
+    elif stack_letter and size_number == size_letter:
+        res += stack_letter.pop(0)
+    elif stack_letter or stack_number:
+        res = ""
+    return res
+```
+#### Note: improve to one-pass iteration
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
