@@ -80,6 +80,37 @@ def main(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [1417](https://leetcode.com/problems/reformat-the-string/)
+```python
+def main(s):
+    letter = []
+    number = []
+    for i in s:
+        if i.isnumeric():
+            number += [i]
+        else:
+            letter += [i]
+    size_n = len(number)
+    size_l = len(letter)
+    if size_n != 1 and size_l != 1 and (size_n == 0 or size_l == 0 or abs(size_n - size_l) > 1):
+        return ""
+    res = ""
+    if size_n == size_l:
+        for i in range(size_l):
+            res += letter[i] + number[i]
+    elif size_n > size_l:
+        res += number[0]
+        for i in range(size_l):
+            res += letter[i] + number[i+1]
+    else:
+        res += letter[0]
+        for i in range(size_n):
+            res += number[i] + letter[i+1]
+    return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
