@@ -180,6 +180,18 @@ def main(licensePlate, words):
 #### Assumption: L = the length of the license plate, W = the number of words
 #### Complexity: runtime = O(LW), space = O(L+W)
 
+# [598](https://leetcode.com/problems/range-addition-ii/)
+```python
+def main(m, n, ops):
+    for i in ops:
+        m = min(m, i[0])
+        n = min(n, i[1])
+    return m * n
+```
+#### Utilize a trick that each operation is start from the left upper corner, in row/col index, left upper corner is the minimum corner
+#### Assumption: N = the number of operations
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
