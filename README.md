@@ -155,6 +155,31 @@ stack_letter = []
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [748](https://leetcode.com/problems/shortest-completing-word/)
+```python
+from collections import Counter, defaultdict as dd
+def main(licensePlate, words):
+    book = Counter(licensePlate.lower())
+    mini = sys.maxsize
+    res = ""
+    for i in words:
+        curBook = Counter(i.lower())
+        cnt = 0
+        for j in book.keys():
+            if j.isalpha():
+                if j in curBook and book[j] <= curBook[j]:
+                    cnt += book[j]
+                else:
+                    cnt = -1
+                    break
+        if cnt > -1 and len(i) < mini:
+            res = i
+            mini = len(i)
+    return res
+```
+#### Assumption: L = the length of the license plate, W = the number of words
+#### Complexity: runtime = O(LW), space = O(L+W)
+
 ### Template
 # []()
 ```sql
