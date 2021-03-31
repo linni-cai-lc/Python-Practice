@@ -33,6 +33,14 @@ def main(currentState):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1729](https://leetcode.com/problems/find-followers-count/)
+```sql
+SELECT user_id, COUNT(*) AS followers_count
+FROM Followers
+GROUP BY user_id
+ORDER BY user_id
+```
+
 ### Template
 # []()
 ```sql
