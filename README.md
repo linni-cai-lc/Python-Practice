@@ -19,6 +19,18 @@ def main(currentState):
    return res
 ```
 #### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N^2), space = O(1)
+
+```python
+def main(currentState):
+   res = []
+   for i in range(len(currentState)-1):
+      if currentState[i:i+2] == '++':
+            res += [currentState[:i] + '--' + currentState[i+2:]]
+   return res
+```
+#### Note: improve complexity to O(N)
+#### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
 ### Template
