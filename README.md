@@ -41,6 +41,15 @@ GROUP BY user_id
 ORDER BY user_id
 ```
 
+# [1809](https://leetcode.com/problems/ad-free-sessions/)
+```sql
+SELECT session_id
+FROM Playback LEFT JOIN Ads
+  ON Playback.customer_id = Ads.customer_id
+AND Ads.timestamp BETWEEN start_time and end_time
+WHERE Ads.customer_id IS NULL
+```
+
 ### Template
 # []()
 ```sql
