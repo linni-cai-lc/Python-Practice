@@ -50,6 +50,20 @@ AND Ads.timestamp BETWEEN start_time and end_time
 WHERE Ads.customer_id IS NULL
 ```
 
+# [1748](https://leetcode.com/problems/sum-of-unique-elements/)
+```python
+from collections import Counter
+def main(nums):
+   book = Counter(nums)
+   sumi = 0
+   for i in book:
+      if book[i] == 1:
+            sumi += i
+   return sumi
+```
+#### Assumption: N = the number of elements in the nums
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
