@@ -68,6 +68,21 @@ def main(arr):
 #### Assumption: N = the number of elements in the arr
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1342](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)
+```python
+def main(num):
+   cnt = 0
+   while num > 0:
+      if num % 2 == 0:
+            num /= 2
+      else:
+            num -= 1
+      cnt += 1
+   return cnt
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
