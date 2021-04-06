@@ -56,8 +56,17 @@ def main(arr):
       pre = i
    return pre      
 ```
+#### Note: one pass iteration, stop early strategy.
 #### Assumption: N = the number of elements in the arr
 #### Complexity: runtime = O(N), space = O(1)
+```python
+from collections import Counter
+def main(arr):
+   return Counter(arr).most_common()[0][0]          
+```
+#### Note: shortest code, however, it is slower than the previous method, also worse runtime+space. 
+#### Assumption: N = the number of elements in the arr
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
