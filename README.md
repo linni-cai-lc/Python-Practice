@@ -81,7 +81,7 @@ def main(num):
    return cnt
 ```
 #### Assumption: N = the given number size
-#### Complexity: runtime = O(N), space = O(1)
+#### Complexity: runtime = O(logN), space = O(1)
 
 ### Template
 # []()
