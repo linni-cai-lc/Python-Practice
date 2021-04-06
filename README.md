@@ -38,6 +38,27 @@ FROM Products
 GROUP BY product_id;
 ```
 
+# [1287](https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/)
+```python
+from math import ceil
+def main(arr):
+   size = ceil(len(arr) * 0.25)
+   cnt = -1
+   pre = arr[0]
+   for i in arr:
+      if i == pre:
+            cnt += 1
+      else:
+            if cnt > size:
+               break
+            else:
+               cnt = 1
+      pre = i
+   return pre      
+```
+#### Assumption: N = the number of elements in the arr
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
