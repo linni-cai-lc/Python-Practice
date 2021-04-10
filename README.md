@@ -83,6 +83,26 @@ def main(num):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [1816](https://leetcode.com/problems/truncate-sentence/)
+```python
+def main(s, k):
+   return " ".join(s.split(" ")[:k])
+```
+#### Assumption: N = the length of the given string, K = truncate length
+#### Complexity: runtime = O(N), space = O(1)
+```python
+def main(s, k):
+   cur = 0
+   idx = 0
+   while cur < k and idx < len(s):
+         if s[idx] == " ":
+            cur += 1
+         idx += 1
+   return s[:idx].rstrip()
+```
+#### Assumption: N = the length of the given string, K = truncate length
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
