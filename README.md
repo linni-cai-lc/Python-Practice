@@ -103,6 +103,24 @@ def main(s, k):
 #### Assumption: N = the length of the given string, K = truncate length
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1065](https://leetcode.com/problems/index-pairs-of-a-string/)
+```python
+def main(text, words):
+   res = []
+   for i in words:
+      curText = text
+      while True:
+            idx = curText.find(i)
+            if idx > -1:
+               curText = curText.replace(i, "-" + i[1:], 1)
+               res += [[idx, idx+len(i)-1]]
+            else:
+               break
+   return sorted(res)
+```
+#### Assumption: T = the length of the given text string, W = the number of the given list of words
+#### Complexity: runtime = O(T), space = O(1)
+
 ### Template
 # []()
 ```sql
