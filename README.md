@@ -19,6 +19,20 @@ def main(s):
 #### Assumption: N = the given string length
 #### Complexity: runtime = O(N), space = O(N) store the first occurrence of each letter in the given string
 
+# [1636](https://leetcode.com/problems/sort-array-by-increasing-frequency/)
+```python
+from collections import Counter
+def main(nums):
+   book = Counter(nums).most_common()
+   book = sorted(book, key=lambda x:(x[1], -x[0]))
+   res = []
+   for val, cnt in book:
+      res += [val] * cnt
+   return res
+```
+#### Assumption: N = the number of elements in the given nums
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
