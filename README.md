@@ -10,9 +10,9 @@ def main(s):
    maxi = -1
    for i in s:
       if i not in book:
-            book[i] = idx
+         book[i] = idx
       else:
-            maxi = max(maxi, idx-book[i]-1)
+         maxi = max(maxi, idx-book[i]-1)
       idx += 1
    return maxi
 ```
