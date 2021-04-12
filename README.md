@@ -53,6 +53,15 @@ def main(matrix):
 #### Assumption: the matrix dimension M X N
 #### Complexity: runtime = O(MN), space = O(MN)
 
+```python
+import numpy as np
+def main(matrix):
+   return set(np.max(matrix, axis=0)).intersection(set(np.min(matrix, axis=1)))
+```
+#### Find min for each row, find max for each column, use set intersection
+#### Assumption: the matrix dimension M X N
+#### Complexity: runtime = O(MN), space = O(M+N)
+
 ### Template
 # []()
 ```sql
