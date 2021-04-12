@@ -33,6 +33,26 @@ def main(nums):
 #### Assumption: N = the number of elements in the given nums
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [1380](https://leetcode.com/problems/lucky-numbers-in-a-matrix/)
+```python
+import numpy as np
+def main(matrix):
+   trans = np.transpose(matrix)
+   nrow = len(matrix)
+   ncol = len(matrix[0])
+   res = []
+   for i in range(nrow):
+      mini_row = min(matrix[i])
+      mini_row_idx = matrix[i].index(mini_row)
+      if mini_row_idx < ncol:
+         maxi_col = max(trans[mini_row_idx])
+         if maxi_col == mini_row:
+            res += [maxi_col]
+   return res
+```
+#### Assumption: the matrix dimension M X N
+#### Complexity: runtime = O(MN), space = O(MN)
+
 ### Template
 # []()
 ```sql
