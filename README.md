@@ -62,6 +62,23 @@ def main(matrix):
 #### Assumption: the matrix dimension M X N
 #### Complexity: runtime = O(MN), space = O(M+N)
 
+# [1464](https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/)
+```python
+def main(nums):
+   max_one = max(nums[0], nums[1])
+   max_two = min(nums[0], nums[1])
+   for i in range(2, len(nums)):
+      cur = nums[i]
+      if cur > max_one:
+         max_two = max_one
+         max_one = cur
+      elif cur > max_two:
+         max_two = cur
+   return (max_one-1)*(max_two-1)
+```
+#### Assumption: N = the number of elements in the given nums
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
