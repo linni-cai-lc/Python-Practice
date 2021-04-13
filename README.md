@@ -79,6 +79,29 @@ def main(nums):
 #### Assumption: N = the number of elements in the given nums
 #### Complexity: runtime = O(N), space = O(1)
 
+# [812](https://leetcode.com/problems/largest-triangle-area/)
+```python
+from math import sqrt
+
+def dist(p1, p2):
+   return sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2)
+   
+def main(points):
+   maxi = 0
+   for i in range(len(points)):
+      for j in range(i, len(points)):
+         for k in range(j, len(points)):
+            a = dist(points[i], points[j])
+            b = dist(points[i], points[k])
+            c = dist(points[j], points[k])
+            semi = (a+b+c)/2
+            area = sqrt(semi*abs(semi-a)*abs(semi-b)*abs(semi-c))
+            maxi = max(maxi, area)
+   return maxi
+```
+#### Assumption: N = the number of points
+#### Complexity: runtime = O(N^3), space = O(1)
+
 ### Template
 # []()
 ```sql
