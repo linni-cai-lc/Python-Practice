@@ -112,6 +112,37 @@ def main(nums):
 #### Assumption: N = the number of elements in the given nums
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [1560](https://leetcode.com/problems/most-visited-sector-in-a-circular-track/)
+```python
+def main(n, rounds):
+   arr = [0] * (n + 1)
+   maxi = 0
+   res = []
+   for i in range(len(rounds)-1):
+      cur = rounds[i]
+      nex = rounds[i+1]
+      if cur > nex:
+            for j in range(cur, n+1):
+               arr[j] += 1
+               maxi = max(maxi, arr[j])
+            for j in range(1, nex):
+               arr[j] += 1
+               maxi = max(maxi, arr[j])
+      else:
+            for j in range(cur, nex):
+               arr[j] += 1
+               maxi = max(maxi, arr[j])
+   last = rounds[-1]
+   arr[last] += 1
+   maxi = max(maxi, arr[last])
+   for idx, val in enumerate(arr):
+      if val == maxi:
+            res += [idx]
+   return res
+```
+#### Assumption: N = the length of total track, R = the number of rounds
+#### Complexity: runtime = O(NR ), space = O(N)
+
 ### Template
 # []()
 ```sql
