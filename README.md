@@ -102,6 +102,16 @@ def main(points):
 #### Assumption: N = the number of points
 #### Complexity: runtime = O(N^3), space = O(1)
 
+# [1752](https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/)
+```python
+def main(nums):
+   sort_str = ",".join(list(map(str,sorted(nums))))
+   sort_str = sort_str + "," + sort_str
+   return ",".join(list(map(str,nums))) in sort_str
+```
+#### Assumption: N = the number of elements in the given nums
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
