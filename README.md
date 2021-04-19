@@ -21,6 +21,21 @@ def main(deck):
 #### Assumption: N = the number of cards in the deck
 #### Complexity: runtime = O(N^2), space = O(N)
 
+# [1005](https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/)
+```python
+from heapq import heapify, heapreplace
+def main(A, K):
+   heapify(A)
+   while K > 0 and A[0] < 0:
+      heapreplace(A, -A[0])
+      K -= 1
+   if K % 2 == 1:
+      heapreplace(A, -A[0])
+   return sum(A)
+```
+#### Assumption: N = the number of elements in A, K = times of process
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
