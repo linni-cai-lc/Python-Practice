@@ -36,6 +36,35 @@ def main(A, K):
 #### Assumption: N = the number of elements in A, K = times of process
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [1736](https://leetcode.com/problems/latest-time-by-replacing-hidden-digits/)
+```python
+def main(time):
+   res = ''
+   for idx, val in enumerate(time):
+      if val == ':' or val != '?':
+            res += val
+            continue
+      if idx == 0:
+            h2 = time[1]
+            if h2 < '4' or h2 == '?':
+               res += '2'
+            else:
+               res += '1'
+      elif idx == 1:
+            h1 = res
+            if h1 == '2':
+               res += '3'
+            else:
+               res += '9'
+      elif idx == 3:
+            res += '5'
+      else:
+            res += '9'
+   return res
+```
+#### Assumption: N = the number string length
+#### Complexity: runtime = O(N), space = O(1) excluding return result space
+
 ### Template
 # []()
 ```sql
