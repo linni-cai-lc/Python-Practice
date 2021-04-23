@@ -65,6 +65,21 @@ def main(time):
 #### Assumption: N = the number string length
 #### Complexity: runtime = O(N), space = O(1) excluding return result space
 
+# [1511](https://leetcode.com/problems/customer-order-frequency/)
+```sql
+SELECT CID AS customer_id, name
+FROM (
+    SELECT Orders.customer_id AS CID, SUM(Product.price * Orders.quantity) AS SPENT
+    FROM Orders INNER JOIN Product ON Product.product_id = Orders.product_id
+    WHERE YEAR(Orders.order_date) = 2020 AND
+          MONTH(Orders.order_date) BETWEEN 6 AND 7
+    GROUP BY customer_id, MONTH(Orders.order_date)
+    HAVING SPENT >= 100
+) AS MERGE INNER JOIN Customers ON MERGE.CID = Customers.customer_id
+GROUP BY CID
+HAVING COUNT(CID) = 2;
+```
+
 ### Template
 # []()
 ```sql
