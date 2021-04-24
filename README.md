@@ -80,6 +80,15 @@ GROUP BY CID
 HAVING COUNT(CID) = 2;
 ```
 
+# [1821](https://leetcode.com/problems/find-customers-with-positive-revenue-this-year/)
+```sql
+SELECT customer_id
+FROM Customers
+WHERE year = 2021
+GROUP BY customer_id, year
+HAVING SUM(revenue) > 0
+```
+
 ### Template
 # []()
 ```sql
