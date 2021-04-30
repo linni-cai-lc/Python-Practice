@@ -69,6 +69,24 @@ def main(words, S):
 #### Assumption: W = the number of words, S = the length of the string
 #### Complexity: runtime = O(W+S), space = O(W)
 
+# [1773](https://leetcode.com/problems/count-items-matching-a-rule/)
+```python
+def main(items, ruleKey, ruleValue):
+   book = {
+      "type": 0,
+      "color": 1,
+      "name": 2
+   }
+   target_key = book[ruleKey]
+   cnt = 0
+   for i in items:
+      if i[target_key] == ruleValue:
+         cnt += 1
+   return cnt
+```
+#### Assumption: N = the number of items in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
