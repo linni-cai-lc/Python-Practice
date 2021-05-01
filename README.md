@@ -289,6 +289,24 @@ def recursive(self, root, level):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(H)
 
+# [98](https://leetcode.com/problems/validate-binary-search-tree/)
+```python
+def isValidBST(self, root):
+   return self.recurisve(root, -sys.maxsize, sys.maxsize)
+
+def recurisve(self, root, mini, maxi):
+   if not root:
+      return True
+   if mini < root.val < maxi:
+      return self.recurisve(root.left, mini, root.val) and \
+             self.recurisve(root.right, root.val, maxi)
+   else:
+      return False
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(H)
+
+
 ### Template
 # []()
 ```sql
