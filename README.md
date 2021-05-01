@@ -201,6 +201,35 @@ def main(grid):
 #### Assumption: M = the number of rows of the grid, N = the number of columns of the grid
 #### Complexity: runtime = O(MN), space = O(1)
 
+# [2](https://leetcode.com/problems/add-two-numbers/)
+```python
+def main(l1, l2):
+   h1 = l1
+   h2 = l2
+   add = 0
+   p1 = l1
+   while h1 and h2:
+      sumi = h1.val+h2.val+add
+      v1 = sumi%10
+      if sumi < 10:
+         add = 0
+      else:
+         add = sumi//10
+      h1.val = v1
+      p1 = h1
+      if h2.next and not h1.next:
+         h1.next = ListNode(0)
+      if h1.next and not h2.next:
+         h2.next = ListNode(0)
+      h1 = h1.next
+      h2 = h2.next  
+   if add:
+      p1.next = ListNode(add)
+   return l1
+```
+#### Assumption: N1 = the number of linked list 1, N2 = the number of linked list 2
+#### Complexity: runtime = O(max(N1, N2)), space = O(max(N1, N2))
+
 ### Template
 # []()
 ```sql
