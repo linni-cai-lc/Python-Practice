@@ -230,6 +230,28 @@ def main(l1, l2):
 #### Assumption: N1 = the number of linked list 1, N2 = the number of linked list 2
 #### Complexity: runtime = O(max(N1, N2)), space = O(max(N1, N2))
 
+# [21](https://leetcode.com/problems/merge-two-sorted-lists/)
+```python
+def main(l1, l2):
+   dummy = ListNode(-1)
+   p1 = dummy
+   while l1 and l2:
+      if l1.val <= l2.val:
+            p1.next = l1
+            l1 = l1.next
+      else:
+            p1.next = l2
+            l2 = l2.next
+      p1 = p1.next
+   if l1:
+      p1.next = l1
+   else:
+      p1.next = l2
+   return dummy.next
+```
+#### Assumption: N1 = the number of nodes in l1, N2 = the number of nodes in l2
+#### Complexity: runtime = O(N1+N2), space = O(1)
+
 ### Template
 # []()
 ```sql
