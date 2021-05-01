@@ -270,6 +270,25 @@ def recursive(self, root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(H), tree height
 
+# [199](https://leetcode.com/problems/binary-tree-right-side-view/)
+```python
+def rightSideView(self, root):
+   self.res = []
+   self.recursive(root, 0)
+   return self.res
+   
+def recursive(self, root, level):
+   if not root:
+      return
+   else:
+      if len(self.res) == level:
+         self.res += [root.val]
+      self.recursive(root.right, level+1)
+      self.recursive(root.left, level+1)
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(H)
+
 ### Template
 # []()
 ```sql
