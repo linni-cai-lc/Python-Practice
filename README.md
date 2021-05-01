@@ -252,6 +252,24 @@ def main(l1, l2):
 #### Assumption: N1 = the number of nodes in l1, N2 = the number of nodes in l2
 #### Complexity: runtime = O(N1+N2), space = O(1)
 
+# [124](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+```python
+def maxPathSum(self, root):
+   self.maxValue = -sys.maxsize
+   self.recursive(root)
+   return self.maxValue
+
+def recursive(self, root):
+   if root:
+      left = max(0, self.recursive(root.left))
+      right = max(0, self.recursive(root.right))
+      self.maxValue = max(self.maxValue, left+right+root.val)
+      return max(left, right) + root.val
+   return 0
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(H), tree height
+
 ### Template
 # []()
 ```sql
