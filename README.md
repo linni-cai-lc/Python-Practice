@@ -169,6 +169,37 @@ def main(s, dict):
 #### Assumption: W = the number of words in the dict, S = the length of the given string
 #### Complexity: runtime = O(W + S), space = O(WS)
 
+#
+# `ISLAND SERIES`
+# [463](https://leetcode.com/problems/island-perimeter/)
+```python
+def main(grid):
+   m = len(grid)
+   n = len(grid[0])
+   cnt = 0
+   for i in range(m):
+      for j in range(n):
+            if grid[i][j] == 1:
+               if i == 0:
+                  cnt += 1
+               if i == m-1:
+                  cnt += 1
+               if i > 0 and grid[i-1][j] == 0:
+                  cnt += 1
+               if i < m-1 and grid[i+1][j] == 0:
+                  cnt += 1
+               if j == 0:
+                  cnt += 1
+               if j == n-1:
+                  cnt += 1
+               if j > 0 and grid[i][j-1] == 0:
+                  cnt += 1
+               if j < n-1 and grid[i][j+1] == 0:
+                  cnt += 1
+   return cnt
+```
+#### Assumption: M = the number of rows of the grid, N = the number of columns of the grid
+#### Complexity: runtime = O(MN), space = O(1)
 
 ### Template
 # []()
