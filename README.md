@@ -306,6 +306,21 @@ def recurisve(self, root, mini, maxi):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(H)
 
+# [973](https://leetcode.com/problems/k-closest-points-to-origin/)
+```python
+from heapq import heappush, heappop
+from math import sqrt
+def main(points, k):
+   res = []
+   for i, j in points:    
+      dist = -sqrt(i**2 + j**2)
+      heappush(res, (dist, i, j))
+      if len(res) > k:
+            heappop(res)
+   return [[j,k] for i,j,k in res]  
+```
+#### Assumption: N = the number of points, K = the size of k
+#### Complexity: runtime = O(NlogK), space = O(1) excluding result
 
 ### Template
 # []()
