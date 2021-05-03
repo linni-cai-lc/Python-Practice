@@ -123,15 +123,46 @@ def main(nums1, nums2):
       R1 = sys.maxsize if mid1 == size1 * 2 else nums1[mid1 // 2]
       R2 = sys.maxsize if mid2 == size2 * 2 else nums2[mid2 // 2]
       if L1 > R2:
-            left = mid2 + 1
+         left = mid2 + 1
       elif L2 > R1:
-            right = mid2 - 1
+         right = mid2 - 1
       else:
-            return (max(L1, L2) + min(R1, R2)) / 2
+         return (max(L1, L2) + min(R1, R2)) / 2
    return -1
 ```
 #### Assumption: N1 = the number of elements in nums1, N2 = the number of elements in nums2
 #### Complexity: runtime = O(log(min(N1, N2))), space = O(1)
+
+# [378](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/)
+```python
+def main(self, matrix, k):
+   left = matrix[0][0]
+   right = matrix[-1][-1]
+   while left < right:
+      mid = (left + right) // 2
+      cnt = self.binary_k_cnt(matrix, mid)
+      if cnt < k:
+         left = mid + 1
+      else:
+         right = mid
+   return left
+
+def binary_k_cnt(self, matrix, target):
+   size = len(matrix)
+   row = size-1
+   col = 0
+   cnt = 0
+   while row >= 0 and col < size:
+      if matrix[row][col] <= target:
+         cnt += row + 1
+         col += 1
+      else:
+         row -= 1
+   return cnt
+```
+#### Note: Utilize binary search to split matrix from the left upper and the right lower corners
+#### Assumption: N = the size of matrix n by n
+#### Complexity: runtime = O(Nlog(MIN,MAX)), space = O(1)
 
 ### Template
 # []()
