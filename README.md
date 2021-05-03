@@ -104,6 +104,35 @@ def main(points, k):
 #### Assumption: N = the number of points, K = the size of k
 #### Complexity: runtime = O(NlogK), space = O(1) excluding result
 
+# [4](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+```python
+def main(nums1, nums2):
+   size1 = len(nums1)
+   size2 = len(nums2)
+   if size1 < size2:
+      return self.findMedianSortedArrays(nums2, nums1)
+   if size2 == 0:
+      return (nums1[(size1 - 1) // 2] + nums1[size1 // 2]) / 2
+   left = 0
+   right = 2 * size2
+   while left <= right:
+      mid2 = (left + right) // 2
+      mid1 = size1 + size2 - mid2
+      L1 = 0 if mid1 == 0 else nums1[(mid1 - 1) // 2]
+      L2 = 0 if mid2 == 0 else nums2[(mid2 - 1) // 2]
+      R1 = sys.maxsize if mid1 == size1 * 2 else nums1[mid1 // 2]
+      R2 = sys.maxsize if mid2 == size2 * 2 else nums2[mid2 // 2]
+      if L1 > R2:
+            left = mid2 + 1
+      elif L2 > R1:
+            right = mid2 - 1
+      else:
+            return (max(L1, L2) + min(R1, R2)) / 2
+   return -1
+```
+#### Assumption: N1 = the number of elements in nums1, N2 = the number of elements in nums2
+#### Complexity: runtime = O(log(min(N1, N2))), space = O(1)
+
 ### Template
 # []()
 ```sql
