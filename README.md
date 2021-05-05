@@ -164,6 +164,116 @@ def binary_k_cnt(self, matrix, target):
 #### Assumption: N = the size of matrix n by n
 #### Complexity: runtime = O(Nlog(MIN,MAX)), space = O(1)
 
+# [144](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+```python
+# iteration
+def main(root):
+   if not root:
+      return []
+   res = []
+   stack = [root]
+   while stack:
+      cur = stack.pop()
+      res += [cur.val]
+      if cur.right:
+         stack += [cur.right]
+      if cur.left:
+         stack += [cur.left]
+   return res
+```
+```python
+# recursion
+def main(root):
+   res = []
+   self.recursive(root, res)
+   return res
+   
+def recursive(self, root, res):
+   if not root:
+      return
+   res += [root.val]
+   self.recursive(root.left, res)
+   self.recursive(root.right, res)
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
+# [94](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+```python
+# iteration
+def main(root):
+   if not root:
+      return []
+   res = []
+   stack = []
+   cur = root
+   while cur or stack:
+      while cur:
+         stack += [cur]
+         cur = cur.left
+      cur = stack.pop()
+      res += [cur.val]
+      cur = cur.right
+   return res
+```
+```python
+# recursion
+def main(root):
+   res = []
+   self.recursive(root, res)
+   return res
+   
+def recursive(self, root, res):
+   if not root:
+      return
+   self.recursive(root.left, res)
+   res += [root.val]
+   self.recursive(root.right, res)
+```
+#### Note: DFS traverse left all
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
+# [145](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+```python
+# iteration
+def main(root):
+   if not root:
+      return []
+   res = []
+   stack = [root]
+   while stack:
+      cur = stack.pop()
+      res = [cur.val] + res
+      if cur.left:
+         stack += [cur.left]
+      if cur.right:
+         stack += [cur.right]
+   return res
+```
+```python
+# recursion
+def main(root):
+   res = []
+   self.recursive(root, res)
+   return res
+   
+def recursive(self, root, res):
+   if not root:
+      return
+   self.recursive(root.left, res)
+   self.recursive(root.right, res)
+   res += [root.val]
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
+# []()
+```python
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 ### Template
 # []()
 ```sql
