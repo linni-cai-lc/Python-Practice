@@ -268,11 +268,60 @@ def recursive(self, root, res):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
-# []()
+# [380](https://leetcode.com/problems/insert-delete-getrandom-o1/)
 ```python
+class RandomizedSet:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.book = {}
+        self.val = []
+
+    def insert(self, val: int) -> bool:
+        """
+        Inserts a value to the set. Returns true if the set did not already contain the specified element.
+        """
+        if val in self.book:
+            return False
+        self.d
+        if val in self.lst:
+            return False
+        else:
+            self.lst.add(val)
+            return True
+        
+
+    def remove(self, val: int) -> bool:
+        """
+        Removes a value from the set. Returns true if the set contained the specified element.
+        """
+        if val in self.lst:
+            self.lst.remove(val)
+            return True
+        else:
+            return False
+        
+
+    def getRandom(self) -> int:
+        """
+        Get a random element from the set.
+        """
+        # res = self.lst.pop()
+        # self.lst.add(res)
+        return random.sample(self.lst, 1)[0]
+        
+
+# Your RandomizedSet object will be instantiated and called as such:
+# obj = RandomizedSet()
+# param_1 = obj.insert(val)
+# param_2 = obj.remove(val)
+# param_3 = obj.getRandom()
 ```
 #### Assumption: N = ??
 #### Complexity: runtime = O(?), space = O(?)
+
 
 ### Template
 # []()
@@ -281,6 +330,7 @@ def recursive(self, root, res):
 
 # []()
 ```python
+
 ```
 #### Assumption: N = ??
 #### Complexity: runtime = O(?), space = O(?)
