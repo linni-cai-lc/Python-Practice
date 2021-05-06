@@ -319,8 +319,8 @@ class RandomizedSet:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the number of elements in the list
+#### Complexity: runtime = O(1), space = O(N)
 
 
 ### Template
