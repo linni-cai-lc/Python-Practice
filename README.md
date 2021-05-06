@@ -313,6 +313,36 @@ class RandomizedSet:
 #### Assumption: N = the number of elements in the list
 #### Complexity: runtime = O(1), space = O(N)
 
+# [981](https://leetcode.com/problems/time-based-key-value-store/)
+```python
+from collections import defaultdict as dd
+class TimeMap:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.book = dd(dict)
+
+    def set(self, key: str, val: str, timestamp: int) -> None:
+        self.book[key][val] = timestamp      
+
+    def get(self, key: str, timestamp: int) -> str:
+        if key not in self.book:
+            return ""
+        vals = self.book[key]
+        maxi = -1
+        maxi_val = ""
+        for i in vals:
+            cur = vals[i]
+            if maxi < cur <= timestamp:
+                maxi = cur
+                maxi_val = i
+        return maxi_val
+```
+#### Assumption: N = the number of nodes in the map
+#### Complexity: runtime = O(1) SET O(N) GET, space = O(N)
+
 
 ### Template
 # []()
