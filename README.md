@@ -357,11 +357,23 @@ WHERE salesperson.name NOT IN (
     WHERE company.name = 'RED'
 )
 ```
+```sql
+SELECT name 
+FROM salesperson 
+WHERE name NOT IN 
+	(SELECT salesperson.name 
+	FROM salesperson
+	LEFT JOIN orders 
+	ON salesperson.sales_id = orders.sales_id
+	LEFT JOIN company
+	ON company.com_id = orders.com_id
+	WHERE company.name = 'RED')
+```
 
 # [101](https://leetcode.com/problems/symmetric-tree/)
 ```python
 def isSymmetric(self, root: TreeNode) -> bool:
-      return self.recursion(root, root)
+   return self.recursion(root, root)
         
 def recursion(self, root1, root2):
    if not root1 and not root2:
@@ -375,6 +387,10 @@ def recursion(self, root1, root2):
 ```
 #### Assumption: N = the number of tree nodes
 #### Complexity: runtime = O(N), space = O(N)
+
+# []()
+```sql
+```
 
 ### Template
 # []()
