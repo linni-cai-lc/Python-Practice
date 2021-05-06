@@ -277,47 +277,38 @@ class RandomizedSet:
         Initialize your data structure here.
         """
         self.book = {}
-        self.val = []
+        self.lst = []
 
     def insert(self, val: int) -> bool:
         """
         Inserts a value to the set. Returns true if the set did not already contain the specified element.
         """
         if val in self.book:
-            return False
-        self.d
-        if val in self.lst:
-            return False
-        else:
-            self.lst.add(val)
-            return True
-        
+           return False
+         self.book[val] = len(self.lst)
+         self.lst += [val]
+         return True
+
 
     def remove(self, val: int) -> bool:
         """
         Removes a value from the set. Returns true if the set contained the specified element.
         """
-        if val in self.lst:
-            self.lst.remove(val)
-            return True
-        else:
-            return False
+        if val not in self.book:
+           return False
+         last_val = self.lst[-1]
+         val_idx = self.book[val]
+         self.lst[val_idx], self.book[last_val] = last_val, val_idx
+         self.lst.pop()
+         del self.book[val]
+         return True
         
 
     def getRandom(self) -> int:
         """
         Get a random element from the set.
         """
-        # res = self.lst.pop()
-        # self.lst.add(res)
-        return random.sample(self.lst, 1)[0]
-        
-
-# Your RandomizedSet object will be instantiated and called as such:
-# obj = RandomizedSet()
-# param_1 = obj.insert(val)
-# param_2 = obj.remove(val)
-# param_3 = obj.getRandom()
+        return random.choice(self.lst)
 ```
 #### Assumption: N = the number of elements in the list
 #### Complexity: runtime = O(1), space = O(N)
