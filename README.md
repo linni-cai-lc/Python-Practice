@@ -343,6 +343,20 @@ class TimeMap:
 #### Assumption: N = the number of nodes in the map
 #### Complexity: runtime = O(1) SET O(N) GET, space = O(N)
 
+# [607](https://leetcode.com/problems/sales-person/)
+```sql
+SELECT salesperson.name
+FROM salesperson
+WHERE salesperson.name NOT IN (
+    SELECT salesperson.name
+    FROM salesperson
+    INNER JOIN orders
+    ON salesperson.sales_id = orders.sales_id
+    INNER JOIN company
+    ON company.com_id = orders.com_id
+    WHERE company.name = 'RED'
+)
+```
 
 ### Template
 # []()
