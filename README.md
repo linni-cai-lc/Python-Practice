@@ -388,9 +388,28 @@ def recursion(self, root1, root2):
 #### Assumption: N = the number of tree nodes
 #### Complexity: runtime = O(N), space = O(N)
 
+# [116](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
+```python
+def connect(self, root: 'Node') -> 'Node':
+   res = []
+   self.recursion(root, res, 0)
+   return root
+   
+def recursion(self, root, res, level):
+   if not root:
+      return
+   if level == len(res):
+      res += [[]]
+   res[level] += [root]
+   if len(res[level]) > 1:
+      res[level][-2].next = res[level][-1]
+   self.recursion(root.left, res, level+1)
+   self.recursion(root.right, res, level+1)
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N)
 
-
-# [116](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) [117](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
+# [117](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
 ```python
 def connect(self, root: 'Node') -> 'Node':
    res = []
@@ -448,6 +467,24 @@ def recursive(self, root, res, level):
 ```
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N)
+
+# [72](https://leetcode.com/problems/edit-distance/)
+```python
+def main(word1, word2):
+   m = len(word1)+1
+   n = len(word2)+1
+   dp = [[0] * n for i in range(m)]
+   for i in range(m):
+      dp[i][0] = i
+   for j in range(n):
+      dp[0][j] = j
+   for i in range(1, m):
+      for j in range(1, n):
+         dp[i][j] = min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+int(word1[i-1]!=word2[j-1]))
+   return dp[m-1][n-1]
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
 
 ### Template
 # []()
