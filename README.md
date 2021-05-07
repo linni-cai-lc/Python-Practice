@@ -411,9 +411,43 @@ def recursion(self, root, res, level):
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N)
 
-# []()
-```sql
+# [102](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+```python
+def levelOrder(self, root: TreeNode) -> List[List[int]]:
+   res = []
+   self.recursive(root, res, 0)
+   return res
+   
+def recursive(self, root, res, level):
+   if not root:
+      return
+   if len(res) == level:
+      res += [[]]
+   res[level] += [root.val]
+   self.recursive(root.left, res, level+1)
+   self.recursive(root.right, res, level+1)
 ```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N)
+
+# 107](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
+```python
+def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+   res = []
+   self.recursive(root, res, 0)
+   return res[::-1]
+   
+def recursive(self, root, res, level):
+   if not root:
+      return
+   if len(res) == level:
+      res += [[]]
+   res[level] += [root.val]
+   self.recursive(root.left, res, level+1)
+   self.recursive(root.right, res, level+1)
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
