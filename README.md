@@ -388,6 +388,29 @@ def recursion(self, root1, root2):
 #### Assumption: N = the number of tree nodes
 #### Complexity: runtime = O(N), space = O(N)
 
+
+
+# [116](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) [117](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
+```python
+def connect(self, root: 'Node') -> 'Node':
+   res = []
+   self.recursion(root, res, 0)
+   return root
+   
+def recursion(self, root, res, level):
+   if not root:
+      return
+   if level == len(res):
+      res += [[]]
+   res[level] += [root]
+   if len(res[level]) > 1:
+      res[level][-2].next = res[level][-1]
+   self.recursion(root.left, res, level+1)
+   self.recursion(root.right, res, level+1)
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N)
+
 # []()
 ```sql
 ```
