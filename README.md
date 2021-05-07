@@ -503,6 +503,24 @@ def main(text1, text2):
 #### Assumption: N1 = the length of word1, N2 = the length of word2
 #### Complexity: runtime = O(N1*N2), space = O(N1*N2)
 
+# [128](https://leetcode.com/problems/longest-consecutive-sequence/)
+```python
+def main(nums):
+   book = set(nums)
+   maxi = 0
+   for i in book:
+      if i-1 not in book:
+            cur = i
+            cur_maxi = 1
+            while cur+1 in book:
+               cur += 1
+               cur_maxi += 1
+            maxi = max(maxi, cur_maxi)
+   return maxi
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
