@@ -521,6 +521,59 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [198](https://leetcode.com/problems/house-robber/)
+```python
+def rob(self, nums: List[int]) -> int:
+   size = len(nums)+1
+   dp = [0] * size
+   for i in range(1, size):
+      dp[i] = max(dp[i-1], dp[i-2]+nums[i-1])
+   return dp[-1]
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
+# [213](https://leetcode.com/problems/house-robber-ii/)
+```python
+def rob(self, nums: List[int]) -> int:
+   if len(nums) < 4:
+      return max(nums)
+   size = len(nums)
+   dp1 = [0] * size
+   dp2 = [0] * size
+   for i in range(0, size-1):
+      dp1[i] = max(dp1[i-1], dp1[i-2]+nums[i-1])
+   for i in range(1, size):
+      dp2[i] = max(dp2[i-1], dp2[i-2]+nums[i-1])
+   return max(dp1[-2], dp2[-1])
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+```python
+def rob(self, nums: List[int]) -> int:
+   if len(nums) < 4:
+      return max(nums)
+   size = len(nums)
+   prepre = 0
+   pre = 0
+   maxi = 0
+   for i in range(0, size-1):
+      cur = max(pre, prepre+nums[i-1])
+      prepre = pre
+      pre = cur
+   maxi = pre
+   pre = 0
+   prepre = 0
+   for i in range(1, size):
+      cur = max(pre, prepre+nums[i-1])
+      prepre = pre
+      pre = cur
+   return max(maxi, pre)
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
+
 ### Template
 # []()
 ```sql
