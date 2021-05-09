@@ -573,6 +573,21 @@ def rob(self, nums: List[int]) -> int:
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1437](https://leetcode.com/problems/check-if-all-1s-are-at-least-length-k-places-away/)
+```python
+def main(nums, k):
+   cnt = k
+   for i in nums:
+         if i == 1:
+            if cnt < k:
+               return False
+            cnt = 0
+         else:
+            cnt += 1
+   return True
+```
+#### Assumption: N = the number of elements in nums
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
