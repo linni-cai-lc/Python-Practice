@@ -589,6 +589,31 @@ def main(nums, k):
 #### Assumption: N = the number of elements in nums
 #### Complexity: runtime = O(N), space = O(1)
 
+# [200](https://leetcode.com/problems/number-of-islands/solution/)
+```python
+def numIslands(self, grid: List[List[str]]) -> int:
+   nrow = len(grid)
+   ncol = len(grid[0])
+   cnt = 0
+   for i in range(nrow):
+      for j in range(ncol):
+            if grid[i][j] == '1':
+               self.dfs(grid, i, j, nrow, ncol)
+               cnt += 1
+   return cnt
+   
+   
+def dfs(self, grid, row, col, nrow, ncol):
+   if 0 <= row < nrow and 0 <= col < ncol and grid[row][col] == '1':
+      grid[row][col] = '0'
+      self.dfs(grid, row-1, col, nrow, ncol)
+      self.dfs(grid, row+1, col, nrow, ncol)
+      self.dfs(grid, row, col-1, nrow, ncol)
+      self.dfs(grid, row, col+1, nrow, ncol)
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 ### Template
 # []()
 ```sql
