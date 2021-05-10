@@ -611,8 +611,35 @@ def dfs(self, grid, row, col, nrow, ncol):
       self.dfs(grid, row, col-1, nrow, ncol)
       self.dfs(grid, row, col+1, nrow, ncol)
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: M, N = matrix dimension
+#### Complexity: runtime = O(MN), space = O(1)
+
+# [127](https://leetcode.com/problems/word-ladder/)
+```python
+def main(begin, end, words):
+   book = set(words)
+   queue = [begin]
+   level = 0
+   while queue:
+      for i in range(len(queue)):
+         cur = queue.pop(0)
+         if cur == end:
+            return level + 1
+         curList = list(cur)
+         for j in range(len(curList)):
+            tmp = curList[j]
+            for k in range(26):
+               curList[j] = chr(ord('a') + k)
+               newCur = "".join(curList)
+               if newCur in book:
+                  queue += [newCur]
+                  book.remove(newCur)
+            curList[j] = tmp
+      level += 1
+   return 0
+```
+#### Assumption: M = the length of each word, N = the number of words
+#### Complexity: runtime = O(M^2*N), space = O(M^2*N)
 
 ### Template
 # []()
