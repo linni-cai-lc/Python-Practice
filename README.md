@@ -643,10 +643,15 @@ def main(begin, end, words):
 
 # [1784](https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/)
 ```python
-
+def main(s):
+   cnt = 0
+   for i in s.split("0"):
+         if len(i) > 0:
+            cnt += 1
+   return cnt == 1
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
