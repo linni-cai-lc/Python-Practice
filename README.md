@@ -641,6 +641,13 @@ def main(begin, end, words):
 #### Assumption: M = the length of each word, N = the number of words
 #### Complexity: runtime = O(M^2*N), space = O(M^2*N)
 
+# [1784](https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/)
+```python
+
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 ### Template
 # []()
 ```sql
