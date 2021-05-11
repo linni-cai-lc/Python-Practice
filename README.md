@@ -652,6 +652,18 @@ def main(s):
 ```
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
+```python
+def main(s):
+   pre = '0'
+   cnt = 0
+   for i in s:
+      if i == '1' and pre == '0':
+            cnt += 1
+      pre = i
+   return cnt == 1
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
