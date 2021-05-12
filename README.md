@@ -721,6 +721,20 @@ def findLadders(beginWord, endWord, wordList):
 #### Assumption: W = the number of words, W = the length of each word
 #### Complexity: runtime = O(WL^2), space = O(WL)
 
+# [252](https://leetcode.com/problems/meeting-rooms/)
+```python
+def main(intervals):
+   intervals.sort(key=lambda x:x[0])
+   for i in range(1, len(intervals)):
+      pre_start, pre_end = intervals[i-1]
+      start, end = intervals[i]
+      if start < pre_end:
+         return False
+   return True
+```
+#### Assumption: N = the number of intervals
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
