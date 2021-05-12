@@ -756,6 +756,34 @@ def main(intervals):
 #### Assumption: N = the number of intervals
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [218](https://leetcode.com/problems/the-skyline-problem/)
+```python
+from collections import Counter
+def getSkyline(buildings):
+   res = []
+   build = []
+   for l,r,h in buildings:
+      build += [[l, -h], [r, h]]
+   build.sort()
+   heap = Counter()
+   heap[0] = 1
+   preH = 0
+   for x, y in build:
+      if y < 0:
+         heap[-y] += 1
+      else:
+         heap[y] -= 1
+         if heap[y] == 0:
+            del heap[y]
+      curH = max(heap)
+      if curH != preH:
+         res += [[x, curH]]
+         preH = curH
+   return res
+```
+#### Assumption: N = the number of buildings
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
