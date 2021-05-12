@@ -758,6 +758,31 @@ def main(intervals):
 
 # [218](https://leetcode.com/problems/the-skyline-problem/)
 ```python
+from heapq import heappush, heappop, heapify
+def getSkyline(buildings):
+   res = []
+   build = []
+   for l,r,h in buildings:
+      build += [[l, -h], [r, h]]
+   build.sort()
+   heap = [0]
+   preH = 0
+   for x, y in build:
+      if y < 0:
+         heappush(heap, y)
+      else:
+         heap.remove(-y)
+         heapify(heap)
+      curH = -heap[0]
+      if curH != preH:
+         res += [[x, curH]]
+         preH = curH
+   return res
+```
+#### Note: Utilize Heap, but python built-in heap is min heap, we need to reverse the sign of the height, furthermore, heapify caused runtime higher, java's priority queue can prevent this runtime issue, reduce to O(NlogN)
+#### Assumption: N = the number of buildings
+#### Complexity: runtime = O(N^2*logN), space = O(N)
+```python
 from collections import Counter
 def getSkyline(buildings):
    res = []
@@ -781,6 +806,7 @@ def getSkyline(buildings):
          preH = curH
    return res
 ```
+#### Note: Utilize Counter, which is a dictionary to store count int for each height, reduce the runtime, but with larger space, however, the space upper bound is still O(N)
 #### Assumption: N = the number of buildings
 #### Complexity: runtime = O(NlogN), space = O(N)
 
