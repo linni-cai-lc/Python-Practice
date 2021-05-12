@@ -810,6 +810,34 @@ def getSkyline(buildings):
 #### Assumption: N = the number of buildings
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [57](https://leetcode.com/problems/insert-interval/)
+```python
+def main(intervals, newInterval):
+   new_start, new_end = newInterval
+   L = 0
+   R = len(intervals)-1
+   while L <= R:
+      M = (L + R) // 2
+      if intervals[M][0] < new_start:
+         L = M - 1
+      else:
+         R = M + 1
+   intervals.insert(l, newInterval)
+   res = [intervals.pop(0)]
+   for i in range(len(intervals)):
+      start, end = intervals[i]
+      pre_start, pre_end = res[-1]
+      if pre_start <= start <= pre_end:
+         res[-1][0] = min(start, pre_start)
+         res[-1][1] = max(end, pre_end)
+      else:
+         res += [[start, end]]
+   return res
+```
+#### Note: Use binary search to find insertion location for new interval, since the original intervals are sorted by start time increasingly, so we only care the location for right start time.
+#### Assumption: N = the number of intervals
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
