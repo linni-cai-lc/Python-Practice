@@ -638,6 +638,7 @@ def main(begin, end, words):
       level += 1
    return 0
 ```
+#### Notes: BFS + Level Traversal
 #### Assumption: M = the length of each word, N = the number of words
 #### Complexity: runtime = O(M^2*N), space = O(M^2*N)
 
@@ -664,6 +665,23 @@ def main(s):
 ```
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
+
+# []()
+```python
+from math import ceil
+def main(piles, h):
+   L = 1
+   R = max(piles)
+   while L < R:
+      M = (L + R) // 2
+      if sum(ceil(i / M) for i in piles) > h:
+         L = M + 1
+      else:
+         R = M
+   return L
+```
+#### Assumption: N = the number of piles, W = the max size of pile
+#### Complexity: runtime = O(NlogW), space = O(1)
 
 ### Template
 # []()
