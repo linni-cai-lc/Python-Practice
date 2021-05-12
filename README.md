@@ -683,6 +683,44 @@ def main(piles, h):
 #### Assumption: N = the number of piles, W = the max size of pile
 #### Complexity: runtime = O(NlogW), space = O(1)
 
+# [126](https://leetcode.com/problems/word-ladder-ii/)
+```python
+def findLadders(beginWord, endWord, wordList):
+   res = []
+   book = set(wordList)
+   queue = [[beginWord]]
+   level = 1
+   min_level = sys.maxsize
+   words = set()
+   while queue:
+      cur = queue.pop(0)
+      if len(cur) > level:
+         for i in words:
+            book.remove(i)
+         words = set()
+         level = len(cur)
+         if level > min_level:
+            break
+      last = cur[-1]
+      for i in range(len(last)):
+         new_last = list(last)
+         for j in range(26):
+            new_last[i] = chr(ord('a')+j)
+            new_last_word = "".join(new_last)
+            if new_last_word not in book:
+               continue
+            words.add(new_last_word)
+            new_path = cur + [new_last_word]
+            if new_last_word == endWord:
+               res += [new_path]
+               min_level = level
+            else:
+               queue += [new_path]
+   return res
+```
+#### Assumption: W = the number of words, W = the length of each word
+#### Complexity: runtime = O(WL^2), space = O(WL)
+
 ### Template
 # []()
 ```sql
