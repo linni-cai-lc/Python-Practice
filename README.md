@@ -735,6 +735,27 @@ def main(intervals):
 #### Assumption: N = the number of intervals
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [253](https://leetcode.com/problems/meeting-rooms-ii/)
+```python
+from heapq import heappush, heappop
+def main(intervals):
+   intervals.sort(key=lambda x:x[0])
+   start, end = intervals.pop(0)
+   room = [(end, start)]
+   for start, end in intervals:
+      pre_end, pre_start = heappop(room)
+      if start >= pre_end:
+         pre_start = min(pre_start, start)
+         pre_end = max(pre_end, end)
+      else:
+         heappush(room, (end, start))
+      heappush(room, (pre_end, pre_start))
+   return len(room)
+```
+#### Notes: Utilize max heap, to prioritize the end time
+#### Assumption: N = the number of intervals
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
