@@ -666,7 +666,7 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
-# []()
+# [875](https://leetcode.com/problems/koko-eating-bananas/)
 ```python
 from math import ceil
 def main(piles, h):
