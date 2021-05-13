@@ -838,6 +838,27 @@ def main(intervals, newInterval):
 #### Assumption: N = the number of intervals
 #### Complexity: runtime = O(N), space = O(N)
 
+# [986](https://leetcode.com/problems/interval-list-intersections/)
+```python
+def main(firstList, secondList):
+   L = 0
+   R = 0
+   res = []
+   while L < len(firstList) and R < len(secondList):
+      start_l, end_l = firstList[L]
+      start_r, end_r = secondList[R]
+      start_cur, end_cur = max(start_l, start_r), min(end_l, end_r)
+      if start_cur <= end_cur:
+         res += [[start_cur, end_cur]]
+      if end_l < end_r:
+         L += 1
+      else:
+         R += 1
+   return res
+```
+#### Assumption: L1 = the length of the first list, L2 = the length of the second list
+#### Complexity: runtime = O(L1+L2), space = O(L1+L2)
+
 ### Template
 # []()
 ```sql
