@@ -859,6 +859,49 @@ def main(firstList, secondList):
 #### Assumption: L1 = the length of the first list, L2 = the length of the second list
 #### Complexity: runtime = O(L1+L2), space = O(L1+L2)
 
+# [435](https://leetcode.com/problems/non-overlapping-intervals/)
+```python
+def main(intervals):
+   intervals.sort(key=lambda x:x[0])
+   i = 1
+   cnt = 0
+   while i < len(intervals):
+      pre = intervals[i-1]
+      cur = intervals[i]
+      if pre[0] <= cur[0] < pre[1]:
+         if pre[1] <= cur[1]:
+            del intervals[i]
+         else:
+            del intervals[i-1]
+         cnt += 1
+      else:
+         i += 1
+   return cnt
+```
+#### Assumption: N = the number of intervals
+#### Complexity: runtime = O(N^2), space = O(1)
+```python
+def main(intervals):
+   intervals.sort(key=lambda x:x[0])
+   i = 1
+   cnt = 0
+   pre = intervals[0]
+   for i in range(1, len(intervals)):
+      cur = intervals[i]
+      if pre[0] <= cur[0] < pre[1]:
+         if pre[1] <= cur[1]:
+            pass
+         else:
+            pre = cur
+         cnt += 1
+      else:
+         pre = cur
+         i += 1
+   return cnt
+```
+#### Assumption: N = the number of intervals
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
