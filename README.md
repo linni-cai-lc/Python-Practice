@@ -1027,6 +1027,21 @@ def isRectangleCover(rectangles):
 #### Assumption: N = the number of rectangles
 #### Complexity: runtime = O(N^3), space = O(N)
 
+# [343](https://leetcode.com/problems/integer-break/)
+```python
+def integerBreak(n):
+   if n < 4:
+      return n-1
+   res = 1
+   while n > 4:
+      res *= 3
+      n -= 3
+   return res * n
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(1)
+
+
 ### Template
 # []()
 ```sql
