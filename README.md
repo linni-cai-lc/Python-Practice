@@ -1057,6 +1057,19 @@ def main(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N), space = O(1)
 
+# [53](https://leetcode.com/problems/maximum-subarray/)
+```python
+def main(nums):
+   maxi = nums[0]
+   cur = nums[0]
+   for i in range(1, len(nums)):
+      cur = max(nums[i], cur+nums[i])
+      maxi = max(maxi, cur)
+   return maxi
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
