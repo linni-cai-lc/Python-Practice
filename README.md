@@ -1054,8 +1054,8 @@ def main(n):
       pre = cur
    return pre
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
