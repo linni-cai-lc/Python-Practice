@@ -948,6 +948,24 @@ def main(length, updates):
 #### Assumption: N = the number of updates
 #### Complexity: runtime = O(N), space = O(N)
 
+# [554](https://leetcode.com/problems/brick-wall/)
+```python
+from collections import Counter
+def leastBricks(wall):
+   book = Counter()
+   max_cut_idx = 0
+   for bricks in wall:
+      sumi = 0
+      for brick in bricks[:-1]:
+            sumi += brick
+            book[sumi] += 1
+            max_cut_idx = max(max_cut_idx, book[sumi])
+   return len(wall) - max_cut_idx
+```
+#### Assumption: N = the number of bricks
+#### Complexity: runtime = O(N), space = O(N)
+
+
 ### Template
 # []()
 ```sql
