@@ -933,6 +933,21 @@ def carPooling(trips, capacity):
 #### Assumption: N = the number of trips
 #### Complexity: runtime = O(N), space = O(N)
 
+# [370](https://leetcode.com/problems/range-addition/)
+```python
+def main(length, updates):
+   res = [0] * (length + 1)
+   for start, end, cnt in updates:
+      res[start] += cnt
+      res[end+1] -= cnt
+   for i in range(1, length+1):
+      res[i] += res[i-1]
+   res.pop()
+   return res
+```
+#### Assumption: N = the number of updates
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
