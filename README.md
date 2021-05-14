@@ -965,6 +965,39 @@ def leastBricks(wall):
 #### Assumption: N = the number of bricks
 #### Complexity: runtime = O(N), space = O(N)
 
+# [391](https://leetcode.com/problems/perfect-rectangle/)
+```python
+from collections import Counter
+class Solution:
+def isRectangleCover(rectangles):
+   book = Counter()
+   area = 0
+   min_row = sys.maxsize
+   max_row = -sys.maxsize
+   min_col = sys.maxsize
+   max_col = -sys.maxsize
+   for i in rectangles:
+      book[(i[0], i[1])] += 1
+      book[(i[2], i[1])] += 1
+      book[(i[0], i[3])] += 1
+      book[(i[2], i[3])] += 1
+      area += (i[2]-i[0])*(i[3]-i[1])
+      min_col = min(min_col, i[0])
+      max_col = max(max_col, i[2])
+      min_row = min(min_row, i[1])
+      max_row = max(max_row, i[3])
+   vertices = set()
+   for i in book:
+      if book[i] == 1:
+            vertices.add(i)
+      elif book[i] % 2 == 1:
+            return False
+   compare = {(min_col, min_row), (min_col, max_row), (max_col, min_row), (max_col, max_row)}
+   return area == (max_row-min_row)*(max_col-min_col) and vertices == compare
+```
+#### Assumption: N = the number of rectangles
+#### Complexity: runtime = O(N), space = O(N)
+
 
 ### Template
 # []()
