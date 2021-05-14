@@ -997,7 +997,35 @@ def isRectangleCover(rectangles):
 ```
 #### Assumption: N = the number of rectangles
 #### Complexity: runtime = O(N), space = O(N)
-
+```python
+class Solution:
+def isRectangleCover(rectangles):
+   min_height, max_height = sys.maxsize, -sys.maxsize
+   min_width, max_width = sys.maxsize, -sys.maxsize
+   book = set()
+   cnt = 0
+   for i in rectangles:
+      min_col = i[0]
+      max_col = i[2]
+      min_width = min(min_width, min_col)
+      max_width = max(max_width, max_col)
+      min_row = i[1]
+      max_row = i[3]
+      min_height = min(min_height, min_row)
+      max_height = max(max_height, max_row)
+      for j in range(min_row, max_row):
+         for k in range(min_col, max_col):
+            if (j,k) not in book:
+               book.add((j,k))
+               cnt += 1
+            else:
+               return False
+   width = max_width-min_width
+   height = max_height-min_height
+   return cnt == width*height
+```
+#### Assumption: N = the number of rectangles
+#### Complexity: runtime = O(N^3), space = O(N)
 
 ### Template
 # []()
