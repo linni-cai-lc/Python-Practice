@@ -902,6 +902,21 @@ def main(intervals):
 #### Assumption: N = the number of intervals
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1094](https://leetcode.com/problems/car-pooling/)
+```python
+from collections import Counter
+def carPooling(trips, capacity):
+   book = Counter()
+   for num, start, end in trips:
+      for i in range(start, end):
+         book[i] += num
+         if book[i] > capacity:
+            return False
+   return True
+```
+#### Assumption: N = the number of trips, L = the length of locations
+#### Complexity: runtime = O(NL), space = O(L)
+
 ### Template
 # []()
 ```sql
