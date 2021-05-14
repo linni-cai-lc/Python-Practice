@@ -916,6 +916,22 @@ def carPooling(trips, capacity):
 ```
 #### Assumption: N = the number of trips, L = the length of locations
 #### Complexity: runtime = O(NL), space = O(L)
+```python
+from collections import Counter
+def carPooling(trips, capacity):
+   book = Counter()
+   for num, start, end in trips:
+      book[start] += num
+      book[end] -= num
+   cur = 0
+   for i in sorted(book):
+      cur += book[i]
+      if cur > capacity:
+         return False
+   return True
+```
+#### Assumption: N = the number of trips
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
