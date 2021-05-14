@@ -1041,6 +1041,21 @@ def integerBreak(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N), space = O(1)
 
+# [70](https://leetcode.com/problems/climbing-stairs/)
+```python
+def main(n):
+   if n == 1:
+      return 1
+   prepre = 1
+   pre = 2
+   for i in range(2, n):
+      cur = prepre + pre
+      prepre = pre
+      pre = cur
+   return pre
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
 
 ### Template
 # []()
