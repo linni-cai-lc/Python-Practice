@@ -968,7 +968,6 @@ def leastBricks(wall):
 # [391](https://leetcode.com/problems/perfect-rectangle/)
 ```python
 from collections import Counter
-class Solution:
 def isRectangleCover(rectangles):
    book = Counter()
    area = 0
@@ -998,7 +997,6 @@ def isRectangleCover(rectangles):
 #### Assumption: N = the number of rectangles
 #### Complexity: runtime = O(N), space = O(N)
 ```python
-class Solution:
 def isRectangleCover(rectangles):
    min_height, max_height = sys.maxsize, -sys.maxsize
    min_width, max_width = sys.maxsize, -sys.maxsize
@@ -1070,6 +1068,23 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1684](https://leetcode.com/problems/count-the-number-of-consistent-strings/)
+```python
+def main(allowed, words):
+   allowed = set(allowed)
+   cnt = 0
+   for i in words:
+      ok = True
+      for j in set(i):
+         if j not in allowed:
+            ok = False
+            break
+      cnt += int(ok)
+   return cnt
+```
+#### Assumption: N = the number of words, A = the number of allowed words
+#### Complexity: runtime = O(N), space = O(A)
+
 ### Template
 # []()
 ```sql
@@ -1077,7 +1092,6 @@ def main(nums):
 
 # []()
 ```python
-
 ```
 #### Assumption: N = ??
 #### Complexity: runtime = O(?), space = O(?)
