@@ -52,7 +52,7 @@ def findMaxConsecutiveOnes(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1) 
 
-# []()
+# [487](https://leetcode.com/problems/max-consecutive-ones-ii/)
 ```python
 def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         cnt = 0
@@ -94,17 +94,29 @@ def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
       else:
          if not flip:
             flip = True
-            cnt += 1
-            flip_maxi = cnt                    
+            cnt += 1                   
          else:
             maxi = max(maxi, cnt)
             cnt -= flip_maxi - 1
-            flip_maxi = cnt       
+         flip_maxi = cnt       
    return max(maxi, cnt)
 ```
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1) 
 
+# [1004](https://leetcode.com/problems/max-consecutive-ones-iii/)
+```python
+def main(nums, k):
+   L = 0
+   for i in range(len(nums)):
+      k -= 1 - nums[i]
+      if k < 0:
+         k += 1 - nums[L]
+         L += 1
+   return len(nums) - L
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
