@@ -19,6 +19,24 @@ def maxScore(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1423](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)
+```python
+def maxScore(cardPoints, k):
+   cnt = len(cardPoints) - k
+   R = sum(cardPoints[cnt:])
+   L = 0
+   res = R
+   for i in range(k):
+      L += cardPoints[i]
+      R -= cardPoints[cnt]
+      cnt += 1
+      res = max(res, L + R)
+   return res
+```
+#### Assumption: K = the number size of k
+#### Complexity: runtime = O(K), space = O(1) 
+
+
 ### Template
 # []()
 ```sql
