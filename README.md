@@ -179,6 +179,81 @@ def dfs(root):
 #### Assumption: N = the number of children in the tree
 #### Complexity: runtime = O(N), space = O(1)
 
+# [256](https://leetcode.com/problems/paint-house/)
+```python
+def minCost(self, costs: List[List[int]]) -> int:
+   dp = [[-1] * 3 for _ in range(len(costs))]
+   return min(
+      self.dfs(costs, len(costs), 0, 0, dp),
+      self.dfs(costs, len(costs), 1, 0, dp),
+      self.dfs(costs, len(costs), 2, 0, dp)
+   )
+
+def dfs(self, costs, nrow, col, row, dp):
+   if row == nrow:
+      return 0
+   if dp[row][col] == -1:
+      if col == 0:
+         dp[row][col] = costs[row][0] + min(self.dfs(costs, nrow, 1, row+1,dp),self.dfs(costs, nrow, 2, row+1,dp))
+      elif col == 1:
+         dp[row][col] = costs[row][1] + min(self.dfs(costs, nrow, 0, row+1,dp),self.dfs(costs, nrow, 2, row+1,dp))
+      else:
+         dp[row][col] = costs[row][2] + min(self.dfs(costs, nrow, 0, row+1,dp),self.dfs(costs, nrow, 1, row+1,dp))
+   return dp[row][col]
+```
+#### Note: bottom up method
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+```python
+def main(costs):
+   dp = [[-1] * 3 for _ in range(len(costs))]
+   dp[0] = costs[0][:]
+   nrow = len(costs)
+   for row in range(1, nrow):
+      dp[row][0] = costs[row][0] + min(dp[row-1][1], dp[row-1][2])
+      dp[row][1] = costs[row][1] + min(dp[row-1][0], dp[row-1][2])
+      dp[row][2] = costs[row][2] + min(dp[row-1][0], dp[row-1][1])
+   return min(dp[-1])
+```
+#### Note: top down method
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+```python
+def main(costs):
+   dp = costs[0][:]
+   nrow = len(costs)
+   for row in range(1, nrow):
+      new_dp = dp[:]
+      new_dp[0] = costs[row][0] + min(dp[1], dp[2])
+      new_dp[1] = costs[row][1] + min(dp[0], dp[2])
+      new_dp[2] = costs[row][2] + min(dp[0], dp[1])
+      dp = new_dp
+   return min(dp)
+```
+#### Note: top down method, save space
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
+# [265](https://leetcode.com/problems/paint-house-ii/)
+```python
+def main(costs):
+   dp = costs[0][:]
+   nrow = len(costs)
+   ncol = len(costs[0])
+   for row in range(1, nrow):
+      new_dp = dp[:]
+      for col in range(ncol):
+         tmp = dp[col]
+         dp[col] = sys.maxsize
+         new_dp[col] = costs[row][col] + min(dp)
+         dp[col] = tmp
+      dp = new_dp
+   return min(dp)
+```
+#### Note: Based on 256 TOP DOWN Method implementation
+#### Assumption: N = the number of elements in the given list, K = the number of colors
+#### Complexity: runtime = O(NK), space = O(K)
+
 ### Template
 # []()
 ```sql
