@@ -142,6 +142,29 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [213](https://leetcode.com/problems/house-robber-ii/)
+```python
+def main(nums):
+   if len(nums) < 4:
+      return max(nums)
+   size = len(nums)
+   prepre_1,pre_1,prepre_2,pre_2 = 0,0,0,0
+   for i in range(size):
+      cur1, cur2 = None, None
+      if 0 <= i < size-1:
+         cur1 = max(pre_1, prepre_1+nums[i-1])
+         prepre_1 = pre_1
+         pre_1 = cur1
+      if 0 < i < size:
+         cur2 = max(pre_2, prepre_2+nums[i-1])
+         prepre_2 = pre_2
+         pre_2 = cur2
+   return max(pre_1, pre_2)
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
+
 ### Template
 # []()
 ```sql
