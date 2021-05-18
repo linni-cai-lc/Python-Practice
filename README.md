@@ -164,6 +164,20 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [337](https://leetcode.com/problems/house-robber-iii/)
+```python
+def main(root):
+   return max(dfs(root))
+
+def dfs(root):
+   if not root:
+      return (0, 0)
+   left_child = self.dfs(root.left)
+   right_child = self.dfs(root.right)
+   return (root.val + left_child[1] + right_child[1], max(left_child) + max(right_child))
+```
+#### Assumption: N = the number of children in the tree
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
