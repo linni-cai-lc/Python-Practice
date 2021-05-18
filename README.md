@@ -118,6 +118,30 @@ def main(nums, k):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [198](https://leetcode.com/problems/house-robber/)
+```python
+def main(nums):
+prepre = 0
+   pre = nums[0]
+   for i in range(1, len(nums)):
+      cur = max(pre, prepre+nums[i])
+      prepre = pre
+      pre = cur
+   return pre
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+```python
+def main(nums):
+   dp = [0] * len(nums)
+   dp[0] = nums[0]
+   for i in range(1, len(nums)):
+      dp[i] = max(dp[i-1], nums[i]+dp[i-2])
+   return dp[-1]
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
@@ -127,4 +151,4 @@ def main(nums, k):
 ```python
 ```
 #### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?) 
+#### Complexity: runtime = O(?), space = O(?)
