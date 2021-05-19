@@ -201,7 +201,7 @@ def dfs(self, costs, nrow, col, row, dp):
          dp[row][col] = costs[row][2] + min(self.dfs(costs, nrow, 0, row+1,dp),self.dfs(costs, nrow, 1, row+1,dp))
    return dp[row][col]
 ```
-#### Note: bottom up method
+#### Note: TOP DOWN method with recursion and memoization
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 ```python
@@ -215,7 +215,7 @@ def main(costs):
       dp[row][2] = costs[row][2] + min(dp[row-1][0], dp[row-1][1])
    return min(dp[-1])
 ```
-#### Note: top down method
+#### Note: BOTTOM UP method with iteration
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 ```python
@@ -230,7 +230,24 @@ def main(costs):
       dp = new_dp
    return min(dp)
 ```
-#### Note: top down method, save space
+#### Note: BOTTOM UP method with iteration, save space
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+```python
+def main(costs):
+   dp = costs[0][:]
+   nrow = len(costs)
+   for row in range(1, nrow):
+      new_dp = dp[:]
+      for col in range(3):
+         tmp = dp[col]
+         dp[col] = sys.maxsize
+         new_dp[col] = costs[row][col] + min(dp)
+         dp[col] = tmp
+      dp = new_dp
+   return min(dp)
+```
+#### Note: BOTTOM UP method with iteration, save space, reduce color redundancy
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
@@ -250,9 +267,63 @@ def main(costs):
       dp = new_dp
    return min(dp)
 ```
-#### Note: Based on 256 TOP DOWN Method implementation
+#### Note: Based on 256 BOTTOM UP with iteration, save space
 #### Assumption: N = the number of elements in the given list, K = the number of colors
 #### Complexity: runtime = O(NK), space = O(K)
+
+# [1473](https://leetcode.com/problems/paint-house-iii/)
+```python
+def main(houses, cost, nrow, ncol, target):
+   @lru_cache(None)
+   def helper(row, pre_color, neighbor):
+      if row == nrow:
+         if neighbor == target:
+            return 0
+         else:
+            return sys.maxsize
+      if houses[row] > 0:
+         return helper(row+1, houses[row], neighbor+int(pre_color != houses[row]))
+      cur = sys.maxsize
+      for col in range(1, ncol+1):
+         cur = min(cur, cost[row][col-1] + helper(row+1, col, neighbor + int(pre_color != col)))
+      return cur
+   res = helper(0, -1, 0)
+   if res == sys.maxsize:
+      return -1
+   else:
+      return res
+```
+#### Note: TOP DOWN with recursion
+#### Assumption: N = the number of houses, K = the number of colors, T = the number of neighbors
+#### Complexity: runtime = O(NK), space = O(NK) using recursive stack
+```python
+def main(houses, cost, nrow, ncol, target):
+   # color, #block: min cost
+   old_dp = {(0, 0): 0}
+   new_dp = {}
+   for house_idx, house_color in enumerate(houses):
+      color_range = [house_color]
+      if house_color == 0:
+         color_range = list(range(1, ncol+1))
+      for new_color in color_range:
+            for color, block in old_dp:
+               new_block = block + int(color != new_color)
+               if new_block > target:
+                  continue
+               new_dp[(new_color, new_block)] = min(
+                  new_dp.get((new_color, new_block), sys.maxsize),
+                  old_dp[(color, block)] + cost[house_idx][new_color-1] * int(new_color != house_color)
+               )
+      old_dp, new_dp = new_dp, {}
+   res = [old_dp[color, block] for color, block in old_dp if block == target]
+   if not res:
+      return -1
+   else:
+      return min(res)
+```
+#### Note: BOTTOM UP with iteration, bad time complexity, but alternative space solution
+#### Assumption: N = the number of houses, K = the number of colors, T = the number of neighbors
+#### Complexity: runtime = O(NKT), space = O(NK)
 
 ### Template
 # []()
