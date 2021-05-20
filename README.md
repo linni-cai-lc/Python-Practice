@@ -403,6 +403,41 @@ def dfs(self, arr, idx):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1345](https://leetcode.com/problems/jump-game-iv/)
+```python
+from collections import defaultdict
+def minJumps(self, arr: List[int]) -> int:
+   size = len(arr)
+   if size == 1:
+      return 0
+   book = defaultdict(list)
+   visited = set()
+   for idx, val in enumerate(arr):
+      book[val] += [idx]
+   queue = [0]
+   cur_level = 0
+   while queue:
+      new_queue = []
+      for cur_idx in queue:
+         if cur_idx == size - 1:
+            return cur_level
+         if cur_idx not in visited:
+            visited.add(cur_idx)
+            if cur_idx + 1 < size and cur_idx + 1 not in visited:
+               new_queue += [cur_idx+1]
+            if cur_idx - 1 >= 0 and cur_idx-1 not in visited:
+               new_queue += [cur_idx-1]
+            for same in book[arr[cur_idx]]:
+               if same != cur_idx and same not in visited:
+                  new_queue += [same]
+            book[arr[cur_idx]] = []
+      queue = new_queue
+      cur_level += 1
+   return -1
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
