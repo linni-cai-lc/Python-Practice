@@ -435,8 +435,71 @@ def minJumps(self, arr: List[int]) -> int:
       cur_level += 1
    return -1
 ```
+#### Note: Utilize BFS to do level traversal, search and update queue for each level, reduce time complexity 
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
+
+# [1345](https://leetcode.com/problems/jump-game-iv/)
+```python
+from collections import defaultdict
+def minJumps(arr):
+   size = len(arr)
+   if size == 1:
+      return 0
+   book = defaultdict(list)
+   visited = set()
+   for idx, val in enumerate(arr):
+      book[val] += [idx]
+   queue = [0]
+   cur_level = 0
+   while queue:
+      new_queue = []
+      for cur_idx in queue:
+         if cur_idx == size - 1:
+            return cur_level
+         if cur_idx not in visited:
+            visited.add(cur_idx)
+            if cur_idx + 1 < size and cur_idx + 1 not in visited:
+               new_queue += [cur_idx+1]
+            if cur_idx - 1 >= 0 and cur_idx-1 not in visited:
+               new_queue += [cur_idx-1]
+            for same in book[arr[cur_idx]]:
+               if same != cur_idx and same not in visited:
+                  new_queue += [same]
+            book[arr[cur_idx]] = []
+      queue = new_queue
+      cur_level += 1
+   return -1
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
+# [1340](https://leetcode.com/problems/jump-game-v/)
+```python
+def maxJumps(self, arr, d):
+   dp = [0] * len(arr)
+   maxi = 0
+   for i in range(len(arr)):
+      maxi = max(maxi, self.dfs(arr, d, i, dp))
+   return maxi
+   
+def dfs(self, arr, d, idx, dp):
+   if dp[idx] > 0:
+      return dp[idx]
+   maxi = 0
+   for k in range(idx-1, max(idx-d, 0)-1, -1):
+      if arr[idx] <= arr[k]:
+         break
+      maxi = max(maxi, self.dfs(arr, d, k, dp))
+   for k in range(idx+1, min(idx+d+1, len(arr))):
+      if arr[idx] <= arr[k]:
+         break
+      maxi = max(maxi, self.dfs(arr, d, k, dp))
+   dp[idx] = maxi + 1
+   return dp[idx]
+```
+#### Assumption: N = the number of elements in the given list, D = the length of distance to jump
+#### Complexity: runtime = O(ND), space = O(N)
 
 ### Template
 # []()
