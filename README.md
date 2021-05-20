@@ -325,6 +325,84 @@ def main(houses, cost, nrow, ncol, target):
 #### Assumption: N = the number of houses, K = the number of colors, T = the number of neighbors
 #### Complexity: runtime = O(NKT), space = O(NK)
 
+# [55](https://leetcode.com/problems/jump-game/)
+```python
+def canJump(self, nums: List[int]) -> bool:
+   return self.dfs(nums, 0, len(nums))
+   
+def dfs(self, nums, idx, end):
+   if idx >= end - 1:
+      return True
+   cur = nums[idx]
+   res = False
+   for i in range(idx+1, idx+cur+1):
+      res = res or self.dfs(nums, i, end)
+   return res
+```
+#### Note: TOP DOWN with recursion, bad time complexity, TLE
+#### Assumption: N = the number of elements in the given list, K = the element value range in the given list
+#### Complexity: runtime = O(N^2), space = O(N)
+```python
+def canJump(self, nums: List[int]) -> bool:
+   return self.dfs(nums, 0, len(nums), [-1] * len(nums)) > 0
+   
+def dfs(self, nums, idx, end, dp):
+   if idx >= end - 1:
+      return True
+   cur = nums[idx]
+   if dp[idx] == -1:
+      dp[idx] = False
+      for i in range(idx+1, idx+cur+1):
+         dp[idx] = dp[idx] or self.dfs(nums, i, end, dp)
+   return dp[idx]
+```
+#### Note: TOP DOWN with recursion, bad time complexity, TLE
+#### Assumption: N = the number of elements in the given list, K = the element value range in the given list
+#### Complexity: runtime = O(N^K), space = O(N)
+```python
+def canJump(self, nums: List[int]) -> bool:
+   size = len(nums)
+   dp = [False] * size
+   dp[-1] = True
+   for i in range(size-2, -1, -1):
+      for j in range(i+1, min(i+nums[i]+1, size)):
+            if dp[j]:
+               dp[i] = True
+               break
+   return dp[0]
+```
+#### Note: BOTTOM UP with iteration, bad time complexity, TLE
+#### Assumption: N = the number of elements in the given list, K = the element value range in the given list
+#### Complexity: runtime = O(N^2), space = O(N)
+```python
+def canJump(self, nums: List[int]) -> bool:
+   end = len(nums)-1
+   for i in range(end-1, -1, -1):
+      if i + nums[i] >= end:
+         end = i
+   return end == 0
+```
+#### Note: Utilize Greedy, trace backward from the jump list, use the last location for the next comparison
+#### Assumption: N = the number of elements in the given list, K = the element value range in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
+# [1306](https://leetcode.com/problems/jump-game-iii/)
+```python
+def canReach(self, arr: List[int], start: int) -> bool:
+   return self.dfs(arr, start) > 0
+   
+def dfs(self, arr, idx):
+   if idx >= len(arr) or idx < 0 or arr[idx] < 0:
+      return False
+   elif arr[idx] == 0:
+      return True
+   else:
+      arr[idx] = -arr[idx]
+      return self.dfs(arr, idx+arr[idx]) or self.dfs(arr, idx-arr[idx])
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
