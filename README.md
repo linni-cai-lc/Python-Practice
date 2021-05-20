@@ -471,6 +471,7 @@ def minJumps(arr):
       cur_level += 1
    return -1
 ```
+#### Note: BOTTOM UP with iteration
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
 
@@ -498,6 +499,7 @@ def dfs(self, arr, d, idx, dp):
    dp[idx] = maxi + 1
    return dp[idx]
 ```
+#### Note: TOP DOWN method with recursion
 #### Assumption: N = the number of elements in the given list, D = the length of distance to jump
 #### Complexity: runtime = O(ND), space = O(N)
 
