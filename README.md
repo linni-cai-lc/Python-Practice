@@ -543,6 +543,26 @@ def main(nums, k):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1176](https://leetcode.com/problems/diet-plan-performance/)
+```python
+def dietPlanPerformance(calories, k, lower, upper):
+   cur = sum(calories[:k])
+   score = 0
+   if cur > upper:
+      score += 1
+   if cur < lower:
+      score -= 1
+   for i in range(k, len(calories)):
+      cur += calories[i] - calories[i - k]
+      if cur > upper:
+         score += 1
+      if cur < lower:
+         score -= 1
+   return score     
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
