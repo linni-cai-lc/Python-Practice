@@ -505,7 +505,6 @@ def dfs(self, arr, d, idx, dp):
 
 # [239](https://leetcode.com/problems/sliding-window-maximum/)
 ```python
-from collections import deque
 def main(nums, k):
    res = []
    queue = deque()
@@ -520,6 +519,27 @@ def main(nums, k):
    return res
 ```
 #### Note: Sliding window, utilize deque, pop right when the list value is smaller than the current value, pop right when the index is out of bound, if the index hit the k-1, it means the first element of the queue is the maximum of the current window, append it to the result output.
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
+# [1696](https://leetcode.com/problems/jump-game-vi/)
+```python
+def main(nums, k):
+   size = len(nums)
+   dp = [0] * size
+   dp[0] = nums[0]
+   queue = deque()
+   queue += [0]
+   for i in range(1, size):
+      if queue and queue[0] < i - k:
+         queue.popleft()
+      dp[i] = dp[queue[0]] + nums[i]
+      while queue and dp[i] >= dp[queue[-1]]:
+         queue.pop()
+      queue += [i]
+   return dp[-1]
+```
+#### Note: Sliding window, utilize deque
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 
