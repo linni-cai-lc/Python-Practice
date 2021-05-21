@@ -503,6 +503,26 @@ def dfs(self, arr, d, idx, dp):
 #### Assumption: N = the number of elements in the given list, D = the length of distance to jump
 #### Complexity: runtime = O(ND), space = O(N)
 
+# [239](https://leetcode.com/problems/sliding-window-maximum/)
+```python
+from collections import deque
+def main(nums, k):
+   res = []
+   queue = deque()
+   for idx, val in enumerate(nums):
+      while queue and nums[queue[-1]] < val:
+         queue.pop()
+      queue += [idx]
+      if queue[0] == idx - k:
+         queue.popleft()
+      if idx >= k - 1:
+         res += [nums[queue[0]]]
+   return res
+```
+#### Note: Sliding window, utilize deque, pop right when the list value is smaller than the current value, pop right when the index is out of bound, if the index hit the k-1, it means the first element of the queue is the maximum of the current window, append it to the result output.
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
