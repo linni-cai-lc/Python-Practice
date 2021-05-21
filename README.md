@@ -562,6 +562,19 @@ def dietPlanPerformance(calories, k, lower, upper):
 ```
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
+```python
+def dietPlanPerformance(calories, k, lower, upper):
+   cur = sum(calories[:k])
+   score = 0
+   for i in range(k-1, len(calories)):
+      if i - k >= 0:
+         cur += calories[i] - calories[i - k]
+      score += int(cur > upper)
+      score -= int(cur < lower)
+   return score
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
