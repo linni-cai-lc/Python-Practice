@@ -32,6 +32,25 @@ def main(triangle):
 #### Assumption: N = the number of elements in the triangle list
 #### Complexity: runtime = O(N^2), space = O(1)
 
+# [674](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)
+```python
+def main(nums):
+   dp = [nums[0]] * len(nums)
+   cnt = 1
+   maxi = 1
+   for i in range(1, len(nums)):
+      if nums[i] > nums[i-1]:
+         dp[i] = dp[i-1]
+         cnt += 1
+         maxi = max(maxi, cnt)
+      else:
+         dp[i] = nums[i]
+         cnt = 1
+   return maxi
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
