@@ -16,6 +16,21 @@ def main(triangle):
 #### Assumption: N = the number of elements in the triangle list
 #### Complexity: runtime = O(N^2), space = O(N^2) due to recursive call stack
 
+```python
+def main(triangle):
+   for row in range(1, len(triangle)):
+      for col in range(row + 1):
+         cur = sys.maxsize
+         if col > 0:
+            cur = triangle[row - 1][col - 1]
+         if col < row:
+            cur = min(cur, triangle[row - 1][col])
+         triangle[row][col] += cur
+   return min(triangle[-1])
+```
+#### Note: BOTTOM UP with iteration, add previous min cost to the current location, which means the minimum cost from the top to the current location
+#### Assumption: N = the number of elements in the triangle list
+#### Complexity: runtime = O(N^2), space = O(1)
 
 ### Template
 # []()
