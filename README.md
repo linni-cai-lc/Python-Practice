@@ -49,6 +49,43 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1869](https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros/)
+```python
+def checkZeroOnes(s):
+   maxi_ones = 0
+   maxi_zeros = 0
+   cnt_ones = 0
+   cnt_zeros = 0
+   pre = -1
+   for i in s:
+      if pre == -1:
+         pre = i
+         if i == '1':
+            cnt_ones = 1
+         else:
+            cnt_zeros = 1
+      else:
+         if i == pre:
+            if i == '1':
+               cnt_ones += 1
+            else:
+               cnt_zeros += 1
+         else:
+            if i == '1':
+               maxi_zeros = max(maxi_zeros, cnt_zeros)
+               cnt_zeros = 0
+               cnt_ones  = 1
+            else:
+               maxi_ones = max(maxi_ones, cnt_ones)
+               cnt_ones = 0
+               cnt_zeros = 1
+      pre = i
+   return max(maxi_ones, cnt_ones) > max(maxi_zeros, cnt_zeros)                
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
+
 ### Template
 # []()
 ```sql
