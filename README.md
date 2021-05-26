@@ -94,6 +94,25 @@ SELECT employee_id,
 FROM Employees;
 ```
 
+# [1859](https://leetcode.com/problems/sorting-the-sentence/)
+```python
+def sortSentence(s):
+   cur = ""
+   book = []
+   for i in s:
+      if i.isdigit():
+            book += [(cur, int(i))]
+      elif i == " ":
+            cur = ""
+      else:
+            cur += i
+   book.sort(key=lambda x:x[1])
+   return " ".join([i[0] for i in book])
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(NlogN), space = O(N)
+
+
 ### Template
 # []()
 ```sql
