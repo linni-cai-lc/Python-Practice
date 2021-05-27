@@ -112,6 +112,24 @@ def sortSentence(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [1854](https://leetcode.com/problems/maximum-population-year/)
+```python
+from collections import Counter
+def maximumPopulation(logs):
+   logs.sort()
+   book = Counter()
+   maxi = sys.maxsize
+   maxi_cnt = 0
+   for born, dead in logs:
+      for i in range(born, dead):
+         book[i] += 1
+         if book[i] > maxi_cnt or (book[i] == maxi_cnt and i < maxi):
+            maxi_cnt = book[i]
+            maxi = i
+   return book.most_common()[0][0]
+```
+#### Assumption: N = the number of logs, R = the range of period
+#### Complexity: runtime = O(NlogN+NR), space = O(NR)
 
 ### Template
 # []()
