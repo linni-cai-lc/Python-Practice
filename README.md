@@ -131,6 +131,13 @@ def maximumPopulation(logs):
 #### Assumption: N = the number of logs, R = the range of period
 #### Complexity: runtime = O(NlogN+NR), space = O(NR)
 
+# [1853](https://leetcode.com/problems/convert-date-format/)
+```sql
+SELECT DATE_FORMAT(day, "%W, %M %e, %Y") AS day
+FROM Days;
+```
+#### Note: use DATE_FORMAT with appropriate format.
+
 ### Template
 # []()
 ```sql
