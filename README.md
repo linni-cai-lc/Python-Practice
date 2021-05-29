@@ -138,6 +138,24 @@ FROM Days;
 ```
 #### Note: use DATE_FORMAT with appropriate format.
 
+# [1844](https://leetcode.com/problems/replace-all-digits-with-characters/)
+```python'
+def replaceDigits(s):
+   res = []
+   letter = None
+   for i in s:
+      if not letter:
+         letter = i
+      else:
+         res += [letter, chr(ord(letter) + int(i))]
+         letter = None
+   if letter:
+      res += [letter]
+   return "".join(res)
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
