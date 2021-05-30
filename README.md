@@ -156,6 +156,22 @@ def replaceDigits(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [139](https://leetcode.com/problems/word-break/)
+```python
+def main(s, wordDict):
+   words = set(wordDict)
+   dp = [False] * (len(s) + 1)
+   dp[0] = True
+   for i in range(1, len(s) + 1):
+      for j in range(i):
+         if dp[j] and s[j:i] in words:
+            dp[i] = True
+            break
+   return dp[len(s)]
+```
+#### Assumption: N = the length of the string
+#### Complexity: runtime = O(N^3), space = O(N)
+
 ### Template
 # []()
 ```sql
