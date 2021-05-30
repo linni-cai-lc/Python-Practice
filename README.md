@@ -172,6 +172,33 @@ def main(s, wordDict):
 #### Assumption: N = the length of the string
 #### Complexity: runtime = O(N^3), space = O(N)
 
+# [140](https://leetcode.com/problems/word-break-ii/)
+```python
+def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+   return self.dfs(s, wordDict, {})
+
+def dfs(self, s, wordDict, dp):
+   if s in dp:
+      return dp[s]
+   if not s:
+      return []
+   res = []
+   for word in wordDict:
+      if not s.startswith(word):
+         continue
+      if len(word) == len(s):
+         res.append(word)
+      else:
+         rest = self.dfs(s[len(word):], wordDict, dp)
+         for item in rest:
+            item = word + ' ' + item
+            res += [item]
+   dp[s] = res
+   return res
+```
+#### Assumption: N = the length of the string
+#### Complexity: runtime = O(N^3), space = O(N)
+
 ### Template
 # []()
 ```sql
