@@ -297,7 +297,7 @@ def main(prices):
 #### Assumption: N = the number of prices
 #### Complexity: runtime = O(N), space = O(1)
 
-# [188](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
+# [123](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
 ```python
 def main(prices):
    cost1 = sys.maxsize
@@ -314,6 +314,35 @@ def main(prices):
 ```
 #### Assumption: N = the number of prices
 #### Complexity: runtime = O(N), space = O(1)
+```python
+def main(prices):
+   k = 2
+   cost = [sys.maxsize] * k
+   diff = [0] * k
+   for i in prices:
+      for j in range(k):
+         cost[j] = min(cost[j], i - (diff[j-1] if j > 0 else 0))
+         diff[j] = max(diff[j], i - cost[j])
+   return diff[k-1]
+```
+#### Assumption: N = the number of prices
+#### Complexity: runtime = O(N), space = O(1)
+
+# [188](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+```python
+def main(k, prices)
+   if k == 0:
+      return 0
+   cost = [sys.maxsize] * k
+   diff = [0] * k
+   for i in prices:
+      for j in range(k):
+         cost[j] = min(cost[j], i - (diff[j-1] if j > 0 else 0))
+         diff[j] = max(diff[j], i - cost[j])
+   return diff[k-1]
+```
+#### Assumption: K = the given k size, P = the number of prices
+#### Complexity: runtime = O(KP), space = O(K)
 
 ### Template
 # []()
