@@ -235,7 +235,9 @@ def numIslands(self, grid: List[List[str]]) -> int:
 def dfs(self, grid, r, c):
    grid[r][c] = '0'
    for dr, dc in self.DIR:
-      if 0 <= r+dr < self.nrow and 0 <= c+dc < self.ncol and grid[r+dr][c+dc] == '1':
+      if 0 <= r+dr < self.nrow and \
+         0 <= c+dc < self.ncol and \
+         grid[r+dr][c+dc] == '1':
          self.dfs(grid, r+dr, c+dc)
 ```
 #### Assumption: M, N = dimensions of the given matrix
@@ -258,16 +260,30 @@ def numIslands(self, grid: List[List[str]]) -> int:
             while nex:
                cur_r, cur_c = nex.pop(0)
                for dr, dc in DIR:
-                     if 0 <= cur_r+dr < nrow and \
-                        0 <= cur_c+dc < ncol and \
-                        grid[cur_r+dr][cur_c+dc] == '1':
-                        nex += [(cur_r+dr, cur_c+dc)]
-                        grid[cur_r+dr][cur_c+dc] = '0'
+                  if 0 <= cur_r+dr < nrow and \
+                     0 <= cur_c+dc < ncol and \
+                     grid[cur_r+dr][cur_c+dc] == '1':
+                     nex += [(cur_r+dr, cur_c+dc)]
+                     grid[cur_r+dr][cur_c+dc] = '0'
    return cnt
 ```
 #### Assumption: M, N = dimensions of the given matrix
 #### Complexity: runtime = O(MN), space = O(MN)
 
+# [121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+```python
+def main(prices):
+   max_diff = 0
+   mini = sys.maxsize
+   for idx, val in enumerate(prices):
+      if val < mini:
+         mini = val
+      elif val - mini > max_diff:
+         max_diff = val - mini
+   return max_diff
+```
+#### Assumption: N = the number of prices
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
