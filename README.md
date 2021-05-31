@@ -297,6 +297,24 @@ def main(prices):
 #### Assumption: N = the number of prices
 #### Complexity: runtime = O(N), space = O(1)
 
+# [188](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
+```python
+def main(prices):
+   cost1 = sys.maxsize
+   cost2 = sys.maxsize
+   diff1 = 0
+   diff2 = 0
+   for i in prices:
+      cost1 = min(cost1, i)
+      diff1 = max(diff1, i - cost1)
+
+      cost2 = min(cost2, i - diff1)
+      diff2 = max(diff2, i - cost2)
+   return diff2
+```
+#### Assumption: N = the number of prices
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
