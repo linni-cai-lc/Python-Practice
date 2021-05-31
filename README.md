@@ -285,6 +285,18 @@ def main(prices):
 #### Assumption: N = the number of prices
 #### Complexity: runtime = O(N), space = O(1)
 
+# [122](code.com/problems/best-time-to-buy-and-sell-stock-ii/)
+```python
+def main(prices):
+   max_diff = 0
+   for idx in range(1, len(prices)):
+      if prices[idx] > prices[idx-1]:
+         max_diff += prices[idx] - prices[idx-1]
+   return max_diff
+```
+#### Assumption: N = the number of prices
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
