@@ -240,6 +240,34 @@ def dfs(self, grid, r, c):
 ```
 #### Assumption: M, N = dimensions of the given matrix
 #### Complexity: runtime = O(MN), space = O(MN)
+```python
+from collections import deque
+def numIslands(self, grid: List[List[str]]) -> int:
+   DIR = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+   nrow = len(grid)
+   if not nrow:
+      return 0
+   ncol = len(grid[0])
+   cnt = 0
+   for r in range(nrow):
+      for c in range(ncol):
+         if grid[r][c] == '1':
+            cnt += 1
+            grid[r][c] = '0'
+            nex = [(r, c)]
+            while nex:
+               cur_r, cur_c = nex.pop(0)
+               for dr, dc in DIR:
+                     if 0 <= cur_r+dr < nrow and \
+                        0 <= cur_c+dc < ncol and \
+                        grid[cur_r+dr][cur_c+dc] == '1':
+                        nex += [(cur_r+dr, cur_c+dc)]
+                        grid[cur_r+dr][cur_c+dc] = '0'
+   return cnt
+```
+#### Assumption: M, N = dimensions of the given matrix
+#### Complexity: runtime = O(MN), space = O(MN)
+
 
 ### Template
 # []()
