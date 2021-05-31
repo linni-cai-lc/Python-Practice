@@ -169,6 +169,23 @@ def main(s, wordDict):
             break
    return dp[len(s)]
 ```
+#### Note: BFS iteration
+#### Assumption: N = the length of the string
+#### Complexity: runtime = O(N^3), space = O(N)
+```python
+def main(s, wordDict):
+   @lru_cache
+   def dfs(s, start, words):
+      if start == len(s):
+         return True
+      for end in range(start+1, len(s)+1):
+         if s[start:end] in words and dfs(s, end, words):
+            return True
+      return False
+   
+   return dfs(s, 0, frozenset(wordDict))
+```
+#### Note: DFS recursion
 #### Assumption: N = the length of the string
 #### Complexity: runtime = O(N^3), space = O(N)
 
@@ -198,6 +215,31 @@ def dfs(self, s, wordDict, dp):
 ```
 #### Assumption: N = the length of the string
 #### Complexity: runtime = O(N^3), space = O(N)
+
+# [200](https://leetcode.com/problems/number-of-islands/)
+```python
+def numIslands(self, grid: List[List[str]]) -> int:
+   self.DIR = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+   self.nrow = len(grid)
+   if not self.nrow:
+      return 0
+   self.ncol = len(grid[0])
+   cnt = 0
+   for r in range(self.nrow):
+      for c in range(self.ncol):
+         if grid[r][c] == '1':
+            cnt += 1
+            self.dfs(grid, r, c)
+   return cnt
+   
+def dfs(self, grid, r, c):
+   grid[r][c] = '0'
+   for dr, dc in self.DIR:
+      if 0 <= r+dr < self.nrow and 0 <= c+dc < self.ncol and grid[r+dr][c+dc] == '1':
+         self.dfs(grid, r+dr, c+dc)
+```
+#### Assumption: M, N = dimensions of the given matrix
+#### Complexity: runtime = O(MN), space = O(MN)
 
 ### Template
 # []()
