@@ -93,6 +93,73 @@ def main(firstWord, secondWord, targetWord):
 #### Assumption: N1,N2,N3 = the length of first/second/thrid word
 #### Complexity: runtime = O(N1+N2+N3), space = O(1)
 
+# [1876](https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/)
+```python
+from collections import Counter
+def main(s):
+   cnt = 0
+   uniq = set()
+   book = Counter()
+   pre = None
+   prepre = None
+   preprepre = None
+   for i in s:
+      book[i] += 1
+      if preprepre:
+         book[preprepre] -= 1
+         if not book[preprepre]:
+            del book[preprepre]
+      preprepre = prepre
+      prepre = pre
+      pre = i
+      if preprepre and book.most_common()[0][1] == 1:
+         cnt += 1
+   return cnt           
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+```python
+from collections import Counter
+def main(s):
+   cnt = 0
+   uniq = set()
+   book = Counter()
+   pre = None
+   prepre = None
+   preprepre = None
+   for i in s:
+      book[i] += 1
+      if preprepre:
+         book[preprepre] -= 1
+         if not book[preprepre]:
+            del book[preprepre]
+      preprepre = prepre
+      prepre = pre
+      pre = i
+      vals = book.values()
+      if set(vals) == {1} and len(vals) == 3:
+         cnt += 1
+   return cnt           
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+```python
+def main(s):
+   cnt = 0
+   pre = None
+   prepre = None
+   preprepre = None
+   for i in s:
+      preprepre = prepre
+      prepre = pre
+      pre = i
+      if pre and prepre and preprepre and pre != prepre != preprepre != pre:
+         cnt += 1            
+   return cnt
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
