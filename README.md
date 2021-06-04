@@ -160,6 +160,14 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1832](https://leetcode.com/problems/check-if-the-sentence-is-pangram/)
+```python
+def main(sentence)
+   return len(set(sentence)) == 26
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
