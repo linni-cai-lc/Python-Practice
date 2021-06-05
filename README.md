@@ -18,6 +18,18 @@ def minOperations(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1848](https://leetcode.com/problems/minimum-distance-to-the-target-element/)
+```python
+def main(nums, target, start):
+   mini = sys.maxsize
+   for idx, val in enumerate(nums):
+      if val == target:
+         mini = min(mini, abs(idx-start))
+   return mini
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
