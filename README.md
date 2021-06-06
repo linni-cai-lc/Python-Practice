@@ -33,17 +33,18 @@ def main(nums, target, start):
 # [877](https://leetcode.com/problems/stone-game/)
 ```python
 def stoneGame(self, piles: List[int]) -> bool:
-   return self.dfs(piles, 0, 0 , 0, len(piles)-1, 0)
-   
-def dfs(self, piles, alex, lee, left, right, player):
-   if left > right:
-      return alex > lee
-   if player == 0:
-      return self.dfs(piles, alex+piles[left], lee, left+1, right, 1) or \
-             self.dfs(piles, alex+piles[right], lee, left, right-1, 1)
-   else:
-      return self.dfs(piles, alex, lee+piles[left], left+1, right, 0) or \
-             self.dfs(piles, alex, lee+piles[right], left, right-1, 0)
+   from functools import lru_cache
+   @lru_cache(None)
+   def dfs(alex, lee, left, right, player):
+      if left > right:
+            return alex > lee
+      if player == 0:
+            return dfs(alex+piles[left], lee, left+1, right, 1) or \
+                  dfs(alex+piles[right], lee, left, right-1, 1)
+      else:
+            return dfs(alex, lee+piles[left], left+1, right, 0) or \
+                  dfs(alex, lee+piles[right], left, right-1, 0)
+   return dfs(0, 0, 0, len(piles)-1, 0)
 ```
 #### Assumption: N = the number of piles
 #### Complexity: runtime = O(N^2), space = O(N^2)
@@ -58,6 +59,22 @@ def stoneGame(self, piles: List[int]) -> bool:
 ```
 #### Assumption: N = the number of piles
 #### Complexity: runtime = O(N^2), space = O(N)
+
+# [1140](https://leetcode.com/problems/stone-game-ii/)
+```python
+def stoneGameII(self, A: List[int]) -> int:
+   N = len(A)
+   for i in range(N - 2, -1, -1):
+      A[i] += A[i + 1]
+   from functools import lru_cache
+   @lru_cache(None)
+   def dp(i, m):
+      if i + 2 * m >= N: return A[i]
+      return A[i] - min(dp(i + x, max(m, x)) for x in range(1, 2 * m + 1))
+   return dp(0, 1)
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N^3), space = O(N^2)
 
 ### Template
 # []()
