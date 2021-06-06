@@ -227,7 +227,29 @@ def searchRange(nums, target):
 ```
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(logN), space = O(1)
+```python
+def searchRange(nums, target):
+   def binary_search(l, r):
+      while l < r:
+         m = (l + r) // 2
+         if nums[m] < target:
+            l = m + 1
+         else:
+            r = m
+      return l, r
 
+   res = [-1, -1]
+   l, r = binary_search(0, len(nums)-1)
+   if not nums or r == len(nums) or nums[r] != target:
+      return res
+   res[0] = r
+   target += 1
+   res[1] = binary_search(l, len(nums))[1] - 1
+   return res
+```
+#### Note: refactor the previous solution and reduce redundancy
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(logN), space = O(1)
 
 ### Template
 # []()
