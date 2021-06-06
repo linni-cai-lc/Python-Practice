@@ -187,6 +187,19 @@ def firstBadVersion(n):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [34](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+```python
+def searchRange(nums, target):
+   try:
+      l = nums.index(target)
+      r = len(nums) - 1 - nums[::-1].index(target)
+      return [l, r]
+   except:
+      return [-1, -1]
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
 
 ### Template
 # []()
