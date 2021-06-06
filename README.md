@@ -200,6 +200,34 @@ def searchRange(nums, target):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# [34](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+```python
+def searchRange(nums, target):
+   l = 0
+   r = len(nums) - 1
+   res = [-1, -1]
+   while l < r:
+      m = (l + r) // 2
+      if nums[m] < target:
+         l = m + 1
+      else:
+         r = m
+   if not nums or r == len(nums) or nums[r] != target:
+      return res
+   res[0] = r
+   r = len(nums)
+   while l < r:
+      m = (l + r) // 2
+      if nums[m] <= target:
+         l = m + 1
+      else:
+         r = m
+   res[1] = r - 1
+   return res
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(logN), space = O(1)
+
 
 ### Template
 # []()
