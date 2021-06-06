@@ -152,6 +152,41 @@ def nextGreatestLetter(letters, target):
 #### Assumption: N = the number of elements in the letters
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [35](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+```python
+def searchInsert(nums, target):
+   l = 0
+   r = len(nums)-1
+   while l <= r:
+      m = (l+r)//2
+      if nums[m] == target:
+         return m
+      elif nums[m] < target:
+         l = m + 1
+      else:
+         r = m - 1
+   return l
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(logN), space = O(1)
+
+# [278](https://leetcode.com/problems/first-bad-version/)
+```python
+def firstBadVersion(n):
+   l = 0
+   r = n - 1
+   cnt = 0
+   while l <= r:
+      m = (l+r)//2
+      if isBadVersion(m):
+         r = m - 1
+      else:
+         l = m + 1
+   return l
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(logN), space = O(1)
+
 
 ### Template
 # []()
