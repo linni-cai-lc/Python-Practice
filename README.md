@@ -40,14 +40,25 @@ def stoneGame(self, piles: List[int]) -> bool:
             return alex > lee
       if player == 0:
             return dfs(alex+piles[left], lee, left+1, right, 1) or \
-                  dfs(alex+piles[right], lee, left, right-1, 1)
+                   dfs(alex+piles[right], lee, left, right-1, 1)
       else:
             return dfs(alex, lee+piles[left], left+1, right, 0) or \
-                  dfs(alex, lee+piles[right], left, right-1, 0)
+                   dfs(alex, lee+piles[right], left, right-1, 0)
    return dfs(0, 0, 0, len(piles)-1, 0)
 ```
 #### Assumption: N = the number of piles
 #### Complexity: runtime = O(N^2), space = O(N^2)
+```python
+def stoneGame(self, piles: List[int]) -> bool:
+   size = len(piles)
+   dp = piles[:]
+   for d in range(1, size):
+      for i in range(size - d):
+         dp[i] = max(piles[i]-dp[i+1], piles[i+d]-dp[i])
+   return dp[0] > 0
+```
+#### Assumption: N = the number of piles
+#### Complexity: runtime = O(N^2), space = O(N)
 ```python
 def stoneGame(self, piles: List[int]) -> bool:
    size = len(piles)
@@ -75,6 +86,72 @@ def stoneGameII(self, A: List[int]) -> int:
 ```
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N^3), space = O(N^2)
+
+# [263](https://leetcode.com/problems/ugly-number/)
+```python
+def isUgly(self, num: int) -> bool:
+   if num == 0:
+      return False
+   while num % 2 == 0:
+      num //= 2
+   while num % 3 == 0:
+      num //= 3
+   while num % 5 == 0:
+      num //= 5
+   return num == 1
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(1)
+
+# [264](https://leetcode.com/problems/ugly-number-ii/)
+```python
+from heapq import heappop, heappush
+def nthUglyNumber(self, n: int) -> int:
+   heap = [1]
+   for i in range(1, n):
+      cur = heappop(heap)
+      while heap and heap[0] == cur:
+         cur = heappop(heap)
+      heap += [cur*2, cur*3, cur*5]
+      heapify(heap)
+   return heap[0]
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N^2), space = O(N)
+```python
+def nthUglyNumber(self, n: int) -> int:
+   res = [1]
+   idx_2, idx_3, idx_5 = 0, 0, 0
+   while len(res) < n:
+      n2 = res[idx_2] * 2
+      n3 = res[idx_3] * 3
+      n5 = res[idx_5] * 5
+      mini = min(n2, n3, n5)
+      idx_2 += int(mini == n2)
+      idx_3 += int(mini == n3)
+      idx_5 += int(mini == n5)
+      res += [mini]
+   return res[-1]
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(N)
+
+# [744](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+```python
+def nextGreatestLetter(letters, target):
+   l = 0
+   r = len(letters)
+   while l < r:
+      mid = (l+r)//2
+      if letters[mid] <= target:
+         l = mid + 1
+      else:
+         r = mid
+   return letters[l % len(letters)]
+```
+#### Assumption: N = the number of elements in the letters
+#### Complexity: runtime = O(logN), space = O(1)
+
 
 ### Template
 # []()
