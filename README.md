@@ -63,14 +63,14 @@ def stoneGame(self, piles: List[int]) -> bool:
 # [1140](https://leetcode.com/problems/stone-game-ii/)
 ```python
 def stoneGameII(self, A: List[int]) -> int:
-   N = len(A)
-   for i in range(N - 2, -1, -1):
-      A[i] += A[i + 1]
+   size = len(piles)
+   for i in range(size - 2, -1, -1):
+      piles[i] += piles[i + 1]
    from functools import lru_cache
    @lru_cache(None)
    def dp(i, m):
-      if i + 2 * m >= N: return A[i]
-      return A[i] - min(dp(i + x, max(m, x)) for x in range(1, 2 * m + 1))
+      if i + 2 * m >= size: return piles[i]
+      return piles[i] - min(dp(i + x, max(m, x)) for x in range(1, 2 * m + 1))
    return dp(0, 1)
 ```
 #### Assumption: N = the number of elements
