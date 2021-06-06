@@ -47,6 +47,17 @@ def dfs(self, piles, alex, lee, left, right, player):
 ```
 #### Assumption: N = the number of piles
 #### Complexity: runtime = O(N^2), space = O(N^2)
+```python
+def stoneGame(self, piles: List[int]) -> bool:
+   size = len(piles)
+   dp = piles[:]
+   for d in range(1, size):
+      for i in range(size - d):
+         dp[i] = max(piles[i]-dp[i+1], piles[i+d]-dp[i])
+   return dp[0] > 0
+```
+#### Assumption: N = the number of piles
+#### Complexity: runtime = O(N^2), space = O(N)
 
 ### Template
 # []()
