@@ -131,7 +131,18 @@ def arraySign(nums):
 ```
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
-
+```python
+def arraySign(nums):
+   cur = 1
+   for i in nums:
+      if i < 0:
+         cur *= -1
+      elif i == 0:
+         return 0
+   return cur
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
