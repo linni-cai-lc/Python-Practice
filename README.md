@@ -116,6 +116,23 @@ def maxAscendingSum(nums)
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1822](https://leetcode.com/problems/sign-of-the-product-of-an-array/)
+```python
+def arraySign(nums):
+   cur = 1
+   for i in nums:
+      if i > 0:
+         cur *= 1
+      elif i < 0:
+         cur *= -1
+      else:
+         return 0
+   return cur
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
+
 ### Template
 # []()
 ```sql
