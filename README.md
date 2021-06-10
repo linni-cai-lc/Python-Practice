@@ -144,6 +144,26 @@ def arraySign(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1790](https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/)
+```python
+def areAlmostEqual(s1, s2):
+   cnt = 0
+   first = None
+   second = None
+   for i in range(len(s1)):
+      if s1[i] != s2[i]:
+         cnt += 1
+         if cnt == 1:
+            first = s1[i]
+            second = s2[i]
+         elif cnt == 2:
+            if first != s2[i] or second != s1[i]:
+               return False
+   return cnt == 0 or cnt == 2
+```
+#### Assumption: N = the length of th given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
