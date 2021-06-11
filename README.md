@@ -177,8 +177,13 @@ def totalMoney(n):
 ```
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N), space = O(1)
-
-
+```python
+def totalMoney(n):
+   return (1+7)*7//2*(n//7)+(n//7)*(n//7-1)//2*7 + (n%7-1)*(n%7)//2+(n//7+1)*(n%7)
+```
+#### Note: based on the straightfoward method above, do the math sequence summation -> constant time!
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(1), space = O(1)
 ### Template
 # []()
 ```sql
