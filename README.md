@@ -164,6 +164,21 @@ def areAlmostEqual(s1, s2):
 #### Assumption: N = the length of th given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1716](https://leetcode.com/problems/calculate-money-in-leetcode-bank/)
+```python
+def totalMoney(n):
+   wk = n // 7
+   cnt = 0
+   for i in range(wk):
+      cnt += (1+7)*7//2+i*7
+   for i in range(n % 7):
+      cnt += i + (wk+1)
+   return cnt
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(1)
+
+
 ### Template
 # []()
 ```sql
