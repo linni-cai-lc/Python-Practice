@@ -244,6 +244,28 @@ def get_depth(self, root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(1)
 
+# [287](https://leetcode.com/problems/find-the-duplicate-number/)
+```python
+def findDuplicate(self, nums: List[int]) -> int:
+   # phase 1
+   slow = fast = nums[0]
+   while True:
+      slow = nums[slow]
+      fast = nums[nums[fast]]
+      if slow == fast:
+            break
+
+   # phase 2
+   slow = nums[0]
+   while slow != fast:
+      slow = nums[slow]
+      fast = nums[fast]
+   return fast
+```
+#### Note: phase 1 aims to find the intersection, phase 2 aims to cycle entrance
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
