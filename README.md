@@ -220,11 +220,29 @@ def leftMostColumnWithOne(binaryMatrix）：
 #### Assumption: N = the number of rows, M = the number of columns
 #### Complexity: runtime = O(?), space = O(?)
 
-# []()
+# [222](https://leetcode.com/problems/count-complete-tree-nodes/)
 ```python
+def countNodes(self, root: TreeNode) -> int:
+   cnt = 0
+   while root:
+      ld = self.get_depth(root.left)
+      rd = self.get_depth(root.right)
+      if ld == rd:
+         cnt += pow(2, ld)
+         root = root.right
+      else:
+         cnt += pow(2, rd)
+         root = root.left
+   return cnt
+
+def get_depth(self, root):
+   if not root:
+      return 0
+   ld = self.get_depth(root.left)
+   return 1 + ld
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
