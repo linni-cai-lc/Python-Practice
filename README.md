@@ -279,6 +279,23 @@ def missingElement(self, nums: List[int], k: int) -> int:
 ```
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
+```python
+def missingElement(self, nums: List[int], k: int) -> int:
+   missing = lambda idx: nums[idx] - nums[0] - idx
+   size = len(nums)
+   if k > missing(size - 1):
+      return nums[-1] + k - missing(size-1)
+   l, r = 0, size-1
+   while l != r:
+      m = (l+r)//2
+      if missing(m) < k:
+         l = m + 1
+      else:
+         r = m
+   return nums[l-1]+k-missing(l-1)
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(logN), space = O(1)
 
 ### Template
 # []()
