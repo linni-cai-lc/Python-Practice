@@ -266,6 +266,20 @@ def findDuplicate(self, nums: List[int]) -> int:
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1060](https://leetcode.com/problems/missing-element-in-sorted-array/)
+```python
+def missingElement(self, nums: List[int], k: int) -> int:
+   cnt = 0
+   for i in range(1, len(nums)):
+      for j in range(nums[i-1]+1, nums[i]):
+         cnt += 1
+         if cnt == k:
+            return j
+   return nums[-1] + (k - cnt)
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
