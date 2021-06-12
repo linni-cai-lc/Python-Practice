@@ -204,6 +204,28 @@ def numDifferentIntegers(word):
 #### Assumption: N = the length of the given word
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1428](https://leetcode.com/problems/leftmost-column-with-at-least-a-one/)
+```python
+def leftMostColumnWithOne(binaryMatrix）：
+   nrow, ncol = binaryMatrix.dimensions()
+   row = 0
+   col = ncol - 1
+   while row < nrow and col >= 0:
+      if binaryMatrix.get(row, col) == 0:
+         row += 1
+      else:
+         col -= 1
+   return col + 1 if col != ncol - 1 else -1
+```
+#### Assumption: N = the number of rows, M = the number of columns
+#### Complexity: runtime = O(?), space = O(?)
+
+# []()
+```python
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 ### Template
 # []()
 ```sql
