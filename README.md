@@ -297,6 +297,34 @@ def missingElement(self, nums: List[int], k: int) -> int:
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [528](https://leetcode.com/problems/random-pick-with-weight/)
+```python
+from random import random
+class Solution:
+
+   def __init__(self, w: List[int]):
+      self.size = len(w)
+      self.book = [0] * self.size
+      self.book[0] = w[0]
+      for i in range(1, self.size):
+         self.book[i] = self.book[i-1] + w[i]
+
+   def pickIndex(self) -> int:
+      return self.minLarge(random() * self.book[-1])
+      
+   def minLarge(self, target):
+      l, r = 0, self.size - 1
+      while l < r:
+         m = (l + r) // 2
+         if self.book[m] <= target:
+            l = m + 1
+         else:
+            r = m
+      return l
+```
+#### Assumption: N = the number of actions
+#### Complexity: runtime = O(logN), space = O(N)
+
 ### Template
 # []()
 ```sql
