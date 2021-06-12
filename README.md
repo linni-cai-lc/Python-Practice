@@ -184,6 +184,26 @@ def totalMoney(n):
 #### Note: based on the straightfoward method above, do the math sequence summation -> constant time!
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(1), space = O(1)
+
+# [1805](https://leetcode.com/problems/number-of-different-integers-in-a-string/)
+```python
+def numDifferentIntegers(word):
+   cnt = 0
+   cur = ''
+   added = set()
+   for i in word:
+      if i.isalpha():
+         if cur.isnumeric() and int(cur) not in added:
+            cnt += 1
+            added.add(int(cur))                
+         cur = ''
+      else:
+            cur += i
+   return cnt + int(cur.isnumeric() and int(cur) not in added)
+```
+#### Assumption: N = the length of the given word
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
