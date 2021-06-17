@@ -47,6 +47,15 @@ GROUP BY LOWER(TRIM(product_name)), MONTH(sale_date)
 ORDER BY PRODUCT_NAME ASC, SALE_DATE ASC
 ```
 
+# [1812](https://leetcode.com/problems/determine-color-of-a-chessboard-square/)
+```python
+def main(coordinates):
+   return (ord(coordinates[0]) - 96 + int(coordinates[1])) % 2 == 1
+```
+#### Note: the sum of coordinates is even if black, otherwise odd white
+#### Assumption: N = the size of coordinate
+#### Complexity: runtime = O(1), space = O(1)
+
 ### Template
 # []()
 ```sql
