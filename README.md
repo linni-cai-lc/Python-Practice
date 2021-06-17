@@ -56,6 +56,19 @@ def main(coordinates):
 #### Assumption: N = the size of coordinate
 #### Complexity: runtime = O(1), space = O(1)
 
+# [1893](https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/)
+```python
+def main(ranges, left, right):
+   cur = set(range(left, right+1))
+   for start, end in ranges:
+      for i in range(start, end+1):
+         if i in cur:
+            cur.remove(i)
+   return not cur
+```
+#### Assumption: N = the number of elements between left and right
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
