@@ -86,6 +86,19 @@ def main(words):
 #### Assumption: N = the number of words
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1265](https://leetcode.com/problems/print-immutable-linked-list-in-reverse/)
+```python
+def main(head):
+   lst = [head]
+   while head.getNext():
+      head = head.getNext()
+      lst += [head]
+   for i in lst[::-1]:
+      i.printValue()
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
