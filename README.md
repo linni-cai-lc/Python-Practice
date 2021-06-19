@@ -99,6 +99,31 @@ def main(head):
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1445](https://leetcode.com/problems/apples-oranges/)
+#### BETTER
+```sql
+WITH APPLE_SALES
+AS (
+    SELECT sale_date, sold_num AS APPLES
+    FROM Sales
+    WHERE fruit = 'apples'
+)
+SELECT Sales.sale_date AS sale_date, (APPLE_SALES.APPLES - Sales.sold_num) AS diff
+FROM Sales JOIN APPLE_SALES ON Sales.fruit = 'oranges' AND Sales.sale_date = APPLE_SALES.sale_date
+```
+#### BRUTE FORCE
+```sql
+SELECT sale_date, apples - oranges AS diff
+FROM (
+    SELECT sale_date,
+           SUM(CASE WHEN fruit = 'apples' THEN sold_num ELSE 0 END) AS apples,
+           SUM(CASE WHEN fruit = 'oranges' THEN sold_num ELSE 0 END) AS oranges
+    FROM Sales
+    GROUP BY sale_date
+) AS SALE_TYPE
+GROUP BY sale_date;
+```
+
 ### Template
 # []()
 ```sql
