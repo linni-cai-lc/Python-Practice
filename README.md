@@ -69,6 +69,23 @@ def main(ranges, left, right):
 #### Assumption: N = the number of elements between left and right
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1897](https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal/)
+```python
+from collections import defaultdict as dd
+def main(words):
+   book = dd(int)
+   size = len(words)
+   for word in words:
+      for i in word:
+         book[i] += 1
+   for i in book:
+      if book[i] % size != 0:
+         return False
+   return True
+```
+#### Assumption: N = the number of words
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
