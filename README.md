@@ -42,6 +42,27 @@ def main(nums1, nums2):
 #### Assumption: N1 = the number of elements in nums1, N2 = the number of elements in nums2
 #### Complexity: runtime = O(N1*N2), space = O(N2)
 
+# [162](https://leetcode.com/problems/find-peak-element/)
+```python
+def main(nums):
+   if len(nums) == 1:
+      return 0
+   nums = [-sys.maxsize] + nums + [-sys.maxsize]
+   l, r = 1, len(nums)-2
+   while l <= r:
+      m = (l + r) // 2
+      if nums[m-1] < nums[m] and nums[m+1] < nums[m]:
+         return m-1
+      elif nums[m] < nums[m+1]:
+         l = m+1
+      else:
+         r = m-1
+   return -1
+```
+#### Note: Utilize binary search to reduce time cost
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(logN), space = O(1)
+
 ### Template
 # []()
 ```sql
