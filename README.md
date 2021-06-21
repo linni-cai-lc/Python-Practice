@@ -63,6 +63,53 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [29](https://leetcode.com/problems/divide-two-integers/)
+```python
+def divide(dividend, divisor):
+   MAXI = 2147483647
+   MINI = -2147483648
+   HALF = -1073741824
+
+   if dividend == MINI and divisor == -1:
+      return MAXI
+
+   neg = 2
+   if dividend > 0:
+      neg -= 1
+      dividend = -dividend
+   if divisor > 0:
+      neg -= 1
+      divisor = -divisor
+
+   doubles = []
+   powers = []
+   power = 1
+   while divisor >= dividend:
+      doubles += [divisor]
+      powers += [power]
+      if divisor < HALF:
+         break
+      divisor += divisor
+      power += power
+   quotient = 0
+   for i in range(len(doubles)):
+      i = len(doubles) - 1 - i
+      if doubles[i] >= dividend:
+         quotient += powers[i]
+         dividend -= doubles[i]
+   return quotient if neg != 1 else -quotient
+
+```
+#### Note: doubles and powers are useful to assist
+```
+for dividend = 32, divisor = 3
+doubles: [-3, -6, -12, -24]
+powers : [1, 2, 4, 8]
+```
+#### Assumption: N = the given dividend size
+#### Complexity: runtime = O(logN), space = O(logN)
+
+
 ### Template
 # []()
 ```sql
