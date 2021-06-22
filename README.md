@@ -109,6 +109,29 @@ powers : [1, 2, 4, 8]
 #### Assumption: N = the given dividend size
 #### Complexity: runtime = O(logN), space = O(logN)
 
+# [792](https://leetcode.com/problems/number-of-matching-subsequences/)
+```python
+from collections import Counter
+def main(s, words):
+   cnt = 0
+   match = set()
+   for word in set(words):
+      l, r = 0, 0
+      while l < len(word) and r < len(s):
+         if word[l] == s[r]:
+            l += 1
+            r += 1
+         else:
+            r += 1
+      if l == len(word):
+         match.add(word)
+   word_book = Counter(words)
+   for i in word_book:
+      cnt += int(i in match) * word_book[i]
+   return cnt
+```
+#### Assumption: W = the number of words in the given list, S = the given string length
+#### Complexity: runtime = O(WS), space = O(W)
 
 ### Template
 # []()
