@@ -151,6 +151,49 @@ def main(mat):
 #### Assumption: R = the number of rows in the given matrix, C = the number of columns in the given matrix
 #### Complexity: runtime = O(RC), space = O(RC)
 
+# [576](https://leetcode.com/problems/out-of-boundary-paths/)
+```python
+def main(nrow, ncol, maxMove, startRow, startColumn):
+   if startRow == nrow or startColumn == ncol or startRow < 0 or startColumn < 0:
+      return 1
+   if maxMove == 0:
+      return 0
+   return self.findPaths(nrow, ncol, maxMove-1, startRow-1, startColumn) + \
+          self.findPaths(nrow, ncol, maxMove-1, startRow+1, startColumn) + \
+          self.findPaths(nrow, ncol, maxMove-1, startRow, startColumn-1) + \
+          self.findPaths(nrow, ncol, maxMove-1, startRow, startColumn+1)
+```
+#### Note: Utilized DFS recursion, TLE, need time complexity improvement
+#### Assumption: R = the number of rows, C = the number of columns, M = the number of moves allowed maximum
+#### Complexity: runtime = O(4^N), space = O(N) utilized recursion stack
+```python
+def main(nrow, ncol, maxMove, startRow, startColumn):
+   M = 1000000007
+   dp = [[0] * ncol for _ in range(nrow)]
+   dp[startRow][startColumn] = 1
+   cnt = 0
+   for _ in range(maxMove):
+      tmp = [[0] * ncol for _ in range(nrow)]
+      for row in range(nrow):
+         for col in range(ncol):
+            cur = dp[row][col]
+            cnt += cur * int(row == nrow - 1)
+            cnt += cur * int(col == ncol - 1)
+            cnt += cur * int(row == 0)
+            cnt += cur * int(col == 0)
+            cnt %= M
+            res = dp[row-1][col] if row > 0 else 0
+            res += dp[row+1][col] if row < nrow - 1 else 0
+            res += dp[row][col-1] if col > 0 else 0
+            res += dp[row][col+1] if col < ncol - 1 else 0
+            tmp[row][col] = res % M
+      dp = tmp
+   return cnt
+```
+#### Note: Utilized dynamic programming to add on previous records
+#### Assumption: R = the number of rows, C = the number of columns, M = the number of moves allowed maximum
+#### Complexity: runtime = O(RCM), space = O(RC)
+
 ### Template
 # []()
 ```sql
