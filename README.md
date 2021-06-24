@@ -133,6 +133,24 @@ def main(s, words):
 #### Assumption: W = the number of words in the given list, S = the given string length
 #### Complexity: runtime = O(WS), space = O(W)
 
+# [1198](https://leetcode.com/problems/find-smallest-common-element-in-all-rows/)
+```python
+from collections import Counter
+def main(mat):
+   nrow = len(mat)
+   ncol = len(mat[0])
+   book = Counter()
+   for col in range(ncol):
+      for row in range(nrow):
+         cur = mat[row][col]
+         book[cur] += 1
+         if book[cur] == nrow:
+            return cur
+   return -1
+```
+#### Assumption: R = the number of rows in the given matrix, C = the number of columns in the given matrix
+#### Complexity: runtime = O(RC), space = O(RC)
+
 ### Template
 # []()
 ```sql
