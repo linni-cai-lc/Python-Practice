@@ -191,6 +191,9 @@ def main(nrow, ncol, maxMove, startRow, startColumn):
    return cnt
 ```
 #### Note: Utilized dynamic programming to add on previous records
+```
+dp[row][col] = the number of ways by the current allowed number of moves
+```
 #### Assumption: R = the number of rows, C = the number of columns, M = the number of moves allowed maximum
 #### Complexity: runtime = O(RCM), space = O(RC)
 
