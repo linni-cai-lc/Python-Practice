@@ -58,6 +58,33 @@ x >> 1 = x / 2
 #### Assumption: N = the number of elements in target
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [1214](https://leetcode.com/problems/two-sum-bsts/)
+```python
+def twoSumBSTs(root1, root2, target):
+   stack = []
+   book = set()
+   while stack or root1:
+      while root1:
+         stack += [root1]
+         root1 = root1.left
+      root1 = stack.pop()
+      book.add(target - root1.val)
+      root1 = root1.right
+      
+   while stack or root2:
+      while root2:
+         stack += [root2]
+         root2 = root2.left
+      root2 = stack.pop()
+      if root2.val in book:
+         return True
+      root2 = root2.right
+   return False
+```
+#### Note: Utilize stack to store all left children, store rest sum in hash set, quick look up for root2
+#### Assumption: N1 = the number of elements in root1, N2 = the number of elements in root2 
+#### Complexity: runtime = O(N1 + N2), space = O(N1 + N2)
+
 ### Template
 # []()
 ```sql
