@@ -30,6 +30,34 @@ class TweetCounts:
 #### Assumption: N = the number of tweets
 #### Complexity: runtime = O(N), space = O(N)
 
+# [702](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)
+```python
+def search(reader, target):
+   if reader.get(0) == target:
+      return 0
+   l, r = 0, 1
+   while reader.get(r) < target:
+      l = r
+      r <<= 1
+   while l <= r:
+      mid = (l + r) >> 1
+      cur = reader.get(mid)
+      if cur == target:
+            return mid
+      if cur > target:
+            r = mid - 1
+      else:
+            l = mid + 1
+   return -1
+```
+#### Note:
+```
+x << 1 = x * 2
+x >> 1 = x / 2
+```
+#### Assumption: N = the number of elements in target
+#### Complexity: runtime = O(logN), space = O(1)
+
 ### Template
 # []()
 ```sql
