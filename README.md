@@ -43,11 +43,11 @@ def search(reader, target):
       mid = (l + r) >> 1
       cur = reader.get(mid)
       if cur == target:
-            return mid
+         return mid
       if cur > target:
-            r = mid - 1
+         r = mid - 1
       else:
-            l = mid + 1
+         l = mid + 1
    return -1
 ```
 #### Note:
