@@ -85,6 +85,20 @@ def twoSumBSTs(root1, root2, target):
 #### Assumption: N1 = the number of elements in root1, N2 = the number of elements in root2 
 #### Complexity: runtime = O(N1 + N2), space = O(N1 + N2)
 
+# [1047](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
+```python
+def main(s):
+   stack = []
+   for i in s:
+      if stack and i == stack[-1]:
+         stack.pop()
+      else:
+         stack += [i]
+   return "".join(stack)
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
