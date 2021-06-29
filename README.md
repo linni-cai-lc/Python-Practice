@@ -99,6 +99,67 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1237](https://leetcode.com/problems/find-positive-integer-solution-for-a-given-equation/)
+```python
+def main(customfunction, z):
+   res = []
+   y = 1000
+   for x in range(1, 1001):
+      while y > 1 and customfunction.f(x, y) > z:
+         y -= 1
+      if customfunction.f(x,y) == z:
+         res += [[x, y]]
+   return res
+```
+#### Assumption: z = x + y, X = the size of number x, Y = the size of number y
+#### Complexity: runtime = O(X+Y), space = O(1) excluding result space
+```python
+def main(customfunction, z):
+   res = []
+   for i in range(1, 1001):
+      l = 1
+      r = min(i+z, 1001)
+      while l < r:
+         m = (l + r) // 2
+         if customfunction.f(i, m) < z:
+            l = m + 1
+         else:
+            r = m
+      if customfunction.f(i, l) == z:
+         res += [[i, l]]
+   return res
+```
+#### Note: this one utilized binary search, but the nested for-loop increases the time complexity
+#### Assumption: z = x + y, X = the size of number x, Y = the size of number y
+#### Complexity: runtime = O(XlogY), space = O(1) excluding result space
+```python
+def main(customfunction, z):
+   res = []
+   l = 1
+   r = 1001
+   for i in range(1, 1001):
+      if customfunction.f(i, l) > z or customfunction.f(i, r) < z:
+         continue
+      ll, rr = l, r
+      while ll < rr:
+         m = (ll + rr) // 2
+         if customfunction.f(i, m) < z:
+            ll = m + 1
+         else:
+            rr = m
+      cur = customfunction.f(i, ll)
+      if cur == z:
+         res += [[i, ll]]
+      if cur >= z:
+         r = ll
+      else:
+         l = ll
+   return res
+```
+#### Note: this one utilized the first and the second solutions, l is bounded with O(X), r is bounded with O(logY)
+#### Assumption: z = x + y, X = the size of number x, Y = the size of number y
+#### Complexity: runtime = O(X+logY), space = O(1) excluding result space
+
 ### Template
 # []()
 ```sql
