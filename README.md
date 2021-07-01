@@ -180,6 +180,36 @@ def main(mat):
 ```
 #### Assumption: R = the number of rows in the given mat, C = the number of columns in the given mat
 #### Complexity: runtime = O(RC), space = O(1)
+```python
+def main(mat):
+   nrow = len(mat)
+   ncol = len(mat[0])
+   DIR = {(0,-1),(0,1),(-1,0),(1,0)}
+   ll, rr = None, None
+   
+   def dfs(l, r):
+      if l == r:
+         return
+      m = (l+r)//2
+      ll = dfs(l, m)
+      rr = dfs(m+1, r)
+      for i in range(nrow):
+         cur = mat[i][m]
+         peak = True
+         for kx, ky in DIR:
+            if 0 <= i+kx < nrow and 0 <= m+ky < ncol and mat[i+kx][m+ky] >= cur:
+               peak = False
+               break
+         if peak:
+            return [i, m]
+      if ll:
+         return ll
+      return rr
+   return dfs(0, ncol)
+```
+#### Note: Utilized binary search inside recursive DFS, however recursion doesn't improve a lot in runtime complexity than previous iteration.
+#### Assumption: R = the number of rows in the given mat, C = the number of columns in the given mat
+#### Complexity: runtime = O(RlogC), space = O(C)
 
 ### Template
 # []()
