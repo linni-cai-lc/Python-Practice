@@ -211,6 +211,22 @@ def main(mat):
 #### Assumption: R = the number of rows in the given mat, C = the number of columns in the given mat
 #### Complexity: runtime = O(RlogC), space = O(C)
 
+# [1509](https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/)
+```python
+def main(nums):
+   if len(nums) < 5:
+      return 0
+   nums.sort()
+   mini = sys.maxsize
+   for i in range(1, 5):
+      mini = min(mini, nums[-i] - nums[4-i])
+   return mini
+```
+#### Note: Utlized sorted array property, the control region is the max four and the min four, the difference of closer min/max combo
+#### Assumption: N = the number of elements in nums
+#### Complexity: runtime = O(NlogN), space = O(1)
+
+
 ### Template
 # []()
 ```sql
