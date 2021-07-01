@@ -160,6 +160,27 @@ def main(customfunction, z):
 #### Assumption: z = x + y, X = the size of number x, Y = the size of number y
 #### Complexity: runtime = O(X+logY), space = O(1) excluding result space
 
+# [1901](https://leetcode.com/problems/find-a-peak-element-ii/)
+```python
+def main(mat):
+   nrow = len(mat)
+   ncol = len(mat[0])
+   DIR = {(0,-1),(0,1),(-1,0),(1,0)}
+   for i in range(nrow):
+      for j in range(ncol):
+         peak = True
+         cur = mat[i][j]
+         for kx, ky in DIR:
+            if 0 <= i+kx < nrow and 0 <= j+ky < ncol and mat[i+kx][j+ky] >= cur:
+               peak = False
+               break
+         if peak:
+            return [i, j]
+   return [-1, -1]                     
+```
+#### Assumption: R = the number of rows in the given mat, C = the number of columns in the given mat
+#### Complexity: runtime = O(RC), space = O(1)
+
 ### Template
 # []()
 ```sql
