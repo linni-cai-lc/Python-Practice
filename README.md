@@ -226,6 +226,20 @@ def main(nums):
 #### Assumption: N = the number of elements in nums
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1608](https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/)
+```python
+def main(nums):
+   nums.sort()
+   if len(nums) <= nums[0]:
+      return len(nums)
+   for i in range(len(nums)):
+      rest = len(nums) - i
+      if nums[i-1] < rest <= nums[i]:
+         return rest
+   return -1
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(NlogN), space = O(1) in place sort
 
 ### Template
 # []()
