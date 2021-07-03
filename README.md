@@ -241,6 +241,15 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(NlogN), space = O(1) in place sort
 
+# [1551](https://leetcode.com/problems/minimum-operations-to-make-array-equal/)
+```python
+def main(n):
+   return (int(n % 2 == 1) + n // 2) * (n // 2)
+```
+#### Note: Utilized math sequence sum
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(1), space = O(1)
+
 ### Template
 # []()
 ```sql
