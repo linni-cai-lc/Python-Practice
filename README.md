@@ -50,6 +50,27 @@ def main(weights, days):
 #### Assumption: W = the number of weights, M = sum(weights) - max(weights)
 #### Complexity: runtime = O(WlogM), space = O(1)
 
+# [875](https://leetcode.com/problems/koko-eating-bananas/)
+```python
+def main(piles, h):
+   l = 1
+   r = max(piles)
+   
+   while l < r:
+      h_cnt = 0
+      for i in piles:
+         m = (l + r) // 2
+         h_cnt += math.ceil(i / m)
+      if h_cnt > h:
+         l = m + 1
+      else:
+         r = m
+   return l
+```
+#### Note: Utilized binary search between 1 and the max pile size, reduced time complexity for minimum speed search.
+#### Assumption: P = the number of piles, M = the max pile size
+#### Complexity: runtime = O(PlogM), space = O(1)
+
 ### Template
 # []()
 ```sql
