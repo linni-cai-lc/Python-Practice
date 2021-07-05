@@ -126,6 +126,30 @@ def dfs(res, nums, idx):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N*2^N), space = O(logN)
 
+# [46](https://leetcode.com/problems/permutations/)
+```python
+def main(nums):
+   return list(itertools.permutations(nums))
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N!), space = O(N!)
+```python
+def main(nums):
+   res = []
+   dfs(res, nums, 0)
+   return res
+
+def dfs(res, nums, cur):
+   if cur == len(nums):
+      res += [nums[:]]
+   for i in range(cur, len(nums)):
+      nums[cur], nums[i] = nums[i], nums[cur]
+      dfs(res, nums, cur+1)
+      nums[cur], nums[i] = nums[i], nums[cur]
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N!), space = O(N!)
+
 ### Template
 # []()
 ```sql
