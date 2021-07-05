@@ -71,6 +71,61 @@ def main(piles, h):
 #### Assumption: P = the number of piles, M = the max pile size
 #### Complexity: runtime = O(PlogM), space = O(1)
 
+# [78](https://leetcode.com/problems/subsets/)
+```python
+def main(nums):
+   res = [[]]
+   for i in nums:
+      for j in range(len(res)):
+         res += [[i] + res[j]]
+   return res
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N*2^N), space = O(N*2^N)
+```python
+def main(nums):
+   res = [[]]
+   dfs(res, nums, 0)
+   return res
+    
+def dfs(res, nums, idx):
+   if idx < len(nums):
+      for i in range(len(res)):
+         res += [[nums[idx]] + res[i]]
+      dfs(res, nums, idx+1)
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N*2^N), space = O(N*2^N)
+
+# [90](https://leetcode.com/problems/subsets/)
+```python
+def main(nums):
+   res = {()}
+   nums.sort()
+   for i in nums:
+      res_copy = list(res)
+      for j in range(len(res_copy)):
+         res.add((i,) + res_copy[j])
+   return res
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N*2^N), space = O(logN)
+```python
+def main(nums):
+   res = {()}
+   dfs(res, sorted(nums), 0)
+   return res
+    
+def dfs(res, nums, idx):
+   if idx < len(nums):
+      res_copy = list(res)
+      for i in range(len(res_copy)):
+         res.add((nums[idx],) + res_copy[i])
+      dfs(res, nums, idx+1)
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N*2^N), space = O(logN)
+
 ### Template
 # []()
 ```sql
