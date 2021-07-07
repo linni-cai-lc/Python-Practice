@@ -164,7 +164,7 @@ def main(houses, heaters):
    return r
 ```
 #### Assumption: H1 = the number of houses, H2 = the number of heaters
-#### Complexity: runtime = O(H1 + H2), space = O(1) utilized in-place sort
+#### Complexity: runtime = O(H1logH1 + H2logH2), space = O(1) utilized in-place sort
 
 ### Template
 # []()
