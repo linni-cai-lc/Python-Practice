@@ -150,6 +150,22 @@ def dfs(res, nums, cur):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N!), space = O(N!)
 
+# [475](https://leetcode.com/problems/heaters/)
+```python
+def main(houses, heaters):
+   houses.sort()
+   heaters.sort()
+   heaters += [sys.maxsize]
+   l, r = 0, 0
+   for i in houses:
+      while i >= (heaters[l] + heaters[l+1]) / 2:
+         l += 1
+      r = max(r, abs(heaters[l] - i))
+   return r
+```
+#### Assumption: H1 = the number of houses, H2 = the number of heaters
+#### Complexity: runtime = O(H1 + H2), space = O(1) utilized in-place sort
+
 ### Template
 # []()
 ```sql
