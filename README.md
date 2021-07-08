@@ -166,6 +166,25 @@ def main(houses, heaters):
 #### Assumption: H1 = the number of houses, H2 = the number of heaters
 #### Complexity: runtime = O(H1logH1 + H2logH2), space = O(1) utilized in-place sort
 
+# [1302](https://leetcode.com/problems/deepest-leaves-sum/)
+```python
+def main(root):
+   res = []
+   dfs(root, 0, res)
+   return sum(res[-1])
+
+def dfs(root, level, res):
+   if not root:
+      return
+   if level == len(res):
+      res += [[]]
+   res[level] += [root.val]
+   dfs(root.left, level+1, res)
+   dfs(root.right, level+1, res)
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
