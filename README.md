@@ -185,6 +185,30 @@ def dfs(root, level, res):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# [99](https://leetcode.com/problems/recover-binary-search-tree/)
+```python
+def main(self, root):
+   self.first = self.second = self.pre = None
+   self.dfs(root)
+   self.first.val, self.second.val = self.second.val, self.first.val
+
+def dfs(self, root):
+   if not root:
+      return
+   self.dfs(root.left)
+   if self.pre and root.val < self.pre.val:
+      self.second = root
+      if not self.first:
+         self.first = self.pre
+      else:
+         return
+   self.pre = root
+   self.dfs(root.right)
+```
+#### Note: Utilized DFS and in-order traversal
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
