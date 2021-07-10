@@ -248,6 +248,24 @@ def dfs(self, root, cur, res):
 ```
 #### Assumption: N = the number of nodes in the tree, H = the height of the tree
 #### Complexity: runtime = O(N), space = O(H)
+```python
+def main(root)
+   res = []
+   self.dfs(root, 0, res)
+   return sum(res)
+   
+def dfs(self, root, cur, res):
+   if not root:
+      return
+   cur = cur * 10 + root.val
+   if not root.left and not root.right:
+      res += [cur]
+   else:
+      self.dfs(root.left, cur, res)
+      self.dfs(root.right, cur, res)
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(N), space = O(H)
 
 
 ### Template
