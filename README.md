@@ -209,6 +209,27 @@ def dfs(self, root):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(1)
 
+# [113](https://leetcode.com/problems/path-sum-ii/)
+```python
+def main(self, root, targetSum):
+   res = []
+   self.dfs(root, [], res, 0, targetSum)
+   return res
+
+def dfs(self, root, path, res, cur, target):
+   if not root:
+      return
+   total = root.val + cur
+   if total == target and (not root.left and not root.right):
+      res += [path[:] + [root.val]]
+   else:
+      self.dfs(root.left, path[:] + [root.val], res, total, target)
+      self.dfs(root.right, path[:] + [root.val], res, total, target)
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N)
+
+
 ### Template
 # []()
 ```sql
