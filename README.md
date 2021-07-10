@@ -227,7 +227,7 @@ def dfs(self, root, path, res, cur, target):
       self.dfs(root.right, path[:] + [root.val], res, total, target)
 ```
 #### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(N), space = O(N)
+#### Complexity: runtime = O(N^2), space = O(N)
 
 
 ### Template
