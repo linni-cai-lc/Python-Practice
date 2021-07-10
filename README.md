@@ -221,7 +221,7 @@ def dfs(self, root, path, res, cur, target):
       return
    total = root.val + cur
    if total == target and (not root.left and not root.right):
-      res += [path[:] + [root.val]]
+      res += [path + [root.val]]
    else:
       self.dfs(root.left, path[:] + [root.val], res, total, target)
       self.dfs(root.right, path[:] + [root.val], res, total, target)
