@@ -229,6 +229,26 @@ def dfs(self, root, path, res, cur, target):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N^2), space = O(N)
 
+# [129](https://leetcode.com/problems/sum-root-to-leaf-numbers/)
+```python
+def main(root)
+   res = []
+   self.dfs(root, "", res)
+   return sum(res)
+   
+def dfs(self, root, cur, res):
+   if not root:
+      return
+   cur += str(root.val)
+   if not root.left and not root.right:
+      res += [int(cur)]
+   else:
+      self.dfs(root.left, cur, res)
+      self.dfs(root.right, cur, res)
+```
+#### Assumption: N = the number of nodes in the tree, H = the height of the tree
+#### Complexity: runtime = O(N), space = O(H)
+
 
 ### Template
 # []()
