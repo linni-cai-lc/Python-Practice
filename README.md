@@ -155,8 +155,27 @@ def dfs(self, root, target, path, res):
    self.dfs(root.left, target, path[:] + [root], res)
    self.dfs(root.right, target, path[:] + [root], res)
 ```
-#### Assumption: N = the number
+#### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N)
+```python
+def main(root, p, q):
+   res = []
+   dfs(root, p, q, res)
+   return res[0]
+
+def dfs(cur, p, q, res):
+   if not cur:
+      return False
+   left = dfs(cur.left, p, q, res)
+   right = dfs(cur.right, p, q, res)
+   mid = cur == p or cur == q
+   if mid + left + right >= 2:
+      res += [cur]
+   return mid or left or right
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N)
+
 
 ### Template
 # []()
