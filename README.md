@@ -135,6 +135,29 @@ def dfs(root, target):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursion stack
 
+# [236](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+```python
+def main(root, p, q):
+   res = []
+   self.dfs(root, p, [], res)
+   self.dfs(root, q, [], res)
+   for i in res[0][::-1]:
+      for j in res[1][::-1]:
+         if i == j:
+            return i
+   
+def dfs(self, root, target, path, res):
+   if not root:
+      return
+   if root.val == target.val:
+      res += [path + [root]]
+      return
+   self.dfs(root.left, target, path[:] + [root], res)
+   self.dfs(root.right, target, path[:] + [root], res)
+```
+#### Assumption: N = the number
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
