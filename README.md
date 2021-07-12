@@ -35,7 +35,7 @@ def dfs(board, row, col, nrow, ncol):
                dfs(board, nr, nc, nrow, ncol)
 ```
 #### Assumption: M, N = the matrix dimensions
-#### Complexity: runtime = O(MN), space = O(1)
+#### Complexity: runtime = O(MN), space = O(MN)
 
 ### Template
 # []()
