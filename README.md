@@ -67,6 +67,27 @@ def dfs(board, row, col, nrow, ncol):
 #### Assumption: M, N = the matrix dimensions
 #### Complexity: runtime = O(MN), space = O(MN)
 
+# [205](https://leetcode.com/problems/isomorphic-strings/)
+```python
+def main(s, t):
+   if len(s) != len(t):
+      return False
+   idx = 0
+   book = {}
+   while idx < len(s):
+      if s[idx] not in book:
+         if t[idx] in book.values():
+            return False
+         book[s[idx]] = t[idx]
+      elif book[s[idx]] != t[idx]:
+         return False
+      idx += 1
+   return True
+```
+#### Assumption: N = the length of the string
+#### Complexity: runtime = O(N), space = O(N)
+
+
 ### Template
 # []()
 ```sql
