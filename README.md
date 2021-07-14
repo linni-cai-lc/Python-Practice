@@ -87,6 +87,25 @@ def main(s, t):
 #### Assumption: N = the length of the string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1379](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/)
+```python
+def main(original, cloned, target):
+   return dfs(original, cloned, target)
+
+def dfs(root, cloned, target):
+   if not root:
+      return
+   if root == target:
+      return cloned
+   left = dfs(root.left, cloned.left, target)
+   if left:
+      return left
+   right = dfs(root.right, cloned.right, target)
+   if right:
+      return right
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursion call stack
 
 ### Template
 # []()
