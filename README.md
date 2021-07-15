@@ -139,7 +139,7 @@ def dfs(root, parent_even, grand_even, res):
       res += root.val
    return res
 ```
-#### Note: Utilize DFS cumulative values instead of dynamic list
+#### Note: Utilize DFS cumulative values instead of dynamic list, need to set res = 0 for each dfs call, otherwise cumulative doesn't work due to duplicate sum
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
