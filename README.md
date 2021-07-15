@@ -107,6 +107,26 @@ def dfs(root, cloned, target):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursion call stack
 
+# [1315](https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent/)
+```python
+def main(root):
+   res = [0]
+   dfs(root, False, False, res)
+   return res[0]
+
+def dfs(root, parent_even, grand_even, res):
+   if not root:
+      return
+   cur_even = root.val % 2 == 0
+   dfs(root.left, cur_even, parent_even, res)
+   dfs(root.right, cur_even, parent_even, res)
+   if grand_even:
+      res[0] += root.val
+
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive call stack
+
 ### Template
 # []()
 ```sql
