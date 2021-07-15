@@ -122,8 +122,24 @@ def dfs(root, parent_even, grand_even, res):
    dfs(root.right, cur_even, parent_even, res)
    if grand_even:
       res[0] += root.val
-
 ```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive call stack
+```python
+def main(root):
+   return dfs(root, False, False, 0)
+
+def dfs(root, parent_even, grand_even, res):
+   if not root:
+      return 0
+   cur_even = root.val % 2 == 0
+   res += dfs(root.left, cur_even, parent_even, 0)
+   res += dfs(root.right, cur_even, parent_even, 0)
+   if grand_even:
+      res += root.val
+   return res
+```
+#### Note: Utilize DFS cumulative values instead of dynamic list
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
