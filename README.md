@@ -143,6 +143,22 @@ def dfs(root, parent_even, grand_even, res):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
+# [156](https://leetcode.com/problems/binary-tree-upside-down/)
+```python
+def main(root):
+   if not root or not root.left:
+      return root
+   left = root.left
+   right = root.right
+   res = main(left)
+   left.left = right
+   left.right = root
+   root.left = None
+   root.right = None
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive call stack
+
 ### Template
 # []()
 ```sql
