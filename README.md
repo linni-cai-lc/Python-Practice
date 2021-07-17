@@ -159,6 +159,23 @@ def main(root):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
+# [1038](https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/)
+```python
+def main(root):
+   dfs(root, [0])
+   return root
+
+def dfs(root, res):
+   if not root: return
+   dfs(root.right, res)
+   root.val = res[0] = res[0] + root.val
+   dfs(root.left, res)
+   return root
+```
+#### Note: Utilized reversed in-order traversal, RIGHT -> ROOT -> LEFT, since BST always has RIGHT > ROOT > LEFT, cumulative from right side can satisfy the problem's request of greater tree
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive call stack
+
 ### Template
 # []()
 ```sql
