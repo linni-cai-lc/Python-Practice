@@ -176,6 +176,27 @@ def dfs(root, res):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
+# [261](https://leetcode.com/problems/graph-valid-tree/)
+```python
+def main(n, edges):
+   if len(edges) != n - 1: return False
+   adj = [[] for _ in range(n)]
+   for outV, inV in edges:
+      adj[outV] += [inV]
+      adj[inV] += [outV]
+   visited = set()
+   dfs(edges, 0, visited, adj)
+   return len(visited) == n
+
+def dfs(edges, idx, visited, adj):
+   if idx in visited: return
+   visited.add(idx)
+   for neighbor in adj[idx]:
+      dfs(edges, neighbor, visited, adj)
+```
+#### Assumption: E = the number of edges
+#### Complexity: runtime = O(E), space = O(E)
+
 ### Template
 # []()
 ```sql
