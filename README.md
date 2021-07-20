@@ -31,6 +31,21 @@ def dfs(root, p, pre):
       pre[0] = root
       dfs(root.left, p, pre)
 ```
+#### Note: Utilize DFS recursion
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive call stack
+```python
+def main(root, p):
+   res = None
+   while root:
+      if p.val >= root.val:
+         root = root.right
+      else:
+         res = root
+         root = root.left
+   return res
+```
+#### Note: Utilize DFS iteration, the trick is to maintain parent before moving to smaller left children, and move to right children if current node is too small
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
