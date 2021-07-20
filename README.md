@@ -16,6 +16,24 @@ def dfs(root, pre):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
+# [285](https://leetcode.com/problems/inorder-successor-in-bst/)
+```python
+def main(root, p):
+   pre = [None]
+   dfs(root, p, pre)
+   return pre[0]
+
+def dfs(root, p, pre):
+   if not root: return
+   if p.val >= root.val:
+      dfs(root.right, p, pre)
+   else:
+      pre[0] = root
+      dfs(root.left, p, pre)
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive call stack
+
 ### Template
 # []()
 ```sql
