@@ -49,6 +49,33 @@ def main(root, p):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive call stack
 
+# [1261](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/)
+```python
+class FindElements:
+   def __init__(self, root):
+      self.found = set()
+      if root.val == -1:
+         root.val = 0
+      self.dfs(root)
+   
+   def dfs(self, root):
+      if not root:
+         return
+      self.found.add(root.val)
+      base = root.val * 2 + 1
+      if root.left:
+         root.left.val = base
+         self.dfs(root.left)
+      if root.right:
+         root.right.val = base + 1
+         self.dfs(root.right)
+
+   def find(self, target):
+      return target in self.found
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
