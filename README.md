@@ -76,6 +76,23 @@ class FindElements:
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1305](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)
+```python
+def main(root1, root2):
+   res = []
+   dfs(root1, res)
+   dfs(root2, res)
+   return sorted(res)
+
+def dfs(root, res):
+   if not root: return
+   res += [root.val]
+   dfs(root.left, res)
+   dfs(root.right, res)
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
