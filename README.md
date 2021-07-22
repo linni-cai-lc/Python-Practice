@@ -92,6 +92,31 @@ def dfs(root, res):
 ```
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(NlogN), space = O(N)
+```python
+def main(root1, root2):
+   res = []
+   stack1 = []
+   stack2 = []
+   while root1 or root2 or stack1 or stack2:
+      while root1:
+         stack1 += [root1]
+         root1 = root1.left
+      while root2:
+         stack2 += [root2]
+         root2 = root2.left
+      if not stack2 or (stack1 and stack1[-1].val <= stack2[-1].val):
+         root1 = stack1.pop()
+         res += [root1.val]
+         root1 = stack1.right
+      else:
+         root2 = stack2.pop()
+         res += [root2.val]
+         root2 = root2.right
+   return res
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N)
+
 
 ### Template
 # []()
