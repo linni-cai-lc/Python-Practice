@@ -117,6 +117,22 @@ def main(root1, root2):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# [841](https://leetcode.com/problems/keys-and-rooms/)
+```python
+def main(rooms):
+   keys = {0}
+   visited = set()
+   while keys:
+      cur_key = keys.pop()
+      if cur_key not in visited:
+         visited.add(cur_key)
+         for key in rooms[cur_key]:
+            if key != cur_key:
+               keys.add(key)
+   return len(visited) == len(rooms)
+```
+#### Assumption: K = the number of keys
+#### Complexity: runtime = O(K), space = O(K)
 
 ### Template
 # []()
