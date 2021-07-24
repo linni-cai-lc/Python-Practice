@@ -134,6 +134,26 @@ def main(rooms):
 #### Assumption: K = the number of keys
 #### Complexity: runtime = O(K), space = O(K)
 
+# [1325](https://leetcode.com/problems/delete-leaves-with-a-given-value/)
+```python
+def main(root, target):
+   
+   if not root:
+      return None
+   if no_child(root) and root.val == target:
+      return None
+   root.left = main(root.left, target)
+   root.right = main(root.right, target)
+   if no_child(root) and root.val == target:
+      return None
+   return root
+
+def no_child(cur):
+   return not cur.left and not cur.right
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
+
 ### Template
 # []()
 ```sql
