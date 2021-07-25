@@ -167,6 +167,26 @@ def main(root):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [250](https://leetcode.com/problems/count-univalue-subtrees/)
+```python
+def main(root):
+   res = [0]
+   dfs(root, None,res)
+   return res[0]
+
+def dfs(root, target, res):
+   if not root:
+      return True
+   left = dfs(root.left, root.val, res)
+   right = dfs(root.right, root.val, res)
+   if not left or not right:
+      return False
+   res[0] += 1
+   return root.val == target
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
+
 ### Template
 # []()
 ```sql
