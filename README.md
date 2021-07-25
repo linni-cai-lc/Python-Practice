@@ -154,6 +154,19 @@ def no_child(cur):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [1490](https://leetcode.com/problems/clone-n-ary-tree/)
+```python
+def main(root):
+   if not root: return
+   new_root = Node(root.val)
+   new_root.children = []
+   for i in root.children:
+      new_root.children += [main(i)]
+   return new_root
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
+
 ### Template
 # []()
 ```sql
