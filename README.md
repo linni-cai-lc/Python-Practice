@@ -1,171 +1,6 @@
 # Python-Practice
 
-# Week 63 [11/8-11/14]
-# [114](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
-```python
-def main(root):
-   dfs(root, [None])
-
-def dfs(root, pre):
-   if not root: return
-   dfs(root.right, pre)
-   dfs(root.left, pre)
-   root.right, pre[0] = pre[0], root
-   root.left = None
-```
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(N), space = O(N) recursive call stack
-
-# [285](https://leetcode.com/problems/inorder-successor-in-bst/)
-```python
-def main(root, p):
-   pre = [None]
-   dfs(root, p, pre)
-   return pre[0]
-
-def dfs(root, p, pre):
-   if not root: return
-   if p.val >= root.val:
-      dfs(root.right, p, pre)
-   else:
-      pre[0] = root
-      dfs(root.left, p, pre)
-```
-#### Note: Utilize DFS recursion
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(N), space = O(N) recursive call stack
-```python
-def main(root, p):
-   res = None
-   while root:
-      if p.val >= root.val:
-         root = root.right
-      else:
-         res = root
-         root = root.left
-   return res
-```
-#### Note: Utilize DFS iteration, the trick is to maintain parent before moving to smaller left children, and move to right children if current node is too small
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(N), space = O(N) recursive call stack
-
-# [1261](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/)
-```python
-class FindElements:
-   def __init__(self, root):
-      self.found = set()
-      if root.val == -1:
-         root.val = 0
-      self.dfs(root)
-   
-   def dfs(self, root):
-      if not root:
-         return
-      self.found.add(root.val)
-      base = root.val * 2 + 1
-      if root.left:
-         root.left.val = base
-         self.dfs(root.left)
-      if root.right:
-         root.right.val = base + 1
-         self.dfs(root.right)
-
-   def find(self, target):
-      return target in self.found
-```
-#### Assumption: N = the number of elements
-#### Complexity: runtime = O(N), space = O(N)
-
-# [1305](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)
-```python
-def main(root1, root2):
-   res = []
-   dfs(root1, res)
-   dfs(root2, res)
-   return sorted(res)
-
-def dfs(root, res):
-   if not root: return
-   res += [root.val]
-   dfs(root.left, res)
-   dfs(root.right, res)
-```
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(NlogN), space = O(N)
-```python
-def main(root1, root2):
-   res = []
-   stack1 = []
-   stack2 = []
-   while root1 or root2 or stack1 or stack2:
-      while root1:
-         stack1 += [root1]
-         root1 = root1.left
-      while root2:
-         stack2 += [root2]
-         root2 = root2.left
-      if not stack2 or (stack1 and stack1[-1].val <= stack2[-1].val):
-         root1 = stack1.pop()
-         res += [root1.val]
-         root1 = stack1.right
-      else:
-         root2 = stack2.pop()
-         res += [root2.val]
-         root2 = root2.right
-   return res
-```
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(N), space = O(N)
-
-# [841](https://leetcode.com/problems/keys-and-rooms/)
-```python
-def main(rooms):
-   keys = {0}
-   visited = set()
-   while keys:
-      cur_key = keys.pop()
-      if cur_key not in visited:
-         visited.add(cur_key)
-         for key in rooms[cur_key]:
-            if key != cur_key:
-               keys.add(key)
-   return len(visited) == len(rooms)
-```
-#### Assumption: K = the number of keys
-#### Complexity: runtime = O(K), space = O(K)
-
-# [1325](https://leetcode.com/problems/delete-leaves-with-a-given-value/)
-```python
-def main(root, target):
-   
-   if not root:
-      return None
-   if no_child(root) and root.val == target:
-      return None
-   root.left = main(root.left, target)
-   root.right = main(root.right, target)
-   if no_child(root) and root.val == target:
-      return None
-   return root
-
-def no_child(cur):
-   return not cur.left and not cur.right
-```
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(N), space = O(N) recursive callstack
-
-# [1490](https://leetcode.com/problems/clone-n-ary-tree/)
-```python
-def main(root):
-   if not root: return
-   new_root = Node(root.val)
-   new_root.children = []
-   for i in root.children:
-      new_root.children += [main(i)]
-   return new_root
-```
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(N), space = O(N) recursive callstack
+# Week 64 [11/15-11/21]
 
 # [250](https://leetcode.com/problems/count-univalue-subtrees/)
 ```python
@@ -185,6 +20,22 @@ def dfs(root, target, res):
    return root.val == target
 ```
 #### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
+
+# [1660](https://leetcode.com/problems/correct-a-binary-tree/)
+```python
+def main(root):
+   dfs(root, set())
+   return root
+
+def dfs(root, visited):
+   if not root or (root.left and root.left.val in visited) or (root.right and root.right.val in visited): return None
+   visited.add(root.val)
+   root.right = dfs(root.right, visited)
+   root.left = dfs(root.left, visited)
+   return root
+```
+#### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
 ### Template
