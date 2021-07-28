@@ -38,6 +38,33 @@ def dfs(root, visited):
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [1382](https://leetcode.com/problems/balance-a-binary-search-tree/)
+```python
+def main(root):
+   lst = []
+   insert(root, lst)
+   lst.sort(key=lambda x:x.val)
+   return build_tree(None, lst)
+
+def build_tree(root, lst):
+   if not lst: return
+   mid = len(lst) // 2
+   new_root = lst[mid]
+   new_root.left = build_tree(new_root.left, lst[:mid])
+   new_root.right = build_tree(new_root.right, lst[mid+1:])
+   return new_root
+
+def insert(root, lst):
+   if not root: return
+   insert(root.left, lst)
+   lst += [root]
+   insert(root.right, lst)
+   root.left = None
+   root.right = None
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(NlogN), space = O(N) recursive callstack
+
 ### Template
 # []()
 ```sql
