@@ -43,7 +43,6 @@ def dfs(root, visited):
 def main(root):
    lst = []
    insert(root, lst)
-   lst.sort(key=lambda x:x.val)
    return build_tree(None, lst)
 
 def build_tree(root, lst):
@@ -62,8 +61,9 @@ def insert(root, lst):
    root.left = None
    root.right = None
 ```
+#### Note: insert binary search tree doesn't require sort, in-order traversal guarantees sorting
 #### Assumption: N = the number of nodes
-#### Complexity: runtime = O(NlogN), space = O(N) recursive callstack
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
 
 ### Template
 # []()
