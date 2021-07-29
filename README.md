@@ -82,7 +82,6 @@ def dfs(res, path, graph, target):
 #### Assumption: N = the number of edges in the graph
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
-
 ### Template
 # []()
 ```sql
