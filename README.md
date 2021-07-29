@@ -65,6 +65,24 @@ def insert(root, lst):
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [797](https://leetcode.com/problems/all-paths-from-source-to-target/)
+```python
+def main(graph):
+   res = []
+   dfs(res, [], graph, 0)
+   return res
+
+def dfs(res, path, graph, target):
+   if target == len(graph) - 1:
+      res += [path + [target]]
+      return
+   for i in graph[target]:
+      dfs(res, path[:] + [target], graph, i)
+```
+#### Assumption: N = the number of edges in the graph
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
+
+
 ### Template
 # []()
 ```sql
