@@ -82,6 +82,23 @@ def dfs(res, path, graph, target):
 #### Assumption: N = the number of edges in the graph
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [1448](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)
+```python
+def main(root):
+   res = [0]
+   dfs(root, res, -sys.maxsize)
+   return res[0]
+
+def dfs(root, res, maxi):
+   if not root: return
+   maxi = max(maxi, root.val)
+   res += int(root.val == maxi)
+   dfs(root.left, res, maxi)
+   dfs(root.right, res, maxi)
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
+
 ### Template
 # []()
 ```sql
