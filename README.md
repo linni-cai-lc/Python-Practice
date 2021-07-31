@@ -159,8 +159,8 @@ class NestedIterator:
    def hasNext(self):
       return self.idx + 1 < len(self.lst) 
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the number of elements in the list
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
