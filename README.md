@@ -132,10 +132,35 @@ class NestedIterator:
 
    def hasNext(self):
       return self.idx + 1 < len(self.lst) 
-
 ```
 #### Assumption: N = the number of elements in the list
 #### Complexity: runtime = O(N), space = O(N)
+```python
+class NestedIterator:
+   def __init__(self, nestedList):
+      self.lst = []
+      self.idx = -1
+      lst_idx = 0
+      for i in nestedList:
+         self.dfs(i)
+   
+   def dfs(self, cur):
+        if cur.isInteger():
+            self.lst += [cur.getInteger()]
+        else:
+            for i in cur.getList():
+                self.dfs(i)
+
+   def next(self):
+      if self.hasNext():
+         self.idx += 1
+         return self.lst[self.idx]
+
+   def hasNext(self):
+      return self.idx + 1 < len(self.lst) 
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
 
 ### Template
 # []()
