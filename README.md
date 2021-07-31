@@ -99,6 +99,19 @@ def dfs(root, res, maxi):
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [1506](https://leetcode.com/problems/find-root-of-n-ary-tree/)
+```python
+def main(tree):
+   last = set(tree)
+   for i in tree:
+      for j in i.children:
+         last.remove(j)
+   return last.pop()
+```
+#### Note: Utilize the trick that the root node is not a child node
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N) set of nodes
+
 ### Template
 # []()
 ```sql
