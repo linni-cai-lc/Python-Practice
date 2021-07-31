@@ -112,6 +112,31 @@ def main(tree):
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N) set of nodes
 
+# [341](https://leetcode.com/problems/flatten-nested-list-iterator/)
+```python
+class NestedIterator:
+   def __init__(self, nestedList):
+      self.lst = []
+      self.idx = -1
+      while nestedList:
+         cur = nestedList.pop(0)
+         if cur.isInteger():
+            self.lst += [cur.getInteger()]
+         else:
+            nestedList = cur.getList() + nestedList
+
+   def next(self):
+      if self.hasNext():
+         self.idx += 1
+         return self.lst[self.idx]
+
+   def hasNext(self):
+      return self.idx + 1 < len(self.lst) 
+
+```
+#### Assumption: N = the number of elements in the list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
