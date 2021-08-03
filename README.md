@@ -26,6 +26,24 @@ def dfs(root, to_delete, res):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [1026](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/)
+```python
+def main(root):
+   res = [0]
+   dfs(root, res, 0, sys.maxsize)
+   return res[0]
+
+def dfs(root, res, maxi, mini):
+   if not root: return
+   maxi = max(maxi, root.val)
+   mini = min(mini, root.val)
+   res[0] = max(res[0], maxi-mini)
+   dfs(root.left, res, maxi, mini)
+   dfs(root.right, res, maxi, mini)
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) recursive callstack
+
 ### Template
 # []()
 ```sql
