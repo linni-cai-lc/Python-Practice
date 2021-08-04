@@ -44,6 +44,32 @@ def dfs(root, res, maxi, mini):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) recursive callstack
 
+# [323](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)
+```python
+from collections import defaultdict as dd
+def main(n, edges):
+   book = dd(set)
+   for v1, v2 in edges:
+      book[v1].add(v2)
+      book[v2].add(v1)
+   visited = set()
+   cnt = 0
+   for v1 in range(n):
+      if v1 not in visited:
+         cnt += 1
+         visited.add(v1)
+         dfs(book, v1, visited)
+   return cnt
+
+def dfs(book, v1, visited):
+   for v2 in book[v1]:
+      if v2 not in visited:
+         visited.add(v2)
+         dfs(book, v2, visited)
+```
+#### Assumption: V = the number of vertices, E = the number of edges
+#### Complexity: runtime = O(V + E), space = O(V + E)
+
 ### Template
 # []()
 ```sql
