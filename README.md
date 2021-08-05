@@ -70,6 +70,29 @@ def dfs(book, v1, visited):
 #### Assumption: V = the number of vertices, E = the number of edges
 #### Complexity: runtime = O(V + E), space = O(V + E)
 
+# [684](https://leetcode.com/problems/redundant-connection/)
+```python
+from collections import defaultdict as dd
+def main(edges):
+   book = dd(set)
+   for v1, v2 in edges:
+      if v1 in book and v2 in book and dfs(v1, v2, book, set()):
+         return [v1, v2]
+      book[v1].add(v2)
+      book[v2].add(v1)
+
+def dfs(v1, v2, book, visited):
+   if v1 not in visited:
+      visited.add(v1)
+      if v1 == v2:
+         return True # cycle
+      for v3 in book[v1]:
+         if dfs(v3, v2, book, visited):
+            return True
+```
+#### Assumption: V = the number of vertices
+#### Complexity: runtime = O(V^2), space = O(V)
+
 ### Template
 # []()
 ```sql
