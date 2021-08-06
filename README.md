@@ -93,6 +93,48 @@ def dfs(v1, v2, book, visited):
 #### Assumption: V = the number of vertices
 #### Complexity: runtime = O(V^2), space = O(V)
 
+# [211](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
+```python
+class WordDictionary:
+   def __init__(self):
+      self.book = set()
+      self.tree = {}
+   
+   def addWord(self, word):
+      self.book.add(word)
+      cur = self.tree
+      idx = 0
+      for i in word:
+         idx += 1
+         if i not in cur:
+            cur[i] = {}
+         if idx == len(word):
+            cur['0'] = {}  # word terminator
+         cur = cur[i]
+   
+   def search(self, word):
+      if '.' not in word:
+         return word in self.book
+      return self.dfs(word, 0, self.tree)
+
+   def dfs(self, word, index, root):
+      if index == len(word):
+         return root = {}
+      letter = word[index]
+      if letter == '.':
+         for i in root:
+            if self.dfs(word, index+1, root[i]):
+               return True
+      elif letter in root:
+         return self.dfs(word, index+1, root[letter])
+      else:
+         return False
+```
+#### Note: Utilize dictionary trie and DFS to quick search for regex pattern
+#### Assumption: W = the number of words, L = the length of each word
+#### Complexity: runtime = O(WL), space = O(WL)
+
+
 ### Template
 # []()
 ```sql
