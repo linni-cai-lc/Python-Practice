@@ -134,6 +134,22 @@ class WordDictionary:
 #### Assumption: W = the number of words, L = the length of each word
 #### Complexity: runtime = O(WL), space = O(WL)
 
+# [119](https://leetcode.com/problems/pascals-triangle-ii/)
+```python
+def main(idx):
+   if idx == 0:
+      return [1]
+   res = [1, 1]
+   for i in range(1, idx):
+      prev = res[:]
+      res = [1]
+      for j in range(1, i+1):
+         res += [prev[j-1]+prev[j]]
+      res += [1]
+   return res
+```
+#### Assumption: N = the level of pascals triangle
+#### Complexity: runtime = O(N^2), space = O(N)
 
 ### Template
 # []()
