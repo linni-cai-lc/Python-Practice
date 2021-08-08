@@ -151,6 +151,26 @@ def main(idx):
 #### Assumption: N = the level of pascals triangle
 #### Complexity: runtime = O(N^2), space = O(N)
 
+# [170](https://leetcode.com/problems/two-sum-iii-data-structure-design/)
+```python
+from collections import Counter
+class TwoSum:
+   def __init__(self):
+      self.book = Counter()
+   
+   def add(self, number):
+      self.book[number] += 1
+
+   def find(self, value):
+      for i in self.book:
+         diff = value - i
+         if diff in self.book and (i != diff or self.book[i] > 1):
+            return True
+      return False
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
