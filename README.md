@@ -28,6 +28,20 @@ def getDepth(root, cur, maxi):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# [747](https://leetcode.com/problems/largest-number-at-least-twice-of-others/)
+```python
+def main(nums):
+   if len(nums) == 1: return 0
+   sorted_nums = sorted(nums)
+   last = sorted_nums[-1]
+   second_last = sorted_nums[-2]
+   if second_last * 2 <= last:
+      return nums.index(last)
+   return -1
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
