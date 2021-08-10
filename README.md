@@ -41,6 +41,24 @@ def main(nums):
 ```
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(NlogN), space = O(N)
+```python
+def main(nums):
+   if len(nums) == 1: return 0
+   maxi = max(nums)
+   maxi_loc = -1
+   cnt = 0
+   for i in range(len(nums)):
+      cur = nums[i]
+      if cur * 2 <= maxi:
+         cnt += 1
+      if cur == maxi:
+         maxi_loc = i
+   if cnt == len(nums) - 1:
+      return maxi_loc
+   return -1
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
