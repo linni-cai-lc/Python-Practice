@@ -69,6 +69,16 @@ def main(target, arr):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1317](https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/)
+```python
+def main(n):
+   for i in range(1, n):
+      if '0' not in str(i) and '0' not in str(n-i):
+         return [i, n-i]
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(1), space = O(1)
+
 ### Template
 # []()
 ```sql
