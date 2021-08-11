@@ -77,7 +77,7 @@ def main(n):
          return [i, n-i]
 ```
 #### Assumption: N = the given number size
-#### Complexity: runtime = O(1), space = O(1)
+#### Complexity: runtime = O(logN), space = O(1)
 
 ### Template
 # []()
