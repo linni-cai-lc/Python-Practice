@@ -60,6 +60,15 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1460](https://leetcode.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/)
+```python
+def main(target, arr):
+   return sorted(target) == sorted(arr)
+```
+#### Note: the equality trick is the elements are the same, then reversible
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
