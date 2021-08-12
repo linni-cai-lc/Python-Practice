@@ -79,6 +79,18 @@ def main(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [1920](https://leetcode.com/problems/build-array-from-permutation/)
+```python
+def main(nums):
+   size = len(nums)
+   res = [0] * size
+   for i in range(size):
+      res[i] = nums[nums[i]]
+   return res
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
