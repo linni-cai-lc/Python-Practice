@@ -91,6 +91,19 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1874](https://leetcode.com/problems/minimize-product-sum-of-two-arrays/)
+```python
+def main(n1, n2):
+   n1.sort()
+   n2.sort()
+   res = 0
+   for i in range(len(n1)):
+      res += nums1[i] * nums2[i]
+   return res
+```
+#### Assumption: N = the number of elements in each list
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
