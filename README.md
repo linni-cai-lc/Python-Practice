@@ -104,6 +104,27 @@ def main(n1, n2):
 #### Assumption: N = the number of elements in each list
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1570](https://leetcode.com/problems/dot-product-of-two-sparse-vectors/)
+```python
+from collections import defaultdict as dd
+class SparseVector:
+   def __init__(self, nums: List[int]):
+      self.book = dd(int)
+      for i in range(len(nums)):
+         cur = nums[i]
+         if cur != 0:
+               self.book[i] = cur
+
+   def dotProduct(self, vec):
+      res = 0
+      for i in self.book:
+         if i in vec.book:
+            res += self.book[i] * vec.book[i]
+      return res
+```
+#### Assumption: N = the number of non-zero elements in vector
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
