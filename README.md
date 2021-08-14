@@ -113,7 +113,7 @@ class SparseVector:
       for i in range(len(nums)):
          cur = nums[i]
          if cur != 0:
-               self.book[i] = cur
+            self.book[i] = cur
 
    def dotProduct(self, vec):
       res = 0
