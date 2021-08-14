@@ -106,16 +106,16 @@ def main(n1, n2):
 
 # [1570](https://leetcode.com/problems/dot-product-of-two-sparse-vectors/)
 ```python
-from collections import defaultdict as dd
 class SparseVector:
    def __init__(self, nums: List[int]):
-      self.book = dd(int)
+      self.book = {}
       for i in range(len(nums)):
          cur = nums[i]
          if cur != 0:
             self.book[i] = cur
 
-   def dotProduct(self, vec):
+   # Return the dotProduct of two sparse vectors
+   def dotProduct(self, vec: 'SparseVector') -> int:
       res = 0
       for i in self.book:
          if i in vec.book:
