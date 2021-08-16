@@ -24,18 +24,17 @@ def main(input):
 # [565](https://leetcode.com/problems/array-nesting/)
 ```python
 def main(nums):
-   book = {}
    visited = set()
    maxi = 0
    for i in nums:
       if i not in visited:
-         book[i] = set()
+         book = set()
          parent = i
          while parent not in visited:
             visited.add(parent)
-            book[i].add(parent)
+            book.add(parent)
             parent = nums[parent]
-         maxi = max(maxi, len(book[i]))
+         maxi = max(maxi, len(book]))
    return maxi
 ```
 #### Assumption: N = the number of elements in the given array
