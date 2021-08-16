@@ -21,6 +21,26 @@ def main(input):
 #### Assumption: N = the length of the given input
 #### Complexity: runtime = O(N), space = O(N)
 
+# [565](https://leetcode.com/problems/array-nesting/)
+```python
+def main(nums):
+   book = {}
+   visited = set()
+   maxi = 0
+   for i in nums:
+      if i not in visited:
+         book[i] = set()
+         parent = i
+         while parent not in visited:
+            visited.add(parent)
+            book[i].add(parent)
+            parent = nums[parent]
+         maxi = max(maxi, len(book[i]))
+   return maxi
+```
+#### Assumption: N = the number of elements in the given array
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
