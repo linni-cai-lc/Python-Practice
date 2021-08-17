@@ -40,6 +40,29 @@ def main(nums):
 #### Assumption: N = the number of elements in the given array
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1630](https://leetcode.com/problems/arithmetic-subarrays/)
+```python
+def main(nums, l, r):
+   res = []
+   for idx in range(len(l)):
+      start = l[idx]
+      end = r[idx]
+      cur = sorted(nums[start:end+1])
+      diff = cur[1] - cur[0]
+      arith = True
+      for i in range(2, len(cur)):
+         if cur[i] - cur[i-1] != diff:
+            arith = False
+            break
+      res += [arith]      
+   return res
+```
+#### Assumption:
+- N = the number of elements in the nums
+- L = R = the length of sequences to check, L represents the start indices list, R represents the end indices list
+- S = the size of each sequence to check
+#### Complexity: runtime = O(LSlogS), space = O(L) the return result space
+
 ### Template
 # []()
 ```sql
