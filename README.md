@@ -18,7 +18,8 @@ def main(input):
          maxi = max(maxi, size)
    return maxi
 ```
-#### Assumption: N = the length of the given input
+#### Assumption:
+- N = the length of the given input
 #### Complexity: runtime = O(N), space = O(N)
 
 # [565](https://leetcode.com/problems/array-nesting/)
@@ -37,7 +38,8 @@ def main(nums):
          maxi = max(maxi, len(book]))
    return maxi
 ```
-#### Assumption: N = the number of elements in the given array
+#### Assumption:
+- N = the number of elements in the given array
 #### Complexity: runtime = O(N), space = O(N)
 
 # [1630](https://leetcode.com/problems/arithmetic-subarrays/)
