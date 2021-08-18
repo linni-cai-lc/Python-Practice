@@ -172,18 +172,13 @@ def find_roman(num, num_digit, res):
    res = ""
    for num_digit in num_digits:
       for idx in range(len(num_bounds)):
-            num_bound = num_bounds[idx]
-            bound = int(num_bound * num_digit)
-            if num >= bound and bound > 0:
-               if num_bound == 10:
-                  res += book[bound] * (num // bound)
-                  num %= bound
-               else:
-                  if num_bound in (4, 9):
-                        res += book[num_digit] + book[(num_bound + 1) * num_digit]
-                  else:
-                        res += book[bound]
-                  num -= bound
+         num_bound = num_bounds[idx]
+         bound = int(num_bound * num_digit)
+         if num >= bound and bound > 0:
+            times = num // bound if num_bound == 10 else 1
+            add = book[num_digit] + book[(num_bound + 1) * num_digit] if num_bound in (4, 9) else book[bound]
+            res += add * times
+            num -= bound * times
    return res
 ```
 #### Note: cleaner structure to remove code redundancy, better performance
