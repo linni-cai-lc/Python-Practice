@@ -120,7 +120,7 @@ def main(num: int) -> str:
    res, num = find_roman(num, 0.1, res)
    return res
   
-def find_roman(self, num, num_digit, res):
+def find_roman(num, num_digit, res):
    book = {
       1: 'I',
       5: 'V',
@@ -147,6 +147,46 @@ def find_roman(self, num, num_digit, res):
    return [res, num]
 ```
 #### Note: cleaner structure to remove code redundancy
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(1), space = O(N)
+```python
+def main(num: int) -> str:
+   res, num = find_roman(num, 100, "")
+   res, num = find_roman(num, 10, res)
+   res, num = find_roman(num, 1, res)
+   res, num = find_roman(num, 0.1, res)
+   return res
+  
+def find_roman(num, num_digit, res):
+   book = {
+      1: 'I',
+      5: 'V',
+      10: 'X',
+      50: 'L',
+      100: 'C',
+      500: 'D',
+      1000: 'M'
+   }
+   num_bounds = [10, 9, 5, 4]
+   num_digits = [100, 10, 1, 0.1]
+   res = ""
+   for num_digit in num_digits:
+      for idx in range(len(num_bounds)):
+            num_bound = num_bounds[idx]
+            bound = int(num_bound * num_digit)
+            if num >= bound and bound > 0:
+               if num_bound == 10:
+                  res += book[bound] * (num // bound)
+                  num %= bound
+               else:
+                  if num_bound in (4, 9):
+                        res += book[num_digit] + book[(num_bound + 1) * num_digit]
+                  else:
+                        res += book[bound]
+                  num -= bound
+   return res
+```
+#### Note: cleaner structure to remove code redundancy, better performance
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(1), space = O(N)
 
