@@ -150,14 +150,7 @@ def find_roman(num, num_digit, res):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(1), space = O(N)
 ```python
-def main(num: int) -> str:
-   res, num = find_roman(num, 100, "")
-   res, num = find_roman(num, 10, res)
-   res, num = find_roman(num, 1, res)
-   res, num = find_roman(num, 0.1, res)
-   return res
-  
-def find_roman(num, num_digit, res):
+def main(num):
    book = {
       1: 'I',
       5: 'V',
