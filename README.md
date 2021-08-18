@@ -164,8 +164,7 @@ def main(num):
    num_digits = [100, 10, 1, 0.1]
    res = ""
    for num_digit in num_digits:
-      for idx in range(len(num_bounds)):
-         num_bound = num_bounds[idx]
+      for num_bound in num_bounds:
          bound = int(num_bound * num_digit)
          if num >= bound and bound > 0:
             times = num // bound if num_bound == 10 else 1
