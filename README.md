@@ -135,15 +135,15 @@ def find_roman(self, num, num_digit, res):
       bound_digit = num_bound[idx]
       bound = int(bound_digit * num_digit)
       if num >= bound and bound > 0:
-            if bound_digit == 10:
-               res += book[bound] * (num // bound)
-               num %= bound
+         if bound_digit == 10:
+            res += book[bound] * (num // bound)
+            num %= bound
+         else:
+            if bound_digit == 9 or bound_digit == 4:
+               res += book[num_digit] + book[(bound_digit + 1) * num_digit]
             else:
-               if bound_digit == 9 or bound_digit == 4:
-                  res += book[num_digit] + book[(bound_digit + 1) * num_digit]
-               else:
-                  res += book[bound]
-               num -= bound
+               res += book[bound]
+            num -= bound
    return [res, num]
 ```
 #### Note: cleaner structure to remove code redundancy
