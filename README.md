@@ -215,6 +215,42 @@ def merge(left, right):
 #### Note: merge sort with recursion, divide and conquer
 #### Assumption: N = the number of elements in the list
 #### Complexity: runtime = O(NlogN), space = O(N)
+```python
+def main(nums):
+   quick_sort(nums, 0, len(nums)-1)
+   return nums
+
+def quick_sort(nums, left, right):
+   if right <= left: return
+   pivot_idx = partition(nums, left, right)
+   quick_sort(nums, left, pivot_idx-1)
+   quick_sort(nums, pivot_idx+1, right)
+
+def swap(nums, left, right):
+   nums[left], nums[right] = nums[right], nums[left]
+
+def partition(nums, left, right):
+   mid_idx = (left + right) // 2
+   left_val = nums[left]
+   right_val = nums[right]
+   mid_val = nums[mid_idx]
+   median = min(max(left_val, right_val), mid_val)
+   if mid_val == median:
+      swap(nums, mid_idx, right)
+   elif left_val == median:
+      swap(nums, left, right)
+   pivot_val = nums[right]
+   separator_idx = left
+   for i in range(left, right):
+      if nums[i] < pivot_val:
+         swap(nums, i, separator_idx)
+         separator_idx += 1
+   swap(separator_idx, right)
+   return separator_idx
+```
+#### Note: quick sort with recursion, in-place sort, divide and conquer
+#### Assumption: N = the number of elements in the list
+#### Complexity: runtime = O(NlogN), space = O(logN) due to recursion call stack
 
 ### Template
 # []()
