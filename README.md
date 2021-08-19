@@ -252,6 +252,29 @@ def partition(nums, left, right):
 #### Assumption: N = the number of elements in the list
 #### Complexity: runtime = O(NlogN), space = O(logN) due to recursion call stack
 
+# [105](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+```python
+class Solution:
+   def buildTree(self, preorder, inorder):
+      self.inorder_book = {}
+      self.preorder_idx = 0
+      for i in range(len(inorder)):
+         self.inorder_book[inorder[i]] = i
+      return self.dfs(preorder, inorder, 0, len(preorder)-1)
+
+   def dfs(self, preorder, inorder, left, right):
+      if left > right: return None
+      root_val = preorder[self.preorder_idx]
+      root = TreeNode(root_val)
+      self.preorder_idx += 1
+      inorder_idx = self.inorder_book[root_val]
+      root.left = self.dfs(preorder, inorder, left, inorder_idx-1)
+      root.right = self.dfs(preorder, inorder, inorder_idx+1, right)
+      return root
+```
+#### Assumption: N = the number of elements in preorder/inorder list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
