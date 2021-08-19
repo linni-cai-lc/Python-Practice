@@ -182,12 +182,39 @@ def main(num):
 def main（nums):
    return sorted(nums)
 ```
+#### Note: use python built-in sort function as base comparison
 #### Assumption: N = the number of elements in the list
 #### Complexity: runtime = O(NlogN), space = O(1)
 ```python
+def main(nums):
+   size = len(nums)
+   if size in (0, 1):
+      return nums
+   mid = size // 2
+   left = main(nums[:mid])
+   right = main(nums[mid:])
+   return merge(left, right)
+
+def merge(left, right):
+   res = []
+   left_ptr = right_ptr = 0
+   left_size, right_size = len(left), len(right)
+   while left_ptr < left_size and right_ptr < right_size:
+      if left[left_ptr] < right[right_ptr]:
+         res += [left[left_ptr]]
+         left_ptr += 1
+      else:
+         res += [right[right_ptr]]
+         right_ptr += 1
+   if left_ptr < left_size:
+      res += left[left_ptr:]
+   if right_ptr < right_size:
+      res += right[right_ptr:]
+   return res
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Note: merge sort with recursion, divide and conquer
+#### Assumption: N = the number of elements in the list
+#### Complexity: runtime = O(NlogN), space = O(N)
 
 ### Template
 # []()
