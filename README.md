@@ -183,7 +183,11 @@ def main（nums):
    return sorted(nums)
 ```
 #### Assumption: N = the number of elements in the list
-#### Complexity: runtime = O(N), space = O(1)
+#### Complexity: runtime = O(NlogN), space = O(1)
+```python
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
 
 ### Template
 # []()
