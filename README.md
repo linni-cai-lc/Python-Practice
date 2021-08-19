@@ -177,6 +177,14 @@ def main(num):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(1), space = O(N)
 
+# [912](https://leetcode.com/problems/sort-an-array/)
+```python
+def main（nums):
+   return sorted(nums)
+```
+#### Assumption: N = the number of elements in the list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
