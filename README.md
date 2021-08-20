@@ -309,18 +309,19 @@ class Solution:
    def buildTree(self, inorder, postorder):
       self.inorder_book = {}
       self.post_idx = len(postorder) - 1
+      self.postorder = postorder
       for i in range(len(inorder)):
          self.inorder_book[inorder[i]] = i
-      return self.dfs(inorder, postorder, 0, self.post_idx)
+      return self.dfs(0, self.post_idx)
    
-   def dfs(self, inorder, postorder, left, right):
+   def dfs(self, left, right):
       if left > right: return None
-      root_val = postorder[self.post_idx]
+      root_val = self.postorder[self.post_idx]
       root = TreeNode(root_val)
       mid_idx = self.inorder_book[root_val]
       self.post_idx -= 1
-      root.right = self.dfs(inorder, postorder, mid_idx+1, right)
-      root.left = self.dfs(inorder, postorder, left, mid_idx-1)
+      root.right = self.dfs(mid_idx+1, right)
+      root.left = self.dfs(left, mid_idx-1)
       return root
 ```
 #### Assumption: N = the number of elements in postorder/inorder list
