@@ -275,6 +275,34 @@ class Solution:
 #### Assumption: N = the number of elements in preorder/inorder list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [36](https://leetcode.com/problems/valid-sudoku/)
+```python
+from collections import defaultdict as dd
+def main(board):
+   NROW = 9
+   NCOL = 9
+   WIDTH = 3
+   row_book = dd(set)
+   col_book = dd(set)
+   for row_start in range(0, NROW, WIDTH):
+      for col_start in range(0, NCOL, WIDTH):
+         box = set()
+         for row in range(row_start, row_start + WIDTH):
+            for col in range(col_start, col_start + WIDTH):
+               cur = board[row][col]
+               if not cur.isnumeric():
+                  continue
+               cur = int(cur)
+               if cur > 9 or cur < 1 or cur in row_book[row] or cur in col_book[col] or cur in box:
+                  return False
+               row_book[row].add(cur)
+               col_book[col].add(cur)
+               box.add(cur)
+   return True
+```
+#### Assumption: W = the width of the given board, L = the length of the given board
+#### Complexity: runtime = O(WL), space = O(WL)
+
 ### Template
 # []()
 ```sql
