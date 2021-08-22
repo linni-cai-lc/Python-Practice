@@ -328,6 +328,27 @@ class Solution:
 #### Assumption: N = the number of elements in postorder/inorder list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [43](https://leetcode.com/problems/multiply-strings/)
+```python
+def main(num1, num2):
+   if num1 == "0" or num2 == "0":
+      return "0"
+   res = ""
+   add = 0
+   for i in range(len(num2)-1, -1, -1):
+      cur1 = int(num1)
+      cur2 = int(num2[i])
+      multi = cur1 * cur2
+      res += str((multi + add) % 10)
+      add = (add + multi) // 10
+   while add > 0:
+      res += str(add % 10)
+      add //= 10
+   return res[::-1]
+```
+#### Assumption: N = the num string length
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
