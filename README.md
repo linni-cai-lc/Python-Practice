@@ -349,6 +349,34 @@ def main(num1, num2):
 #### Assumption: N = the num string length
 #### Complexity: runtime = O(N), space = O(N)
 
+# [932](https://leetcode.com/problems/beautiful-array/)
+```python
+from collections import defaultdict as dd
+def main(n):
+   book = dd(list)
+   return dc(book, n)
+
+def dc(book, n):
+   if n in book:
+      return book[n]
+   sol = []
+   if n == 1:
+      sol += [1]
+   else:
+      odd = dc(book, (n + 1) // 2)
+      even = dc(book, n // 2)
+      for i in odd:
+         sol += [2 * i - 1]
+      for i in even:
+         sol += [2 * i]
+   book[n] = sol
+   return sol
+```
+#### Note: utilize divide and conquer, left odd, right even, since we start from 1, odd is always smaller than even when incrementing from 1
+#### Assumption: N = the size of the given number
+#### Complexity: runtime = O(NlogN), space = O(NlogN)
+
+
 ### Template
 # []()
 ```sql
