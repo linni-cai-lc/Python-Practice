@@ -96,6 +96,35 @@ def main(height):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# [465](https://leetcode.com/problems/optimal-account-balancing/)
+```python
+from collections import defaultdict as dd
+def main(trans):
+   book = dd(int)
+   for cur_from, cur_to, cur_amt in trans:
+      book[cur_from] -= cur_amt
+      book[cur_to] += cur_amt
+   new_book = [book[cur_from] for cur_from in book if book[cur_from] != 0]
+   res = [sys.maxsize]
+   self.dfs(new_book, 0, 0, res)
+   return res[0]
+
+def dfs(self, book, start, cnt, res):
+   size = len(book)
+   while start < size and book[start] == 0:
+      start += 1
+   if start == size:
+      res[0] = min(res[0], cnt)
+      return
+   for i in range(start+1, size):
+      if book[i] * book[start] < 0:
+         book[i] += book[start]
+         self.book(book, start+1, cnt+1, res)
+         book[i] -= book[start]
+```
+#### Note: Utilize backtracking to find all paths
+#### Assumption: N = the number of transactions
+#### Complexity: runtime = O(N^2), space = O(N)
 
 ### Template
 # []()
