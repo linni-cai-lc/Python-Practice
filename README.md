@@ -74,6 +74,28 @@ def dc(book, n):
 #### Assumption: N = the size of the given number
 #### Complexity: runtime = O(NlogN), space = O(NlogN)
 
+# [11](https://leetcode.com/problems/container-with-most-water/)
+```python
+def main(height):
+   left_idx = 0
+   right_idx = len(height) - 1
+   maxi = 0
+   while left_idx < right_idx:
+      diff = right_idx - left_idx
+      left = height[left_idx]
+      right = height[right_idx]
+      mini = left
+      if left < right:
+         left_idx += 1
+      else:
+         mini = right
+         right_idx -= 1
+      maxi = max(maxi, mini * diff)
+   return maxi
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
 
 ### Template
 # []()
