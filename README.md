@@ -126,6 +126,68 @@ def dfs(self, book, start, cnt, res):
 #### Assumption: N = the number of transactions
 #### Complexity: runtime = O(N^2), space = O(N)
 
+# [729](https://leetcode.com/problems/my-calendar-i/)
+```python
+class MyCalendar:
+   def __init__(self):
+      self.records = []
+
+   def book(self, start, end):
+      add = False
+      for idx in range(len(self.records)):
+         pre_start, pre_end = self.records[idx]
+         if start < pre_end and end > pre_start:
+            return False
+         elif start <= pre_start:
+            self.records.insert(idx, [start, end])
+            add = True
+            break
+      if not add:
+         self.records += [[start, end]]
+      return True
+```
+#### Assumption: N = the number of events
+#### Complexity: runtime = O(N^2), space = O(N)
+```python
+class Node:
+   def __init__(self, start, end):
+      self.start = start
+      self.end = end
+      self.left = None
+      self.right = None
+      
+   def insert(self, node):
+      if node.start >= self.end:
+         if not self.right:
+            self.right = node
+            return True
+         else:
+               return self.right.insert(node)
+      elif node.end <= self.start:
+         if not self.left:
+            self.left = node
+            return True
+         else:
+            return self.left.insert(node)
+      else:
+         return False
+
+class MyCalendar:
+   def __init__(self):
+      self.root = None
+
+   def book(self, start, end):
+      cur = Node(start, end)
+      if not self.root:
+         self.root = cur
+         return True
+      else:
+         return self.root.insert(cur)
+```
+#### Assumption: N = the number of events
+#### Complexity: runtime = avg O(NlogN), worst O(N^2), space = O(N)
+
+
 ### Template
 # []()
 ```sql
