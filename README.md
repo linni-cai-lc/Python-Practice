@@ -187,6 +187,23 @@ class MyCalendar:
 #### Assumption: N = the number of events
 #### Complexity: runtime = avg O(NlogN), worst O(N^2), space = O(N)
 
+# [1282](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)
+```python
+from collections import defaultdict as dd
+def main(groupSizes):
+   book = dd(list)
+   for idx in range(len(groupSizes)):
+      val = groupSizes[idx]
+      book[val] += [idx]
+   res = []
+   for num in book:
+      idx_lst = book[num]
+      for i in range(0, len(idx_lst), num):
+         res += [idx_lst[i:i+num]]
+   return res
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
