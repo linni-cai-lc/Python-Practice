@@ -204,6 +204,22 @@ def main(groupSizes):
 ```
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
+```python
+from collections import defaultdict as dd
+def main(groupSizes):
+   book = dd(list)
+   res = []
+   for idx in range(len(groupSizes)):
+      val = groupSizes[idx]
+      book[val] += [idx]
+      if len(book[val]) == val:
+         res += [book[val]]
+         book[val] = []
+   return res
+```
+#### Note: improve complexity by one-pass
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
