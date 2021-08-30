@@ -42,6 +42,47 @@ def dfs(root, res):
 #### Assumption: N = the number of elements in the tree
 #### Complexity: runtime = O(N), space = O(N) use recursive callstack
 
+# [934](https://leetcode.com/problems/shortest-bridge/)
+```python
+def shortestBridge(self, grid: List[List[int]]) -> int:
+   nrow = len(grid)
+   ncol = len(grid[0])
+   island1 = set()
+   ISLAND = 1
+   WATER = 0
+   is_island1 = True
+   cnt = 0
+   DIR = [(-1, 0), (1, 0), (0, 1), (0, -1)]
+   mini = sys.maxsize
+   
+   def dfs(row, col):
+      nonlocal mini
+      if 0 <= row < nrow and 0 <= col < ncol:
+         cur = grid[row][col]
+         if cur == ISLAND:
+            grid[row][col] = WATER
+            if is_island1:
+               island1.add((row, col))
+            else:
+               for row1, col1 in island1:
+                  mini = min(mini, abs(row1-row)+abs(col1-col)-int(row1 != row or col1 != col))
+            for dr, dc in DIR:
+               dfs(row+dr, col+dc)
+
+   for i in range(nrow):
+      for j in range(ncol):
+         if cnt == 2:
+            break
+         if grid[i][j] == ISLAND:
+            dfs(i, j)
+            is_island1 = False
+            cnt += 1
+   return max(1, mini)
+```
+#### Note: pass majority 89/96 test, TLE
+#### Assumption: R = the number of rows, C = the number of columns in the given grid
+#### Complexity: runtime = O(R*C), space = O(R*C)
+
 ### Template
 # []()
 ```sql
