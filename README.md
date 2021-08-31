@@ -83,6 +83,22 @@ def shortestBridge(self, grid: List[List[int]]) -> int:
 #### Assumption: R = the number of rows, C = the number of columns in the given grid
 #### Complexity: runtime = O(R*C), space = O(R*C)
 
+# [1347](https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/)
+```python
+from collections import Counter
+def main(s, t):
+   sc = Counter(s)
+   tc = Counter(t)
+   cnt = 0
+   for i in sc:
+      diff = sc[i] - tc[i]
+      if diff > 0:
+         cnt += diff
+   return cnt
+```
+#### Assumption: S = the length of the given string s, T = the length of the given string t
+#### Complexity: runtime = O(S + T), space = O(S + T)
+
 ### Template
 # []()
 ```sql
