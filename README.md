@@ -99,6 +99,30 @@ def main(s, t):
 #### Assumption: S = the length of the given string s, T = the length of the given string t
 #### Complexity: runtime = O(S + T), space = O(S + T)
 
+# [1249](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
+```python
+def main(s):
+   close_idx = set()
+   open_idx = []
+   for idx, char in enumerate(s):
+      if char not in '()':
+         continue
+      if char == '(':
+         open_idx += [idx]
+      elif not stack:
+         close_idx.add(idx)
+      else:
+         open_idx.pop() # remove last open parenthesis
+   rm_idx = close_idx.union(set(open_idx))
+   res = ""
+   for idx, char in enumerate(s):
+      if idx not in rm_idx:
+         res += char
+   return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
