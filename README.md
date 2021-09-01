@@ -123,6 +123,22 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [98](https://leetcode.com/problems/validate-binary-search-tree/)
+```python
+def main(root):
+   return dfs(root, -sys.maxsize, sys.maxsize)
+
+def dfs(root, left, right):
+   if not root:
+      return True
+   cur = root.val
+   return left < cur < right and \
+          dfs(root.left, left, cur) and \
+          dfs(root.right, cur, right)
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # []()
 ```sql
