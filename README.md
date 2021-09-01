@@ -139,6 +139,18 @@ def dfs(root, left, right):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# [252](https://leetcode.com/problems/meeting-rooms/)
+```python
+def main(intervals):
+   intervals.sort(key=lambda x:x[0])
+   for idx in range(1, len(intervals)):
+      if intervals[idx-1][1] > intervals[idx][0]:
+         return False
+   return True 
+```
+#### Assumption: N = the number of intervals
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
