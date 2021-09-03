@@ -168,6 +168,35 @@ def main(intervals):
 #### Assumption: N = the number of intervals
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [419](https://leetcode.com/problems/battleships-in-a-board/)
+```python
+def main(board):
+   nrow = len(board)
+   ncol = len(board[0])
+   SHIP = 'X'
+   EMPTY = '.'
+   DIR = [(-1,0),(1,0),(0,-1),(0,1)]
+   cnt = 0
+   
+   def dfs(row, col):
+      if 0 <= row < nrow and 0 <= col < ncol and board[row][col] == SHIP:
+            board[row][col] = EMPTY
+            for dr, dc in DIR:
+               dfs(row+dr, col+dc)
+   
+   for i in range(nrow):
+      for j in range(ncol):
+            if board[i][j] == SHIP:
+               dfs(i, j)
+               cnt += 1
+   return cnt    
+```
+#### Assumption:
+- R = the number of rows in the board
+- C = the number of columsn in the board
+#### Complexity: runtime = O(R * C), space = O(R * C) with recursive callstack
+
+
 ### Template
 # []()
 ```sql
