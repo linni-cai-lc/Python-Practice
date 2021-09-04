@@ -196,6 +196,27 @@ def main(board):
 - C = the number of columsn in the board
 #### Complexity: runtime = O(R * C), space = O(R * C) with recursive callstack
 
+# [48](https://leetcode.com/problems/rotate-image/)
+```python
+def main(matrix):
+   width = len(matrix)
+   def swap(i1, j1, i2, j2):
+      matrix[i1][j1], matrix[i2][j2] = matrix[i2][j2], matrix[i1][j1]
+   
+   def transpose():
+      for i in range(width):
+            for j in range(i+1, width):
+               swap(i, j, j, i)
+   
+   def reverse():
+      for i in range(width):
+         for j in range(width // 2):
+            swap(i, j, i, -1 - j)
+   transpose()
+   reverse()
+```
+#### Assumption: N = the width of matrix
+#### Complexity: runtime = O(N^2), space = O(1)
 
 ### Template
 # []()
