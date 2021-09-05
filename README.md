@@ -218,6 +218,29 @@ def main(matrix):
 #### Assumption: N = the width of matrix
 #### Complexity: runtime = O(N^2), space = O(1)
 
+# [582](https://leetcode.com/problems/kill-process/)
+```python
+from collections import defaultdict as dd
+def main(pid, ppid, kill):
+   res = set()
+   parent_book = dd(list)
+   for idx in range(len(pid)):
+      cur_pid = pid[idx]
+      cur_ppid = ppid[idx]
+      if cur_ppid != 0:
+         parent_book[cur_ppid] += [cur_pid]
+   
+   def dfs(cur_pid):
+      res.add(cur_pid)
+      for child_pid in parent_book[cur_pid]:
+         dfs(child_pid)
+   
+   dfs(kill)
+   return res
+```
+#### Assumption: N = the number of elements in pid/ppid
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # []()
 ```sql
