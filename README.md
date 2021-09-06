@@ -241,6 +241,22 @@ def main(pid, ppid, kill):
 #### Assumption: N = the number of elements in pid/ppid
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# [91](https://leetcode.com/problems/decode-ways/)
+```python
+def main(s):
+   size = len(s)
+   dp = [0] * (size + 1)
+   dp[0] = 1
+   dp[1] = int(1 <= int(s[0]) <= 9)
+   for i in range(2, size + 1):
+      cur = int(s[i - 1:i])
+      cur_pair = int(s[i - 2:i])
+      dp[i] += dp[i - 1] * int(1 <= cur <= 9) + dp[i - 2] * int(10 <= cur <= 26)
+   return dp[-1]
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
