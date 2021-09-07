@@ -122,6 +122,29 @@ def main(products, searchWord):
 #### Assumption: W = the number of product words, S = the length of search word
 #### Complexity: runtime = O(SW + WlogW), space = O(1) except return result
 
+# [1353](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/)
+```python
+from heapq import heappush, heappop
+def main(events):
+   events.sort(reverse=True) # max_start, max_end -> min_start, min_end
+   heap = []
+   cnt = 0
+   end = 0
+   while events or heap:
+      if not heap:
+         end = events[-1][0]
+      while events and events[-1][0] <= end:
+         heappush(heap, events.pop()[1])
+      heappop(heap)
+      cnt += 1
+      end += 1
+      while heap and heap[0] < end:
+         heappop(heap)
+   return cnt
+```
+#### Assumption: N = the number of events
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
