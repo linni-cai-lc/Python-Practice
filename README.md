@@ -20,6 +20,27 @@ def main(path):
 #### Assumption: N = the length of the given path
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1676](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/)
+```python
+def main(root, nodes):
+   nodes = set(nodes)
+   ancestor = None
+   def dfs(root):
+      nonlocal ancestor
+      if not root:
+         return 0
+      ancestor_cnt = dfs(root.left) + dfs(root.right)
+      if root in nodes:
+         ancestor_cnt += 1
+      if ancestor_cnt == len(nodes) and not ancestor:
+         ancestor = root
+      return ancestor_cnt
+   dfs(root)
+   return ancestor
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # []()
 ```sql
