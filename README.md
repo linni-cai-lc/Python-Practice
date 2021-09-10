@@ -85,7 +85,7 @@ def main(mat):
    return mat
 ```
 #### Assumption: R = the number of rows, C = the number of columns
-#### Complexity: runtime = O(ClogR+RlogC), space = O(C+R)
+#### Complexity: runtime = O(CR(logR+logC)), space = O(C+R)
 
 ### Template
 # []()
