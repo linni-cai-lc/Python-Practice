@@ -87,6 +87,21 @@ def main(mat):
 #### Assumption: R = the number of rows, C = the number of columns
 #### Complexity: runtime = O(CR(logR+logC)), space = O(C+R)
 
+# [442](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
+```python
+def main(nums):
+   book = set()
+   res = []
+   for i in nums:
+      if i in book:
+         res += [i]
+      else:
+         book.add(i)
+   return res
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
