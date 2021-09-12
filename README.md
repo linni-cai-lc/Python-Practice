@@ -118,6 +118,35 @@ def main(heights):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N) with final result
 
+# [894](https://leetcode.com/problems/all-possible-full-binary-trees/)
+```python
+def main(n):
+   res = {}
+   def dfs(n):
+      nonlocal res
+      if n not in res:
+         cur = []
+         if n == 1:
+            cur += [TreeNode(0)]
+         elif n % 2 == 1:
+            for i in range(n):
+               rest = n - 1 - i
+               left_path = dfs(i)
+               right_path = dfs(rest)
+               for left in left_path:
+                  for right in right_path:
+                     cur_node = TreeNode(0)
+                     cur_node.left = left
+                     cur_node.right = right
+                     cur += [cur_node]
+         res[n] = cur
+      return res[n]
+   dfs(n)
+   return res[n]
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(2^N), space = O(2^N)
+
 ### Template
 # []()
 ```sql
