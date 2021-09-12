@@ -102,6 +102,22 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1762](https://leetcode.com/problems/buildings-with-an-ocean-view/)
+```python
+def main(heights):
+   size = len(heights)
+   maxi = 0
+   res = []
+   for i in range(size-1, -1, -1):
+      cur = heights[i]
+      if cur > maxi:
+         res += [i]
+         maxi = cur
+   return res[::-1]     
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N) with final result
+
 ### Template
 # []()
 ```sql
