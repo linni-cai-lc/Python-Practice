@@ -145,7 +145,32 @@ def main(n):
    return res[n]
 ```
 #### Assumption: N = the given number size
-#### Complexity: runtime = O(2^N), space = O(2^N)
+#### Complexity: runtime = O(2^N), space = O(2^)
+
+# [647](https://leetcode.com/problems/palindromic-substrings/)
+```python
+def main(s):
+   cnt = 0
+   book = {}
+   size = len(s)
+   visited = set()
+   def dfs(start, end):
+      nonlocal cnt, book, size, visited
+      pair = (start, end)
+      if 0 <= start < end <= size and pair not in visited:
+         visited.add(pair)
+         cur = s[start:end]
+         if cur not in book:
+            book[cur] = cur == cur[::-1]
+         dfs(start+1, end)
+         dfs(start+1, end-1)
+         dfs(start, end-1)
+         cnt += book[cur]
+   dfs(0, size)
+   return cnt
+```
+#### Assumption: N = the length of given string
+#### Complexity: runtime = O(N^3), space = O(N^3)
 
 ### Template
 # []()
