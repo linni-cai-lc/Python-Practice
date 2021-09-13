@@ -171,6 +171,27 @@ def main(s):
 ```
 #### Assumption: N = the length of given string
 #### Complexity: runtime = O(N^3), space = O(N^3)
+```python
+def main(s):
+   if not s:
+      return 0
+   size = len(s)
+   cnt = size
+   dp = [[False] * size for _ in range(size)]
+   for i in range(size):
+      dp[i][i] = True
+   for i in range(size-1):
+      dp[i][i+1] = s[i] == s[i+1]
+      cnt += dp[i][i+1]
+   for cur_size in range(3, size+1):
+      for i in range(size-cur_size+1):
+         j = i + cur_size - 1
+         dp[i][j] = dp[i+1][j-1] and s[i] == s[j]
+         cnt += dp[i][j]
+   return cnt
+```
+#### Assumption: N = the length of given string
+#### Complexity: runtime = O(N^2), space = O(N^2)
 
 ### Template
 # []()
