@@ -193,6 +193,18 @@ def main(s):
 #### Assumption: N = the length of given string
 #### Complexity: runtime = O(N^2), space = O(N^2)
 
+# [1877](https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/)
+```python
+def main(nums):
+   nums.sort()
+   maxi = 0
+   for idx in range(len(nums)//2):
+      maxi = max(maxi, nums[idx] + nums[-(idx+1)])
+   return maxi
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
