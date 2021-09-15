@@ -229,6 +229,14 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1557](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/)
+```python
+def main(n, edges):
+   return set(range(n)) - set(end for _, end in edges )
+```
+#### Assumption: N = the number of nodes
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
