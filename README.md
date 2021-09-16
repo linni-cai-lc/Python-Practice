@@ -232,10 +232,36 @@ def main(s):
 # [1557](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/)
 ```python
 def main(n, edges):
-   return set(range(n)) - set(end for _, end in edges )
+   return set(range(n)) - set(end for _, end in edges)
 ```
 #### Assumption: N = the number of nodes
 #### Complexity: runtime = O(N), space = O(N)
+
+# [890](https://leetcode.com/problems/find-and-replace-pattern/)
+```python
+def main(words, pattern):
+   def get_pattern(word):
+      word_book = {}
+      word_format = []
+      word_cnt = 0
+      for i in word:
+         if i not in word_book:
+            word_cnt += 1
+            word_book[i] = word_cnt
+         word_format += [word_book[i]]
+      return word_format
+   
+   pattern_format = get_pattern(pattern)
+   res = []
+   for word in words:
+      word_format = get_pattern(word)
+      if word_format == pattern_format:
+         res += [word]
+   return res
+```
+#### Assumption: W = the number of words, L = the length of word
+#### Complexity: runtime = O(WL), space = O(WL)
+
 
 ### Template
 # []()
