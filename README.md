@@ -59,6 +59,21 @@ def main(words, pattern):
 #### Assumption: W = the number of words, L = the length of word
 #### Complexity: runtime = O(WL), space = O(WL)
 
+# [950](https://leetcode.com/problems/reveal-cards-in-increasing-order/)
+```python
+def main(deck):
+   size = len(deck)
+   deck.sort()
+   res = [None] * size
+   idx = collections.deque(range(size))
+   for i in deck:
+      res[idx.popleft()] = i
+      if idx:
+         idx += [idx.popleft()]
+   return res
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(NlogN), space = O(N)
 
 ### Template
 # []()
