@@ -75,6 +75,34 @@ def main(deck):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [1940](https://leetcode.com/problems/longest-common-subsequence-between-sorted-arrays/)
+```python
+def main(arrays):
+   common = arrays[0]
+   for i in range(1, len(arrays)):
+      cur = arrays[i]
+      left = 0
+      right = 0
+      left_size = len(common)
+      right_size = len(cur)
+      new_common = []
+      while left < left_size and right < right_size:
+         left_val = common[left]
+         right_val = cur[right]
+         if left_val == right_val:
+            new_common += [left_val]
+            left += 1
+            right += 1
+         elif left_val < right_val:
+            left += 1
+         else:
+            right += 1
+      common = new_common
+   return common
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
