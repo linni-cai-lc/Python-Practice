@@ -106,7 +106,7 @@ def main(arrays):
 # [1641](https://leetcode.com/problems/count-sorted-vowel-strings/)
 ```python
 def main(n):
-   dp = [[0] * (n + 1) for _ in range(6)]
+   dp = [[0] * 6 for _ in range(n + 1)]
    for i in range(1, 6):
       dp[1][i] = i
    for i in range(2, n+1):
