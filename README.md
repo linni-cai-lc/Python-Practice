@@ -103,6 +103,21 @@ def main(arrays):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1641](https://leetcode.com/problems/count-sorted-vowel-strings/)
+```python
+def main(n):
+   dp = [[0] * (n + 1) for _ in range(6)]
+   for i in range(1, 6):
+      dp[1][i] = i
+   for i in range(2, n+1):
+      dp[i][1] = 1
+      for j in range(2, 6):
+         dp[i][j] = dp[i][j-1] + dp[i-1][j]
+   return dp[n][5]
+```
+#### Assumption: N = the size of the given number
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
