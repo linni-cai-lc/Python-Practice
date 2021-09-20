@@ -106,14 +106,15 @@ def main(arrays):
 # [1641](https://leetcode.com/problems/count-sorted-vowel-strings/)
 ```python
 def main(n):
-   dp = [[0] * 6 for _ in range(n + 1)]
-   for i in range(1, 6):
-      dp[1][i] = i
-   for i in range(2, n+1):
-      dp[i][1] = 1
-      for j in range(2, 6):
-         dp[i][j] = dp[i][j-1] + dp[i-1][j]
-   return dp[n][5]
+   VOWELS = 5
+   dp = [[0] * (VOWELS + 1) for _ in range(n + 1)]
+   for vowel in range(1, VOWELS + 1):
+      dp[1][vowel] = vowel
+   for str_len in range(2, n + 1):
+      dp[str_len][1] = 1
+      for vowel in range(2, VOWELS + 1):
+         dp[str_len][vowel] = dp[str_len-1][vowel] + dp[str_len][vowel-1]
+   return dp[-1][-1]
 ```
 #### Assumption: N = the size of the given number
 #### Complexity: runtime = O(N), space = O(N)
