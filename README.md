@@ -119,6 +119,24 @@ def main(n):
 #### Assumption: N = the size of the given number
 #### Complexity: runtime = O(N), space = O(N)
 
+# [809](https://leetcode.com/problems/expressive-words/)
+```python
+def main(s, words):
+   s_size = len(s)
+   def is_express(word):
+      w_idx = 0
+      w_size = len(word)
+      for s_idx in range(s_size):
+         if w_idx < w_size and s[s_idx] == word[w_idx]:
+            w_idx += 1
+         elif s[s_idx-1:s_idx+2] != s[s_idx] * 3 != s[s_idx-2:s_idx+1]:
+            return False
+      return w_idx == w_size
+   return sum(is_express(word) for word in words)
+```
+#### Assumption: W = the number of words, S = the length of the given target string
+#### Complexity: runtime = O(SW), space = O(1)
+
 ### Template
 # []()
 ```sql
