@@ -37,6 +37,37 @@ def main(list1, a, b, list2):
 #### Assumption: L1 = the length of linkedlist1, L2 = the length of the linkedlist2
 #### Complexity: runtime = O(L1 + L2), space = O(1)
 
+# [1602](https://leetcode.com/problems/find-nearest-right-node-in-binary-tree/)
+```python
+def main(root, u):
+   target_level = None
+   res = None
+   
+   def dfs(root, level):
+      nonlocal target_level, res
+      if not root or (target_level and level > target_level):
+         return
+      if root.val == u.val:
+         target_level = level
+      elif level == target_level:
+         res = root
+         return
+      dfs(root.left, level+1)
+      if not res:
+         dfs(root.right, level+1)
+   
+   dfs(root, 0)
+   return res       
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
+# []()
+```python
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
 ### Template
 # []()
 ```sql
