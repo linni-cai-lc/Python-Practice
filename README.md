@@ -90,6 +90,23 @@ def main(matrix):
 #### Assumption: R = the number of rows in the matrix, C = the number of columns in the matrix
 #### Complexity: runtime = O(R * C), space = O(1) exclude result space
 
+# [2011](https://leetcode.com/problems/final-value-of-variable-after-performing-operations/)
+```python
+def main(operations):
+   book = {
+      '--X': -1,
+      'X--': -1,
+      '++X': 1,
+      'X++': 1
+   }
+   cur = 0
+   for i in operations:
+      cur += book[i]
+   return cur
+```
+#### Assumption: N = the number of operations
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
