@@ -107,6 +107,22 @@ def main(operations):
 #### Assumption: N = the number of operations
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1190](https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/)
+```python
+def main(s):
+   res = ['']
+   for i in s:
+      if i == '(':
+         res += ['']
+      elif i == ')':
+         res[len(res) - 2] += res.pop()[::-1]
+      else:
+         res[-1] += i
+   return ''.join(res)
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
