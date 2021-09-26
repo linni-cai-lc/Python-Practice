@@ -151,24 +151,24 @@ def main(features, responses):
 ```python
 from collections import defaultdict as dd
 def main(head):
-   pre_book = dd(int)
+   cnt_book = dd(int)
    tmp = ListNode(-1)
    new_head = tmp
    tmp.next = head
    while tmp.next:
       next_val = tmp.next.val
-      pre_book[next_val] += 1
+      cnt_book[next_val] += 1
       tmp = tmp.next
    tmp = new_head
    while tmp.next:
       next_val = tmp.next.val
-      if pre_book[next_val] > 1:
+      if cnt_book[next_val] > 1:
          tmp.next = tmp.next.next
       else:
          tmp = tmp.next
    return new_head.next
 ```
-#### Note: this is 2-pass method, can be improved to 1-pass
+#### Note: this is 2-pass method
 #### Assumption: N = the number of nodes in the list
 #### Complexity: runtime = O(N), space = O(N)
 
