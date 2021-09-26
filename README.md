@@ -123,6 +123,30 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1772](https://leetcode.com/problems/sort-features-by-popularity/)
+```python
+from collections import Counter
+def main(features, responses):
+   book = Counter()
+   for feature in features:
+      book[feature] = 0
+   for response in responses:
+      words = response.split(' ')
+      for word in set(words):
+         if word in book:
+            book[word] += 1
+   summary = []
+   for idx, feature in enumerate(features):
+      summary += [(feature, book[feature], idx)]
+   summary.sort(key=lambda x:(-x[1], x[2]))
+   res = []
+   for feature, cnt, idx in summary:
+      res += [feature]
+   return res
+```
+#### Assumption: F = the number of features, R = the number of responses
+#### Complexity: runtime = O(RF), space = O(F)
+
 ### Template
 # []()
 ```sql
