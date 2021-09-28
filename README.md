@@ -90,6 +90,17 @@ def main(matrix):
 #### Assumption: R = the number of rows in the matrix, C = the number of columns in the matrix
 #### Complexity: runtime = O(R * C), space = O(1) exclude result space
 
+# [1979](https://leetcode.com/problems/find-greatest-common-divisor-of-array/)
+```python
+def main(nums):
+   mini, maxi = min(nums), max(nums)
+   while mini:
+      maxi, mini = mini, maxi % mini
+   return maxi
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
