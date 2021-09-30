@@ -61,7 +61,7 @@ def main(arr):
    return cur_cnt
 ```
 #### Assumption: N = the number of elements in the array
-#### Complexity: runtime = O(N), space = O(N)
+#### Complexity: runtime = O(NlogN), space = O(N)
 
 ### Template
 # []()
