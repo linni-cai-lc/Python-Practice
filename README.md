@@ -45,6 +45,24 @@ def main(p1, p2, p3, p4):
 #### Note: since the input parameters are four points, the logic is constantly calculated
 #### Complexity: runtime = O(1), space = O(1)
 
+# [1338](https://leetcode.com/problems/reduce-array-size-to-the-half/)
+```python
+from collections import Counter
+def main(arr):
+   book = Counter(arr)
+   size = 0
+   cur_cnt = 0
+   half_size = len(arr) // 2
+   for val, cnt in book.most_common():
+      size += cnt
+      cur_cnt += 1
+      if size >= half_size:
+         break
+   return cur_cnt
+```
+#### Assumption: N = the number of elements in the array
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
