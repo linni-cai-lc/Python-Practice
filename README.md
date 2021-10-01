@@ -63,6 +63,22 @@ def main(arr):
 #### Assumption: N = the number of elements in the array
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [791](https://leetcode.com/problems/custom-sort-string/solution/)
+```python
+from collections import Counter
+def main(order, s):
+   book = Counter(s)
+   res = []
+   for i in order:
+      res += [i * book[i]]
+      book[i] = 0
+   for i in book:
+      res += [i * book[i]]
+   return "".join(res)
+```
+#### Assumption: O = the length of order string, S = the length of s string
+#### Complexity: runtime = O(O+S), space = O(S)
+
 ### Template
 # []()
 ```sql
