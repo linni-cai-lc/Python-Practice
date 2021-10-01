@@ -89,12 +89,12 @@ def main(s1, s2):
    cnt2 = 0
    for i in range(size):
       if lst1[i] < lst2[i]:
-            cnt2 += 1
+         cnt2 += 1
       elif lst1[i] > lst2[i]:
-            cnt1 += 1
+         cnt1 += 1
       else:
-            cnt1 += 1
-            cnt2 += 1
+         cnt1 += 1
+         cnt2 += 1
    return cnt1 == size or cnt2 == size
 ```
 #### Assumption: S = the length of the given string s1 or s2
