@@ -79,6 +79,27 @@ def main(order, s):
 #### Assumption: O = the length of order string, S = the length of s string
 #### Complexity: runtime = O(O+S), space = O(S)
 
+# [1433](https://leetcode.com/problems/check-if-a-string-can-break-another-string/)
+```python
+def main(s1, s2):
+   lst1 = sorted(list(s1))
+   lst2 = sorted(list(s2))
+   size = len(lst1)
+   cnt1 = 0
+   cnt2 = 0
+   for i in range(size):
+      if lst1[i] < lst2[i]:
+            cnt2 += 1
+      elif lst1[i] > lst2[i]:
+            cnt1 += 1
+      else:
+            cnt1 += 1
+            cnt2 += 1
+   return cnt1 == size or cnt2 == size
+```
+#### Assumption: S = the length of the given string s1 or s2
+#### Complexity: runtime = O(SlogS), space = O(S)
+
 ### Template
 # []()
 ```sql
