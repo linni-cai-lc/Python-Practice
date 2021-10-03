@@ -112,8 +112,27 @@ def main(s):
          cnt += 1
    return cnt
 ```
+#### Note: Worse case TLE
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N^2), space = O(N)
+```python
+from collections import Counter
+def main(s):
+   left = Counter()
+   right = Counter(s)
+   size = len(s)
+   cnt = 0
+   for i in s:
+      left[i] += 1
+      right[i] -= 1
+      if right[i] == 0:
+         del right[i]
+      if len(left) == len(right):
+         cnt += 1
+   return cnt
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # []()
