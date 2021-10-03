@@ -134,6 +134,38 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1396](https://leetcode.com/problems/design-underground-system/)
+```python
+class UndergroundSystem:
+    def __init__(self):
+        self.customer_book = {}
+        self.station_book = {}
+        
+
+    def checkIn(self, id: int, stationName: str, t: int) -> None: 
+        self.customer_book[id] = [stationName, t]
+        
+
+    def checkOut(self, id: int, stationName: str, t: int) -> None:
+        inStationName, inTime = self.customer_book[id]
+        pair = (inStationName, stationName)
+        if pair not in self.station_book:
+            self.station_book[pair] = [0, 0] # total_time, total_cnt
+        self.station_book[pair][0] += t - inTime
+        self.station_book[pair][1] += 1
+        
+
+    def getAverageTime(self, startStation: str, endStation: str) -> float:
+        total_time, total_cnt = self.station_book[(startStation, endStation)]
+        return total_time / total_cnt
+```
+#### Assumption: S = the number of stations, C = the number of customers
+#### Complexity:
+- class: space = O(S + C)
+- checkIn: runtime = O(1), space = O(1)
+- checkOut: runtime = O(1), space = O(1)
+- getAverageTime: runtime = O(1), space = O(1)
+
 ### Template
 # []()
 ```sql
