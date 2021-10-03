@@ -100,6 +100,21 @@ def main(s1, s2):
 #### Assumption: S = the length of the given string s1 or s2
 #### Complexity: runtime = O(SlogS), space = O(S)
 
+# [1525](https://leetcode.com/problems/number-of-good-ways-to-split-a-string/)
+```python
+def main(s):
+   size = len(s)
+   cnt = 0
+   for i in range(1, size):
+      book1 = set(s[:i])
+      book2 = set(s[i:])
+      if len(book1) == len(book2):
+         cnt += 1
+   return cnt
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N^2), space = O(N)
+
 ### Template
 # []()
 ```sql
