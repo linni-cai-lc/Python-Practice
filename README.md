@@ -27,6 +27,26 @@ class SnapshotArray:
 - snap: runtime = O(1)
 - get: runtime = O(logN)
 
+# [1826](https://leetcode.com/problems/faulty-sensor/)
+```python
+def main(sensor1, sensor2) -> int:
+    size = len(sensor1)
+    cnt1 = False
+    cnt2 = False
+    val = 1
+    for i in range(size):
+        if sensor1[:i]+sensor1[i+1:] == sensor2[:-1]:
+            cnt1 = True
+            val = 2
+        if sensor2[:i]+sensor2[i+1:] == sensor1[:-1]:
+            cnt2 = True
+    if cnt1 and cnt2:
+        return -1
+    return val
+```
+#### Assumption: N = the number of elements in each list
+#### Complexity: runtime = O(N^2), space = O(1)
+
 ### Template
 # []()
 ```sql
