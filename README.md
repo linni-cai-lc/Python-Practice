@@ -61,6 +61,15 @@ def main(word, ch):
 ```
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
+```python
+def main(word, ch):
+    for i in range(len(word)):
+        if word[i] == ch:
+            return word[:i+1][::-1] + word[i+1:]
+    return word
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
