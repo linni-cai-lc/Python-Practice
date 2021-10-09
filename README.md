@@ -47,6 +47,21 @@ def main(sensor1, sensor2) -> int:
 #### Assumption: N = the number of elements in each list
 #### Complexity: runtime = O(N^2), space = O(1)
 
+# [2000](https://leetcode.com/problems/reverse-prefix-of-word/)
+```python
+def main(word, ch):
+    cur = ''
+    idx = 0
+    for i in word:
+        cur += i
+        if i == ch:
+            return cur[::-1] + word[idx+1:]
+        idx += 1
+    return word
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
