@@ -71,6 +71,23 @@ def main(word, ch):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [2027](https://leetcode.com/problems/minimum-moves-to-convert-string/)
+```python
+def main(s):
+    cnt = 0
+    idx = 0
+    size = len(s)
+    while idx < size:
+        if s[idx] == 'X':
+            cnt += 1
+            idx += 3
+        else:
+            idx += 1
+    return cnt
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
