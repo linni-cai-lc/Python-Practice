@@ -88,6 +88,23 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [2032](https://leetcode.com/problems/two-out-of-three/)
+```python
+def main(nums1, nums2, nums3):
+    set1 = set(nums1)
+    set2 = set(nums2)
+    set3 = set(nums3)
+    diff12 = set1.intersection(set2)
+    diff13 = set1.intersection(set3)
+    diff23 = set2.intersection(set3)
+    return diff12.union(diff13).union(diff23)
+```
+#### Assumption:
+- N1 = the length of nums1
+- N2 = the length of nums2
+- N3 = the length of nums3
+#### Complexity: runtime = O(N1+N2+N3), space = O(N1+N2+N3)
+
 ### Template
 # []()
 ```sql
