@@ -104,6 +104,30 @@ def main(nums1, nums2, nums3):
 - N2 = the length of nums2
 - N3 = the length of nums3
 #### Complexity: runtime = O(N1+N2+N3), space = O(N1+N2+N3)
+```python
+from collections import Counter
+def main(nums1, nums2, nums3):
+    book = Counter()
+    set1 = set(nums1)
+    set2 = set(nums2)
+    set3 = set(nums3)
+    for i in set1:
+        book[i] += 1
+    for i in set2:
+        book[i] += 1
+    for i in set3:
+        book[i] += 1
+    res = []
+    for i in book:
+        if book[i] > 1:
+            res += [i]
+    return res
+```
+#### Assumption:
+- N1 = the length of nums1
+- N2 = the length of nums2
+- N3 = the length of nums3
+#### Complexity: runtime = O(N1+N2+N3), space = O(N1+N2+N3)
 
 ### Template
 # []()
