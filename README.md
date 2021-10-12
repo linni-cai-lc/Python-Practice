@@ -51,6 +51,19 @@ def main(nums):
 ```
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N^2), space = O(1)
+```python
+def main(nums):
+    diff = -1
+    mini = nums[0]
+    for i in range(1, len(nums)):
+        cur = nums[i]
+        if cur > mini:
+            diff = max(diff, cur - mini)
+        mini = min(mini, cur)
+    return diff
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
