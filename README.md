@@ -65,6 +65,24 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [2022](https://leetcode.com/problems/convert-1d-array-into-2d-array/)
+```python
+def main(original, m, n):
+   size = len(original)
+   if size != m * n:
+      return []
+   res = []
+   cur = []
+   for i in original:
+      cur += [i]
+      if len(cur) == n:
+         res += [cur]
+         cur = []
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1) excluding the returned result
+
 ### Template
 # []()
 ```sql
