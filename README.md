@@ -83,6 +83,21 @@ def main(original, m, n):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1) excluding the returned result
 
+# [1984](https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/)
+```python
+def main(nums, k):
+    if k == 1:
+        return 0
+    size = len(nums)
+    nums.sort()
+    mini = sys.maxsize
+    for i in range(size-k+1):
+        mini = min(mini, nums[i+k-1]-nums[i])
+    return mini
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
