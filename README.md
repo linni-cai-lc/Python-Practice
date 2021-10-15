@@ -98,6 +98,17 @@ def main(nums, k):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1967](https://leetcode.com/problems/number-of-strings-that-appear-as-substrings-in-word/)
+```python
+def main(patterns, word):
+    cnt = 0
+    for i in patterns:
+        cnt += int(i in word)
+    return cnt
+```
+#### Assumption: P = the number of patterns, W = the length of the word
+#### Complexity: runtime = O(P*W), space = O(1)
+
 ### Template
 # []()
 ```sql
