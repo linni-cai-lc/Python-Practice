@@ -130,6 +130,36 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1971](https://leetcode.com/problems/find-if-path-exists-in-graph/)
+```python
+from collections import defaultdict as dd
+def main(n, edges, start, end):
+    if start == end:
+        return True
+    book = dd(set)
+    for i, j in edges:
+        book[i].add(j)
+        book[j].add(i)
+    
+    def dfs(cur, visited):
+        neighbors = book[cur]
+        for neighbor in neighbors:
+            if neighbor == end:
+                return True
+            if neighbor not in visited:
+                visited.add(neighbor)
+                if dfs(neighbor, visited):
+                    return True
+        return False
+
+    for i in book[start]:
+        if dfs(i, set()):
+            return True
+    return False            
+```
+#### Assumption: N = the number of edges
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # []()
 ```sql
