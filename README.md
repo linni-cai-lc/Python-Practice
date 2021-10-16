@@ -109,6 +109,27 @@ def main(patterns, word):
 #### Assumption: P = the number of patterns, W = the length of the word
 #### Complexity: runtime = O(P*W), space = O(1)
 
+# [1991](https://leetcode.com/problems/find-the-middle-index-in-array/)
+```python
+def main(nums):
+    size = len(nums)
+    left_sum = []
+    right_sum = []
+    left = 0
+    right = 0
+    for i in range(size):
+        left += nums[i]
+        right += nums[size-1-i]
+        left_sum += [left]
+        right_sum = [right] + right_sum
+    for i in range(size):
+        if left_sum[i] == right_sum[i]:
+            return i
+    return -1
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
