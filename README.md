@@ -160,6 +160,23 @@ def main(n, edges, start, end):
 #### Assumption: N = the number of edges
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# [1961](https://leetcode.com/problems/check-if-string-is-a-prefix-of-array/)
+```python
+def main(s, words):
+    s_idx = 0
+    s_size = len(s)
+    for word in words:
+        for letter in word:
+            if s_idx == s_size or s[s_idx] != letter:
+                return False
+            s_idx += 1
+        if s_idx == s_size:
+            return True
+    return False
+```
+#### Assumption: S = the target string length, W = the number of words to match target
+#### Complexity: runtime = O(W+S), space = O(1)
+
 ### Template
 # []()
 ```sql
