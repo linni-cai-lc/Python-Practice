@@ -49,6 +49,22 @@ def main(s, words):
 #### Assumption: S = the target string length, W = the number of words to match target
 #### Complexity: runtime = O(W+S), space = O(1)
 
+# [2042](https://leetcode.com/problems/check-if-numbers-are-ascending-in-a-sentence/)
+```python
+def main(s):
+    pre = 0
+    for i in s.split(" "):
+        if i.isdigit():
+            cur = int(i)
+            if cur > pre:
+                pre = cur
+            else:
+                return False
+    return True
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
