@@ -65,6 +65,19 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [2037](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/)
+```python
+def main(seats, students):
+    seats.sort()
+    students.sort()
+    cnt = 0
+    for i in range(len(seats)):
+        cnt += abs(seats[i] - students[i])
+    return cnt
+```
+#### Assumption: N = the number of seats/students
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
