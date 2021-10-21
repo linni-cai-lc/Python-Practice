@@ -97,6 +97,16 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1) excluding the return result
 
+# [1941](https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/)
+```python
+from collections import Counter
+def main(s):
+    book = Counter(s)
+    return len(set(book.values())) == 1
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
