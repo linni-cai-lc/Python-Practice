@@ -78,6 +78,26 @@ def main(seats, students):
 #### Assumption: N = the number of seats/students
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1957](https://leetcode.com/problems/delete-characters-to-make-fancy-string/)
+```python
+def main(s):
+    cnt = 0
+    pre = None
+    cur = ""
+    for i in s:
+        if i == pre:
+            cnt += 1
+            if cnt < 3:
+                cur += i
+        else:
+            pre = i
+            cur += i
+            cnt = 1
+    return cur
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1) excluding the return result
+
 ### Template
 # []()
 ```sql
