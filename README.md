@@ -87,12 +87,11 @@ def main(s):
     for i in s:
         if i == pre:
             cnt += 1
-            if cnt < 3:
-                cur += i
         else:
             pre = i
-            cur += i
             cnt = 1
+        if cnt < 3:
+            cur += i
     return cur
 ```
 #### Assumption: N = the length of the given string
