@@ -107,6 +107,23 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1779](https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/)
+```python
+def main(x, y, points):
+    mini = sys.maxsize
+    mini_idx = -1
+    for idx in range(len(points)):
+        i, j = points[idx]
+        if i == x or j == y:
+            cur_dist = abs(x-i)+abs(y-j)
+            if cur_dist < mini:
+                mini_idx = idx
+                mini = cur_dist
+    return mini_idx 
+```
+#### Assumption: N = the number of points
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
