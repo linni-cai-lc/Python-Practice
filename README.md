@@ -33,6 +33,34 @@ def main(salary):
 #### Assumption: N = the number of elements in the given salary list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [314](https://leetcode.com/problems/binary-tree-vertical-order-traversal/)
+```python
+def main(root)
+    book = {}
+    
+    def dfs(idx, cur, level):
+        if not cur:
+            return
+        if idx not in book:
+            book[idx] = {}
+        if level not in book[idx]:
+            book[idx][level] = []
+        book[idx][level] += [cur.val]
+        dfs(idx-1, cur.left, level+1)  
+        dfs(idx+1, cur.right, level+1)
+
+    dfs(0, root, 0)
+    res = []
+    for idx in sorted(book.keys()):
+        lst = []
+        for level in sorted(book[idx].keys()):
+            lst += book[idx][level]
+        res += [lst]
+    return res
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
