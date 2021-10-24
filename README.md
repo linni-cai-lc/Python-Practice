@@ -22,8 +22,8 @@ def main(sentence, searchWord):
             return idx + 1
     return -1
 ```
-#### Assumption: S = the number of words in the sentence, W = the length of search word
-#### Complexity: runtime = O(S*W), space = O(1)
+#### Assumption: N = the length of the sentence
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
