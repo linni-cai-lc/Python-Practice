@@ -58,8 +58,11 @@ def main(root)
         res += [lst]
     return res
 ```
-#### Assumption: N = the number of nodes in the tree
-#### Complexity: runtime = O(NlogN), space = O(N)
+#### Assumption:
+- N = the number of nodes in the tree
+- w = the width of the tree
+- H = the height of the tree
+#### Complexity: runtime = O(W*logH), space = O(N)
 
 ### Template
 # []()
