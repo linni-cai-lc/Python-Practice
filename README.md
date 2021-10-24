@@ -25,6 +25,14 @@ def main(sentence, searchWord):
 #### Assumption: N = the length of the sentence
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1491](https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
+```python
+def main(salary):
+    return (sum(salary) - max(salary) - min(salary)) / (len(salary) - 2)
+```
+#### Assumption: N = the number of elements in the given salary list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
