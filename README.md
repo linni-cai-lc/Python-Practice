@@ -13,6 +13,18 @@ def main(num):
 #### Assumption: N = the length of the given number string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1455](https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/)
+```python
+def main(sentence, searchWord):
+    lst = sentence.split(" ")
+    for idx, val in enumerate(lst):
+        if val.startswith(searchWord):
+            return idx + 1
+    return -1
+```
+#### Assumption: S = the number of words in the sentence, W = the length of search word
+#### Complexity: runtime = O(S*W), space = O(1)
+
 ### Template
 # []()
 ```sql
