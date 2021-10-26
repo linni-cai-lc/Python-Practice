@@ -64,6 +64,43 @@ def main(root)
 - H = the height of the tree
 #### Complexity: runtime = O(W*logH), space = O(N)
 
+# [2047](https://leetcode.com/problems/number-of-valid-words-in-a-sentence/)
+```python
+def main(sentence):
+    cnt = 0
+    HYPHEN = '-'
+    PUNCTUATION = '!.,'
+    SPACE = ' '
+    for word in sentence.split(' '):
+        size = len(word)
+        if size > 0:
+            valid = True
+            hyphen_cnt = 0
+            for i in range(size):
+                cur = word[i]
+                if cur.isdigit() or cur == SPACE:
+                    valid = False
+                    break
+                elif cur.islower():
+                    continue
+                elif cur == HYPHEN:
+                    if hyphen_cnt == 0 and 0 < i < size - 1 and word[i-1].islower() and word[i+1].islower():
+                        hyphen_cnt += 1
+                    else:
+                        valid = False
+                        break
+                elif cur in PUNCTUATION and i == size - 1:
+                    continue
+                else:
+                    valid = False
+                    break
+            if valid:
+                cnt += 1
+    return cnt
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
