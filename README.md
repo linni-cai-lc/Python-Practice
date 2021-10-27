@@ -101,6 +101,33 @@ def main(sentence):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1933](https://leetcode.com/problems/check-if-string-is-decomposable-into-value-equal-substrings/)
+```python
+def main(s):
+    two_cnt = 0
+    pre = None
+    cnt = 1
+    for i in s:
+        if i == pre:
+            cnt += 1
+        else:
+            if not pre or cnt % 3 == 0:
+                pass
+            elif cnt == 2 or (cnt - 2) % 3 == 0:
+                two_cnt += 1
+            else:
+                return False
+            if two_cnt > 1:
+                return False
+            cnt = 1
+        pre = i
+    if (cnt - 2) % 3 == 0:
+        two_cnt += 1
+    return two_cnt == 1 and not(pre and cnt == 1)
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
