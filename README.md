@@ -36,6 +36,18 @@ def main(s, k):
 ```
 #### Assumption: N = the length of the given string, K = the number of conversions
 #### Complexity: runtime = O(logN * K), space = O(logN * K)
+```python
+def main(s, k):
+    cur = ''
+    for i in s:
+        cur += str(ord(i) - ord('a') + 1)
+    while k > 0:
+        k -= 1
+        cur = str(sum(list(map(int, list(cur)))))
+    return int(cur)      
+```
+#### Assumption: N = the length of the given string, K = the number of conversions
+#### Complexity: runtime = O(logN * K), space = O(logN * K)
 
 
 ### Template
