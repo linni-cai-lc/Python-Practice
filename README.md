@@ -68,6 +68,25 @@ def main(head):
 #### Assumption: N = the number of nodes in the list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1725](https://leetcode.com/problems/number-of-rectangles-that-can-form-the-largest-square/)
+```python
+def main(rectangles):
+    maxi_width = 0
+    maxi_cnt = 0
+    for i, j in rectangles:
+        cur_width = min(i, j)
+        if cur_width > maxi_width:
+            maxi_width = cur_width
+            maxi_cnt = 1
+        elif cur_width == maxi_width:
+            maxi_cnt += 1
+    return maxi_cnt          
+```
+#### Assumption: N = the number of rectangle elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
+
+
 ### Template
 # []()
 ```sql
