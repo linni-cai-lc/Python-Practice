@@ -85,7 +85,18 @@ def main(rectangles):
 #### Assumption: N = the number of rectangle elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
-
+# [1935](https://leetcode.com/problems/maximum-number-of-words-you-can-type/)
+```python
+def main(text, brokenLetters):
+    cnt = 0
+    broken = set(brokenLetters)
+    for i in text.split(' '):
+        if not set(i).intersection(broken):
+            cnt += 1
+    return cnt
+```
+#### Assumption: W = the number of words in the given text, B = the number of broken letters
+#### Complexity: runtime = O(W*B), space = O(W+B)
 
 ### Template
 # []()
