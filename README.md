@@ -98,6 +98,21 @@ def main(text, brokenLetters):
 #### Assumption: W = the number of words in the given text, B = the number of broken letters
 #### Complexity: runtime = O(W*B), space = O(W+B)
 
+# [2053](https://leetcode.com/problems/kth-distinct-string-in-an-array/)
+```python
+from collections import Counter
+def main(arr, k):
+    book = Counter(arr)
+    for i in arr:
+        if book[i] == 1:
+            k -= 1
+        if k == 0:
+            return i
+    return ''
+```
+#### Assumption: N = the number of elements in the given array
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
