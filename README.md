@@ -81,6 +81,51 @@ def main(arr):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [1725](https://leetcode.com/problems/number-of-rectangles-that-can-form-the-largest-square/)
+```python
+def main(rectangles):
+    maxi_width = 0
+    maxi_cnt = 0
+    for i, j in rectangles:
+        cur_width = min(i, j)
+        if cur_width > maxi_width:
+            maxi_width = cur_width
+            maxi_cnt = 1
+        elif cur_width == maxi_width:
+            maxi_cnt += 1
+    return maxi_cnt          
+```
+#### Assumption: N = the number of rectangle elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
+# [1935](https://leetcode.com/problems/maximum-number-of-words-you-can-type/)
+```python
+def main(text, brokenLetters):
+    cnt = 0
+    broken = set(brokenLetters)
+    for i in text.split(' '):
+        if not set(i).intersection(broken):
+            cnt += 1
+    return cnt
+```
+#### Assumption: W = the number of words in the given text, B = the number of broken letters
+#### Complexity: runtime = O(W*B), space = O(W+B)
+
+# [2053](https://leetcode.com/problems/kth-distinct-string-in-an-array/)
+```python
+from collections import Counter
+def main(arr, k):
+    book = Counter(arr)
+    for i in arr:
+        if book[i] == 1:
+            k -= 1
+        if k == 0:
+            return i
+    return ''
+```
+#### Assumption: N = the number of elements in the given array
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
