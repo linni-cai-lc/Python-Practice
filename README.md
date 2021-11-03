@@ -68,6 +68,19 @@ def main(head):
 #### Assumption: N = the number of nodes in the list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1502](https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/)
+```python
+def main(arr):
+    arr.sort()
+    diff = arr[1] - arr[0]
+    for i in range(2, len(arr)):
+        if arr[i] - arr[i-1] != diff:
+            return False
+    return True
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
