@@ -18,6 +18,18 @@ def main(timeSeries, duration):
 #### Assumption: N = the number of elements in the given time series
 #### Complexity: runtime = O(N), space = O(1)
 
+# [2057](https://leetcode.com/problems/smallest-index-with-equal-value/)
+```python
+def main(nums):
+   for i in range(len(nums)):
+      val = nums[i]
+      if i % 10 == val:
+         return i
+   return -1
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
