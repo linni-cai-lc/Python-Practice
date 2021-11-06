@@ -30,6 +30,20 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1974](https://leetcode.com/problems/minimum-time-to-type-word-using-special-typewriter/)
+```python
+def main(word):
+   pre = 'a'
+   cnt = 0
+   for i in word:
+      diff = abs(ord(i) - ord(pre))
+      cnt += 1 + min(26 - diff, diff)
+      pre = i
+   return cnt
+```
+#### Assumption: N = the length of the given word
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
