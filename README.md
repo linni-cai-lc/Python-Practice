@@ -44,6 +44,20 @@ def main(word):
 #### Assumption: N = the length of the given word
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1952](https://leetcode.com/problems/three-divisors/)
+```python
+def main(n):
+   cnt = 2
+   for i in range(2, n):
+      if n % i == 0:
+         cnt += 1
+      if cnt > 3:
+         return False
+   return cnt == 3
+```
+#### Assumption: N = the size of the given number
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
