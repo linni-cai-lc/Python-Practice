@@ -58,6 +58,45 @@ def main(n):
 #### Assumption: N = the size of the given number
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1235](https://leetcode.com/problems/maximum-profit-in-job-scheduling/)
+```python
+def main(startTime, endTime, profit):
+   size = len(startTime)
+   jobs = [] # a list of [start, end, profit]
+   maxProfit = [-1] * size
+   for i in range(size):
+      jobs += [[startTime[i], endTime[i], profit[i]]]
+   jobs.sort(key=lambda x:x[0])
+   # append sorted start time
+   for i in range(size):
+      startTime[i] = jobs[i][0]
+
+   def findMaxProfit(pos):
+      if pos == size:
+         return 0
+      if maxProfit[pos] != -1:
+         return maxProfit[pos]
+      curStart, curEnd, curProfit = jobs[pos]
+      nextJobPos = findNextJob(curStart, curEnd)
+      maxProfit[pos] = max(findMaxProfit(pos+1), findMaxProfit(nextJobPos) + curProfit)
+      return maxProfit[pos]
+
+   def findNextJob(curStart, curEnd):
+      left = 0
+      right = size - 1
+      while left <= right:
+         mid = (left + right) // 2
+         if startTime[mid] >= curEnd: # overlap
+            right = mid - 1
+         else:
+            left = mid + 1
+      return left
+   
+   return findMaxProfit(0)
+```
+#### Assumption: N = the number of elements in the startTime/endTime/profit list
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # []()
 ```sql
