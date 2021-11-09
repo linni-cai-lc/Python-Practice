@@ -97,6 +97,35 @@ def main(startTime, endTime, profit):
 #### Assumption: N = the number of elements in the startTime/endTime/profit list
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# [723](https://leetcode.com/problems/candy-crush/)
+```python
+def main(board):
+   nrow = len(board)
+   ncol = len(board[0])
+   crush = False
+   for row in range(nrow):
+      for col in range(ncol-2):
+         if abs(board[row][col]) == abs(board[row][col+1]) == abs(board[row][col+2]) != 0:
+            board[row][col] = board[row][col+1] = board[row][col+2] = -abs(board[row][col])
+            crush = True
+   for row in range(nrow-2):
+      for col in range(ncol):
+         if abs(board[row][col]) == abs(board[row+1][col]) == abs(board[row+2][col]) != 0:
+            board[row][col] = board[row+1][col] = board[row+2][col] = -abs(board[row][col])
+            crush = True
+   for col in range(ncol):
+      row_right = nrow - 1
+      for row in range(nrow-1,-1,-1):
+         if board[row][col] > 0:
+            board[row_right][col] = board[row][col]
+            row_right -= 1
+      for row_right in range(row_right, -1, -1):
+         board[row_right][col] = 0
+   return self.candyCrush(board) if crush else board
+```
+#### Assumption: N = the number of elements in the board
+#### Complexity: runtime = O(N^2), space = O(1)
+
 ### Template
 # []()
 ```sql
