@@ -126,6 +126,32 @@ def main(board):
 #### Assumption: N = the number of elements in the board
 #### Complexity: runtime = O(N^2), space = O(1)
 
+# [1758](https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/)
+```python
+def main(s):
+   oddZero = 0
+   oddOne = 0
+   evenZero = 0
+   evenOne = 0
+   for idx in range(len(s)):
+      if s[idx] == "0":
+         if idx % 2 == 0:
+            evenZero += 1
+         else:
+            oddZero += 1
+      else:
+         if idx % 2 == 0:
+            evenOne += 1
+         else:
+            oddOne += 1
+   if oddZero > evenZero or oddOne < evenOne:
+      return oddOne + evenZero
+   else:
+      return evenOne + oddZero
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
