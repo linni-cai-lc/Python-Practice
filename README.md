@@ -152,6 +152,34 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [682](https://leetcode.com/problems/baseball-game/)
+```python
+def main(ops):
+   stack = []
+   record = 0
+   for i in ops:
+      score = 0
+      if i.isnumeric():
+            score = int(i)
+      elif i.startswith('-'):
+            score = -int(i[1:])
+      elif i == 'C':
+            if stack:
+               last = stack.pop()
+               record -= last
+               score = 0
+      elif i == 'D':
+            score = stack[-1] * 2
+      elif i == '+':
+            score = stack[-2] + stack[-1]
+      if score != 0:
+            stack += [score]
+            record += score
+   return record
+```
+#### Assumption: N = the number of operations in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
