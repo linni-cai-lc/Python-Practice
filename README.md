@@ -180,6 +180,22 @@ def main(ops):
 #### Assumption: N = the number of operations in the given list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1995](https://leetcode.com/problems/count-special-quadruplets/)
+```python
+def main(nums):
+   cnt = 0
+   size = len(nums)
+   for i in range(size):
+      for j in range(i+1, size):
+         for k in range(j+1, size):
+            for l in range(k+1, size):
+               if nums[i] + nums[j] + nums[k] == nums[l]:
+                  cnt += 1
+   return cnt                    
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N^4), space = O(1)
+
 ### Template
 # []()
 ```sql
