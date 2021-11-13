@@ -196,6 +196,22 @@ def main(nums):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N^4), space = O(1)
 
+# [2023](https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/)
+```python
+def main(num, target):
+   cnt = 0
+   size = len(nums)
+   for i in range(size):
+      for j in range(i+1, size):
+         if nums[i] + nums[j] == target:
+            cnt += 1
+         if nums[j] + nums[i] == target:
+            cnt += 1
+   return cnt
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N^2), space = O(1)
+
 ### Template
 # []()
 ```sql
