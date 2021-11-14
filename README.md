@@ -212,6 +212,30 @@ def main(num, target):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N^2), space = O(1)
 
+# [2068](https://leetcode.com/problems/check-whether-two-strings-are-almost-equivalent/)
+```python
+from collections import Counter
+def main(word1, word2):
+   book1 = Counter(word1)
+   book2 = Counter(word2)
+   for i in set(book1.keys()):
+      occur_1 = book1[i]
+      occur_2 = book2[i]
+      if abs(occur_1 - occur_2) > 3:
+         return False
+      else:
+         del book1[i]
+         del book2[i]
+   for i in book2:
+      occur_1 = book1[i]
+      occur_2 = book2[i]
+      if abs(occur_1 - occur_2) > 3:
+         return False
+   return True
+```
+#### Assumption: N = the length of word1/word2
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
