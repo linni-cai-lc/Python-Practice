@@ -236,6 +236,26 @@ def main(word1, word2):
 #### Assumption: N = the length of word1/word2
 #### Complexity: runtime = O(N), space = O(N)
 
+# [2073](https://leetcode.com/problems/time-needed-to-buy-tickets/)
+```python
+def main(tickets, k):
+   size = len(tickets)
+   buy_cnt = size
+   cnt = 0
+   while buy_cnt > 0:
+      buy_cnt = 0
+      for idx in range(size):
+         val = tickets[idx]
+         if val > 0:
+            tickets[idx] -= 1
+            cnt += 1
+            buy_cnt += 1
+         if tickets[k] == 0:
+            return cnt
+```
+#### Assumption: N = the number of tickets
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
