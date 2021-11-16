@@ -106,6 +106,19 @@ def main(tickets, k):
 #### Assumption: N = the number of tickets
 #### Complexity: runtime = O(N), space = O(1)
 
+# [1561](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/)
+```python
+def main(piles):
+   piles.sort()
+   cnt = 0
+   size = len(piles)
+   for i in range(size // 3, size, 2):
+      cnt += piles[i]
+   return cnt
+```
+#### Assumption: N = the number of elements in the piles
+#### Complexity: runtime = O(NlogN), space = O(1)
+
 ### Template
 # []()
 ```sql
