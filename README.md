@@ -119,6 +119,35 @@ def main(piles):
 #### Assumption: N = the number of elements in the piles
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+# [6](https://leetcode.com/problems/zigzag-conversion/)
+```python
+def main(s, numRows):
+   if numRows == 1:
+      return s
+   book = ["" for _ in range(numRows)]
+   size = len(s)
+   cnt = 0
+   for i in range(0, size, numRows*2-2):
+      for j in range(numRows):
+         if cnt < size:
+            book[j] += s[cnt]
+            cnt += 1
+         else:
+            break
+      for j in range(numRows-2, 0, -1):
+         if cnt < size:
+            book[j] += s[cnt]
+            cnt += 1
+         else:
+            break
+   res = ""
+   for i in book:
+      res += i
+   return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1) exclude the final result space
+
 ### Template
 # []()
 ```sql
