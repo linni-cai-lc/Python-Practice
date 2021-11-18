@@ -148,6 +148,23 @@ def main(s, numRows):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1) exclude the final result space
 
+# [1817](https://leetcode.com/problems/finding-the-users-active-minutes/)
+```python
+from collections import defaultdict as dd
+def main(logs, k):
+   book = dd(set)
+   res = [0] * k
+   for i, j in logs:
+      book[i].add(j)
+   for i in book:
+      size = len(book[i])
+      if size <= k:
+         res[size - 1] += 1
+   return res
+```
+#### Assumption: N = the number of logs
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
