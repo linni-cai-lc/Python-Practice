@@ -165,6 +165,37 @@ def main(logs, k):
 #### Assumption: N = the number of logs
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1740](https://leetcode.com/problems/find-distance-in-a-binary-tree/)
+```python
+def main(root, p, q):
+   if p == q:
+      return 0
+   def dfs(cur):
+      if not cur:
+         return
+      val = cur.val
+      if val == p or val == q:
+         return cur
+      left = dfs(cur.left)
+      right = dfs(cur.right)
+      if left and right:
+         return cur
+      else:
+         return left or right
+   
+   def distance(cur, target):
+      if not cur:
+         return sys.maxsize
+      if cur.val == target:
+         return 0
+      return 1 + min(distance(cur.left, target), distance(cur.right, target))
+   
+   ancestor = dfs(root)
+   return distance(ancestor, p) + distance(ancestor, q)
+```
+#### Assumption: N = the number of nodes in the tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # []()
 ```sql
