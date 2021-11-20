@@ -196,6 +196,23 @@ def main(root, p, q):
 #### Assumption: N = the number of nodes in the tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# [1925](https://leetcode.com/problems/count-square-sum-triples/)
+```python
+def main(n):
+   cnt = 0
+   for i in range(1, n+1):
+      for j in range(i, n+1):
+         sumi = i**2 + j**2
+         sq = int(math.sqrt(sumi))
+         if 1 <= sumi <= n ** 2 and sq ** 2 == sumi:
+            cnt += 1
+            if i != j:
+               cnt += 1
+   return cnt
+```
+#### Assumption: N = the size of the given number
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
