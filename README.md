@@ -211,6 +211,28 @@ def main(n):
    return cnt
 ```
 #### Assumption: N = the size of the given number
+#### Complexity: runtime = O(N^2), space = O(1)
+
+# [2078](https://leetcode.com/problems/two-furthest-houses-with-different-colors/)
+```python
+def main(colors):
+   size = len(colors)
+   right = size - 1
+   maxi = 0
+   while right > 0:
+      if colors[right] != colors[0]:
+         maxi = max(maxi, right)
+         break
+      right -= 1
+   left = 0
+   while left < size - 1:
+      if colors[left] != colors[-1]:
+         maxi = max(maxi, size - left - 1)
+         break
+      left += 1
+   return maxi
+```
+#### Assumption: N = the number of elements in the colors
 #### Complexity: runtime = O(N), space = O(1)
 
 ### Template
