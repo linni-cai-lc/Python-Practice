@@ -124,6 +124,33 @@ class BrowserHistory:
 - back: runtime = O(1)
 - forward: runtime = O(1)
 
+# [146](https://leetcode.com/problems/lru-cache/)
+```python
+from collections import OrderedDict as OD
+class LRUCache:
+   def __init__(self, capacity):
+      self.capacity = capacity
+      self.book = OD()
+   
+   def get(self, key):
+      if key in self.book:
+         self.book.move_to_end(key)
+         return self.book[key]
+      return -1
+
+   def put(self, key, value):
+      if key in self.book:
+         self.book.move_to_end(key)
+      self.book[key] = value
+      if len(self.book) > self.capacity:
+         self.book.popitem(False)
+```
+#### Assumption: N = the number of items to put/get, C = the cache capacity
+
+#### Complexity: space = O(C)
+- get: O(1)
+- put: O(1)
+
 ### Template
 # []()
 ```sql
