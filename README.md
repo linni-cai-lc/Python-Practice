@@ -147,6 +147,25 @@ class LRUCache:
 ```
 #### Assumption: N = the number of items to put/get, C = the cache capacity
 
+# [56](https://leetcode.com/problems/merge-intervals/)
+```python
+def merge(intervals):
+   intervals.sort(key=lambda x:(x[0], x[1]))
+   res = []
+   for start, end in intervals:
+      if not res:
+         res += [[start, end]]
+      else:
+         pre_start, pre_end = res[-1]
+         if start <= pre_end:
+            res[-1][1] = max(end, pre_end)
+         else:
+            res += [[start, end]]
+   return res
+```
+#### Assumption: N = the number of intervals in the given list
+#### Complexity: runtime = O(NlogN), space = O(N) include the return result space
+
 #### Complexity: space = O(C)
 - get: O(1)
 - put: O(1)
