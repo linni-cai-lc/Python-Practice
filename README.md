@@ -146,6 +146,9 @@ class LRUCache:
          self.book.popitem(False)
 ```
 #### Assumption: N = the number of items to put/get, C = the cache capacity
+#### Complexity: space = O(C)
+- get: O(1)
+- put: O(1)
 
 # [56](https://leetcode.com/problems/merge-intervals/)
 ```python
@@ -166,9 +169,31 @@ def merge(intervals):
 #### Assumption: N = the number of intervals in the given list
 #### Complexity: runtime = O(NlogN), space = O(N) include the return result space
 
-#### Complexity: space = O(C)
-- get: O(1)
-- put: O(1)
+# [200](https://leetcode.com/problems/number-of-islands/)
+```python
+def main(grid):
+   nrow = len(grid)
+   ncol = len(grid[0])
+   DIR = ((-1, 0), (1, 0), (0, 1), (0, -1))
+   LAND = '1'
+   WATER = '0'
+   def dfs(row, col):
+      if 0 <= row < nrow and 0 <= col < ncol and grid[row][col] == LAND:
+         grid[row][col] = WATER
+         for dr, dc in DIR:
+            dfs(row+dr, col+dc)
+   
+   cnt = 0
+   for i in range(nrow):
+      for j in range(ncol):
+         if grid[i][j] == LAND:
+            cnt += 1
+            dfs(i, j)
+   return cnt
+```
+#### Assumption: R = the number of rows in the grid, C = the number of columns in the grid
+#### Complexity: runtime = O(R*C), space = O(R*C) with recursive callstack
+
 
 ### Template
 # []()
