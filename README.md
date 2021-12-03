@@ -55,6 +55,36 @@ def main(grid):
 #### Assumption: R = the number of rows in the grid, C = the number of columns in the grid
 #### Complexity: runtime = O(R*C), space = O(min(R, C))
 
+# [2](https://leetcode.com/problems/add-two-numbers/)
+```python
+def main(l1, l2):
+   res = ListNode(0)
+   cur = res
+   tmp1 = l1
+   tmp2 = l2
+   extra = 0
+   while tmp1 or tmp2:
+      sumi = extra
+      if tmp1:
+         sumi += tmp1.val
+      if tmp2:
+         sumi += tmp2.val
+      cur.val = sumi % 10
+      extra = sumi // 10
+      if tmp1:
+         tmp1 = tmp1.next
+      if tmp2:
+         tmp2 = tmp2.next
+      if tmp1 or tmp2 or extra:
+         cur.next = ListNode(0)
+         cur = cur.next
+   if extra:
+      cur.val += extra
+   return res
+```
+#### Assumption: N = the number of nodes in L1/L2
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
