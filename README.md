@@ -85,6 +85,27 @@ def main(l1, l2):
 #### Assumption: N = the number of nodes in L1/L2
 #### Complexity: runtime = O(N), space = O(1)
 
+# [423](https://leetcode.com/problems/reconstruct-original-digits-from-english/)
+```python
+from collections import Counter
+def main(s):
+   book = Counter(s)
+   res = Counter()
+   res["0"] = book["z"]
+   res["2"] = book["w"]
+   res["4"] = book["u"]
+   res["6"] = book["x"]
+   res["8"] = book["g"]
+   res["3"] = book["h"] - res["8"]
+   res["5"] = book["f"] - res["4"]
+   res["7"] = book["s"] - res["6"]
+   res["9"] = book["i"] - res["5"] - res["6"] - res["8"]
+   res["1"] = book["n"] - res["7"] - 2 * res["9"]
+   return "".join(sorted(res.elements()))
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
