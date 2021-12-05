@@ -106,6 +106,17 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# [7](https://leetcode.com/problems/reverse-integer/)
+```python
+def main(x):
+   MAXI = 2147483647
+   prod = -1 if x < 0 else 1
+   res = int(str(abs(x))[::-1]) * prod
+   return res if -MAXI <= res <= MAXI-1 else 0
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
