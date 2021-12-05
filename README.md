@@ -116,6 +116,20 @@ def main(x):
 ```
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N), space = O(N)
+```python
+def main(x):
+   MAXI = 2147483647
+   res = 0
+   cur = abs(x)
+   while cur:
+      res = res * 10 + cur % 10
+      cur //= 10
+   if -MAXI <= res <= MAXI-1:
+      return res * (1 if x > 0 else -1)
+   return 0
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(logN), space = O(1)
 
 ### Template
 # []()
