@@ -131,6 +131,26 @@ def main(x):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(logN), space = O(1)
 
+# [3](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+```python
+def main(s):
+   chars = [0] * 128
+   left = right = res = 0
+   size = len(s)
+   while right < size:
+      right_char = s[right]
+      chars[ord(right_char)] += 1
+      while chars[ord(right_char)] > 1:
+         left_char = s[left]
+         chars[ord(left_char)] -= 1
+         left += 1
+      res = max(res, right-left+1)
+      right += 1
+   return res
+```
+#### Assumption: N = the length of the given string, M = the size of charset
+#### Complexity: runtime = O(N), space = O(min(M, N))
+
 ### Template
 # []()
 ```sql
