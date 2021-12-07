@@ -151,6 +151,25 @@ def main(s):
 #### Assumption: N = the length of the given string, M = the size of charset
 #### Complexity: runtime = O(N), space = O(min(M, N))
 
+# [560](https://leetcode.com/problems/subarray-sum-equals-k/)
+```python
+from collections import Counter
+def main(nums, k):
+   cnt = 0
+   size = len(nums)
+   sumi = 0
+   book = Counter()
+   book[0] = 1
+   for i in nums:
+      sumi += i
+      if sumi-k in book:
+         cnt += book[sumi-k]
+      book[sumi] = book[sumi] + 1
+   return cnt
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
