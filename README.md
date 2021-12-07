@@ -164,7 +164,7 @@ def main(nums, k):
       sumi += i
       if sumi-k in book:
          cnt += book[sumi-k]
-      book[sumi] = book[sumi] + 1
+      book[sumi] += 1
    return cnt
 ```
 #### Assumption: N = the number of elements in the given list
