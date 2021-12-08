@@ -170,6 +170,29 @@ def main(nums, k):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1249](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
+```python
+def main(s):
+   res = list(s)
+   stack = []
+   remove = set()
+   size = len(s)
+   for idx in range(size):
+      cur = s[idx]
+      if cur == '(':
+         stack += [idx]
+      elif cur == ')':
+         if not stack:
+            res[idx] = ''
+         else:
+            stack.pop()
+   for i in stack:
+      res[i] = ''
+   return ''.join(res)                  
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
