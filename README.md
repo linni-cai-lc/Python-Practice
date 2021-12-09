@@ -193,6 +193,24 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(N)
 
+# [412](https://leetcode.com/problems/fizz-buzz/)
+```python
+def main(n):
+   res = []
+   for i in range(1, n+1):
+      cur = ""
+      if i % 3 == 0:
+         cur += "Fizz"
+      if i % 5 == 0:
+         cur += "Buzz"
+      if not cur:
+         cur = str(i)
+      res += [cur]
+   return res
+```
+#### Assumption: N = the size of the given number
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # []()
 ```sql
