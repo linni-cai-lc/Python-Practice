@@ -211,6 +211,29 @@ def main(n):
 #### Assumption: N = the size of the given number
 #### Complexity: runtime = O(N), space = O(1)
 
+# [20](https://leetcode.com/problems/valid-parentheses/)
+```python
+def main(s):
+   stack = []
+   rev_book = {
+      ')': '(',
+      ']': '[',
+      '}': '{',
+   }
+   for i in s:
+      if i in rev_book.values():
+         stack += [i]
+      else:
+         if not stack:
+            return False
+         cur = stack.pop()
+         if cur != rev_book[i]:
+            return False
+   return not stack
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
