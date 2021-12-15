@@ -93,6 +93,37 @@ def main(chars):
 ```
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(N)
+```python
+def main(chars):
+   pre = None
+   cnt = 0
+   left = 0
+   for i in chars:
+      if i == pre:
+         cnt += 1
+      else:
+         if pre:
+            chars[left] = pre
+            left += 1
+            if cnt > 1:
+               cnt_str = str(cnt)
+               for j in range(len(cnt_str)):
+                  chars[left] = cnt_str[j]
+                  left += 1
+         cnt = 1
+         pre = i
+   if pre:
+      chars[left] = pre
+      left += 1
+      if cnt > 1:
+         cnt_str = str(cnt)
+         for j in range(len(cnt_str)):
+            chars[left] = cnt_str[j]
+            left += 1
+   return left
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # []()
