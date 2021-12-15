@@ -64,6 +64,36 @@ def main(intervals):
 #### Assumption: N = the number of intervals, K = the number of rooms
 #### Complexity: runtime = O(N*K), space = O(K)
 
+# [443](https://leetcode.com/problems/string-compression/)
+```python
+def main(chars):
+   pre = None
+   cnt = 0
+   res = ""
+   for i in chars:
+      if i == pre:
+         cnt += 1
+      else:
+         if pre:
+            if cnt == 1:
+               res += pre
+            else:
+               res += pre + str(cnt)
+         cnt = 1
+         pre = i
+   if pre:
+      if cnt == 1:
+         res += pre
+      else:
+         res += pre + str(cnt)
+   res_size = len(res)
+   for i in range(res_size):
+      chars[i] = res[i]
+   return res_size
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
