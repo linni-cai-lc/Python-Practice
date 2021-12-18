@@ -138,6 +138,32 @@ def main(strs):
 #### Assumption: N = the number of elements in the given list, M = the length of the element
 #### Complexity: runtime = O(NlogM), space = O(N)
 
+# [71](https://leetcode.com/problems/simplify-path/)
+```python
+def main(path):
+   stack = []
+   cur = ''
+   size = len(path)
+   for idx in range(size+1):
+      if idx < size:
+         val = path[idx]
+      if val == '/' or idx == size:
+         if cur:
+            if cur == '..':
+               if stack:
+                  stack.pop()
+            elif cur == '.':
+               pass
+            else:
+               stack += [cur]
+            cur = ''
+      else:
+         cur += val
+   return '/' + '/'.join(stack)
+```
+#### Assumption: N = the length of the given path
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
