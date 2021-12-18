@@ -125,6 +125,19 @@ def main(chars):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [49](https://leetcode.com/problems/group-anagrams/)
+```python
+from collections import defaultdict as dd
+def main(strs):
+   book = dd(list)
+   for i in strs:
+      anagram = tuple(sorted(i))
+      book[anagram] += [i]
+   return book.values()      
+```
+#### Assumption: N = the number of elements in the given list, M = the length of the element
+#### Complexity: runtime = O(NlogM), space = O(N)
+
 ### Template
 # []()
 ```sql
