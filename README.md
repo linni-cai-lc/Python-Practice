@@ -164,6 +164,30 @@ def main(path):
 #### Assumption: N = the length of the given path
 #### Complexity: runtime = O(N), space = O(N)
 
+# [1282](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)
+```python
+from collections import defaultdict as dd
+def main(groupSizes):
+   book = dd(list)
+   for idx in range(len(groupSizes)):
+      val = groupSizes[idx]
+      group = book[val]
+      if not group:
+         group += [[idx]]
+      else:
+         last = group[-1]
+         if len(last) == val:
+            group += [[idx]]
+         else:
+            last += [idx]
+   res = []
+   for i in book:
+      res += book[i]
+   return res
+```
+#### Assumption: N = the group size
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # []()
 ```sql
