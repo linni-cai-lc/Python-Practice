@@ -188,6 +188,21 @@ def main(groupSizes):
 #### Assumption: N = the group size
 #### Complexity: runtime = O(N), space = O(N)
 
+# [121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+```python
+def main(prices):
+   size = len(prices)
+   maxi = 0
+   mini = sys.maxsize
+   for idx in range(size):
+      mini = min(mini, prices[idx])
+      maxi = max(maxi, prices[idx] - mini)
+   return maxi
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
+
 ### Template
 # []()
 ```sql
