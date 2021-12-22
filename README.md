@@ -202,6 +202,30 @@ def main(prices):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# [14](https://leetcode.com/problems/longest-common-prefix/)
+```python
+def main(strs):
+   common = strs[0]
+   size = len(strs)
+   for idx in range(1, size):
+      cur = strs[idx]
+      new_common = ""
+      left = 0
+      right = 0
+      left_size = len(common)
+      right_size = len(cur)
+      while left < left_size and right < right_size:
+         if common[left] == cur[right]:
+            new_common += common[left]
+         else:
+            break
+         left += 1
+         right += 1
+      common = new_common
+   return common
+```
+#### Assumption: N = the number of elements, M = the length of element
+#### Complexity: runtime = O(N * M), space = O(M)
 
 ### Template
 # []()
