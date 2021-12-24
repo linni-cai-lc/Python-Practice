@@ -2,7 +2,7 @@
 
 # Week 85 [4/11-4/17]
 
-# [1282](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)
+# 1. [1282](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)
 ```python
 from collections import defaultdict as dd
 def main(groupSizes):
@@ -26,7 +26,7 @@ def main(groupSizes):
 #### Assumption: N = the group size
 #### Complexity: runtime = O(N), space = O(N)
 
-# [121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+# 2. [121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 ```python
 def main(prices):
    size = len(prices)
@@ -40,7 +40,7 @@ def main(prices):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
-# [14](https://leetcode.com/problems/longest-common-prefix/)
+# 3. [14](https://leetcode.com/problems/longest-common-prefix/)
 ```python
 def main(strs):
    common = strs[0]
@@ -65,7 +65,7 @@ def main(strs):
 #### Assumption: N = the number of elements, M = the length of element
 #### Complexity: runtime = O(N * M), space = O(M)
 
-# [811](https://leetcode.com/problems/subdomain-visit-count/)
+# 4. [811](https://leetcode.com/problems/subdomain-visit-count/)
 ```python
 from collections import Counter
 def main(cpdomains):
@@ -85,12 +85,43 @@ def main(cpdomains):
 #### Assumption: N = the number of domains
 #### Complexity: runtime = O(N), space = O(N)
 
+# 5. [415](https://leetcode.com/problems/add-strings/)
+```python
+def main(num1, num2):
+   left_size = len(num1)
+   right_size = len(num2)
+   left = left_size - 1
+   right = right_size - 1
+   res = ""
+   add = 0
+   while left >= 0 or right >= 0:
+      cur_left = 0
+      cur_right = 0
+      if left >= 0:
+         cur_left = int(num1[left])
+      if right >= 0:
+         cur_right = int(num2[right])
+      cur_sum = cur_left + cur_right + add
+      add = cur_sum // 10
+      remainder = cur_sum % 10
+      res = str(remainder) + res
+      left -= 1
+      right -= 1
+   while add > 0:
+      remainder = add % 10
+      add //= 10
+      res = str(remainder) + res
+   return res
+```
+#### Assumption: N1 = the length of num1, N2 = the length of num2
+#### Complexity: runtime = O(max(N1, N2)), space = O(max(N1, N2))
+
 ### Template
-# []()
+# N. []()
 ```sql
 ```
 
-# []()
+# N. []()
 ```python
 ```
 #### Assumption: N = ??
