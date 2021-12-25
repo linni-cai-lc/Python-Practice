@@ -116,6 +116,28 @@ def main(num1, num2):
 #### Assumption: N1 = the length of num1, N2 = the length of num2
 #### Complexity: runtime = O(max(N1, N2)), space = O(max(N1, N2))
 
+# 6. [5](https://leetcode.com/problems/longest-palindromic-substring/)
+```python
+def main(s):
+   size = len(s)
+   dp = [[False] * size for _ in range(size)]
+   res = ""
+   for i in range(size-1, -1, -1):
+      for j in range(i, size):
+         dp[i][j] = s[i] == s[j] and (j-i<3 or dp[i+1][j-1])
+         if dp[i][j] and j-i+1>len(res):
+            res = s[i:j+1]
+   return res
+```
+#### Note: dynamic programming, we have a 2D matrix to record whether s[i:j] is a palindrome, the criteria of a palindrome is:
+- length is odd: besides the middle letter, other letters are symmetric, i.e. aba
+- length is even: all letters are symmetric from the middle, i.e. abba
+- s[i] == s[j]:
+  - j - i < 3: length = 2 or length = 3 -> palindrome
+  - dp[i+1][j-1] = true: inner palindrome promised
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N^2), space = O(N^2)
+
 ### Template
 # N. []()
 ```sql
