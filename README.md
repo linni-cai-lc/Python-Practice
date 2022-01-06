@@ -43,6 +43,22 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# 3. [55](https://leetcode.com/problems/jump-game/)
+```python
+def main(nums):
+   size = len(nums)
+   dp = [False] * size
+   for i in range(size-2, -1, -1):
+      maxi = min(size-1, i+nums[i])
+      for j in range(i+1, maxi+1):
+         if dp[j]:
+            dp[i] = True
+            break
+   return dp[0]
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N^2), space = O(N)
+
 ### Template
 # N. []()
 ```sql
