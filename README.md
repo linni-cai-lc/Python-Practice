@@ -59,6 +59,22 @@ def main(nums):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N^2), space = O(N)
 
+# 4. [322](https://leetcode.com/problems/coin-change/)
+```python
+def main(coins, amount):
+   dp = [sys.maxsize] * (amount+1)
+   dp[0] = 0
+   for i in coins:
+      for j in range(i, amount+1):
+         dp[j] = min(dp[j], dp[j-i]+1)
+   if dp[amount] == sys.maxsize:
+      return -1
+   else:
+      return dp[amount]
+```
+#### Assumption: N = the number of coins, A = the amount size
+#### Complexity: runtime = O(N*A), space = O(N)
+
 ### Template
 # N. []()
 ```sql
