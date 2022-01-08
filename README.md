@@ -75,6 +75,23 @@ def main(coins, amount):
 #### Assumption: N = the number of coins, A = the amount size
 #### Complexity: runtime = O(N*A), space = O(N)
 
+# 5. [139](https://leetcode.com/problems/word-break/)
+```python
+def main(s, wordDict):
+   wordSet = set(wordDict)
+   size = len(s)
+   dp = [False] * (size+1)
+   dp[0] = True
+   for i in range(1, size+1):
+      for j in range(i):
+         if dp[j] and s[j:i] in wordSet:
+            dp[i] = True
+            break
+   return dp[-1]
+```
+#### Assumption: N = the given string length
+#### Complexity: runtime = O(N^3), space = O(N)
+
 ### Template
 # N. []()
 ```sql
