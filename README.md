@@ -92,6 +92,24 @@ def main(s, wordDict):
 #### Assumption: N = the given string length
 #### Complexity: runtime = O(N^3), space = O(N)
 
+# 6. [256](https://leetcode.com/problems/paint-house/)
+```python
+def main(costs):
+   if not costs:
+      return 0
+   size = len(costs)
+   prev = costs[-1]
+   for i in range(size-2, -1, -1):
+      cur = costs[i][:]
+      cur[0] += min(prev[1], prev[2])
+      cur[1] += min(prev[0], prev[2])
+      cur[2] += min(prev[0], prev[1])
+      prev = cur
+   return min(prev)
+```
+#### Assumption: N = the number of elements
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # N. []()
 ```sql
