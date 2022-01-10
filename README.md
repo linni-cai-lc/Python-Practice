@@ -110,6 +110,28 @@ def main(costs):
 #### Assumption: N = the number of elements
 #### Complexity: runtime = O(N), space = O(1)
 
+# 7. [494](https://leetcode.com/problems/target-sum/)
+```python
+def main(nums, target):
+   total = sum(nums)
+   if abs(target) < total:
+      return 0
+   size = len(nums)
+   dp = [0] * range(2 * total + 1)
+   dp[nums[0]+total] += 1
+   dp[nums[0]-total] += 1
+   for i in range(1, size):
+      for j in range(-total, total+1):
+         sumi = j+total
+         prev = dp[sumi]
+         if prev > 0:
+            dp[sumi+nums[i]] += prev
+            dp[sumi-nums[i]] -= prev
+   return dp[target+total]
+```
+#### Assumption: S = the total sum of the given nums list, N = the number of elements of the given nums list
+#### Complexity: runtime = O(S*N), space = O(S)
+
 ### Template
 # N. []()
 ```sql
