@@ -60,7 +60,33 @@ def main(grid):
    return cnt
 ```
 #### Assumption: R = the number of rows, C = the number of columns
-#### Complexity: runtime = O(R * C), space = O(R * C) with recursive callstack
+#### Complexity: runtime = O(R * C), space = O(R * C) with recursive callstack3
+
+# 4. [36](https://leetcode.com/problems/valid-sudoku/)
+```python
+def main(board):
+   EMPTY = "."
+   nrow = len(board)
+   ncol = len(board[0])
+   row_book = [set() for _ in range(nrow)]
+   col_book = [set() for _ in range(ncol)]
+   block_book = [[set() for _ in range(ncol//3)] for _ in range(nrow//3)]
+   for row in range(nrow):
+      for col in range(ncol):
+         if board[row][col] != EMPTY:
+            cur = int(board[row][col])
+            if cur not in row_book[row] and \
+               cur not in col_book[col] and \
+               cur not in block_book[row//3][col//3] and 0 <= cur <= 9:
+               row_book[row].add(cur)
+               col_book[col].add(cur)
+               block_book[row//3][col//3].add(cur)
+            else:
+               return False
+   return True 
+```
+#### Assumption: N = the number of columns/rows in the given grid
+#### Complexity: runtime = O(N^2), space = O(N^2)
 
 ### Template
 # N. []()
