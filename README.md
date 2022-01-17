@@ -88,6 +88,38 @@ def main(board):
 #### Assumption: N = the number of columns/rows in the given grid
 #### Complexity: runtime = O(N^2), space = O(N^2)
 
+# 5. [894](https://leetcode.com/problems/all-possible-full-binary-trees/)
+```python
+def main(n):
+   dp = {
+      0: [],
+      1: [TreeNode(0)]
+   }
+   
+   def dfs(n):
+      if n in dp:
+         return dp[n]
+      res = []
+      for i in range(n):
+         j = n - 1 - i
+         if i not in dp:
+            dfs(i)
+         if j not in dp:
+            dfs(j)
+         for left in dp[i]:
+            for right in dp[j]:
+               cur = TreeNode(0)
+               cur.left = left
+               cur.right = right
+               res += [cur]
+      dp[n] = res
+      
+   dfs(n)
+   return dp[n]    
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(2^N), space = O(2^N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
