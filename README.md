@@ -120,6 +120,29 @@ def main(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(2^N), space = O(2^N) with recursive callstack
 
+# 6. [647](https://leetcode.com/problems/palindromic-substrings/)
+```python
+def main(s):
+   res = 0
+   size = len(s)
+
+   def helper(left, right):
+      res = 0
+      while left >= 0 and right < size:
+         if s[left] != s[right]:
+            break
+         left -= 1
+         right += 1
+         res += 1
+      return res
+
+   for i in range(size):
+      res += helper(i, i) + helper(i, i+1)
+   return res
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N^2), space = O(1)
+
 ### Template
 # N. []()
 ```sql
