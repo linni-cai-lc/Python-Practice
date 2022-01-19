@@ -143,6 +143,27 @@ def main(s):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N^2), space = O(1)
 
+# 7. [221](https://leetcode.com/problems/maximal-square/)
+```python
+def main(matrix):
+   nrow = len(matrix)
+   ncol = len(matrix[0])
+   dp = [0] * (ncol+1)
+   maxi = 0
+   prev = 0
+   for i in range(1, nrow):
+      for j in range(1, ncol):
+         tmp = dp[j]
+         if matrix[i-1][j-1] == '1':
+            dp[j] = min(dp[j-1], dp[j], prev) + 1
+         else:
+            dp[j] = 0
+         prev = tmp
+   return maxi**2
+```
+#### Assumption: R = the number of rows in the matrix, C = the number of columns in the matrix
+#### Complexity: runtime = O(R*C), space = O(C)
+
 ### Template
 # N. []()
 ```sql
