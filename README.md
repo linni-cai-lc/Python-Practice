@@ -42,6 +42,25 @@ def main(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N^2), space = O(N)
 
+# 3. [2089](https://leetcode.com/problems/find-target-indices-after-sorting-array/)
+```python
+def main(nums, target):
+   cnt = 0
+   res = []
+   target_cnt = 0
+   for i in nums:
+      if i < target:
+         cnt += 1
+      elif i == target:
+         target_cnt += 1
+   for i in range(target_cnt):
+      res += [cnt]
+      cnt += 1
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1) excluding the result list
+
 ### Template
 # N. []()
 ```sql
