@@ -61,6 +61,83 @@ def main(nums, target):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1) excluding the result list
 
+# 4. [144](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+```python
+def main(root):
+   res = []
+        
+   def recursiveHelper(curRoot):
+      nonlocal res
+      if curRoot:
+         res += [curRoot.val]
+         recursiveHelper(curRoot.left)
+         recursiveHelper(curRoot.right)
+            
+   recursiveHelper(root)
+   return res
+```
+#### Note: recursive method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive stack
+```python
+def main(root):
+   if not root:
+      return []
+   stack = [root]
+   res = []
+   
+   while stack:
+      cur = stack.pop()
+      res += [cur.val]
+      if cur.right: stack += [cur.right]
+      if cur.left: stack += [cur.left]
+      
+   return res
+```
+#### Note: iterative method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
+# 5. [94](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+```python
+def main(root):
+   res = []
+        
+   def recursiveHelper(curRoot):
+      nonlocal res
+      if curRoot:
+         recursiveHelper(curRoot.left)
+         res += [curRoot.val]
+         recursiveHelper(curRoot.right)
+   
+   recursiveHelper(root)
+   return res
+```
+#### Note: recursive method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive stack
+```python
+def main(root):
+   if not root:
+      return []
+   res = []
+   stack = [root]
+   while stack:
+      cur = stack.pop()
+      if not isinstance(cur, TreeNode):
+         res += [cur]
+      else:
+         if cur.right:
+            stack += [cur.right]
+         stack += [cur.val]
+         if cur.left:
+            stack += [cur.left]
+   return res
+```
+#### Note: iterative method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
