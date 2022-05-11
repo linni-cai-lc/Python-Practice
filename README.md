@@ -138,6 +138,49 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 6. [145](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+```python
+def main(root):
+   res = []
+        
+   def recursiveHelper(root):
+      nonlocal res
+      if not root:
+         return
+      recursiveHelper(root.left)
+      recursiveHelper(root.right)
+      res += [root.val]
+      
+   recursiveHelper(root)
+   return res
+```
+#### Note: recursive method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive stack
+```python
+def main(root):
+   if not root:
+      return []
+   
+   res = []
+   stack = [root]
+   while stack:
+      cur = stack.pop()
+      if not isinstance(cur, TreeNode):
+            res += [cur]
+      else:
+            stack += [cur.val]
+            if cur.right:
+               stack += [cur.right]
+            if cur.left:
+               stack += [cur.left]
+   return res     
+```
+#### Note: iterative method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
+
 ### Template
 # N. []()
 ```sql
