@@ -180,6 +180,35 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 7. [173](https://leetcode.com/problems/binary-search-tree-iterator/)
+```python
+class BSTIterator:
+   def __init__(self, root):
+      self.list = []
+      def recursive(cur):
+         if not cur:
+               return
+         recursive(cur.left)
+         self.list += [cur.val]
+         recursive(cur.right)
+            
+      recursive(root)
+      self.index = 0
+
+   def next(self) -> int:
+      val = self.list[self.index]
+      self.index += 1
+      return val
+
+   def hasNext(self) -> bool:
+      return self.index < len(self.list)
+```
+#### Note: recursive method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: 
+- init: runtime = O(N), space = O(N) with recursive stack
+- next: runtime = O(1)
+- hasNext: runtime = O(1)
 
 ### Template
 # N. []()
