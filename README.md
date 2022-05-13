@@ -133,6 +133,39 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 4. [98](https://leetcode.com/problems/validate-binary-search-tree/)
+```python
+def main(root):
+   def recursiveHelper(cur, mini, maxi):
+      if not cur:
+         return True
+      return mini < cur.val < maxi and \
+             recursiveHelper(cur.left, mini, cur.val) and \
+             recursiveHelper(cur.right, cur.val, maxi)
+      
+   return recursiveHelper(root, -sys.maxsize, sys.maxsize)
+```
+#### Note: recursive method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+```python
+def main(root):
+  stack = [(root, -sys.maxsize, sys.maxsize)]
+   while stack:
+      cur, mini, maxi = stack.pop()
+      if mini < cur.val < maxi:
+         if cur.left:
+            stack += [(cur.left, mini, cur.val)]
+         if cur.right:
+            stack += [(cur.right, cur.val, maxi)]
+      else:
+         return False
+   return True
+```
+#### Note: iterative method
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
