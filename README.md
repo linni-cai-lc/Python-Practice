@@ -166,6 +166,31 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 5. [99](https://leetcode.com/problems/recover-binary-search-tree/)
+```python
+def main(root):
+   pred, change1, change2 = None, None, None
+
+   def recursiveHelper(cur):
+      nonlocal pred, change1, change2
+      if not cur:
+         return
+      recursiveHelper(cur.left)
+      if pred and cur.val < pred.val:
+         change2 = cur
+         if not change1:
+            change1 = pred
+         else:
+            return
+      pred = cur
+      recursiveHelper(cur.right)
+
+   recursiveHelper(cur)
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
+
+
 ### Template
 # N. []()
 ```sql
