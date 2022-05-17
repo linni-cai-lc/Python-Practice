@@ -185,10 +185,13 @@ def main(root):
       pred = cur
       recursiveHelper(cur.right)
 
-   recursiveHelper(cur)
+   recursiveHelper(root)
+   tmp = change1.val
+   change1.val = change2.val
+   change2.val = tmp
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
 
 ### Template
