@@ -193,6 +193,11 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 6. [230](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+```python
+```
+#### Assumption: N = ??
+#### Complexity: runtime = O(?), space = O(?)
 
 ### Template
 # N. []()
