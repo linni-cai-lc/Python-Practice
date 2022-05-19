@@ -195,9 +195,25 @@ def main(root):
 
 # 6. [230](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 ```python
+def main(root, k):
+   kHeap = []
+        
+   def recursiveHelper(cur):
+      nonlocal kHeap, k
+      if not cur:
+         return
+      if len(kHeap) < k:
+         heappush(kHeap, -cur.val)
+      elif kHeap and -kHeap[0] > -cur.val:
+         heappushpop(kHeap, -cur.val)
+      recursiveHelper(cur.left)
+      recursiveHelper(cur.right)
+      
+   recursiveHelper(root)
+   return -kHeap[0]
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
 ### Template
 # N. []()
