@@ -28,6 +28,29 @@ def main(root, target, k):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 2. [257](https://leetcode.com/problems/binary-tree-paths/)
+```python
+def main(root):
+   res = []
+        
+   def recursiveHelper(cur, path):
+      nonlocal res
+      if not cur:
+         return
+      if path:
+         path += "->"
+      path += str(cur.val)
+      if not cur.left and not cur.right:
+         res += [path]
+      recursiveHelper(cur.left, path)
+      recursiveHelper(cur.right, path)
+   
+   recursiveHelper(root, "")
+   return res
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
