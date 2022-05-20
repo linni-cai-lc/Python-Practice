@@ -215,6 +215,26 @@ def main(root, k):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 7. [285](https://leetcode.com/problems/inorder-successor-in-bst/)
+```python
+def main(root, p):
+   successor = None
+        
+   def recursiveHelper(cur):
+      nonlocal p, successor
+      if not cur:
+         return
+      if cur.val > p.val and (not successor or cur.val < successor.val):
+         successor = cur
+      recursiveHelper(cur.left)
+      recursiveHelper(cur.right)
+
+   recursiveHelper(root)
+   return successor
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
