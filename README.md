@@ -51,6 +51,30 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 3. [270](https://leetcode.com/problems/closest-binary-search-tree-value/)
+```python
+def main(root, target):
+   res = -1
+        
+   def recursiveHelper(cur):
+      nonlocal res
+      if not cur:
+         return
+      if res == -1:
+         res = cur.val
+      else:
+         if abs(cur.val - target) * 100 < abs(res - target) * 100:
+            res = cur.val
+      recursiveHelper(cur.left)
+      recursiveHelper(cur.right)
+   
+   recursiveHelper(root)
+   return res
+                    
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
