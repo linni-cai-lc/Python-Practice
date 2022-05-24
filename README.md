@@ -96,6 +96,30 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 5. [337](https://leetcode.com/problems/house-robber-iii/)
+```python
+    #         rob
+    #       /     \
+    #   notRob    notRob
+    
+    #               notRob
+    #              /      \
+    #  [rob, notRob]      [rob, notRob]
+
+def main(root):
+   def recursiveHelper(cur):
+      if not cur:
+         return [0, 0] # rob, notRob
+      left = recursiveHelper(cur.left)
+      right = recursiveHelper(cur.right)
+      rob = cur.val + left[1] + right[1]
+      notRob = max(left) + max(right)
+      return [rob, notRob]
+   return max(recursiveHelper(root))
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
