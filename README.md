@@ -75,6 +75,27 @@ def main(root, target):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 4. [199](https://leetcode.com/problems/binary-tree-right-side-view/)
+```python
+def main(root):
+   res = []
+        
+   def recursiveHelper(cur, level):
+      nonlocal res
+      if not cur:
+         return
+      if level == len(res):
+         res += [None]
+      res[level] = cur.val
+      recursiveHelper(cur.left, level+1)
+      recursiveHelper(cur.right, level+1)
+   
+   recursiveHelper(root, 0)
+   return res
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
