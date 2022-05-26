@@ -120,6 +120,25 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 6. [255](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/)
+```python
+def main(preorder):
+   index = 0
+   def recursiveHelper(mini, maxi):
+      nonlocal index, preorder
+      if index >= len(preorder):
+         return True
+      insert = preorder[index]
+      if mini < insert < maxi:
+         index += 1
+         return recursiveHelper(mini, insert) or recursiveHelper(insert, maxi)
+      else:
+         return False
+   return recursiveHelper(-sys.maxsize, sys.maxsize)
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
