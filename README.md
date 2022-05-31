@@ -139,6 +139,30 @@ def main(preorder):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N) with recursive callstack
 
+# 7. [114](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
+```python
+def main(root):
+   if not root:
+      return
+   res = TreeNode(-1)
+   ptr = res
+   
+   def recursiveHelper(cur):
+      nonlocal ptr
+      if not cur:
+         return
+      ptr.right = TreeNode(cur.val)
+      ptr = ptr.right
+      recursiveHelper(cur.left)            
+      recursiveHelper(cur.right)
+      
+   recursiveHelper(root)
+   root.right = res.right.right
+   root.left = None
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N) with recursive callstack
+
 ### Template
 # N. []()
 ```sql
