@@ -65,6 +65,69 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 4. [297](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Codec:
+   def serialize(self, root):
+      """Encodes a tree to a single string.
+      
+      :type root: TreeNode
+      :rtype: str
+      """
+      lst = []
+      
+      def recursive(cur):
+         nonlocal lst
+         if not cur:
+            lst += ['null']
+         else:
+            lst += [str(cur.val)]
+            recursive(cur.left)
+            recursive(cur.right)
+      
+      recursive(root)
+      return ','.join(lst)
+        
+
+   def deserialize(self, data):
+      """Decodes your encoded data to tree.
+      
+      :type data: str
+      :rtype: TreeNode
+      """
+      if data == '':
+         return None
+      lst = data.split(',')
+      idx = 0
+      
+      def recursive(cur):
+         nonlocal lst, idx
+         if idx >= len(lst):
+            return None
+         val = lst[idx]
+         idx += 1
+         if val == 'null':
+            return None
+         else:
+            cur.val = int(val)
+         cur.left = recursive(TreeNode(-1))
+         cur.right = recursive(TreeNode(-1))
+         return cur
+      
+      return recursive(TreeNode(-1))
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: 
+- serialize: runtime = O(N), space = O(N)
+- deserialize: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
