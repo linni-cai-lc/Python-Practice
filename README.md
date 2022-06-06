@@ -19,6 +19,29 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 2. [116](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
+```python
+def main(root):
+   lst = []
+        
+   def recursiveHelper(cur, level):
+      nonlocal lst
+      if not cur:
+         return
+      if len(lst) == level:
+         lst += [None]
+      if lst[level]:
+         lst[level].next = cur
+      lst[level] = cur
+      recursiveHelper(cur.left, level+1)
+      recursiveHelper(cur.right, level+1)
+      
+   recursiveHelper(root, 0)
+   return root
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
