@@ -149,8 +149,21 @@ def main(n):
       return trees
    return recursive(1, n)
 ```
-#### Assumption: N = the number of nodes in the given tree
+#### Assumption: N = the given number size
 #### Complexity: runtime = O(N), space = O(N)
+
+# 6. [96](https://leetcode.com/problems/unique-binary-search-trees/)
+```python
+def main(n):
+   dp = [0] * (n+1)
+   dp[0], dp[1] = 1, 1
+   for i in range(2, n+1):
+      for j in range(1, i+1):
+         dp[i] += dp[j-1] * dp[i-j]
+   return dp[-1]
+```
+#### Assumption: N = the given number size
+#### Complexity: runtime = O(N^2), space = O(N)
 
 ### Template
 # N. []()
