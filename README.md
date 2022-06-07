@@ -128,6 +128,30 @@ class Codec:
 - serialize: runtime = O(N), space = O(N)
 - deserialize: runtime = O(N), space = O(N)
 
+# 5. [95](https://leetcode.com/problems/unique-binary-search-trees-ii/)
+```python
+def main(n):
+   if not n:
+      return []
+   def recursive(left, right):
+      if left > right:
+         return [None]
+      trees = []
+      for i in range(left, right+1):
+         leftT = recursive(left, i-1)
+         rightT = recurisve(i+1, right)
+         for l in leftT:
+            for r in rightT:
+               cur = TreeNode(i)
+               cur.left = l
+               cur.right = r
+               tree += [cur]
+      return trees
+   return recursive(1, n)
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
