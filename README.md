@@ -165,6 +165,25 @@ def main(n):
 #### Assumption: N = the given number size
 #### Complexity: runtime = O(N^2), space = O(N)
 
+# 7. [1](https://leetcode.com/problems/two-sum/)
+```python
+def main(nums, target):
+   book = {}
+   for idx in range(len(nums)):
+      cur = nums[idx]
+      if cur not in book:
+         book[cur] = []
+      book[cur] += [idx]
+      diff = target - cur
+      if diff in book:
+         if diff != cur:
+            return [idx, book[diff][0]]
+         elif len(book[cur]) > 1:
+            return book[cur]
+```
+#### Assumption: N = the number of elements in the given nums list
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
