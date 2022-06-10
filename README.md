@@ -28,7 +28,27 @@ def main(root, startValue, destValue):
 ```
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N^2) memory exceed
-
+```python
+def main(root, startValue, destValue):
+   def recursive(cur, target, path):
+      if cur.val == target:
+         return True
+      if cur.left and recursive(cur.left, target, path):
+         path += 'L'
+      elif cur.right and recursive(cur.right, target, path):
+         path += 'R'
+      return path
+   startPath = []
+   endPath = []
+   recursive(root, startValue, startPath)
+   recursive(root, destValue, endPath)
+   while startPath and endPath and startPath[-1] == endPath[-1]:
+      startPath.pop()
+      endPath.pop()
+   return 'U' * len(startPath) + ''.join(endPath)[::-1]
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # N. []()
