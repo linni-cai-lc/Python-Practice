@@ -93,6 +93,43 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 4. [235](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+```python
+def main(root, p, q):
+   res = None
+        
+   def recursive(cur, findP, findQ):
+      nonlocal p, q, res
+      if not cur or res:
+         return False, False
+      leftFindP, leftFindQ = recursive(cur.left, findP, findQ)
+      rightFindP, rightFindQ = recursive(cur.right, findP, findQ)
+      findP = cur.val == p.val or leftFindP or rightFindP
+      findQ = cur.val == q.val or leftFindQ or rightFindQ
+      if findP and findQ and not res:
+         res = cur
+      return findP, findQ
+   
+   recursive(root, False, False)
+   return res
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N^2), space = O(N)
+```python
+def main(root, p, q):
+   cur = root.val
+   pv = p.val
+   qv = q.val
+   if pv > cur and qv > cur:
+      return self.lowestCommonAncestor(root.right, p, q)
+   elif pv < cur and qv < cur:
+      return self.lowestCommonAncestor(root.left, p, q)
+   else:
+      return root
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
