@@ -73,6 +73,26 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 3. [124](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+```python
+def main(root):
+   maxi = -sys.maxsize
+        
+   def recursive(cur):
+      nonlocal maxi
+      if not cur:
+         return 0
+      left = max(recursive(cur.left), 0)
+      right = max(recursive(cur.right), 0)
+      maxi = max(maxi, cur.val + left + right)
+      return cur.val + max(left, right)
+   
+   recursive(root)
+   return maxi
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
