@@ -153,11 +153,29 @@ def main(root, p, q):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
-# N. []()
+# 6. [250](https://leetcode.com/problems/count-univalue-subtrees/)
 ```python
+def main(root):
+   if not root:
+      return 0
+   cnt = 0
+   
+   def recursive(cur, pre):
+      nonlocal cnt
+      if not cur:
+         return True
+      curV = cur.val
+      left = recursive(cur.left, curV)
+      right = recursive(cur.right, curV)
+      if left and right:
+         cnt += 1
+      return left and right and curV == pre
+      
+   recursive(root, root.val)
+   return cnt
 ```
-#### Assumption: N = ??
-#### Complexity: runtime = O(?), space = O(?)
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # N. []()
