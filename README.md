@@ -177,6 +177,24 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 7. [333](https://leetcode.com/problems/largest-bst-subtree/)
+```python
+def main(root):
+   def recursive(cur):
+      if not cur:
+         return sys.maxsize, -sys.maxsize, 0
+      leftMini, leftMaxi, leftCnt = recursive(cur.left)
+      rightMini, rightMaxi, rightCnt = recursive(cur.right)
+      if leftMaxi < cur.val < rightMini:
+         return min(cur.val, leftMini), max(cur.val, rightMaxi), leftCnt+rightCnt+1
+      else:
+         return -sys.maxsize, sys.maxsize, max(leftCnt, rightCnt)
+
+   return recursive(root)[2]
+   ```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
