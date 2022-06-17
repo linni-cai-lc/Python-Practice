@@ -14,6 +14,18 @@ def main(p, q):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 2. [104](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+```python
+def main(root):
+   if not root:
+      return 0
+   left = 1 + self.maxDepth(root.left)
+   right = 1 + self.maxDepth(root.right)
+   return max(left, right)
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
+
 ### Template
 # N. []()
 ```sql
