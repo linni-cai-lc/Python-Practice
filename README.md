@@ -44,6 +44,35 @@ def main(nums):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(logN)
 
+# 4. [109](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
+```python
+def main(head):
+   def findMid(cur):
+      prev = None
+      slow = cur
+      fast = cur
+      while fast and fast.next:
+         prev = slow
+         slow = slow.next
+         fast = fast.next.next
+      if prev:
+         prev.next = None
+      return slow
+   
+   if not head:
+      return None
+   mid = findMid(head)
+   cur = TreeNode(mid.val)
+   if head == mid:
+      return cur
+   cur.left = self.sortedListToBST(head)
+   cur.right = self.sortedListToBST(mid.next)
+   return cur
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(NlogN), space = O(logN)
+
+
 ### Template
 # N. []()
 ```sql
