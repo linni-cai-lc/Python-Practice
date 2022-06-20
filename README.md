@@ -42,7 +42,7 @@ def main(nums):
    return recursive(0, len(nums)-1)
 ```
 #### Assumption: N = the number of nodes in the given tree
-#### Complexity: runtime = O(N), space = O(N)
+#### Complexity: runtime = O(N), space = O(logN)
 
 ### Template
 # N. []()
