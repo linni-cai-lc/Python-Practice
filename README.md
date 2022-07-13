@@ -72,6 +72,26 @@ def main(head):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(NlogN), space = O(logN)
 
+# 5. [366](https://leetcode.com/problems/find-leaves-of-binary-tree/)
+```python
+def main(root):
+   res = []
+   def recursive(cur):
+      nonlocal res
+      if not cur:
+         return -1
+      left = recursive(cur.left)
+      right = recursive(cur.right)
+      maxi = max(left, right) + 1
+      if maxi == len(res):
+         res += [[]]
+      res[maxi] += [cur.val]
+      return maxi
+   recursive(root)
+   return res
+```
+#### Assumption: N = the number of nodes in the given tree
+#### Complexity: runtime = O(N), space = O(N)
 
 ### Template
 # N. []()
