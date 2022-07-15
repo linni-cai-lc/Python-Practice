@@ -93,6 +93,27 @@ def main(root):
 #### Assumption: N = the number of nodes in the given tree
 #### Complexity: runtime = O(N), space = O(N)
 
+# 6. [1048](https://leetcode.com/problems/longest-string-chain/)
+```python
+from collections import defaultdict as dd
+def main(words):
+   words.sort(key=lambda x:len(x))
+   dp = dd(int)
+   maxi = 1
+   for word in words:
+      cur = 1
+      for i in range(len(word)):
+         tmp = word[:i] + word[i+1:]
+         cur = max(cur, dp[tmp]+1)
+      dp[word] = cur
+      maxi = max(maxi, cur)
+   return maxi
+```
+#### Assumption: N = the number of words, L = the length of word
+#### Note: sort costs O(NlogN), word concatenation costs O(L) in the inner loop
+#### Complexity: runtime = O(NlogN+NL^2), space = O(N)
+
+
 ### Template
 # N. []()
 ```sql
