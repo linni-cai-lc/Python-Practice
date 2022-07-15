@@ -113,6 +113,41 @@ def main(words):
 #### Note: sort costs O(NlogN), word concatenation costs O(L) in the inner loop
 #### Complexity: runtime = O(NlogN+NL^2), space = O(N)
 
+# 7. [2034](https://leetcode.com/problems/stock-price-fluctuation/)
+```python
+from heapq import heappush, heappop
+class StockPrice:
+   def __init__(self):
+      self.latest = 0
+      self.records = {}
+      self.minHeap = []
+      self.maxHeap = []
+
+   def update(self, timestamp, price):
+      self.latest = max(self.latest, timestamp)
+      self.records[timestamp] = price
+      heappush(self.minHeap, (price, timestamp))
+      heappush(self.maxHeap, (-price, timestamp))
+   
+   def current(self):
+      return self.records[self.latest]
+   
+   def maximum(self):
+      maxiPrice, maxiTime = self.maxHeap[0]
+      while self.records[maxiTime] != -maxiPrice:
+         heappop(self.maxHeap)
+         maxiPrice, maxTime = self.maxHeap[0]
+      return -maxiPrice
+   
+   def minimum(self):
+      miniPrice, miniTime = self.minHeap[0]
+      while self.records[miniTime] != miniPrice:
+         heappop(self.minHeap)
+         miniPrice, miniTime = self.minHeap[0]
+      return miniPrice
+```
+#### Assumption: N = the number of records
+#### Complexity: runtime = O(NlogN), space = O(N)
 
 ### Template
 # N. []()
