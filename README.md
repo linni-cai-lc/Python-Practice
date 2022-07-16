@@ -28,6 +28,30 @@ def main(tokens):
 #### Note: cannot use // for floor division, since 1 // -3 = -1, int(1 / -3) = 0, need to use the latter one to truncate toward zero
 #### Complexity: runtime = O(N), space = O(N)
 
+# 2. [539](https://leetcode.com/problems/minimum-time-difference/)
+```python
+from datetime import timedelta
+def main(timePoints):
+   mini = sys.maxsize
+   timePoints.sort()
+
+   def getTimeDelta(tp):
+      t = tp.split(":")
+      return timedelta(hours=int(t[0]), minutes=int(t[1]))
+      
+   for i in range(len(timePoints)):
+      t1 = getTimeDelta(timePoints[i])
+      t2 = getTimeDelta(timePoints[(i+1)%len(timePoints)])
+      if t1 > t2:
+         t1, t2 = t2, t1
+      diff1 = int((t1 + timedelta(hours=24) - t2).total_seconds() / 60)
+      diff2 = int((t2-t1).total_seconds() / 60)
+      
+      mini = min(mini, diff1, diff2)
+   return mini
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN), space = O(1)
 
 ### Template
 # N. []()
