@@ -53,6 +53,56 @@ def main(timePoints):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(NlogN), space = O(1)
 
+```python
+def main(timePoints):
+   mini = sys.maxsize
+   timePoints.sort()
+
+   def getTimeDelta(tp):
+      t = tp.split(":")
+      return int(t[0]), int(t[1])
+      
+   for i in range(len(timePoints)):
+      h1, m1 = getTimeDelta(timePoints[i])
+      h2, m2 = getTimeDelta(timePoints[(i+1)%len(timePoints)])
+      if h1 > h2 or (h1 == h2 and m1 > m2):
+            h1, m1, h2, m2 = h2, m2, h1, m1
+      diff1 = (h1 + 24 - h2) * 60 + (m1 - m2)
+      diff2 = (h2 - h1) * 60 + (m2 - m1)
+      mini = min(mini, diff1, diff2)
+   return mini
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN), space = O(1)
+```python
+def main(timePoints):
+   records = [False] * 1440
+   def getTimeDelta(tp):
+      t = tp.split(":")
+      return int(t[0]) * 60 + int(t[1])
+   
+   mini = 1440
+   maxi = -1
+   for i in timePoints:
+      cur = getTimeDelta(i)
+      if records[cur]:
+            return 0
+      records[cur] = True
+      mini = min(mini, cur)
+      maxi = max(maxi, cur)
+   
+   pre = mini
+   res = mini - maxi + 1440
+   for i in range(mini+1, maxi+1):
+      if not records[i]:
+            continue
+      res = min(i-pre, res)
+      pre = i
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # N. []()
 ```sql
