@@ -103,6 +103,31 @@ def main(timePoints):
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(N), space = O(1)
 
+# 3. [777](https://leetcode.com/problems/swap-adjacent-in-lr-string/submissions/)
+```python
+def main(start, end):
+   if len(start) != len(end):
+      return False
+   if start.replace('X', '') != end.replace('X', ''):
+      return False
+   cntL = 0
+   cntR = 0
+   for i in range(len(start)):
+      if start[i] == 'R':
+            cntR += 1
+      elif start[i] == 'L':
+            cntL -= 1
+      if end[i] == 'R':
+            cntR -= 1
+      elif end[i] == 'L':
+            cntL += 1
+      if cntR < 0 or cntL < 0:
+            return False
+   return True
+```
+#### Assumption: N = the length of the given string
+#### Complexity: runtime = O(N), space = O(1)
+
 ### Template
 # N. []()
 ```sql
