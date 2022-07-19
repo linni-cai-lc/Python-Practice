@@ -66,7 +66,7 @@ def main(timePoints):
       h1, m1 = getTimeDelta(timePoints[i])
       h2, m2 = getTimeDelta(timePoints[(i+1)%len(timePoints)])
       if h1 > h2 or (h1 == h2 and m1 > m2):
-            h1, m1, h2, m2 = h2, m2, h1, m1
+         h1, m1, h2, m2 = h2, m2, h1, m1
       diff1 = (h1 + 24 - h2) * 60 + (m1 - m2)
       diff2 = (h2 - h1) * 60 + (m2 - m1)
       mini = min(mini, diff1, diff2)
@@ -86,7 +86,7 @@ def main(timePoints):
    for i in timePoints:
       cur = getTimeDelta(i)
       if records[cur]:
-            return 0
+         return 0
       records[cur] = True
       mini = min(mini, cur)
       maxi = max(maxi, cur)
@@ -95,7 +95,7 @@ def main(timePoints):
    res = mini - maxi + 1440
    for i in range(mini+1, maxi+1):
       if not records[i]:
-            continue
+         continue
       res = min(i-pre, res)
       pre = i
    return res
@@ -114,15 +114,15 @@ def main(start, end):
    cntR = 0
    for i in range(len(start)):
       if start[i] == 'R':
-            cntR += 1
+         cntR += 1
       elif start[i] == 'L':
-            cntL -= 1
+         cntL -= 1
       if end[i] == 'R':
-            cntR -= 1
+         cntR -= 1
       elif end[i] == 'L':
-            cntL += 1
+         cntL += 1
       if cntR < 0 or cntL < 0:
-            return False
+         return False
    return True
 ```
 #### Assumption: N = the length of the given string
