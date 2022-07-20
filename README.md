@@ -128,6 +128,23 @@ def main(start, end):
 #### Assumption: N = the length of the given string
 #### Complexity: runtime = O(N), space = O(1)
 
+# 4. [954](https://leetcode.com/problems/array-of-doubled-pairs/)
+```python
+from collections import Counter
+def main(arr):
+   cnt = Counter(arr)
+   for i in sorted(arr, key=abs):
+      if cnt[i] == 0:
+         continue
+      if cnt[2*i] == 0:
+         return False
+      cnt[i] -= 1
+      cnt[2*i] -= 1
+   return True
+```
+#### Assumption: N = the number of elements in the given array
+#### Complexity: runtime = O(NlogN), space = O(N)
+
 ### Template
 # N. []()
 ```sql
