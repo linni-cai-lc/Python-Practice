@@ -145,6 +145,33 @@ def main(arr):
 #### Assumption: N = the number of elements in the given array
 #### Complexity: runtime = O(NlogN), space = O(N)
 
+# 5. [1834](https://leetcode.com/problems/single-threaded-cpu/submissions/)
+```python
+from heapq import heappush, heappop
+def main(tasks):
+   ava = []
+   res = []
+   # syntax: for index, val in enumerate(list)
+   tasks = sorted([(et, pt, idx) for idx, (et, pt) in enumerate(tasks)])
+   curTime = 0
+   curIdx = 0
+   size = len(tasks)
+   while curIdx < size or ava:
+      # empty ava and the current time is earlier than current task's enqueue time
+      if not ava and curTime < tasks[curIdx][0]:
+         curTime = tasks[curIndex][0]
+      # to include tasks whose enqueue time is earlier/equal to the current time 
+      while curIdx < size and curTime >= tasks[curIdx][0]:
+         et, pt, idx = tasks[curIdx]
+         heappush(ava, (pt, idx))
+         curIdx += 1
+      pt, idx = heappop(ava)
+      curTime += pt
+      res += [idx]
+   return res
+```
+#### Assumption: N = the number of elements in the given list
+#### Complexity: runtime = O(NlogN), space = O(N)
 
 ### Template
 # N. []()
