@@ -1,6 +1,6 @@
 # Python-Practice
 
-# Week 94 [6/13-6/19]
+# Week 94 [12/26-1/1]
 
 # 1. [150](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 ```python
@@ -172,6 +172,31 @@ def main(tasks):
 ```
 #### Assumption: N = the number of elements in the given list
 #### Complexity: runtime = O(NlogN), space = O(N)
+
+# 6. [238](https://leetcode.com/problems/product-of-array-except-self/description/)
+```python
+def productExceptSelf(self, nums: List[int]) -> List[int]:
+   total_prod = 1
+   zero_cnt = 0
+   for i in nums:
+      if i != 0:
+         total_prod *= i
+      else:
+         zero_cnt += 1
+   for idx in range(len(nums)):
+      if nums[idx] == 0:
+         if zero_cnt > 1:
+            nums[idx] = 0
+         else:
+            nums[idx] = total_prod
+      elif zero_cnt > 0:
+         nums[idx] = 0
+      else:
+         nums[idx] = total_prod // nums[idx]
+   return nums
+```
+#### Assumption: N = the number of elements in the list
+#### Complexity: runtime = O(N), space = O(1)
 
 ### Template
 # N. []()
